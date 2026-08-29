@@ -1,0 +1,46 @@
+# ==============================================================================
+# COMMERONIX - ROBOTS.TXT
+# Configured for Googlebot, AdSense Crawlers, and AI Search Engines (GEO)
+# (ChatGPT, Claude, Perplexity, Google Gemini, Bing, Apple Intelligence)
+# ==============================================================================
+
+# Standard Web Search Crawlers
+User-agent: *
+Allow: /
+Disallow:
+
+# Google AdSense Crawler Permissions (Required for 100% AdSense Approval)
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: Google-Display-Ads-Bot
+Allow: /
+
+# OpenAI Crawlers (ChatGPT Search & GPT-4o / GPT-5)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic Crawlers (Claude 3.5 Sonnet / Claude 3.7 / Claude Search)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity AI Search Crawler
+User-agent: PerplexityBot
+Allow: /
+
+# Google Gemini & AI Overviews
+User-agent: Google-Extended
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemap Location
+Sitemap: https://commeronix.com/sitemap.xml

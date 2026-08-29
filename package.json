@@ -1,0 +1,23 @@
+{
+  "name": "commeronix",
+  "version": "1.0.0",
+  "description": "Commeronix — Precision Financial, Mathematical & Unit Calculation Hub",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node scratch/test_suite.js",
+    "audit": "node scratch/site_audit.js"
+  },
+  "keywords": [
+    "calculator",
+    "currency-converter",
+    "unit-converter",
+    "loan-calculator",
+    "emi-calculator",
+    "scientific-calculator",
+    "commeronix"
+  ],
+  "author": "Commeronix",
+  "license": "MIT"
+}

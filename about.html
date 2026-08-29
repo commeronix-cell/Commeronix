@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Our Mission & Precision Calculation Standards | Commeronix</title>
+  <meta name="description" content="Learn about Commeronix, our mission to deliver private, client-side financial tools, and our data standards using official ECB exchange rates and NIST formulas.">
+  <meta name="keywords" content="about commeronix, calculator tools hub, financial math, calculation accuracy, currency rates source, unit standards">
+  <meta name="author" content="Commeronix">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#090d16">
+  <link rel="canonical" href="https://commeronix.com/about">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Open Graph -->
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Commeronix">
+  <meta property="og:title" content="About Us — Our Mission & Precision Calculation Standards | Commeronix">
+  <meta property="og:description" content="Learn about Commeronix, our mission to deliver private, client-side financial tools, and our data standards using official ECB exchange rates and NIST formulas.">
+  <meta property="og:url" content="https://commeronix.com/about">
+  <meta property="og:image" content="https://commeronix.com/assets/favicon.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@commeronix">
+
+  <!-- Schema.org JSON-LD Structured Data: BreadcrumbList & AboutPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://commeronix.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "About Us",
+            "item": "https://commeronix.com/about"
+          }
+        ]
+      },
+      {
+        "@type": "AboutPage",
+        "name": "About Commeronix",
+        "url": "https://commeronix.com/about",
+        "description": "Information about Commeronix editorial integrity, data standards, and commitment to fast client-side utilities.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Commeronix",
+          "url": "https://commeronix.com/",
+          "logo": "https://commeronix.com/assets/favicon.svg"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Theme Initialization Script (Prevents Flash of Unstyled Content) -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('commeronix_theme');
+      if (savedTheme === 'light' || (!savedTheme && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Live Currency Rate Ticker Strip -->
+  <div class="ticker-wrap" aria-label="Live Forex Exchange Rates Ticker">
+    <div class="ticker-label">
+      <div class="ticker-pulse"></div>
+      <span>Live Rates</span>
+    </div>
+    <div class="ticker-track">
+      <div class="ticker-content">
+        <!-- Dynamic Ticker via assets/main.js -->
+        <div class="ticker-item"><span class="ticker-pair">USD/PKR</span> <span class="ticker-val">277.25</span> <span class="ticker-badge down">-0.15%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">USD/EUR</span> <span class="ticker-val">0.8614</span> <span class="ticker-badge">+0.12%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">USD/GBP</span> <span class="ticker-val">0.7379</span> <span class="ticker-badge down">-0.08%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">USD/AED</span> <span class="ticker-val">3.6725</span> <span class="ticker-badge">+0.00%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <a href="/" class="brand-logo" title="Commeronix Home">
+          <div class="logo-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <span>Commero<span class="brand-accent">nix</span></span>
+        </a>
+
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <ul class="nav-links">
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li><a href="calculator" class="nav-link">Calculator</a></li>
+            <li><a href="currency-converter" class="nav-link">Currency Converter</a></li>
+            <li><a href="unit-converter" class="nav-link">Unit Converter</a></li>
+            <li><a href="loan-calculator" class="nav-link">Loan Calculator</a></li>
+            <li><a href="about" class="nav-link active">About</a></li>
+            <li><a href="contact" class="nav-link">Contact</a></li>
+          </ul>
+
+          <!-- Dark / Light Theme Toggle Button -->
+          <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Toggle Light and Dark Theme" title="Toggle Theme">
+            <svg class="sun-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <svg class="moon-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+
+          <button class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" aria-label="Mobile Navigation Menu">
+    <a href="/" class="nav-link">Home</a>
+    <a href="calculator" class="nav-link">Live Calculator</a>
+    <a href="currency-converter" class="nav-link">Currency Converter</a>
+    <a href="unit-converter" class="nav-link">Unit Converter</a>
+    <a href="loan-calculator" class="nav-link">Loan & EMI Calculator</a>
+    <a href="about" class="nav-link active">About Us</a>
+    <a href="contact" class="nav-link">Contact Us</a>
+    <a href="privacy-policy" class="nav-link">Privacy Policy</a>
+    <a href="terms" class="nav-link">Terms of Service</a>
+  </div>
+
+  <main class="main-content">
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+        <a href="/" style="color: var(--text-secondary);">Home</a> &gt; <span style="color: var(--accent-primary);">About Us</span>
+      </div>
+
+      <!-- About Article -->
+      <article class="article-container">
+        <header class="article-header">
+          <h1>About Commeronix</h1>
+          <p class="article-meta">Published by the Commeronix Editorial & Engineering Team · Updated for 2026</p>
+        </header>
+
+        <div class="article-body">
+          <p>
+            Welcome to <strong>Commeronix</strong>, an independent digital utilities platform engineered to provide fast, reliable, and accessible calculation tools for students, educators, engineering professionals, travelers, and financial planners worldwide.
+          </p>
+
+          <h2>Our Mission</h2>
+          <p>
+            The internet is crowded with calculation websites bogged down by intrusive pop-ups, slow page weight, clunky interfaces, and outdated data feeds. At Commeronix, our mission is straightforward: <strong>deliver lightweight, instant, and privacy-respecting computation utilities designed with modern visual aesthetics</strong>.
+          </p>
+
+          <h2>Our Core Principles</h2>
+          <div class="grid-2" style="margin: 2rem 0;">
+            <div class="feature-box">
+              <h3 style="color: var(--accent-primary); font-size: 1.1rem; margin-bottom: 0.5rem;">Mathematical Integrity</h3>
+              <p style="font-size: 0.875rem;">Every tool on Commeronix is built using standardized mathematical models—from reducing-balance compound loan amortization formulas to SI NIST metric conversion factors.</p>
+            </div>
+
+            <div class="feature-box">
+              <h3 style="color: var(--accent-cyan); font-size: 1.1rem; margin-bottom: 0.5rem;">Complete Privacy</h3>
+              <p style="font-size: 0.875rem;">All calculations occur strictly in your browser via client-side JavaScript. We do not store your loan amounts, salary inputs, or financial inputs on remote databases.</p>
+            </div>
+
+            <div class="feature-box">
+              <h3 style="color: var(--accent-indigo); font-size: 1.1rem; margin-bottom: 0.5rem;">Live Central Bank Data</h3>
+              <p style="font-size: 0.875rem;">Our currency conversion tools interface directly with authentic daily reference feeds published by the European Central Bank (ECB) with zero artificial retail spreads.</p>
+            </div>
+
+            <div class="feature-box">
+              <h3 style="color: var(--accent-amber); font-size: 1.1rem; margin-bottom: 0.5rem;">Zero Registration Barriers</h3>
+              <p style="font-size: 0.875rem;">All features are 100% free and open for public access without paywalls, gated accounts, or intrusive software installations.</p>
+            </div>
+          </div>
+
+          <h2>Authoritative Data Sources</h2>
+          <p>We pride ourselves on transparent provenance:</p>
+          <ul>
+            <li><strong>Foreign Exchange Data:</strong> Sourced daily from the <em>European Central Bank (ECB)</em> via the open Frankfurter API.</li>
+            <li><strong>Unit Measurement Constants:</strong> Aligned with guidelines codified by the <em>National Institute of Standards and Technology (NIST)</em> and the <em>International Bureau of Weights and Measures (BIPM)</em>.</li>
+            <li><strong>Financial Amortization Models:</strong> Calibrated against standard reducing-balance formulas recognized by major international retail banking regulatory bodies.</li>
+          </ul>
+
+          <h2>Editorial & Accuracy Commitment</h2>
+          <p>
+            Our team routinely verifies the accuracy of calculation routines across modern web browsers and updates educational documentation to reflect evolving financial best practices. If you notice any discrepancies or would like to suggest a new calculator tool, please reach out through our <a href="contact">Contact page</a>.
+          </p>
+        </div>
+      </article>
+
+      <!-- AdSense Slot (Bottom) -->
+      <div class="ad-slot-container" aria-label="Advertisement">
+        <span class="ad-badge">Advertisement</span>
+        <div class="ad-placeholder-text">Google AdSense Responsive Unit</div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="brand-logo" style="margin-bottom: 0.5rem;">
+            <div class="logo-icon">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <span>Commero<span class="brand-accent">nix</span></span>
+          </a>
+          <p>Learn more about Commeronix and our mission to provide universal access to precision calculation tools.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Calculators</h4>
+          <ul class="footer-links">
+            <li><a href="calculator" class="footer-link">Live Scientific Calculator</a></li>
+            <li><a href="currency-converter" class="footer-link">Currency Converter</a></li>
+            <li><a href="unit-converter" class="footer-link">Unit Converter</a></li>
+            <li><a href="loan-calculator" class="footer-link">Loan & EMI Calculator</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="about" class="footer-link">About Us</a></li>
+            <li><a href="contact" class="footer-link">Contact Support</a></li>
+            <li><a href="privacy-policy" class="footer-link">Privacy Policy</a></li>
+            <li><a href="terms" class="footer-link">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Integrity Standards</h4>
+          <ul class="footer-links">
+            <li><span class="footer-link" style="cursor: default;">Pure Client-Side Math</span></li>
+            <li><span class="footer-link" style="cursor: default;">Open Transparent Feeds</span></li>
+            <li><span class="footer-link" style="cursor: default;">Editorial Quality Assurance</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-disclaimer">
+          <strong>Disclaimer:</strong> Commeronix provides calculation utilities for educational and informational purposes. Consult certified financial advisors for personal investment advice.
+        </div>
+        <div>
+          &copy; <span id="current-year">2026</span> Commeronix. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/main.js"></script>
+</body>
+</html>

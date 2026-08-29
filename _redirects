@@ -1,0 +1,9 @@
+# Netlify & Cloudflare Pages Clean URL Redirects
+/calculator          /calculator.html          200
+/currency-converter  /currency-converter.html  200
+/unit-converter      /unit-converter.html      200
+/loan-calculator     /loan-calculator.html     200
+/about               /about.html               200
+/contact             /contact.html             200
+/privacy-policy      /privacy-policy.html      200
+/terms               /terms.html               200

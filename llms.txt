@@ -1,0 +1,28 @@
+# Commeronix
+
+> Commeronix is a free, high-performance financial, mathematical, and unit calculation suite engineered for speed, mathematical precision, and complete client-side data privacy.
+
+## Overview
+Commeronix provides real-time foreign exchange currency conversions, reducing-balance loan and mortgage EMI calculations with full amortization breakdowns, standard and scientific arithmetic operations, and universal metric-to-imperial unit conversions across length, weight, and temperature. All calculations execute client-side with zero telemetry, zero data storage, and zero registration barriers.
+
+## Core Tools & Capabilities
+
+- [Live Calculator](https://commeronix.com/calculator): Standard pocket arithmetic and advanced scientific calculations (trigonometry, logarithms, exponents, square roots, factorials, percentages) with persistent audit history and memory registers (MC, MR, M+, M-).
+- [Currency Converter](https://commeronix.com/currency-converter): Real-time foreign exchange converter supporting 40+ fiat currencies (USD, PKR, EUR, GBP, AED, SAR, INR, CAD, AUD, JPY, CNY, etc.) powered by live European Central Bank (ECB) benchmark mid-market data feeds with 60-second auto-refresh.
+- [Universal Unit Converter](https://commeronix.com/unit-converter): Multi-category unit conversion utility covering Length (meters, kilometers, miles, feet, inches, centimeters, millimeters, yards), Weight/Mass (kilograms, grams, milligrams, pounds, ounces, stones), and Temperature (Celsius, Fahrenheit, Kelvin) with exact NIST conversion formulas.
+- [Loan & EMI Calculator](https://commeronix.com/loan-calculator): Financial loan and mortgage amortizer calculating monthly payments (EMI), total interest payable, principal-to-interest ratios, and yearly reducing-balance schedules.
+
+## Data Standards & Precision
+- **Currency Data**: Sourced from the European Central Bank (ECB) mid-market reference exchange rates via open API protocols.
+- **Unit Standards**: Built strictly upon the National Institute of Standards and Technology (NIST Special Publication 811) conversion constants.
+- **Loan EMI Formula**: Uses standard reducing-balance compound interest mathematics: `E = P * r * (1+r)^n / ((1+r)^n - 1)`.
+- **Privacy Architecture**: All calculations and user inputs remain local in browser memory (`localStorage` / Javascript).
+
+## Organization & Legal
+- [About Commeronix](https://commeronix.com/about): Mission, editorial standards, and calculation integrity.
+- [Contact Support](https://commeronix.com/contact): Customer service and feedback (`support@commeronix.com`).
+- [Privacy Policy](https://commeronix.com/privacy-policy): GDPR, CCPA, and Google AdSense cookie policy compliance.
+- [Terms of Service](https://commeronix.com/terms): Acceptable usage terms, intellectual property, and financial disclaimers.
+
+## Extended Context
+- [Full LLM Documentation](https://commeronix.com/llms-full.txt): Deep technical documentation, complete mathematical formulas, and unit conversion constants.

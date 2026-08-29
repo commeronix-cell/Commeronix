@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan & EMI Calculator — Reducing Balance Amortization | Commeronix</title>
+  <meta name="description" content="Calculate monthly loan EMIs, total interest, and reducing balance amortization schedules for mortgages, auto loans, personal loans, and business financing.">
+  <meta name="keywords" content="loan calculator, EMI calculator, mortgage calculator, reducing balance loan, interest calculator, loan amortization schedule, monthly payment calculator, car loan calculator">
+  <meta name="author" content="Commeronix">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#090d16">
+  <link rel="canonical" href="https://commeronix.com/loan-calculator">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Open Graph -->
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Commeronix">
+  <meta property="og:title" content="Loan & EMI Calculator — Reducing Balance Amortization | Commeronix">
+  <meta property="og:description" content="Calculate monthly loan EMIs, total interest, and reducing balance amortization schedules for mortgages, auto loans, personal loans, and business financing.">
+  <meta property="og:url" content="https://commeronix.com/loan-calculator">
+  <meta property="og:image" content="https://commeronix.com/assets/favicon.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@commeronix">
+
+  <!-- Schema.org JSON-LD Structured Data: Breadcrumbs, WebApplication, FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://commeronix.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Loan & EMI Calculator",
+            "item": "https://commeronix.com/loan-calculator"
+          }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Commeronix Loan & EMI Calculator",
+        "url": "https://commeronix.com/loan-calculator",
+        "description": "Financial loan and mortgage calculator supporting reducing-balance amortization schedules, yearly payment tables, and principal-interest ratio graphs.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is an Equated Monthly Installment (EMI)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "An Equated Monthly Installment (EMI) is a fixed payment amount made by a borrower to a lender on a specified calendar date each month to pay off both principal and accumulated interest over loan tenure."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is reducing-balance EMI calculated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Reducing-balance EMI is calculated using the formula: E = P × r × (1+r)^n / ((1+r)^n - 1), where P is principal, r is the monthly interest rate, and n is total tenure in months."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does prepaying principal affect my loan?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Making partial principal prepayments reduces the outstanding balance immediately, resulting in lower total interest accrued and shortened loan tenure."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Theme Initialization Script (Prevents Flash of Unstyled Content) -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('commeronix_theme');
+      if (savedTheme === 'light' || (!savedTheme && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Live Currency Rate Ticker Strip -->
+  <div class="ticker-wrap" aria-label="Live Forex Exchange Rates Ticker">
+    <div class="ticker-label">
+      <div class="ticker-pulse"></div>
+      <span>Live Rates</span>
+    </div>
+    <div class="ticker-track">
+      <div class="ticker-content">
+        <!-- Dynamic Ticker via assets/main.js -->
+        <div class="ticker-item"><span class="ticker-pair">USD/PKR</span> <span class="ticker-val">277.25</span> <span class="ticker-badge down">-0.15%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">USD/EUR</span> <span class="ticker-val">0.8614</span> <span class="ticker-badge">+0.12%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">USD/GBP</span> <span class="ticker-val">0.7379</span> <span class="ticker-badge down">-0.08%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">USD/AED</span> <span class="ticker-val">3.6725</span> <span class="ticker-badge">+0.00%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <a href="/" class="brand-logo" title="Commeronix Home">
+          <div class="logo-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <span>Commero<span class="brand-accent">nix</span></span>
+        </a>
+
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <ul class="nav-links">
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li><a href="calculator" class="nav-link">Calculator</a></li>
+            <li><a href="currency-converter" class="nav-link">Currency Converter</a></li>
+            <li><a href="unit-converter" class="nav-link">Unit Converter</a></li>
+            <li><a href="loan-calculator" class="nav-link active">Loan Calculator</a></li>
+            <li><a href="about" class="nav-link">About</a></li>
+            <li><a href="contact" class="nav-link">Contact</a></li>
+          </ul>
+
+          <!-- Dark / Light Theme Toggle Button -->
+          <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Toggle Light and Dark Theme" title="Toggle Theme">
+            <svg class="sun-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <svg class="moon-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+
+          <button class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" aria-label="Mobile Navigation Menu">
+    <a href="/" class="nav-link">Home</a>
+    <a href="calculator" class="nav-link">Live Calculator</a>
+    <a href="currency-converter" class="nav-link">Currency Converter</a>
+    <a href="unit-converter" class="nav-link">Unit Converter</a>
+    <a href="loan-calculator" class="nav-link active">Loan & EMI Calculator</a>
+    <a href="about" class="nav-link">About Us</a>
+    <a href="contact" class="nav-link">Contact Us</a>
+    <a href="privacy-policy" class="nav-link">Privacy Policy</a>
+    <a href="terms" class="nav-link">Terms of Service</a>
+  </div>
+
+  <main class="main-content">
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+        <a href="/" style="color: var(--text-secondary);">Home</a> &gt; <span style="color: var(--accent-primary);">Loan & EMI Calculator</span>
+      </div>
+
+      <!-- Loan Calculator App -->
+      <div class="calculator-app">
+        <div class="calculator-header">
+          <h1>Loan & EMI Calculator</h1>
+          <p>Plan mortgages, car financing, and personal loans with exact monthly amortization schedules.</p>
+        </div>
+
+        <!-- Alert Box -->
+        <div id="loan-alert" class="alert alert-error" style="display: none;"></div>
+
+        <!-- Currency Selector -->
+        <div class="form-group">
+          <div class="form-label">
+            <label for="loan-currency">Currency</label>
+            <span class="form-label-desc">Select calculation currency</span>
+          </div>
+          <select id="loan-currency" class="form-select num-mono">
+            <option value="PKR" data-symbol="Rs">🇵🇰 PKR — Pakistani Rupee (Rs)</option>
+            <option value="INR" data-symbol="₹">🇮🇳 INR — Indian Rupee (₹)</option>
+            <option value="USD" data-symbol="$" selected>🇺🇸 USD — US Dollar ($)</option>
+            <option value="EUR" data-symbol="€">🇪🇺 EUR — Euro (€)</option>
+            <option value="GBP" data-symbol="£">🇬🇧 GBP — British Pound (£)</option>
+            <option value="AED" data-symbol="AED">🇦🇪 AED — UAE Dirham (AED)</option>
+            <option value="SAR" data-symbol="SAR">🇸🇦 SAR — Saudi Riyal (SAR)</option>
+            <option value="CAD" data-symbol="CA$">🇨🇦 CAD — Canadian Dollar (CA$)</option>
+            <option value="AUD" data-symbol="AU$">🇦🇺 AUD — Australian Dollar (AU$)</option>
+            <option value="JPY" data-symbol="¥">🇯🇵 JPY — Japanese Yen (¥)</option>
+            <option value="CNY" data-symbol="¥">🇨🇳 CNY — Chinese Yuan (¥)</option>
+            <option value="BDT" data-symbol="৳">🇧🇩 BDT — Bangladeshi Taka (৳)</option>
+            <option value="KWD" data-symbol="KD">🇰🇼 KWD — Kuwaiti Dinar (KD)</option>
+            <option value="QAR" data-symbol="QR">🇶🇦 QAR — Qatari Riyal (QR)</option>
+            <option value="OMR" data-symbol="OMR">🇴🇲 OMR — Omani Rial (OMR)</option>
+            <option value="BHD" data-symbol="BD">🇧🇭 BHD — Bahraini Dinar (BD)</option>
+            <option value="MYR" data-symbol="RM">🇲🇾 MYR — Malaysian Ringgit (RM)</option>
+            <option value="SGD" data-symbol="SG$">🇸🇬 SGD — Singapore Dollar (SG$)</option>
+            <option value="TRY" data-symbol="₺">🇹🇷 TRY — Turkish Lira (₺)</option>
+            <option value="BRL" data-symbol="R$">🇧🇷 BRL — Brazilian Real (R$)</option>
+            <option value="ZAR" data-symbol="R">🇿🇦 ZAR — South African Rand (R)</option>
+          </select>
+        </div>
+
+        <!-- Input 1: Loan Amount -->
+        <div class="form-group">
+          <div class="form-label">
+            <label for="loan-amount">Loan Amount (Principal)</label>
+            <span class="form-label-desc">Total borrowed balance</span>
+          </div>
+          <div class="range-container">
+            <div class="input-wrapper">
+              <span id="loan-currency-prefix" class="input-icon-prefix">$</span>
+              <input type="number" id="loan-amount" class="form-input has-prefix num-mono" value="50000" min="1000" max="100000000" step="500" placeholder="50000">
+            </div>
+            <input type="range" id="loan-amount-range" class="form-range" value="50000" min="1000" max="5000000" step="5000" aria-label="Loan Amount Slider">
+          </div>
+        </div>
+
+        <!-- Input 2: Interest Rate with Annual vs Monthly Toggle -->
+        <div class="form-group">
+          <div class="form-label">
+            <label for="loan-rate" id="loan-rate-label">Interest Rate (% p.a.)</label>
+            <div style="display: flex; gap: 0.75rem; font-size: 0.8rem; font-weight: 500;">
+              <label style="display: flex; align-items: center; gap: 0.3rem; cursor: pointer;">
+                <input type="radio" name="rate-unit" value="annual" checked style="accent-color: var(--accent-primary);"> Annual (% p.a.)
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.3rem; cursor: pointer;">
+                <input type="radio" name="rate-unit" value="monthly" style="accent-color: var(--accent-primary);"> Monthly (% p.m.)
+              </label>
+            </div>
+          </div>
+          <div class="range-container">
+            <div class="input-wrapper">
+              <span class="input-icon-prefix">%</span>
+              <input type="number" id="loan-rate" class="form-input has-prefix num-mono" value="8.2" min="0.01" max="50" step="0.05" placeholder="8.2">
+            </div>
+            <input type="range" id="loan-rate-range" class="form-range" value="8.2" min="0.5" max="30" step="0.1" aria-label="Interest Rate Slider">
+          </div>
+        </div>
+
+        <!-- Input 3: Loan Tenure -->
+        <div class="form-group">
+          <div class="form-label">
+            <label for="loan-tenure">Loan Tenure</label>
+            <div style="display: flex; gap: 0.75rem; font-size: 0.8rem; font-weight: 500;">
+              <label style="display: flex; align-items: center; gap: 0.3rem; cursor: pointer;">
+                <input type="radio" name="tenure-unit" value="years" checked style="accent-color: var(--accent-primary);"> Years
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.3rem; cursor: pointer;">
+                <input type="radio" name="tenure-unit" value="months" style="accent-color: var(--accent-primary);"> Months
+              </label>
+            </div>
+          </div>
+          <div class="range-container">
+            <input type="number" id="loan-tenure" class="form-input num-mono" value="5" min="1" max="360" step="1" placeholder="5">
+            <input type="range" id="loan-tenure-range" class="form-range" value="5" min="1" max="30" step="1" aria-label="Loan Tenure Slider">
+          </div>
+        </div>
+
+        <!-- Calculate Button -->
+        <div style="margin-top: 1.75rem;">
+          <button id="loan-calculate-btn" class="btn btn-primary btn-block btn-lg" type="button">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+            Calculate Loan Payments
+          </button>
+        </div>
+
+        <!-- Output Summary Metrics Grid -->
+        <div class="loan-summary-grid">
+          <div class="metric-card highlight">
+            <div class="metric-label">Monthly EMI</div>
+            <div id="loan-emi-value" class="metric-value">$1,018.66</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Total Interest</div>
+            <div id="loan-interest-value" class="metric-value">$11,119.60</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Total Repayment</div>
+            <div id="loan-total-value" class="metric-value">$61,119.60</div>
+          </div>
+        </div>
+
+        <!-- Visual Proportion Ratio Bar -->
+        <div class="ratio-bar-wrap">
+          <div class="ratio-legend">
+            <div class="legend-item">
+              <span class="legend-dot principal"></span>
+              <span id="ratio-principal-label">Principal: 81.8% ($50,000.00)</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot interest"></span>
+              <span id="ratio-interest-label">Interest: 18.2% ($11,119.60)</span>
+            </div>
+          </div>
+          <div class="ratio-bar">
+            <div id="ratio-principal" class="ratio-segment-principal" style="width: 81.8%;"></div>
+            <div id="ratio-interest" class="ratio-segment-interest" style="width: 18.2%;"></div>
+          </div>
+        </div>
+
+        <!-- Amortization Schedule Table -->
+        <div style="margin-top: 2.5rem;">
+          <div class="section-header" style="margin-bottom: 1rem; text-align: left;">
+            <h3 style="font-size: 1.25rem;">Yearly Amortization Schedule</h3>
+            <p style="font-size: 0.875rem; margin-top: 0.25rem;">Year-by-year distribution of principal repayment versus interest charges.</p>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Period</th>
+                  <th>Opening Balance</th>
+                  <th>Annual EMI Paid</th>
+                  <th>Principal Paid</th>
+                  <th>Interest Paid</th>
+                  <th>Closing Balance</th>
+                </tr>
+              </thead>
+              <tbody id="amortization-table-body">
+                <!-- Dynamically generated rows via assets/loan.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- AdSense Slot (Mid-Page) -->
+      <div class="ad-slot-container" aria-label="Advertisement">
+        <span class="ad-badge">Advertisement</span>
+        <div class="ad-placeholder-text">Google AdSense Responsive Banner</div>
+      </div>
+
+      <!-- Rich SEO Educational Content Section (300+ Words) -->
+      <section class="seo-content-section">
+        <h2>Understanding Loan Interest Rates & Reducing-Balance Calculations</h2>
+        <p>
+          When applying for a home mortgage, automobile loan, business financing, or personal cash loan, understanding how your interest rate is quoted and calculated is essential to avoiding unnecessary financial costs. An <strong>Equated Monthly Installment (EMI)</strong> represents an equal monthly payment made to a lender that gradually retires both the original borrowed principal and the accrued interest over time.
+        </p>
+
+        <h3>Annual Interest Rate (APR) vs. Monthly Interest Rate</h3>
+        <p>
+          Lenders across various financial sectors quote interest rates using two common conventions:
+        </p>
+        <ul>
+          <li>
+            <strong>Annual Percentage Rate (APR / % p.a.):</strong> The annual interest rate represents the total nominal interest charged over a 12-month period (e.g., 8.2% or 12.0% per year). Commercial mortgages, car loans, and student loans are almost universally quoted as an annual rate. To determine the monthly compounding rate, the annual rate is divided by 12:
+            <code>Monthly Rate (r) = Annual Rate ÷ 12</code>.
+          </li>
+          <li>
+            <strong>Monthly Interest Rate (% p.m.):</strong> Credit cards, micro-credit lenders, and installment financing companies frequently quote interest as a monthly percentage (e.g., 1.0% to 2.5% per month). While a 2% monthly rate may sound small, it translates to an annual rate of <strong>24% APR</strong> (2% × 12 months) before accounting for compounding effects. Our calculator lets you switch between Annual (% p.a.) and Monthly (% p.m.) with a single click.
+          </li>
+        </ul>
+
+        <h3>The Reducing-Balance Method vs. Flat Interest Rate</h3>
+        <p>
+          It is critical to distinguish between <strong>reducing-balance loans</strong> and <strong>flat-rate loans</strong>:
+        </p>
+        <ul>
+          <li>
+            <strong>Reducing-Balance Method (Standard Banking):</strong> Interest is calculated every month only on the remaining outstanding principal balance. As you pay off principal each month, the interest charge diminishes, which saves you significant money over the loan's life.
+          </li>
+          <li>
+            <strong>Flat-Rate Method:</strong> Interest is calculated on the entire original principal amount throughout the full tenure, regardless of how much you have already repaid. A flat rate of 8% can actually be equivalent to an effective reducing rate of over 14% to 15%.
+          </li>
+        </ul>
+
+        <div class="formula-box" style="margin: 1.5rem 0;">
+          <div class="formula-title">Reducing-Balance EMI Formula</div>
+          <code>E = P × r × (1 + r)ⁿ ÷ ((1 + r)ⁿ - 1)</code>
+          <p style="margin-top: 0.5rem; font-size: 0.8rem;">
+            Where: <strong>P</strong> = Principal loan amount; <strong>r</strong> = Monthly interest rate in decimal form; <strong>n</strong> = Total tenure in months.
+          </p>
+        </div>
+
+        <h3>The Amortization Dynamic: Principal vs Interest</h3>
+        <p>
+          During the initial years of a loan, a larger share of each monthly payment services the accumulated interest, while a smaller portion reduces principal. As the principal drops, the interest component decreases and the principal repayment accelerates. You can inspect this dynamic directly in our interactive Amortization Schedule table above.
+        </p>
+
+        <h3>Actionable Strategies to Lower Total Loan Interest</h3>
+        <ul>
+          <li><strong>Make Regular Partial Prepayments:</strong> Applying extra payments directly to principal immediately reduces the base upon which subsequent interest is calculated.</li>
+          <li><strong>Select the Shortest Manageable Tenure:</strong> Shorter tenures slightly increase the monthly installment but substantially reduce the cumulative lifetime interest paid.</li>
+          <li><strong>Compare Effective APRs:</strong> Always compare the true annual percentage rate rather than nominal monthly promotional quotes.</li>
+        </ul>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+          <h2>Frequently Asked Questions (FAQ)</h2>
+
+          <div class="faq-item active">
+            <button class="faq-question" type="button">
+              <span>How do I convert a monthly interest rate to an annual rate?</span>
+              <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              To convert a monthly interest rate to a nominal annual rate (APR), simply multiply the monthly rate by 12. For example, a 1.25% monthly rate equals an annual rate of 15.0% (1.25% × 12).
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>What is the difference between Fixed and Floating Interest Rates?</span>
+              <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Fixed interest rates remain constant throughout the entire loan tenure, ensuring fixed and predictable monthly installments. Floating (or variable) rates adjust periodically based on central bank policy benchmark rates, causing monthly installments or tenure to shift.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Can I calculate loans in Pakistani Rupees (PKR) or Indian Rupees (INR)?</span>
+              <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Yes. Simply select <strong>PKR (Rs)</strong>, <strong>INR (₹)</strong>, <strong>USD ($)</strong>, <strong>EUR (€)</strong>, <strong>AED</strong>, or <strong>SAR</strong> from the Currency dropdown menu at the top of the calculator.
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="brand-logo" style="margin-bottom: 0.5rem;">
+            <div class="logo-icon">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <span>Commero<span class="brand-accent">nix</span></span>
+          </a>
+          <p>Financial mortgage and reducing-balance loan installment calculator with comprehensive amortization schedules.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Calculators</h4>
+          <ul class="footer-links">
+            <li><a href="calculator" class="footer-link">Live Scientific Calculator</a></li>
+            <li><a href="currency-converter" class="footer-link">Currency Converter</a></li>
+            <li><a href="unit-converter" class="footer-link">Unit Converter</a></li>
+            <li><a href="loan-calculator" class="footer-link">Loan & EMI Calculator</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="about" class="footer-link">About Us</a></li>
+            <li><a href="contact" class="footer-link">Contact Support</a></li>
+            <li><a href="privacy-policy" class="footer-link">Privacy Policy</a></li>
+            <li><a href="terms" class="footer-link">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Financial Math</h4>
+          <ul class="footer-links">
+            <li><span class="footer-link" style="cursor: default;">Reducing Balance Model</span></li>
+            <li><span class="footer-link" style="cursor: default;">Standard Compound Amortization</span></li>
+            <li><span class="footer-link" style="cursor: default;">True APR Calculation</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-disclaimer">
+          <strong>Disclaimer:</strong> Financial calculations provided are estimates based on standardized mathematical formulas. Final loan approvals, insurance, property taxes, and closing terms depend on your lending institution's credit underwriting policies.
+        </div>
+        <div>
+          &copy; <span id="current-year">2026</span> Commeronix. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/main.js"></script>
+  <script src="assets/loan.js"></script>
+</body>
+</html>

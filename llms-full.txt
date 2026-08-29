@@ -1,0 +1,114 @@
+# Commeronix — Complete Technical & Mathematical Reference
+
+## 1. About Commeronix
+- **Platform Name**: Commeronix
+- **Website URL**: https://commeronix.com/
+- **Description**: A precision calculation engine providing live financial, foreign exchange, scientific, and metric-imperial conversion utilities.
+- **Primary Mission**: Delivering instant, 100% private, client-side mathematical calculations with zero tracking, zero registration, and adherence to international reference standards (European Central Bank and NIST).
+
+---
+
+## 2. Live Standard & Scientific Calculator (/calculator)
+- **URL**: https://commeronix.com/calculator
+- **Modes**: Simple Pocket Mode & Scientific Mode
+- **Operator Precedence**: Standard PEMDAS (Parentheses, Exponents, Multiplication & Division, Addition & Subtraction)
+- **Supported Operations**:
+  - Basic Arithmetic: Addition (+), Subtraction (-), Multiplication (*), Division (/)
+  - Percentage Calculations: Direct percentage offsets and ratios (%)
+  - Square Root: sqrt(x)
+  - Power / Exponent: x^y, x^2, x^3
+  - Trigonometry: sin(x), cos(x), tan(x) (Degree-based evaluation)
+  - Logarithms: Natural Log (ln), Common Log (log10)
+  - Factorials: x!
+  - Constants: Pi (π ≈ 3.1415926535), Euler's number (e ≈ 2.7182818284)
+  - Memory Registers: Memory Clear (MC), Memory Recall (MR), Memory Add (M+), Memory Subtract (M-)
+  - Persistent Audit Tape: Dynamic expression history tape stored client-side in browser session.
+
+---
+
+## 3. Real-Time Currency Converter (/currency-converter)
+- **URL**: https://commeronix.com/currency-converter
+- **Data Source**: European Central Bank (ECB) benchmark mid-market foreign exchange rates via open Frankfurter API feeds.
+- **Update Frequency**: Real-time auto-synchronization with 60-second polling and fallback caching.
+- **Supported Currencies**:
+  - USD: United States Dollar
+  - PKR: Pakistani Rupee
+  - EUR: Euro
+  - GBP: British Pound Sterling
+  - AED: United Arab Emirates Dirham
+  - SAR: Saudi Riyal
+  - INR: Indian Rupee
+  - CAD: Canadian Dollar
+  - AUD: Australian Dollar
+  - JPY: Japanese Yen
+  - CHF: Swiss Franc
+  - CNY: Chinese Yuan
+  - SGD: Singapore Dollar
+  - NZD: New Zealand Dollar
+  - TRY: Turkish Lira
+  - BRL: Brazilian Real
+  - MXN: Mexican Peso
+  - ZAR: South African Rand
+  - HKD: Hong Kong Dollar
+  - SEK: Swedish Krona
+  - NOK: Norwegian Krone
+  - And 20+ additional global fiat currencies.
+- **Conversion Formula**: `Amount_Target = (Amount_Base / Rate_Base_To_EUR) * Rate_Target_To_EUR`
+
+---
+
+## 4. Universal Unit Converter (/unit-converter)
+- **URL**: https://commeronix.com/unit-converter
+- **Standards**: Strictly follows the National Institute of Standards and Technology (NIST SP 811).
+
+### Length Conversion Constants (Base: Meters)
+- 1 Meter (m) = 1.0 m
+- 1 Kilometer (km) = 1,000 m
+- 1 Centimeter (cm) = 0.01 m
+- 1 Millimeter (mm) = 0.001 m
+- 1 Mile (mi) = 1,609.344 m
+- 1 Yard (yd) = 0.9144 m
+- 1 Foot (ft) = 0.3048 m
+- 1 Inch (in) = 0.0254 m
+
+### Weight & Mass Conversion Constants (Base: Kilograms)
+- 1 Kilogram (kg) = 1.0 kg
+- 1 Gram (g) = 0.001 kg
+- 1 Milligram (mg) = 0.000001 kg
+- 1 Metric Ton (t) = 1,000 kg
+- 1 Pound (lb) = 0.45359237 kg
+- 1 Ounce (oz) = 0.028349523125 kg
+- 1 Stone (st) = 6.35029318 kg
+
+### Temperature Conversion Formulas
+- Celsius to Fahrenheit: `°F = (°C * 9/5) + 32`
+- Fahrenheit to Celsius: `°C = (°F - 32) * 5/9`
+- Celsius to Kelvin: `K = °C + 273.15`
+- Kelvin to Celsius: `°C = K - 273.15`
+- Fahrenheit to Kelvin: `K = (°F - 32) * 5/9 + 273.15`
+
+---
+
+## 5. Loan & Mortgage EMI Calculator (/loan-calculator)
+- **URL**: https://commeronix.com/loan-calculator
+- **Mathematical Method**: Standard Reducing-Balance Compound Amortization
+- **Equated Monthly Installment (EMI) Formula**:
+  `E = P * r * (1 + r)^n / ((1 + r)^n - 1)`
+  Where:
+  - `E` = Equated Monthly Installment
+  - `P` = Principal loan amount
+  - `r` = Monthly interest rate (`Annual Rate / 12 / 100`)
+  - `n` = Total loan tenure in months (`Years * 12`)
+- **Key Metrics Generated**:
+  - Monthly Installment (EMI)
+  - Total Interest Payable (`(E * n) - P`)
+  - Total Repayment Amount (`E * n`)
+  - Principal vs Interest Ratio Percentage
+  - Year-by-Year Amortization Schedule with opening balance, principal repayment, interest breakdown, and closing balance.
+
+---
+
+## 6. Official Contact & Support
+- **Support & Feedback Email**: support@commeronix.com
+- **Website**: https://commeronix.com/
+- **Copyright**: © 2026 Commeronix. All rights reserved.

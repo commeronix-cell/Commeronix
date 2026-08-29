@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universal Unit Converter — Length, Weight & Temperature | Commeronix</title>
+  <meta name="description" content="Accurate online unit converter. Instantly convert metric & imperial units for length (meters, feet), weight (kg, lbs), and temperature (Celsius, Fahrenheit).">
+  <meta name="keywords" content="unit converter, length converter, weight converter, temperature converter, meters to feet, kg to lbs, celsius to fahrenheit, metric to imperial converter, unit conversion calculator">
+  <meta name="author" content="Commeronix">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#090d16">
+  <link rel="canonical" href="https://commeronix.com/unit-converter">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Open Graph -->
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Commeronix">
+  <meta property="og:title" content="Universal Unit Converter — Length, Weight & Temperature | Commeronix">
+  <meta property="og:description" content="Accurate online unit converter. Instantly convert metric & imperial units for length (meters, feet), weight (kg, lbs), and temperature (Celsius, Fahrenheit).">
+  <meta property="og:url" content="https://commeronix.com/unit-converter">
+  <meta property="og:image" content="https://commeronix.com/assets/favicon.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@commeronix">
+
+  <!-- Schema.org JSON-LD Structured Data: Breadcrumbs, WebApplication, FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://commeronix.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Unit Converter",
+            "item": "https://commeronix.com/unit-converter"
+          }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Commeronix Universal Unit Converter",
+        "url": "https://commeronix.com/unit-converter",
+        "description": "Multi-category unit conversion utility for length, mass/weight, and temperature across standard metric and imperial systems.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do you convert Celsius to Fahrenheit?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To convert Celsius to Fahrenheit, multiply the Celsius temperature by 9/5 (or 1.8) and add 32. Formula: °F = (°C × 9/5) + 32."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How many feet are in a meter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "There are exactly 3.280839895 feet in one meter (approximately 3.281 feet)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How many pounds are in one kilogram?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "One kilogram is equal to approximately 2.20462262 pounds (lbs) under the international avoirdupois standard."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Theme Initialization Script (Prevents Flash of Unstyled Content) -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('commeronix_theme');
+      if (savedTheme === 'light' || (!savedTheme && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Live Currency Rate Ticker Strip -->
+  <div class="ticker-wrap" aria-label="Live Forex Exchange Rates Ticker">
+    <div class="ticker-label">
+      <div class="ticker-pulse"></div>
+      <span>Live Rates</span>
+    </div>
+    <div class="ticker-track">
+      <div class="ticker-content">
+        <!-- Dynamic Ticker via assets/main.js -->
+        <div class="ticker-item"><span class="ticker-pair">USD/PKR</span> <span class="ticker-val">277.25</span> <span class="ticker-badge down">-0.15%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">USD/EUR</span> <span class="ticker-val">0.8614</span> <span class="ticker-badge">+0.12%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">USD/GBP</span> <span class="ticker-val">0.7379</span> <span class="ticker-badge down">-0.08%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">USD/AED</span> <span class="ticker-val">3.6725</span> <span class="ticker-badge">+0.00%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <a href="/" class="brand-logo" title="Commeronix Home">
+          <div class="logo-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <span>Commero<span class="brand-accent">nix</span></span>
+        </a>
+
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <ul class="nav-links">
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li><a href="calculator" class="nav-link">Calculator</a></li>
+            <li><a href="currency-converter" class="nav-link">Currency Converter</a></li>
+            <li><a href="unit-converter" class="nav-link active">Unit Converter</a></li>
+            <li><a href="loan-calculator" class="nav-link">Loan Calculator</a></li>
+            <li><a href="about" class="nav-link">About</a></li>
+            <li><a href="contact" class="nav-link">Contact</a></li>
+          </ul>
+
+          <!-- Dark / Light Theme Toggle Button -->
+          <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Toggle Light and Dark Theme" title="Toggle Theme">
+            <svg class="sun-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <svg class="moon-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+
+          <button class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" aria-label="Mobile Navigation Menu">
+    <a href="/" class="nav-link">Home</a>
+    <a href="calculator" class="nav-link">Live Calculator</a>
+    <a href="currency-converter" class="nav-link">Currency Converter</a>
+    <a href="unit-converter" class="nav-link active">Unit Converter</a>
+    <a href="loan-calculator" class="nav-link">Loan & EMI Calculator</a>
+    <a href="about" class="nav-link">About Us</a>
+    <a href="contact" class="nav-link">Contact Us</a>
+    <a href="privacy-policy" class="nav-link">Privacy Policy</a>
+    <a href="terms" class="nav-link">Terms of Service</a>
+  </div>
+
+  <main class="main-content">
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+        <a href="/" style="color: var(--text-secondary);">Home</a> &gt; <span style="color: var(--accent-primary);">Unit Converter</span>
+      </div>
+
+      <!-- Unit Converter Calculator App -->
+      <div class="calculator-app">
+        <div class="calculator-header">
+          <h1>Universal Unit Converter</h1>
+          <p>Convert units of Length, Weight, and Temperature with scientific accuracy.</p>
+        </div>
+
+        <!-- Alert Box -->
+        <div id="unit-alert" class="alert alert-error" style="display: none;"></div>
+
+        <!-- Category Switching Tabs -->
+        <div class="category-tabs" role="tablist" aria-label="Unit Categories">
+          <button type="button" class="tab-btn active" data-category="length" role="tab" aria-selected="true">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+            </svg>
+            Length & Distance
+          </button>
+          <button type="button" class="tab-btn" data-category="weight" role="tab" aria-selected="false">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+            </svg>
+            Weight & Mass
+          </button>
+          <button type="button" class="tab-btn" data-category="temperature" role="tab" aria-selected="false">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+            </svg>
+            Temperature
+          </button>
+        </div>
+
+        <!-- Value Input -->
+        <div class="form-group">
+          <label for="unit-value" class="form-label">
+            <span>Value to Convert</span>
+            <span class="form-label-desc">Enter any numerical magnitude</span>
+          </label>
+          <input type="number" id="unit-value" class="form-input num-mono" value="10" step="any" placeholder="10" required>
+        </div>
+
+        <!-- From and To Unit Selectors -->
+        <div class="converter-row">
+          <div class="form-group" style="margin-bottom: 0;">
+            <label for="unit-from" class="form-label">From Unit</label>
+            <select id="unit-from" class="form-select num-mono">
+              <!-- Dynamically populated via assets/unit.js -->
+              <option value="m" selected>Meter (m)</option>
+              <option value="foot">Foot (ft)</option>
+            </select>
+          </div>
+
+          <button id="unit-swap-btn" class="btn-swap" type="button" title="Swap Units" aria-label="Swap Units">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+            </svg>
+          </button>
+
+          <div class="form-group" style="margin-bottom: 0;">
+            <label for="unit-to" class="form-label">To Unit</label>
+            <select id="unit-to" class="form-select num-mono">
+              <!-- Dynamically populated via assets/unit.js -->
+              <option value="foot" selected>Foot (ft)</option>
+              <option value="m">Meter (m)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Convert Action Button -->
+        <div style="margin-top: 1.75rem;">
+          <button id="unit-convert-btn" class="btn btn-primary btn-block btn-lg" type="button">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+            Convert Unit
+          </button>
+        </div>
+
+        <!-- Result Box -->
+        <div id="unit-result-box" class="result-box">
+          <div class="result-caption">Conversion Result</div>
+          <div id="unit-result-value" class="result-main">32.808399 ft</div>
+          <div class="formula-box">
+            <div class="formula-title">Mathematical Formula & Breakdown</div>
+            <div id="unit-result-formula">Multiply 10 m by conversion ratio (3.28084...) = 32.808399 ft</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Conversion Reference Matrix -->
+      <div class="container" style="max-width: 780px; margin: 3rem auto 0; padding: 0;">
+        <div class="card" style="padding: 1.75rem;">
+          <h3 style="margin-bottom: 1rem; font-size: 1.2rem; color: var(--text-primary);">Common Standard Conversion Factors</h3>
+          <div class="table-wrap" style="margin-top: 0;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Quantity Category</th>
+                  <th>Conversion Equation</th>
+                  <th>Standard Constant</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Length</td>
+                  <td>1 Inch → Centimeters</td>
+                  <td>2.54 cm exact</td>
+                </tr>
+                <tr>
+                  <td>Length</td>
+                  <td>1 Kilometer → Miles</td>
+                  <td>0.62137119 mi</td>
+                </tr>
+                <tr>
+                  <td>Weight</td>
+                  <td>1 Kilogram → Pounds</td>
+                  <td>2.20462262 lbs</td>
+                </tr>
+                <tr>
+                  <td>Weight</td>
+                  <td>1 Pound → Ounces</td>
+                  <td>16 oz exact</td>
+                </tr>
+                <tr>
+                  <td>Temperature</td>
+                  <td>0°C (Water Freezing)</td>
+                  <td>32°F / 273.15 K</td>
+                </tr>
+                <tr>
+                  <td>Temperature</td>
+                  <td>100°C (Water Boiling)</td>
+                  <td>212°F / 373.15 K</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- AdSense Slot (Mid-Page) -->
+      <div class="ad-slot-container" aria-label="Advertisement">
+        <span class="ad-badge">Advertisement</span>
+        <div class="ad-placeholder-text">Google AdSense Responsive Banner</div>
+      </div>
+
+      <!-- Rich SEO Educational Content Section (300+ Words) -->
+      <section class="seo-content-section">
+        <h2>Comprehensive Guide to Metric and Imperial Unit Conversions</h2>
+        <p>
+          Throughout human history, distinct regional civilizations designed their own localized systems for measuring distance, mass, and temperature. In modern engineering, scientific research, and global trade, two principal frameworks dominate: the <strong>International System of Units (SI / Metric System)</strong> and the <strong>Imperial / United States Customary System</strong>.
+        </p>
+
+        <h3>1. Length & Distance Systems (Metric vs. Imperial)</h3>
+        <p>
+          The Metric System represents a base-10 decimal standard where 1 meter equals 1,000 millimeters or 100 centimeters, and 1,000 meters constitute 1 kilometer. In contrast, the Imperial system is structured around historical English units: 12 inches form 1 foot, 3 feet constitute 1 yard, and 5,280 feet comprise 1 international mile. The definitive global standard defines <strong>1 inch as exactly 2.54 centimeters</strong>.
+        </p>
+
+        <h3>2. Weight & Mass Equivalents</h3>
+        <p>
+          Mass measurement in scientific frameworks relies on the kilogram (kg) as the SI base unit. Under the international avoirdupois pound agreement established in 1959, one international pound (lb) is legally defined as exactly <strong>0.45359237 kilograms</strong>. Understanding exact mass conversions is vital for international shipping logistics, industrial aviation cargo loading, culinary recipe scaling, and pharmacology dosages.
+        </p>
+
+        <h3>3. Scientific Temperature Formulas</h3>
+        <p>
+          Unlike length or weight, temperature scales do not share a common zero point. Consequently, conversions require linear affine transformations rather than simple single-multiplier factors:
+        </p>
+        <ul>
+          <li><strong>Celsius to Fahrenheit:</strong> Multiply degrees Celsius by 9/5 (or 1.8) and add 32. <code>°F = (°C × 9/5) + 32</code></li>
+          <li><strong>Fahrenheit to Celsius:</strong> Subtract 32 from Fahrenheit and multiply by 5/9. <code>°C = (°F - 32) × 5/9</code></li>
+          <li><strong>Celsius to Kelvin:</strong> Add 273.15 to reach absolute zero thermodynamic baseline. <code>K = °C + 273.15</code></li>
+        </ul>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+          <h2>Frequently Asked Questions (FAQ)</h2>
+
+          <div class="faq-item active">
+            <button class="faq-question" type="button">
+              <span>Why is temperature conversion not a simple ratio?</span>
+              <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Because the zero points of Fahrenheit (32°F freezing), Celsius (0°C freezing), and Kelvin (0 K absolute zero) are calibrated differently. An offset addition (+32 or +273.15) is required alongside the scaling factor.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>What is a Metric Tonne vs an Imperial Ton?</span>
+              <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              A metric tonne (t) equals exactly 1,000 kilograms (approximately 2,204.62 lbs). A US short ton equals 2,000 lbs (907.18 kg), whereas a British long ton equals 2,240 lbs (1,016.05 kg).
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Is Commeronix suitable for scientific lab calculations?</span>
+              <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Yes. All conversion factors conform to the official standards defined by the National Institute of Standards and Technology (NIST) and the International Bureau of Weights and Measures (BIPM).
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="brand-logo" style="margin-bottom: 0.5rem;">
+            <div class="logo-icon">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <span>Commero<span class="brand-accent">nix</span></span>
+          </a>
+          <p>Universal multi-category conversion engine for scientific, engineering, and daily imperial/metric calculations.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Calculators</h4>
+          <ul class="footer-links">
+            <li><a href="calculator" class="footer-link">Live Scientific Calculator</a></li>
+            <li><a href="currency-converter" class="footer-link">Currency Converter</a></li>
+            <li><a href="unit-converter" class="footer-link">Unit Converter</a></li>
+            <li><a href="loan-calculator" class="footer-link">Loan & EMI Calculator</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="about" class="footer-link">About Us</a></li>
+            <li><a href="contact" class="footer-link">Contact Support</a></li>
+            <li><a href="privacy-policy" class="footer-link">Privacy Policy</a></li>
+            <li><a href="terms" class="footer-link">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Measurement Standards</h4>
+          <ul class="footer-links">
+            <li><span class="footer-link" style="cursor: default;">NIST Reference Factors</span></li>
+            <li><span class="footer-link" style="cursor: default;">SI International Standard</span></li>
+            <li><span class="footer-link" style="cursor: default;">BIPM Calibration</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-disclaimer">
+          <strong>Disclaimer:</strong> Unit conversions are calibrated using exact standard scientific constants. Verify mission-critical engineering calculations with certified aerospace or chemical engineering tools.
+        </div>
+        <div>
+          &copy; <span id="current-year">2026</span> Commeronix. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/main.js"></script>
+  <script src="assets/unit.js"></script>
+</body>
+</html>

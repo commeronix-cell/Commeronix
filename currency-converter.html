@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Currency Converter — Real-Time Forex Exchange Rates | Commeronix</title>
+  <meta name="description" content="Free live currency converter with real-time foreign exchange rates for USD, PKR, EUR, GBP, AED, SAR & 40+ global currencies. Updated every 60 seconds.">
+  <meta name="keywords" content="currency converter, live exchange rate, foreign exchange, USD to PKR, USD to EUR, EUR to USD, USD to GBP, real time forex calculator, ECB rates, currency calculator">
+  <meta name="author" content="Commeronix">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#090d16">
+  <link rel="canonical" href="https://commeronix.com/currency-converter">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Open Graph -->
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Commeronix">
+  <meta property="og:title" content="Live Currency Converter — Real-Time Forex Exchange Rates | Commeronix">
+  <meta property="og:description" content="Free live currency converter with real-time foreign exchange rates for USD, PKR, EUR, GBP, AED, SAR & 40+ global currencies. Updated every 60 seconds.">
+  <meta property="og:url" content="https://commeronix.com/currency-converter">
+  <meta property="og:image" content="https://commeronix.com/assets/favicon.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@commeronix">
+
+  <!-- Schema.org JSON-LD Structured Data: Breadcrumbs, WebApplication, FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://commeronix.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Currency Converter",
+            "item": "https://commeronix.com/currency-converter"
+          }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Commeronix Live Currency Converter",
+        "url": "https://commeronix.com/currency-converter",
+        "description": "Real-time foreign exchange rate converter supporting over 40 fiat currencies with live European Central Bank data feeds.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Where does Commeronix get live exchange rates?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Commeronix fetches daily mid-market foreign exchange benchmark data published by the European Central Bank (ECB) via the open Frankfurter API."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between a mid-market rate and a bank retail rate?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The mid-market rate represents the genuine midpoint between buy and sell prices in global financial markets. Traditional commercial banks and airport kiosks typically add a 2% to 5% markup spread over the mid-market rate."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How frequently are foreign exchange rates refreshed?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Rates auto-synchronize in real-time and refresh every 60 seconds with daily official European Central Bank reference prices."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Theme Initialization Script (Prevents Flash of Unstyled Content) -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('commeronix_theme');
+      if (savedTheme === 'light' || (!savedTheme && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Live Currency Rate Ticker Strip -->
+  <div class="ticker-wrap" aria-label="Live Forex Exchange Rates Ticker">
+    <div class="ticker-label">
+      <div class="ticker-pulse"></div>
+      <span>Live Rates</span>
+    </div>
+    <div class="ticker-track">
+      <div class="ticker-content">
+        <!-- Dynamic Ticker via assets/main.js -->
+        <div class="ticker-item"><span class="ticker-pair">USD/PKR</span> <span class="ticker-val">277.25</span> <span class="ticker-badge down">-0.15%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">USD/EUR</span> <span class="ticker-val">0.8614</span> <span class="ticker-badge">+0.12%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">USD/GBP</span> <span class="ticker-val">0.7379</span> <span class="ticker-badge down">-0.08%</span></div>
+        <div class="ticker-item"><span class="ticker-pair">USD/AED</span> <span class="ticker-val">3.6725</span> <span class="ticker-badge">+0.00%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <a href="/" class="brand-logo" title="Commeronix Home">
+          <div class="logo-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <span>Commero<span class="brand-accent">nix</span></span>
+        </a>
+
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <ul class="nav-links">
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li><a href="calculator" class="nav-link">Calculator</a></li>
+            <li><a href="currency-converter" class="nav-link active">Currency Converter</a></li>
+            <li><a href="unit-converter" class="nav-link">Unit Converter</a></li>
+            <li><a href="loan-calculator" class="nav-link">Loan Calculator</a></li>
+            <li><a href="about" class="nav-link">About</a></li>
+            <li><a href="contact" class="nav-link">Contact</a></li>
+          </ul>
+
+          <!-- Dark / Light Theme Toggle Button -->
+          <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Toggle Light and Dark Theme" title="Toggle Theme">
+            <svg class="sun-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <svg class="moon-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+
+          <button class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" aria-label="Mobile Navigation Menu">
+    <a href="/" class="nav-link">Home</a>
+    <a href="calculator" class="nav-link">Live Calculator</a>
+    <a href="currency-converter" class="nav-link active">Currency Converter</a>
+    <a href="unit-converter" class="nav-link">Unit Converter</a>
+    <a href="loan-calculator" class="nav-link">Loan & EMI Calculator</a>
+    <a href="about" class="nav-link">About Us</a>
+    <a href="contact" class="nav-link">Contact Us</a>
+    <a href="privacy-policy" class="nav-link">Privacy Policy</a>
+    <a href="terms" class="nav-link">Terms of Service</a>
+  </div>
+
+  <main class="main-content">
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+        <a href="/" style="color: var(--text-secondary);">Home</a> &gt; <span style="color: var(--accent-primary);">Currency Converter</span>
+      </div>
+
+      <!-- Currency Converter Calculator App -->
+      <div class="calculator-app">
+        <div class="calculator-header">
+          <h1>Live Currency Converter</h1>
+          <p>Real-time foreign exchange conversions with official mid-market reference rates.</p>
+        </div>
+
+        <!-- Alert Box -->
+        <div id="currency-alert" class="alert alert-error" style="display: none;"></div>
+
+        <!-- Amount Input -->
+        <div class="form-group">
+          <label for="currency-amount" class="form-label">
+            <span>Amount to Convert</span>
+            <span class="form-label-desc">Enter currency value</span>
+          </label>
+          <div class="input-wrapper">
+            <span class="input-icon-prefix">$</span>
+            <input type="number" id="currency-amount" class="form-input has-prefix num-mono" value="1000" min="0.01" step="any" placeholder="1000.00" required>
+          </div>
+        </div>
+
+        <!-- Converter Select Row -->
+        <div class="converter-row">
+          <div class="form-group" style="margin-bottom: 0;">
+            <label for="currency-from" class="form-label">From Currency</label>
+            <select id="currency-from" class="form-select num-mono">
+              <!-- Dynamically populated via assets/currency.js -->
+              <option value="USD" selected>USD - United States Dollar</option>
+              <option value="EUR">EUR - Euro</option>
+            </select>
+          </div>
+
+          <button id="currency-swap-btn" class="btn-swap" type="button" title="Swap From and To Currencies" aria-label="Swap Currencies">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+            </svg>
+          </button>
+
+          <div class="form-group" style="margin-bottom: 0;">
+            <label for="currency-to" class="form-label">To Currency</label>
+            <select id="currency-to" class="form-select num-mono">
+              <!-- Dynamically populated via assets/currency.js -->
+              <option value="EUR" selected>EUR - Euro</option>
+              <option value="USD">USD - United States Dollar</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Popular Currency Quick Chips -->
+        <div class="chips-row">
+          <span class="chip-label">Quick Pairs:</span>
+          <button type="button" class="chip-btn" data-from="USD" data-to="PKR">USD → PKR</button>
+          <button type="button" class="chip-btn" data-from="AED" data-to="PKR">AED → PKR</button>
+          <button type="button" class="chip-btn" data-from="SAR" data-to="PKR">SAR → PKR</button>
+          <button type="button" class="chip-btn" data-from="GBP" data-to="PKR">GBP → PKR</button>
+          <button type="button" class="chip-btn" data-from="EUR" data-to="PKR">EUR → PKR</button>
+          <button type="button" class="chip-btn" data-from="USD" data-to="EUR">USD → EUR</button>
+          <button type="button" class="chip-btn" data-from="USD" data-to="INR">USD → INR</button>
+        </div>
+
+        <!-- Convert Action Button -->
+        <div style="margin-top: 1.75rem;">
+          <button id="currency-convert-btn" class="btn btn-primary btn-block btn-lg" type="button">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+            Convert Currency
+          </button>
+        </div>
+
+        <!-- Conversion Result Output Box -->
+        <div id="currency-result-box" class="result-box">
+          <div class="result-caption">Converted Total Value</div>
+          <div id="currency-result-amount" class="result-main">€ 924.50 EUR</div>
+          <div class="result-rate-detail">
+            <div class="result-rate-item"><span id="currency-result-rate">1 USD = 0.9245 EUR</span></div>
+            <div class="result-rate-item"><span id="currency-result-inverse">1 EUR = 1.0817 USD</span></div>
+          </div>
+          <div id="currency-result-date" class="rate-timestamp">Market Rate Date: 2026-08-28 (Mid-market reference rate)</div>
+        </div>
+      </div>
+
+      <!-- AdSense Slot (Mid-Page) -->
+      <div class="ad-slot-container" aria-label="Advertisement">
+        <span class="ad-badge">Advertisement</span>
+        <div class="ad-placeholder-text">Google AdSense Responsive Ad Unit</div>
+      </div>
+
+      <!-- Rich SEO Educational Content Section (300+ Words) -->
+      <section class="seo-content-section">
+        <h2>Understanding Real-Time Foreign Exchange (Forex) Rates</h2>
+        <p>
+          Foreign exchange rates represent the relative value of one national currency expressed in terms of another. Whenever international trade, overseas travel, or cross-border investments occur, foreign currencies are bought and sold on the decentralized global forex market—the largest and most liquid financial market in the world, processing trillions of dollars in daily transactions.
+        </p>
+
+        <h3>What is the Mid-Market Exchange Rate?</h3>
+        <p>
+          The <strong>mid-market rate</strong> (also called the interbank rate) is the exact midpoint between the buy (bid) and sell (ask) rates that large institutional banks trade amongst themselves. Because the mid-market rate contains zero hidden retail markups or broker commissions, it is regarded worldwide as the fairest and most accurate metric of a currency's true market value. Commeronix uses official European Central Bank reference figures to ensure all conversions reflect this authentic standard.
+        </p>
+
+        <h3>Why Do Retail Bank Rates Differ from Live Rates?</h3>
+        <p>
+          When converting funds through credit card providers, airport exchange booths, or commercial banking apps, the rate quoted is often significantly lower than the real-time interbank rate. Financial institutions frequently introduce a <strong>foreign transaction spread</strong> ranging between 1.5% and 5.0% to generate revenue on currency transfers. Utilizing an independent converter like Commeronix allows travelers, remote freelancers, and e-commerce businesses to verify exact conversion values before accepting adverse exchange terms.
+        </p>
+
+        <h3>Key Factors Influencing Currency Volatility</h3>
+        <ul>
+          <li><strong>Central Bank Interest Rates:</strong> Higher interest rates attract international investors seeking superior yields on sovereign bonds.</li>
+          <li><strong>Economic Growth & Inflation:</strong> Countries with consistent GDP growth and disciplined inflation generally preserve stronger currency purchasing power.</li>
+          <li><strong>Geopolitical Stability & Trade Balances:</strong> Nations with sustained trade surpluses (exporting more value than importing) maintain continuous international demand for their native currency.</li>
+        </ul>
+
+        <!-- Frequently Asked Questions Accordion -->
+        <div class="faq-section">
+          <h2>Frequently Asked Questions (FAQ)</h2>
+
+          <div class="faq-item active">
+            <button class="faq-question" type="button">
+              <span>Is this currency converter completely free to use?</span>
+              <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Yes. Commeronix provides 100% free currency calculations with unlimited conversions, zero user registrations, and no subscription fees.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Where do these live rates come from?</span>
+              <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Exchange rates are sourced from the official European Central Bank (ECB) daily reference price feeds through the open Frankfurter API.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Does this tool work offline?</span>
+              <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Yes. Commeronix includes an internal high-precision fallback matrix. If you lose internet connectivity or the remote API times out, the tool gracefully calculates conversions using the latest cached benchmark rates.
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="brand-logo" style="margin-bottom: 0.5rem;">
+            <div class="logo-icon">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <span>Commero<span class="brand-accent">nix</span></span>
+          </a>
+          <p>Real-time foreign exchange and multi-currency conversion utility for global finance and travel calculations.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Calculators</h4>
+          <ul class="footer-links">
+            <li><a href="calculator" class="footer-link">Live Scientific Calculator</a></li>
+            <li><a href="currency-converter" class="footer-link">Currency Converter</a></li>
+            <li><a href="unit-converter" class="footer-link">Unit Converter</a></li>
+            <li><a href="loan-calculator" class="footer-link">Loan & EMI Calculator</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="about" class="footer-link">About Us</a></li>
+            <li><a href="contact" class="footer-link">Contact Support</a></li>
+            <li><a href="privacy-policy" class="footer-link">Privacy Policy</a></li>
+            <li><a href="terms" class="footer-link">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Data Standard</h4>
+          <ul class="footer-links">
+            <li><span class="footer-link" style="cursor: default;">European Central Bank (ECB)</span></li>
+            <li><span class="footer-link" style="cursor: default;">Frankfurter Public Feed</span></li>
+            <li><span class="footer-link" style="cursor: default;">Mid-Market Zero-Spread</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-disclaimer">
+          <strong>Disclaimer:</strong> Exchange rates are indicative and for informational purposes only. Do not use for high-frequency financial trading or legally binding settlement payments without checking official bank rates.
+        </div>
+        <div>
+          &copy; <span id="current-year">2026</span> Commeronix. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/main.js"></script>
+  <script src="assets/currency.js"></script>
+</body>
+</html>

@@ -59,16 +59,10 @@
   }
 
   /**
-   * Synthesizes audio feedback, delegating to animal sounds engine if present
+   * Synthesizes short, crisp key click sound using Web Audio API
    */
   function playKeySound(type) {
     if (!isSoundEnabled) return;
-
-    if (typeof window.playAnimalSound === 'function') {
-      window.playAnimalSound(type);
-      return;
-    }
-
     try {
       if (!audioCtx) {
         audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -106,7 +100,9 @@
         osc.start(now);
         osc.stop(now + 0.03);
       }
-    } catch (e) {}
+    } catch (e) {
+      // Audio context might be restricted before user gesture
+    }
   }
 
   /**
@@ -609,8 +605,8 @@
       soundToggleBtn.addEventListener('click', () => {
         isSoundEnabled = !isSoundEnabled;
         soundToggleBtn.classList.toggle('active', isSoundEnabled);
-        soundToggleBtn.title = isSoundEnabled ? 'Animal Sounds: Enabled' : 'Animal Sounds: Muted';
-        showToast(isSoundEnabled ? '🐾 Animal Sounds: ON 🔊' : '🐾 Animal Sounds: Muted 🔇');
+        soundToggleBtn.title = isSoundEnabled ? 'Key Sound: Enabled' : 'Key Sound: Muted';
+        showToast(isSoundEnabled ? 'Key Sound Enabled 🔊' : 'Key Sound Muted 🔇');
       });
     }
 

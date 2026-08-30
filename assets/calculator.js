@@ -59,10 +59,16 @@
   }
 
   /**
-   * Synthesizes short, crisp key click sound using Web Audio API
+   * Synthesizes audio feedback, delegating to animal sounds engine if present
    */
   function playKeySound(type) {
     if (!isSoundEnabled) return;
+
+    if (typeof window.playAnimalSound === 'function') {
+      window.playAnimalSound(type);
+      return;
+    }
+
     try {
       if (!audioCtx) {
         audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -78,14 +84,14 @@
       gain.connect(audioCtx.destination);
 
       const now = audioCtx.currentTime;
-      if (type === 'equals') {
+      if (type === '=' || type === 'equals') {
         osc.frequency.setValueAtTime(580, now);
         osc.frequency.exponentialRampToValueAtTime(880, now + 0.08);
         gain.gain.setValueAtTime(0.12, now);
         gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
         osc.start(now);
         osc.stop(now + 0.08);
-      } else if (type === 'clear') {
+      } else if (type === 'C' || type === 'clear') {
         osc.frequency.setValueAtTime(320, now);
         osc.frequency.exponentialRampToValueAtTime(220, now + 0.06);
         gain.gain.setValueAtTime(0.1, now);
@@ -100,9 +106,7 @@
         osc.start(now);
         osc.stop(now + 0.03);
       }
-    } catch (e) {
-      // Audio context might be restricted before user gesture
-    }
+    } catch (e) {}
   }
 
   /**
@@ -148,7 +152,7 @@
    * Appends token / number / operator
    */
   function appendToken(token) {
-    playKeySound('num');
+    playKeySound(token);
 
     // If starting fresh after equals and typing a number, reset expression
     if (lastResult !== null && /^[0-9.]$/.test(token)) {
@@ -605,8 +609,8 @@
       soundToggleBtn.addEventListener('click', () => {
         isSoundEnabled = !isSoundEnabled;
         soundToggleBtn.classList.toggle('active', isSoundEnabled);
-        soundToggleBtn.title = isSoundEnabled ? 'Key Sound: Enabled' : 'Key Sound: Muted';
-        showToast(isSoundEnabled ? 'Key Sound Enabled 🔊' : 'Key Sound Muted 🔇');
+        soundToggleBtn.title = isSoundEnabled ? 'Animal Sounds: Enabled' : 'Animal Sounds: Muted';
+        showToast(isSoundEnabled ? '🐾 Animal Sounds: ON 🔊' : '🐾 Animal Sounds: Muted 🔇');
       });
     }
 

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 240" fill="none">
+  <defs>
+    <!-- Brand Cyan-Emerald Gradient -->
+    <linearGradient id="logoBrandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="50%" stop-color="#00D2D3"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="70%" stop-color="#F1F5F9"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="logoGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Left Precision Calculation Emblem -->
+  <g transform="translate(20, 20) scale(0.39)" filter="url(#logoGlow)">
+    <!-- Crosshairs -->
+    <line x1="256" y1="50" x2="256" y2="462" stroke="url(#logoBrandGrad)" stroke-width="14" stroke-linecap="round"/>
+    <line x1="50" y1="256" x2="462" y2="256" stroke="url(#logoBrandGrad)" stroke-width="14" stroke-linecap="round"/>
+
+    <!-- Concentric Arcs -->
+    <path d="M 380 160 A 160 160 0 1 0 380 352" fill="none" stroke="url(#logoBrandGrad)" stroke-width="22" stroke-linecap="round"/>
+    <path d="M 345 190 A 120 120 0 1 0 345 322" fill="none" stroke="url(#logoBrandGrad)" stroke-width="14" stroke-linecap="round"/>
+    <path d="M 310 220 A 80 80 0 1 0 310 292" fill="none" stroke="url(#logoBrandGrad)" stroke-width="8" stroke-linecap="round" opacity="0.7"/>
+
+    <!-- Dynamic Trendline -->
+    <polyline points="110,360 180,300 230,325 310,225 350,245 420,135" 
+              fill="none" stroke="#00E5FF" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+    <polygon points="420,135 380,145 405,170" fill="#00E5FF"/>
+
+    <!-- Nodes -->
+    <circle cx="110" cy="360" r="16" fill="#10B981"/>
+    <circle cx="180" cy="300" r="14" fill="#00D2D3"/>
+    <circle cx="230" cy="325" r="14" fill="#00D2D3"/>
+    <circle cx="310" cy="225" r="14" fill="#06B6D4"/>
+    <circle cx="350" cy="245" r="14" fill="#06B6D4"/>
+    <circle cx="420" cy="135" r="18" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Typography: COMMERONIX & Subtitle -->
+  <text x="245" y="132" font-family="'Plus Jakarta Sans', 'Outfit', sans-serif" font-size="76" font-weight="800" letter-spacing="1.5" fill="url(#titleGrad)">
+    COMMERO<tspan fill="url(#logoBrandGrad)">NIX</tspan>
+  </text>
+  <text x="248" y="176" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-size="19" font-weight="700" letter-spacing="6" fill="#94A3B8">
+    PRECISION CALCULATION SUITE
+  </text>
+</svg>

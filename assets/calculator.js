@@ -59,7 +59,7 @@
   }
 
   /**
-   * Synthesizes short, crisp key click sound using Web Audio API
+   * Synthesizes rich, audible, tactile mechanical key click sound using Web Audio API
    */
   function playKeySound(type) {
     if (!isSoundEnabled) return;
@@ -79,26 +79,32 @@
 
       const now = audioCtx.currentTime;
       if (type === '=' || type === 'equals') {
-        osc.frequency.setValueAtTime(580, now);
-        osc.frequency.exponentialRampToValueAtTime(880, now + 0.08);
-        gain.gain.setValueAtTime(0.12, now);
+        // High-energy celebratory chime
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(520, now);
+        osc.frequency.exponentialRampToValueAtTime(1040, now + 0.12);
+        gain.gain.setValueAtTime(0.35, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+        osc.start(now);
+        osc.stop(now + 0.12);
+      } else if (type === 'C' || type === 'clear' || type === 'DEL') {
+        // Distinct low punchy reset tap
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(380, now);
+        osc.frequency.exponentialRampToValueAtTime(160, now + 0.08);
+        gain.gain.setValueAtTime(0.30, now);
         gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
         osc.start(now);
         osc.stop(now + 0.08);
-      } else if (type === 'C' || type === 'clear') {
-        osc.frequency.setValueAtTime(320, now);
-        osc.frequency.exponentialRampToValueAtTime(220, now + 0.06);
-        gain.gain.setValueAtTime(0.1, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
-        osc.start(now);
-        osc.stop(now + 0.06);
       } else {
-        // Subtle crisp tick
-        osc.frequency.setValueAtTime(800, now);
-        gain.gain.setValueAtTime(0.04, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.03);
+        // Boosted, crisp, satisfying tactile mechanical switch click
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(1200, now);
+        osc.frequency.exponentialRampToValueAtTime(450, now + 0.05);
+        gain.gain.setValueAtTime(0.28, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
         osc.start(now);
-        osc.stop(now + 0.03);
+        osc.stop(now + 0.05);
       }
     } catch (e) {
       // Audio context might be restricted before user gesture

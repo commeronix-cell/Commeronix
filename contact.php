@@ -35,11 +35,11 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 // Target Email
-$to = 'support@commeronix.com';
+$to = 'commeronix@gmail.com';
 $emailSubject = "New Contact Message: [{$subjectType}] from {$name}";
 
 // Email Body
-$emailBody = "You have received a new contact message from your website (Commeronix):\n\n";
+$emailBody = "You have received a new contact message from Commeronix:\n\n";
 $emailBody .= "--------------------------------------------------\n";
 $emailBody .= "Sender Name:    {$name}\n";
 $emailBody .= "Sender Email:   {$email}\n";
@@ -50,7 +50,7 @@ $emailBody .= "Message:\n{$message}\n\n";
 $emailBody .= "--------------------------------------------------\n";
 
 // Headers
-$headers = "From: Commeronix Web Contact <no-reply@commeronix.com>\r\n";
+$headers = "From: Commeronix Contact <no-reply@commeronix.com>\r\n";
 $headers .= "Reply-To: {$name} <{$email}>\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 
@@ -60,7 +60,7 @@ $mailSent = @mail($to, $emailSubject, $emailBody, $headers);
 if ($mailSent) {
     echo json_encode([
         'status' => 'success',
-        'message' => 'Thank you! Your message has been delivered to support@commeronix.com.'
+        'message' => 'Thank you! Your message has been sent to commeronix@gmail.com.'
     ]);
 } else {
     // If mail() fails on local or restricted host, return graceful success so user experience is not broken

@@ -374,7 +374,7 @@
 
             // Fallback attempt if contact.php isn't handled by local static server
             if (!response || !response.ok) {
-              response = await fetch('https://formsubmit.co/ajax/support@commeronix.com', {
+              response = await fetch('https://formsubmit.co/ajax/commeronix@gmail.com', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                 body: JSON.stringify(payload)
@@ -390,7 +390,7 @@
               </svg>
               <div>
                 <strong>Message Sent Successfully!</strong><br>
-                Thank you, <strong>${name}</strong>. Your message has been delivered to <strong>support@commeronix.com</strong>. We will reply to <em>${email}</em> promptly.
+                Thank you, <strong>${name}</strong>. Your inquiry has been sent to our team. We will reply to <em>${email}</em> promptly.
               </div>
             `;
             alertBox.style.display = 'flex';
@@ -398,7 +398,7 @@
           } catch (err) {
             alertBox.className = 'alert alert-danger';
             alertBox.innerHTML = `
-              <div>Unable to send message automatically. Please email us directly at <a href="mailto:support@commeronix.com" style="color: var(--accent-primary); text-decoration: underline;">support@commeronix.com</a>.</div>
+              <div>Unable to send message automatically. Please email us directly at <a href="mailto:commeronix@gmail.com" style="color: var(--accent-primary); text-decoration: underline;">commeronix@gmail.com</a>.</div>
             `;
             alertBox.style.display = 'flex';
           } finally {

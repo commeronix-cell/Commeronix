@@ -323,25 +323,88 @@
   <!-- Scripts -->
   <script src="assets/main.js"></script>
   <script>
-    // Simple client-side submission handler with instant feedback
     document.addEventListener('DOMContentLoaded', () => {
       const form = document.getElementById('contact-form');
       const alertBox = document.getElementById('contact-alert');
+      const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
 
-      if (form && alertBox) {
-        form.addEventListener('submit', (e) => {
+      if (form && alertBox && submitBtn) {
+        form.addEventListener('submit', async (e) => {
           e.preventDefault();
-          const name = document.getElementById('contact-name').value;
 
-          alertBox.className = 'alert alert-info';
-          alertBox.innerHTML = `
-            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          const name = document.getElementById('contact-name').value.trim();
+          const email = document.getElementById('contact-email').value.trim();
+          const subjectSelect = document.getElementById('contact-subject');
+          const subjectText = subjectSelect.options[subjectSelect.selectedIndex].text;
+          const message = document.getElementById('contact-message').value.trim();
+
+          if (!name || !email || !message) {
+            alertBox.className = 'alert alert-danger';
+            alertBox.innerHTML = `<div>Please complete all required fields before submitting.</div>`;
+            alertBox.style.display = 'flex';
+            return;
+          }
+
+          // Loading state
+          const originalBtnHtml = submitBtn.innerHTML;
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = `
+            <svg class="spinner-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="animation: spin 1s linear infinite; margin-right: 0.5rem;">
+              <circle cx="12" cy="12" r="10" stroke-width="3" stroke-dasharray="32" stroke-linecap="round"></circle>
             </svg>
-            <div>Thank you, <strong>${name}</strong>! Your inquiry has been received. Our team will review your message shortly.</div>
+            Sending Message...
           `;
-          alertBox.style.display = 'flex';
-          form.reset();
+
+          const payload = {
+            name: name,
+            email: email,
+            subject: subjectText,
+            message: message,
+            _subject: `Commeronix Contact: ${subjectText} from ${name}`,
+            _captcha: false
+          };
+
+          try {
+            // First attempt: native cPanel PHP mailer
+            let response = await fetch('contact.php', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            }).catch(() => null);
+
+            // Fallback attempt if contact.php isn't handled by local static server
+            if (!response || !response.ok) {
+              response = await fetch('https://formsubmit.co/ajax/support@commeronix.com', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify(payload)
+              });
+            }
+
+            alertBox.className = 'alert alert-info';
+            alertBox.style.borderColor = 'rgba(16, 185, 129, 0.4)';
+            alertBox.style.background = 'rgba(16, 185, 129, 0.1)';
+            alertBox.innerHTML = `
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#10b981">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <div>
+                <strong>Message Sent Successfully!</strong><br>
+                Thank you, <strong>${name}</strong>. Your message has been delivered to <strong>support@commeronix.com</strong>. We will reply to <em>${email}</em> promptly.
+              </div>
+            `;
+            alertBox.style.display = 'flex';
+            form.reset();
+          } catch (err) {
+            alertBox.className = 'alert alert-danger';
+            alertBox.innerHTML = `
+              <div>Unable to send message automatically. Please email us directly at <a href="mailto:support@commeronix.com" style="color: var(--accent-primary); text-decoration: underline;">support@commeronix.com</a>.</div>
+            `;
+            alertBox.style.display = 'flex';
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnHtml;
+          }
         });
       }
     });

@@ -125,7 +125,7 @@
   </script>
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2.2.0">
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -238,10 +238,10 @@
         <div class="converter-row">
           <div class="form-group" style="margin-bottom: 0;">
             <label for="currency-from" class="form-label">From Currency</label>
-            <select id="currency-from" class="form-select num-mono">
+            <select id="currency-from" class="form-select num-mono" onchange="if(window.syncCurrencyPrefix) window.syncCurrencyPrefix();" oninput="if(window.syncCurrencyPrefix) window.syncCurrencyPrefix();">
               <!-- Dynamically populated via assets/currency.js -->
-              <option value="USD" selected>USD - United States Dollar</option>
-              <option value="EUR">EUR - Euro</option>
+              <option value="USD" data-symbol="$" selected>USD - United States Dollar</option>
+              <option value="EUR" data-symbol="€">EUR - Euro</option>
             </select>
           </div>
 
@@ -294,6 +294,76 @@
           <div id="currency-result-date" class="rate-timestamp">Market Rate Date: 2026-08-28 (Mid-market reference rate)</div>
         </div>
       </div>
+
+      <!-- Failsafe Currency Prefix Synchronizer (Guaranteed execution immune to browser cache) -->
+      <script>
+        (function() {
+          const CURRENCY_SYMBOLS = {
+            USD: '$', PKR: 'Rs', EUR: '€', GBP: '£', AED: 'AED', SAR: 'SAR', INR: '₹',
+            CAD: 'CA$', AUD: 'AU$', JPY: '¥', CNY: '¥', KWD: 'KD', QAR: 'QR', OMR: 'OMR',
+            BHD: 'BD', BDT: '৳', CHF: 'CHF', SGD: 'SG$', NZD: 'NZ$', MYR: 'RM', THB: '฿',
+            TRY: '₺', BRL: 'R$', MXN: 'MX$', HKD: 'HK$', KRW: '₩', ZAR: 'R', SEK: 'kr',
+            NOK: 'kr', PLN: 'zł', DKK: 'kr', CZK: 'Kč', HUF: 'Ft', ILS: '₪', PHP: '₱',
+            IDR: 'Rp', RON: 'lei', BGN: 'лв', ISK: 'kr'
+          };
+
+          function syncPrefix() {
+            const fromSel = document.getElementById('currency-from');
+            const prefixSpan = document.getElementById('currency-amount-prefix') || document.querySelector('.input-wrapper .input-icon-prefix');
+            const amountInput = document.getElementById('currency-amount');
+            if (!fromSel || !prefixSpan) return;
+
+            const val = fromSel.value;
+            const opt = fromSel.options ? fromSel.options[fromSel.selectedIndex] : null;
+            let symbol = (opt && opt.getAttribute('data-symbol')) ? opt.getAttribute('data-symbol') : (CURRENCY_SYMBOLS[val] || val);
+
+            prefixSpan.textContent = symbol || '$';
+
+            if (amountInput) {
+              const prefixWidth = prefixSpan.offsetWidth || ((symbol ? symbol.length : 1) * 9);
+              amountInput.style.paddingLeft = Math.max(44, 16 + prefixWidth + 10) + 'px';
+            }
+          }
+
+          window.syncCurrencyPrefix = syncPrefix;
+
+          // Event listeners: immediate, DOMReady, change, input, and clicks on swap/chips
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', syncPrefix);
+          } else {
+            syncPrefix();
+          }
+          window.addEventListener('load', syncPrefix);
+
+          document.addEventListener('change', function(e) {
+            if (e.target && (e.target.id === 'currency-from' || e.target.closest('#currency-from'))) {
+              syncPrefix();
+            }
+          });
+
+          document.addEventListener('input', function(e) {
+            if (e.target && (e.target.id === 'currency-from' || e.target.closest('#currency-from'))) {
+              syncPrefix();
+            }
+          });
+
+          document.addEventListener('click', function(e) {
+            if (e.target && (e.target.closest('#currency-swap-btn') || e.target.closest('.chip-btn'))) {
+              setTimeout(syncPrefix, 20);
+              setTimeout(syncPrefix, 100);
+              setTimeout(syncPrefix, 300);
+            }
+          });
+
+          // Periodic check during initial rendering to sync with any async data
+          let count = 0;
+          const poll = setInterval(function() {
+            syncPrefix();
+            count++;
+            if (count > 20) clearInterval(poll);
+          }, 150);
+        })();
+      </script>
 
       
 
@@ -420,7 +490,7 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="assets/main.js"></script>
-  <script src="assets/currency.js"></script>
+  <script src="assets/main.js?v=2.2.0"></script>
+  <script src="assets/currency.js?v=2.2.0"></script>
 </body>
 </html>

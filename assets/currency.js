@@ -459,12 +459,22 @@
       updateAmountPrefix();
       performConversion();
     });
+    fromSelect.addEventListener('input', () => {
+      updateAmountPrefix();
+      performConversion();
+    });
     toSelect.addEventListener('change', performConversion);
+
+    window.syncCurrencyPrefix = updateAmountPrefix;
 
     // Initial Currency prefix sync & initial conversion ($1,000 USD to PKR)
     updateAmountPrefix();
     performConversion();
   }
 
-  document.addEventListener('DOMContentLoaded', initCurrencyConverter);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCurrencyConverter);
+  } else {
+    initCurrencyConverter();
+  }
 })();

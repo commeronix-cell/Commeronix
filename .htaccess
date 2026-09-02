@@ -1,22 +1,38 @@
 # ==============================================================================
-# COMMERONIX - CLEAN PRETTY URLS REWRITE RULES (.htaccess for Apache / cPanel)
+# COMMERONIX - APACHE & LITESPEED CONFIGURATION
+# Enforces HTTPS, Non-WWW Canonicalization, Clean URLs, and Security Headers
 # ==============================================================================
 
 Options -MultiViews
 RewriteEngine On
 
-# Force remove .html from URL bar if accessed directly (clean 301 redirect)
+# 1. Force HTTPS (301 Permanent Redirect from HTTP to HTTPS)
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# 2. Force Canonical Non-WWW (redirect www.commeronix.com -> commeronix.com)
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ https://%1%{REQUEST_URI} [R=301,L]
+
+# 3. Clean up legacy WordPress/cPanel query parameters (e.g. /?p=1 -> /)
+RewriteCond %{QUERY_STRING} ^p=[0-9]+$ [NC]
+RewriteRule ^$ /? [R=301,L]
+
+# 4. Force remove .html from URL bar if accessed directly (clean 301 redirect)
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.html [NC]
 RewriteRule ^ %1 [R=301,L]
 
-# Internally map clean URL to .html file
+# 5. Internally map clean URL to .html file
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.+)$ $1.html [L,QSA]
 
-# Security & No-Cache Headers for Instant HTML Updates
+# 6. Security Headers & HSTS (Required for Google HTTPS Evaluation & AdSense)
 <IfModule mod_headers.c>
+  # HTTP Strict Transport Security (HSTS)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
   Header set X-Content-Type-Options "nosniff"
   Header set X-Frame-Options "SAMEORIGIN"
   Header set X-XSS-Protection "1; mode=block"

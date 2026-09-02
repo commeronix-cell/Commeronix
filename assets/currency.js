@@ -102,7 +102,7 @@
   };
 
   // DOM Element References
-  let amountInput, fromSelect, toSelect, swapBtn, convertBtn, resultBox, alertBox;
+  let amountInput, amountPrefixElem, fromSelect, toSelect, swapBtn, convertBtn, resultBox, alertBox;
   let resultAmountElem, resultRateElem, resultInverseElem, resultDateElem;
 
   /**
@@ -120,15 +120,44 @@
       const optFrom = document.createElement('option');
       optFrom.value = currency.code;
       optFrom.textContent = optionText;
+      optFrom.setAttribute('data-symbol', currency.symbol);
       if (currency.code === 'USD') optFrom.selected = true;
       fromSelect.appendChild(optFrom);
 
       const optTo = document.createElement('option');
       optTo.value = currency.code;
       optTo.textContent = optionText;
+      optTo.setAttribute('data-symbol', currency.symbol);
       if (currency.code === 'PKR') optTo.selected = true; // Default To: PKR
       toSelect.appendChild(optTo);
     });
+  }
+
+  /**
+   * Updates the currency symbol prefix in the amount input to match 'From Currency'
+   */
+  function updateAmountPrefix() {
+    if (!amountPrefixElem || !fromSelect) return;
+
+    const fromCurr = fromSelect.value;
+    const selectedOption = fromSelect.options[fromSelect.selectedIndex];
+    let symbol = '$';
+
+    if (selectedOption && selectedOption.getAttribute('data-symbol')) {
+      symbol = selectedOption.getAttribute('data-symbol');
+    } else {
+      const fromCurrencyObj = CURRENCIES.find((c) => c.code === fromCurr);
+      symbol = fromCurrencyObj && fromCurrencyObj.symbol ? fromCurrencyObj.symbol : fromCurr;
+    }
+
+    amountPrefixElem.textContent = symbol;
+
+    // Dynamically adjust padding-left of amountInput so wider symbols (e.g. AED, SAR, OMR, CA$, KD) never collide with input text
+    if (amountInput) {
+      const prefixWidth = amountPrefixElem.offsetWidth || (symbol.length * 9);
+      const dynamicPadding = Math.max(44, 16 + prefixWidth + 10);
+      amountInput.style.paddingLeft = `${dynamicPadding}px`;
+    }
   }
 
   /**
@@ -187,6 +216,7 @@
    */
   async function performConversion() {
     clearAlert();
+    updateAmountPrefix();
 
     const rawAmount = amountInput.value.trim();
     const amount = parseFloat(rawAmount);
@@ -369,6 +399,7 @@
       }, 500);
     }
 
+    updateAmountPrefix();
     performConversion();
   }
 
@@ -385,6 +416,7 @@
         if (from && fromSelect) fromSelect.value = from;
         if (to && toSelect) toSelect.value = to;
 
+        updateAmountPrefix();
         performConversion();
       });
     });
@@ -395,6 +427,7 @@
    */
   function initCurrencyConverter() {
     amountInput = document.getElementById('currency-amount');
+    amountPrefixElem = document.getElementById('currency-amount-prefix') || document.querySelector('.input-wrapper .input-icon-prefix');
     fromSelect = document.getElementById('currency-from');
     toSelect = document.getElementById('currency-to');
     swapBtn = document.getElementById('currency-swap-btn');
@@ -422,10 +455,14 @@
       }
     });
 
-    fromSelect.addEventListener('change', performConversion);
+    fromSelect.addEventListener('change', () => {
+      updateAmountPrefix();
+      performConversion();
+    });
     toSelect.addEventListener('change', performConversion);
 
-    // Initial Conversion trigger ($1,000 USD to PKR)
+    // Initial Currency prefix sync & initial conversion ($1,000 USD to PKR)
+    updateAmountPrefix();
     performConversion();
   }
 

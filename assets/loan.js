@@ -81,6 +81,11 @@
 
     if (currencyPrefix) {
       currencyPrefix.textContent = currentCurrencySymbol;
+      if (amountInput) {
+        const prefixWidth = currencyPrefix.offsetWidth || (currentCurrencySymbol.length * 9);
+        const dynamicPadding = Math.max(44, 16 + prefixWidth + 10);
+        amountInput.style.paddingLeft = `${dynamicPadding}px`;
+      }
     }
 
     // Adapt slider scale for high-value currencies like PKR, INR, JPY

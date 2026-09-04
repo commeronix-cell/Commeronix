@@ -496,8 +496,46 @@
     initSpotlightHover();
     initTiltCards();
     initGlobalCursorGlow();
+    initLinkPrefetching();
 
     // Auto-refresh live market rates every 60 seconds
     setInterval(initLiveTicker, 60000);
   });
+
+  /**
+   * Ultra-Fast Instant Page Preloader
+   * Automatically prefetches destination pages on mouse hover or touch start for zero-latency page transitions
+   */
+  function initLinkPrefetching() {
+    const prefetchedUrls = new Set();
+
+    function prefetch(url) {
+      if (!url || prefetchedUrls.has(url)) return;
+      prefetchedUrls.add(url);
+
+      const link = document.createElement('link');
+      link.rel = 'prefetch';
+      link.href = url;
+      link.as = 'document';
+      document.head.appendChild(link);
+    }
+
+    document.addEventListener('mouseover', (e) => {
+      const a = e.target.closest('a');
+      if (!a) return;
+      const href = a.getAttribute('href');
+      if (href && (href.startsWith('/') || href.startsWith('https://commeronix.com')) && !href.startsWith('//') && !href.includes('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
+        prefetch(href);
+      }
+    }, { passive: true });
+
+    document.addEventListener('touchstart', (e) => {
+      const a = e.target.closest('a');
+      if (!a) return;
+      const href = a.getAttribute('href');
+      if (href && (href.startsWith('/') || href.startsWith('https://commeronix.com')) && !href.startsWith('//') && !href.includes('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
+        prefetch(href);
+      }
+    }, { passive: true });
+  }
 })();

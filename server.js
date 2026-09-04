@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 const BASE_DIR = __dirname;
 
 const MIME_TYPES = {
@@ -24,18 +24,12 @@ const server = http.createServer((req, res) => {
 
   // Normalize URL path
   let reqPath = req.url.split('?')[0];
-  if (reqPath === '/' || reqPath === '' || reqPath === '/index' || reqPath === '/index.html') {
+  if (reqPath === '/' || reqPath === '') {
     reqPath = '/index.html';
   }
 
   // Prevent directory traversal
-  let safePath = path.normalize(reqPath).replace(/^(\.\.[\/\\])+/, '');
-  
-  // If request has trailing slash (e.g. /calculator/), trim it for file lookup
-  if (safePath.length > 1 && (safePath.endsWith('/') || safePath.endsWith('\\'))) {
-    safePath = safePath.slice(0, -1);
-  }
-
+  const safePath = path.normalize(reqPath).replace(/^(\.\.[\/\\])+/, '');
   let filePath = path.join(BASE_DIR, safePath);
 
   // Clean URLs Support: If file doesn't exist directly, check with .html extension

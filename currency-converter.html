@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
@@ -29,8 +29,8 @@
   <meta name="theme-color" content="#090d16">
   <meta name="google-site-verification" content="nWVoTOSROiJ0beAcexwRnMIcGbdqhJ6YzNMDQurT2CM">
   <link rel="canonical" href="https://commeronix.com/currency-converter">
-  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="manifest" href="manifest.json">
 
   <!-- Open Graph -->
   <meta property="og:locale" content="en_US">
@@ -87,7 +87,7 @@
             "name": "Where does Commeronix get live exchange rates?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Commeronix fetches daily mid-market foreign exchange benchmark data published by the European Central Bank (ECB) via the open Frankfurter API."
+              "text": "Exchange rates are sourced from official benchmark reference feeds including European Central Bank (ECB) data and global interbank mid-market feeds via high-availability edge networks."
             }
           },
           {
@@ -125,7 +125,7 @@
   </script>
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="/style.css?v=2.2.0">
+  <link rel="stylesheet" href="style.css?v=2.2.0">
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -156,19 +156,19 @@
     <div class="container">
       <nav class="navbar" aria-label="Main Navigation">
         <a href="/" class="brand-logo" title="Commeronix Home">
-          <img src="/assets/favicon.svg" alt="Commeronix Logo" width="38" height="38" class="logo-icon-svg">
+          <img src="assets/favicon.svg" alt="Commeronix Logo" width="38" height="38" class="logo-icon-svg">
           <span>Commero<span class="brand-accent">nix</span></span>
         </a>
 
         <div style="display: flex; align-items: center; gap: 0.5rem;">
           <ul class="nav-links">
             <li><a href="/" class="nav-link">Home</a></li>
-            <li><a href="/calculator" class="nav-link">Calculator</a></li>
-            <li><a href="/currency-converter" class="nav-link active">Currency Converter</a></li>
-            <li><a href="/unit-converter" class="nav-link">Unit Converter</a></li>
-            <li><a href="/loan-calculator" class="nav-link">Loan Calculator</a></li>
-            <li><a href="/about" class="nav-link">About</a></li>
-            <li><a href="/contact" class="nav-link">Contact</a></li>
+            <li><a href="calculator" class="nav-link">Calculator</a></li>
+            <li><a href="currency-converter" class="nav-link active">Currency Converter</a></li>
+            <li><a href="unit-converter" class="nav-link">Unit Converter</a></li>
+            <li><a href="loan-calculator" class="nav-link">Loan Calculator</a></li>
+            <li><a href="about" class="nav-link">About</a></li>
+            <li><a href="contact" class="nav-link">Contact</a></li>
           </ul>
 
           <!-- Dark / Light Theme Toggle Button -->
@@ -194,14 +194,14 @@
   <!-- Mobile Drawer -->
   <div class="mobile-drawer" aria-label="Mobile Navigation Menu">
     <a href="/" class="nav-link">Home</a>
-    <a href="/calculator" class="nav-link">Live Calculator</a>
-    <a href="/currency-converter" class="nav-link active">Currency Converter</a>
-    <a href="/unit-converter" class="nav-link">Unit Converter</a>
-    <a href="/loan-calculator" class="nav-link">Loan & EMI Calculator</a>
-    <a href="/about" class="nav-link">About Us</a>
-    <a href="/contact" class="nav-link">Contact Us</a>
-    <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
-    <a href="/terms" class="nav-link">Terms of Service</a>
+    <a href="calculator" class="nav-link">Live Calculator</a>
+    <a href="currency-converter" class="nav-link active">Currency Converter</a>
+    <a href="unit-converter" class="nav-link">Unit Converter</a>
+    <a href="loan-calculator" class="nav-link">Loan & EMI Calculator</a>
+    <a href="about" class="nav-link">About Us</a>
+    <a href="contact" class="nav-link">Contact Us</a>
+    <a href="privacy-policy" class="nav-link">Privacy Policy</a>
+    <a href="terms" class="nav-link">Terms of Service</a>
   </div>
 
   <main class="main-content">
@@ -255,8 +255,9 @@
             <label for="currency-to" class="form-label">To Currency</label>
             <select id="currency-to" class="form-select num-mono">
               <!-- Dynamically populated via assets/currency.js -->
-              <option value="EUR" selected>EUR - Euro</option>
-              <option value="USD">USD - United States Dollar</option>
+              <option value="PKR" data-symbol="Rs" selected>PKR - Pakistani Rupee</option>
+              <option value="USD" data-symbol="$">USD - United States Dollar</option>
+              <option value="EUR" data-symbol="€">EUR - Euro</option>
             </select>
           </div>
         </div>
@@ -264,7 +265,7 @@
         <!-- Popular Currency Quick Chips -->
         <div class="chips-row">
           <span class="chip-label">Quick Pairs:</span>
-          <button type="button" class="chip-btn" data-from="USD" data-to="PKR">USD → PKR</button>
+          <button type="button" class="chip-btn active" data-from="USD" data-to="PKR">USD → PKR</button>
           <button type="button" class="chip-btn" data-from="AED" data-to="PKR">AED → PKR</button>
           <button type="button" class="chip-btn" data-from="SAR" data-to="PKR">SAR → PKR</button>
           <button type="button" class="chip-btn" data-from="GBP" data-to="PKR">GBP → PKR</button>
@@ -286,86 +287,14 @@
         <!-- Conversion Result Output Box -->
         <div id="currency-result-box" class="result-box">
           <div class="result-caption">Converted Total Value</div>
-          <div id="currency-result-amount" class="result-main">€ 924.50 EUR</div>
+          <div id="currency-result-amount" class="result-main"><span class="currency-symbol">Rs</span> 277,360.00 <span style="font-size: 1.25rem; font-weight: 500; color: var(--text-muted);">PKR</span></div>
           <div class="result-rate-detail">
-            <div class="result-rate-item"><span id="currency-result-rate">1 USD = 0.9245 EUR</span></div>
-            <div class="result-rate-item"><span id="currency-result-inverse">1 EUR = 1.0817 USD</span></div>
+            <div class="result-rate-item"><span id="currency-result-rate">1 USD = 277.36 PKR</span></div>
+            <div class="result-rate-item"><span id="currency-result-inverse">1 PKR = 0.0036 USD</span></div>
           </div>
-          <div id="currency-result-date" class="rate-timestamp">Market Rate Date: 2026-08-28 (Mid-market reference rate)</div>
+          <div id="currency-result-date" class="rate-timestamp">Market Rate Date: Real-Time Mid-Market Reference Rate</div>
         </div>
       </div>
-
-      <!-- Failsafe Currency Prefix Synchronizer (Guaranteed execution immune to browser cache) -->
-      <script>
-        (function() {
-          const CURRENCY_SYMBOLS = {
-            USD: '$', PKR: 'Rs', EUR: '€', GBP: '£', AED: 'AED', SAR: 'SAR', INR: '₹',
-            CAD: 'CA$', AUD: 'AU$', JPY: '¥', CNY: '¥', KWD: 'KD', QAR: 'QR', OMR: 'OMR',
-            BHD: 'BD', BDT: '৳', CHF: 'CHF', SGD: 'SG$', NZD: 'NZ$', MYR: 'RM', THB: '฿',
-            TRY: '₺', BRL: 'R$', MXN: 'MX$', HKD: 'HK$', KRW: '₩', ZAR: 'R', SEK: 'kr',
-            NOK: 'kr', PLN: 'zł', DKK: 'kr', CZK: 'Kč', HUF: 'Ft', ILS: '₪', PHP: '₱',
-            IDR: 'Rp', RON: 'lei', BGN: 'лв', ISK: 'kr'
-          };
-
-          function syncPrefix() {
-            const fromSel = document.getElementById('currency-from');
-            const prefixSpan = document.getElementById('currency-amount-prefix') || document.querySelector('.input-wrapper .input-icon-prefix');
-            const amountInput = document.getElementById('currency-amount');
-            if (!fromSel || !prefixSpan) return;
-
-            const val = fromSel.value;
-            const opt = fromSel.options ? fromSel.options[fromSel.selectedIndex] : null;
-            let symbol = (opt && opt.getAttribute('data-symbol')) ? opt.getAttribute('data-symbol') : (CURRENCY_SYMBOLS[val] || val);
-
-            prefixSpan.textContent = symbol || '$';
-
-            if (amountInput) {
-              const prefixWidth = prefixSpan.offsetWidth || ((symbol ? symbol.length : 1) * 9);
-              amountInput.style.paddingLeft = Math.max(44, 16 + prefixWidth + 10) + 'px';
-            }
-          }
-
-          window.syncCurrencyPrefix = syncPrefix;
-
-          // Event listeners: immediate, DOMReady, change, input, and clicks on swap/chips
-          if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', syncPrefix);
-          } else {
-            syncPrefix();
-          }
-          window.addEventListener('load', syncPrefix);
-
-          document.addEventListener('change', function(e) {
-            if (e.target && (e.target.id === 'currency-from' || e.target.closest('#currency-from'))) {
-              syncPrefix();
-            }
-          });
-
-          document.addEventListener('input', function(e) {
-            if (e.target && (e.target.id === 'currency-from' || e.target.closest('#currency-from'))) {
-              syncPrefix();
-            }
-          });
-
-          document.addEventListener('click', function(e) {
-            if (e.target && (e.target.closest('#currency-swap-btn') || e.target.closest('.chip-btn'))) {
-              setTimeout(syncPrefix, 20);
-              setTimeout(syncPrefix, 100);
-              setTimeout(syncPrefix, 300);
-            }
-          });
-
-          // Periodic check during initial rendering to sync with any async data
-          let count = 0;
-          const poll = setInterval(function() {
-            syncPrefix();
-            count++;
-            if (count > 20) clearInterval(poll);
-          }, 150);
-        })();
-      </script>
-
-      
 
       <!-- Rich SEO Educational Content Section (300+ Words) -->
       <section class="seo-content-section">
@@ -415,7 +344,7 @@
               </svg>
             </button>
             <div class="faq-answer">
-              Exchange rates are sourced from the official European Central Bank (ECB) daily reference price feeds through the open Frankfurter API.
+              Exchange rates are sourced from official benchmark reference feeds including European Central Bank (ECB) data and global interbank mid-market feeds via high-availability edge networks.
             </div>
           </div>
 
@@ -437,13 +366,12 @@
   </main>
 
   <!-- Footer -->
-  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="/" class="brand-logo" style="margin-bottom: 0.5rem;" title="Commeronix Home">
-            <img src="/assets/favicon.svg" alt="Commeronix Logo" width="34" height="34" class="logo-icon-svg">
+            <img src="assets/favicon.svg" alt="Commeronix Logo" width="34" height="34" class="logo-icon-svg">
             <span>Commero<span class="brand-accent">nix</span></span>
           </a>
           <p>Real-time foreign exchange and multi-currency conversion utility for global finance and travel calculations.</p>
@@ -452,20 +380,20 @@
         <div class="footer-col">
           <h4>Calculators</h4>
           <ul class="footer-links">
-            <li><a href="/calculator" class="footer-link">Live Scientific Calculator</a></li>
-            <li><a href="/currency-converter" class="footer-link">Currency Converter</a></li>
-            <li><a href="/unit-converter" class="footer-link">Unit Converter</a></li>
-            <li><a href="/loan-calculator" class="footer-link">Loan & EMI Calculator</a></li>
+            <li><a href="calculator" class="footer-link">Live Scientific Calculator</a></li>
+            <li><a href="currency-converter" class="footer-link">Currency Converter</a></li>
+            <li><a href="unit-converter" class="footer-link">Unit Converter</a></li>
+            <li><a href="loan-calculator" class="footer-link">Loan & EMI Calculator</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Company</h4>
           <ul class="footer-links">
-            <li><a href="/about" class="footer-link">About Us</a></li>
-            <li><a href="/contact" class="footer-link">Contact Support</a></li>
-            <li><a href="/privacy-policy" class="footer-link">Privacy Policy</a></li>
-            <li><a href="/terms" class="footer-link">Terms of Service</a></li>
+            <li><a href="about" class="footer-link">About Us</a></li>
+            <li><a href="contact" class="footer-link">Contact Support</a></li>
+            <li><a href="privacy-policy" class="footer-link">Privacy Policy</a></li>
+            <li><a href="terms" class="footer-link">Terms of Service</a></li>
           </ul>
         </div>
 
@@ -491,7 +419,7 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="/assets/main.js?v=2.2.0"></script>
-  <script src="/assets/currency.js?v=2.2.0"></script>
+  <script src="assets/main.js?v=2.2.0"></script>
+  <script src="assets/currency.js?v=2.2.0"></script>
 </body>
 </html>

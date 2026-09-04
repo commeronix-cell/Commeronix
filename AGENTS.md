@@ -1,9 +1,7 @@
-<!-- BEGIN:nextjs-agent-rules -->
+# Commeronix Architecture & Agent Guidelines
 
-# This is NOT the Next.js you know
-
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
-
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
-
-<!-- END:nextjs-agent-rules -->
+- **Architecture**: Zero-framework static web application built with HTML5, Vanilla CSS, and modern client-side JavaScript (ES6+).
+- **Hosting & Deployment**: Cloudflare Pages connected to GitHub repository `commeronix-coll/Commeronix` (`main` branch).
+- **URL Routing**: Clean URLs without `.html` extensions (e.g. `/calculator`, `/currency-converter`, `/unit-converter`, `/loan-calculator`, `/about`, `/contact`, `/privacy-policy`, `/terms`).
+- **Dependencies**: No external runtime frameworks (no Next.js, no React, no Tailwind). Zero-bloat client-side computing.
+- **Mathematical Integrity**: Strict adherence to NIST conversion factors, standard compound interest reducing-balance formulas, and multi-tier live forex rates.

@@ -1,6 +1,0 @@
----
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/commsaug/public_html
-    - /bin/cp -rf * $DEPLOYPATH/
-    - /bin/cp -rf .htaccess $DEPLOYPATH/

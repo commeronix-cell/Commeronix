@@ -335,14 +335,22 @@
     const today = `${new Date().toISOString().split('T')[0]} (Cached Benchmark)`;
 
     displayResults(amount, convertedTotal, singleRate, inverseRate, today, fromCurr, toCurr, true);
+  }
 
-    convertBtn.disabled = false;
-    convertBtn.innerHTML = `
-      <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-      </svg>
-      Convert Currency
-    `;
+  /**
+   * Highlights the active quick pair chip if matched
+   */
+  function highlightActiveChip(from, to) {
+    const chipBtns = document.querySelectorAll('.chip-btn');
+    chipBtns.forEach((btn) => {
+      const bFrom = btn.getAttribute('data-from');
+      const bTo = btn.getAttribute('data-to');
+      if (bFrom === from && bTo === to) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
   }
 
   /**
@@ -362,6 +370,8 @@
     resultRateElem.textContent = `1 ${from} = ${formattedRate} ${to}`;
     resultInverseElem.textContent = `1 ${to} = ${formattedInverse} ${from}`;
     resultDateElem.textContent = `Market Rate Date: ${dateStr} ${isOffline ? '(Offline Backup Mode)' : '(Live Interbank Spot Rate)'}`;
+
+    highlightActiveChip(from, to);
 
     resultBox.style.display = 'block';
 

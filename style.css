@@ -1083,6 +1083,14 @@ a:hover {
   color: var(--text-primary);
 }
 
+.chip-btn.active {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 0 12px var(--accent-primary-glow);
+}
+
 /* Result Box */
 .result-box {
   background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(6, 182, 212, 0.08));

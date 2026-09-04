@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <!-- Google tag (gtag.js) -->
@@ -29,8 +29,8 @@
   <meta name="theme-color" content="#090d16">
   <meta name="google-site-verification" content="nWVoTOSROiJ0beAcexwRnMIcGbdqhJ6YzNMDQurT2CM">
   <link rel="canonical" href="https://commeronix.com/calculator">
-  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="manifest" href="manifest.json">
 
   <!-- Open Graph / Social -->
   <meta property="og:locale" content="en_US">
@@ -67,9 +67,9 @@
       },
       {
         "@type": "WebApplication",
-        "name": "Commeronix Free Online Calculator",
+        "name": "Commeronix Online Calculator",
         "url": "https://commeronix.com/calculator",
-        "description": "Fast online math calculator supporting standard arithmetic, percentages, trigonometry, logarithms, and continuous calculation history.",
+        "description": "Versatile online standard and scientific calculator with instant live evaluation, persistent audit history, and memory registers.",
         "applicationCategory": "EducationalApplication",
         "operatingSystem": "All",
         "browserRequirements": "Requires JavaScript. Requires HTML5.",
@@ -84,26 +84,26 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Does this calculator support keyboard typing?",
+            "name": "Does this calculator follow standard PEMDAS operator precedence?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes! You can type numbers 0-9, decimal point, operators (+, -, *, /), Enter for equals, Backspace to delete, and Escape to clear directly on your keyboard."
+              "text": "Yes. Expressions are parsed with full mathematical operator precedence: Parentheses, Exponents, Multiplication/Division, followed by Addition/Subtraction."
             }
           },
           {
             "@type": "Question",
-            "name": "Does the calculator preserve my calculation history?",
+            "name": "How do the Memory buttons (M+, M-, MR, MC) work?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes, calculations are automatically stored in the history tape on your device so you can review previous calculations even after refreshing."
+              "text": "M+ adds the current display value into memory register. M- subtracts it. MR recalls the stored memory, and MC clears the register."
             }
           },
           {
             "@type": "Question",
-            "name": "Can I toggle sound effects on and off?",
+            "name": "Can I use physical keyboard keys to type numbers and operators?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes, you can enable or mute the mechanical key click audio feedback anytime via the sound toggle icon on the calculator header."
+              "text": "Yes! Full physical keyboard support is enabled: 0-9, decimal point, +, -, *, /, Enter for equals, Backspace for delete, and Escape for All Clear (AC)."
             }
           }
         ]
@@ -125,7 +125,7 @@
   </script>
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="style.css?v=2.2.0">
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -156,19 +156,19 @@
     <div class="container">
       <nav class="navbar" aria-label="Main Navigation">
         <a href="/" class="brand-logo" title="Commeronix Home">
-          <img src="/assets/favicon.svg" alt="Commeronix Logo" width="38" height="38" class="logo-icon-svg">
+          <img src="assets/favicon.svg" alt="Commeronix Logo" width="38" height="38" class="logo-icon-svg">
           <span>Commero<span class="brand-accent">nix</span></span>
         </a>
 
         <div style="display: flex; align-items: center; gap: 0.5rem;">
           <ul class="nav-links">
             <li><a href="/" class="nav-link">Home</a></li>
-            <li><a href="/calculator" class="nav-link active">Calculator</a></li>
-            <li><a href="/currency-converter" class="nav-link">Currency Converter</a></li>
-            <li><a href="/unit-converter" class="nav-link">Unit Converter</a></li>
-            <li><a href="/loan-calculator" class="nav-link">Loan Calculator</a></li>
-            <li><a href="/about" class="nav-link">About</a></li>
-            <li><a href="/contact" class="nav-link">Contact</a></li>
+            <li><a href="calculator" class="nav-link active">Calculator</a></li>
+            <li><a href="currency-converter" class="nav-link">Currency Converter</a></li>
+            <li><a href="unit-converter" class="nav-link">Unit Converter</a></li>
+            <li><a href="loan-calculator" class="nav-link">Loan Calculator</a></li>
+            <li><a href="about" class="nav-link">About</a></li>
+            <li><a href="contact" class="nav-link">Contact</a></li>
           </ul>
 
           <!-- Dark / Light Theme Toggle Button -->
@@ -194,14 +194,14 @@
   <!-- Mobile Drawer -->
   <div class="mobile-drawer" aria-label="Mobile Navigation Menu">
     <a href="/" class="nav-link">Home</a>
-    <a href="/calculator" class="nav-link active">Live Calculator</a>
-    <a href="/currency-converter" class="nav-link">Currency Converter</a>
-    <a href="/unit-converter" class="nav-link">Unit Converter</a>
-    <a href="/loan-calculator" class="nav-link">Loan & EMI Calculator</a>
-    <a href="/about" class="nav-link">About Us</a>
-    <a href="/contact" class="nav-link">Contact Us</a>
-    <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
-    <a href="/terms" class="nav-link">Terms of Service</a>
+    <a href="calculator" class="nav-link active">Live Calculator</a>
+    <a href="currency-converter" class="nav-link">Currency Converter</a>
+    <a href="unit-converter" class="nav-link">Unit Converter</a>
+    <a href="loan-calculator" class="nav-link">Loan & EMI Calculator</a>
+    <a href="about" class="nav-link">About Us</a>
+    <a href="contact" class="nav-link">Contact Us</a>
+    <a href="privacy-policy" class="nav-link">Privacy Policy</a>
+    <a href="terms" class="nav-link">Terms of Service</a>
   </div>
 
   <main class="main-content">
@@ -276,15 +276,15 @@
             <button class="calc-btn sci" data-fn="sqrt" type="button">√x</button>
             <button class="calc-btn sci" data-fn="square" type="button">x²</button>
 
-            <button class="calc-btn sci" data-fn="log" type="button">log₁₀</button>
+            <button class="calc-btn sci" data-fn="log" type="button">logâ‚â‚€</button>
             <button class="calc-btn sci" data-fn="ln" type="button">ln</button>
-            <button class="calc-btn sci" data-fn="pi" type="button">π</button>
+            <button class="calc-btn sci" data-fn="pi" type="button">Ï€</button>
             <button class="calc-btn sci" data-fn="e" type="button">e</button>
             <button class="calc-btn sci" data-fn="fact" type="button">x!</button>
 
             <button class="calc-btn sci" data-val="(" type="button">(</button>
             <button class="calc-btn sci" data-val=")" type="button">)</button>
-            <button class="calc-btn sci" data-fn="power" type="button">xʸ</button>
+            <button class="calc-btn sci" data-fn="power" type="button">xÊ¸</button>
             <button class="calc-btn sci" data-fn="reciprocal" type="button">1/x</button>
             <button class="calc-btn sci" data-val="Math.abs(" type="button">|x|</button>
           </div>
@@ -440,7 +440,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="/" class="brand-logo" style="margin-bottom: 0.5rem;" title="Commeronix Home">
-            <img src="/assets/favicon.svg" alt="Commeronix Logo" width="34" height="34" class="logo-icon-svg">
+            <img src="assets/favicon.svg" alt="Commeronix Logo" width="34" height="34" class="logo-icon-svg">
             <span>Commero<span class="brand-accent">nix</span></span>
           </a>
           <p class="footer-desc">
@@ -454,20 +454,19 @@
         <div class="footer-col">
           <h4 class="footer-heading">Free Calculation Tools</h4>
           <ul class="footer-links">
-            <li><a href="/calculator">Live Scientific Calculator</a></li>
-            <li><a href="/currency-converter">Live Currency Converter</a></li>
-            <li><a href="/unit-converter">Universal Unit Converter</a></li>
-            <li><a href="/loan-calculator">Loan &amp; EMI Calculator</a></li>
+            <li><a href="calculator">Live Scientific Calculator</a></li>
+            <li><a href="currency-converter">Live Currency Converter</a></li>
+            <li><a href="unit-converter">Universal Unit Converter</a></li>
+            <li><a href="loan-calculator">Loan &amp; EMI Calculator</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4 class="footer-heading">Company &amp; Legal</h4>
           <ul class="footer-links">
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/contact">Contact Support</a></li>
-            <li><a href="/privacy-policy">Privacy Policy &amp; Cookies</a></li>
-            <li><a href="/terms">Terms of Service</a></li>
+            <li><a href="about">About Us</a></li>
+            <li><a href="contact">Contact Support</a></li>
+            <li><a href="privacy-policy">Privacy Policy &amp; Cookies</a></li>
           </ul>
         </div>
       </div>
@@ -482,7 +481,7 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="/assets/main.js"></script>
-  <script src="/assets/calculator.js"></script>
+  <script src="assets/main.js?v=2.2.0"></script>
+  <script src="assets/calculator.js?v=2.2.0"></script>
 </body>
 </html>

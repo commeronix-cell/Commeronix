@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "test": "node scratch/test_suite.js",
-    "audit": "node scratch/site_audit.js"
+    "test": "node tests/test_suite.js",
+    "audit": "node tests/test_suite.js"
   },
   "keywords": [
     "calculator",

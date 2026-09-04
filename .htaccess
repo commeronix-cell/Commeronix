@@ -1,47 +1,38 @@
 # ==============================================================================
 # COMMERONIX - APACHE & LITESPEED CONFIGURATION
-# Enforces HTTPS, Non-WWW, Clean Permalinks, Security Headers & 404
+# Enforces HTTPS, Non-WWW Canonicalization, Clean URLs, and Security Headers
 # ==============================================================================
 
-Options -MultiViews
+Options +FollowSymLinks -MultiViews
 RewriteEngine On
 RewriteBase /
 
-# 1. Force HTTPS
+# 1. Custom 404 Error Document
+ErrorDocument 404 /404.html
+
+# 2. Force HTTPS (301 Permanent Redirect from HTTP to HTTPS)
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
-# 2. Force Canonical Non-WWW (redirect www.commeronix.com -> commeronix.com)
+# 3. Force Canonical Non-WWW (redirect www.commeronix.com -> commeronix.com)
 RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 RewriteRule ^(.*)$ https://%1%{REQUEST_URI} [R=301,L]
 
-# 3. Clean up legacy WordPress/cPanel query parameters (e.g. /?p=1 -> /)
+# 4. Clean up legacy WordPress/cPanel query parameters (e.g. /?p=1 -> /)
 RewriteCond %{QUERY_STRING} ^p=[0-9]+$ [NC]
 RewriteRule ^$ /? [R=301,L]
 
-# 4. Redirect /index.html or /index to root /
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+index(\.html)?[\s\?] [NC]
-RewriteRule ^ / [R=301,L]
-
-# 5. Force Remove .html extension (Clean 301 redirect for all other pages)
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+([^\s\?]+)\.html[\s\?] [NC]
+# 5. Force remove .html from URL bar if accessed directly (clean 301 redirect)
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L]
 
-# 6. Remove Trailing Slashes from Non-Directories (Normalize permalinks to /page)
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.+)/$ /$1 [R=301,L]
-
-# 7. Internally map clean URL to .html file (LiteSpeed & Apache compatible)
+# 6. Internally map clean URL to .html file
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME}.html -f [OR]
-RewriteCond %{DOCUMENT_ROOT}/$1.html -f
-RewriteRule ^(.+)$ $1.html [L,QSA]
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+?)/?$ $1.html [L,QSA]
 
-# 8. Custom 404 Error Page
-ErrorDocument 404 /404.html
-
-# Security & No-Cache Headers for Instant HTML Updates
+# 7. Security Headers & HSTS (Required for Google HTTPS Evaluation & AdSense)
 <IfModule mod_headers.c>
   # HTTP Strict Transport Security (HSTS)
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"

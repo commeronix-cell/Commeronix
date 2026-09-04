@@ -222,6 +222,17 @@
   }
 
   /**
+   * Automatically updates copyright year in footer
+   */
+  function initFooterYear() {
+    const yearElems = document.querySelectorAll('#current-year');
+    const year = new Date().getFullYear();
+    yearElems.forEach((el) => {
+      el.textContent = year;
+    });
+  }
+
+  /**
    * Initializes Theme Toggle (Dark & Light Mode) with LocalStorage persistence
    */
   function initTheme() {
@@ -259,13 +270,13 @@
    * Dynamically marks active navbar and drawer links based on current path
    */
   function initNavActive() {
-    const currentPath = window.location.pathname.replace(/^\//, '').replace(/\/$/, '').replace(/\.html$/, '') || 'index';
+    const currentPath = window.location.pathname.replace(/^\//, '').replace(/\.html$/, '') || 'index';
     const navLinks = document.querySelectorAll('.nav-link');
 
     navLinks.forEach((link) => {
       const href = link.getAttribute('href');
       if (!href) return;
-      const cleanHref = href.replace(/^\//, '').replace(/\/$/, '').replace(/\.html$/, '') || 'index';
+      const cleanHref = href.replace(/^\//, '').replace(/\.html$/, '') || 'index';
 
       if (cleanHref === currentPath || (currentPath === 'index' && (cleanHref === 'index' || cleanHref === ''))) {
         link.classList.add('active');

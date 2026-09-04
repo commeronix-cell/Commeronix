@@ -1,1 +1,4 @@
 # Cloudflare Pages handles clean URLs automatically without any rewrite rules.
+
+# 301 Permanent Redirect all staging requests from pages.dev to official custom domain
+https://commeronix.pages.dev/* https://commeronix.com/:splat 301

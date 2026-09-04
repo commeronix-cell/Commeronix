@@ -6,6 +6,12 @@
 (function () {
   'use strict';
 
+  // Automatic Canonical Redirect: Ensure staging pages.dev forwards immediately to commeronix.com
+  if (typeof window !== 'undefined' && window.location && window.location.hostname && window.location.hostname.endsWith('pages.dev')) {
+    window.location.replace('https://commeronix.com' + window.location.pathname + window.location.search + window.location.hash);
+    return;
+  }
+
   // --- Live Rates Ticker Configuration & Fallbacks ---
   const DEFAULT_TICKER_RATES = [
     { pair: 'USD/PKR', rate: '277.25', change: '-0.15%', up: false },

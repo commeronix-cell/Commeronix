@@ -411,32 +411,19 @@
       document.body.appendChild(glow);
     }
 
-    // Create interactive cursor ring
-    let ring = document.querySelector('.global-cursor-ring');
-    if (!ring) {
-      ring = document.createElement('div');
-      ring.className = 'global-cursor-ring';
-      document.body.appendChild(ring);
-    }
-
     let targetX = -500;
     let targetY = -500;
     let glowX = -500;
     let glowY = -500;
-    let ringX = -500;
-    let ringY = -500;
     let isVisible = false;
     let isRunning = false;
 
     function animateFollowers() {
-      // Smooth lerp (ambient glow: 0.12 factor, ring: 0.25 factor)
+      // Smooth lerp (ambient glow: 0.12 factor)
       glowX += (targetX - glowX) * 0.12;
       glowY += (targetY - glowY) * 0.12;
-      ringX += (targetX - ringX) * 0.28;
-      ringY += (targetY - ringY) * 0.28;
 
       glow.style.transform = `translate3d(${glowX}px, ${glowY}px, 0) translate(-50%, -50%)`;
-      ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
 
       if (isVisible) {
         requestAnimationFrame(animateFollowers);
@@ -455,7 +442,6 @@
       if (!isVisible) {
         isVisible = true;
         glow.style.opacity = '1';
-        ring.style.opacity = '1';
         if (!isRunning) {
           isRunning = true;
           requestAnimationFrame(animateFollowers);
@@ -466,17 +452,14 @@
     document.addEventListener('pointerleave', () => {
       isVisible = false;
       glow.style.opacity = '0';
-      ring.style.opacity = '0';
     });
 
-    // Hover detection for interactive buttons, cards, and links
+    // Subtle expansion when hovering over interactive cards or buttons
     document.addEventListener('mouseover', (e) => {
       if (e.target.closest('a, button, input, select, .card, .calc-btn, .feature-box, .category-tab')) {
-        ring.classList.add('hovering');
         glow.style.width = '620px';
         glow.style.height = '620px';
       } else {
-        ring.classList.remove('hovering');
         glow.style.width = '480px';
         glow.style.height = '480px';
       }

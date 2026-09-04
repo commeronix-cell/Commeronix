@@ -29,8 +29,8 @@
   <meta name="theme-color" content="#090d16">
   <meta name="google-site-verification" content="nWVoTOSROiJ0beAcexwRnMIcGbdqhJ6YzNMDQurT2CM">
   <link rel="canonical" href="https://commeronix.com/unit-converter">
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="manifest" href="/manifest.json">
 
   <!-- Open Graph -->
   <meta property="og:locale" content="en_US">
@@ -69,8 +69,8 @@
         "@type": "WebApplication",
         "name": "Commeronix Universal Unit Converter",
         "url": "https://commeronix.com/unit-converter",
-        "description": "Multi-category unit conversion utility for length, mass/weight, and temperature across standard metric and imperial systems.",
-        "applicationCategory": "UtilityApplication",
+        "description": "Universal scientific measurement and engineering unit conversion suite supporting metric and imperial standards for length, weight, and temperature.",
+        "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "All",
         "browserRequirements": "Requires JavaScript. Requires HTML5.",
         "offers": {
@@ -84,26 +84,26 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "How do you convert Celsius to Fahrenheit?",
+            "name": "What unit categories are supported?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "To convert Celsius to Fahrenheit, multiply the Celsius temperature by 9/5 (or 1.8) and add 32. Formula: °F = (°C × 9/5) + 32."
+              "text": "Currently supported categories are Length (Millimeters, Centimeters, Meters, Kilometers, Inches, Feet, Yards, Miles), Weight/Mass (Milligrams, Grams, Kilograms, Metric Tonnes, Ounces, Pounds, Stone), and Temperature (Celsius, Fahrenheit, Kelvin)."
             }
           },
           {
             "@type": "Question",
-            "name": "How many feet are in a meter?",
+            "name": "Are these conversion constants calibrated to official international standards?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "There are exactly 3.280839895 feet in one meter (approximately 3.281 feet)."
+              "text": "Yes. All conversion factors strictly follow NIST (National Institute of Standards and Technology) and BIPM SI definitions for absolute precision."
             }
           },
           {
             "@type": "Question",
-            "name": "How many pounds are in one kilogram?",
+            "name": "How does temperature conversion work across non-linear scales?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "One kilogram is equal to approximately 2.20462262 pounds (lbs) under the international avoirdupois standard."
+              "text": "Because Fahrenheit and Celsius share an offset scale rather than simple ratio multiples, Commeronix uses exact affine algebraic transformation formulas: (°C * 9/5) + 32 = °F."
             }
           }
         ]
@@ -125,7 +125,7 @@
   </script>
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -156,19 +156,19 @@
     <div class="container">
       <nav class="navbar" aria-label="Main Navigation">
         <a href="/" class="brand-logo" title="Commeronix Home">
-          <img src="assets/favicon.svg" alt="Commeronix Logo" width="38" height="38" class="logo-icon-svg">
+          <img src="/assets/favicon.svg" alt="Commeronix Logo" width="38" height="38" class="logo-icon-svg">
           <span>Commero<span class="brand-accent">nix</span></span>
         </a>
 
         <div style="display: flex; align-items: center; gap: 0.5rem;">
           <ul class="nav-links">
             <li><a href="/" class="nav-link">Home</a></li>
-            <li><a href="calculator" class="nav-link">Calculator</a></li>
-            <li><a href="currency-converter" class="nav-link">Currency Converter</a></li>
-            <li><a href="unit-converter" class="nav-link active">Unit Converter</a></li>
-            <li><a href="loan-calculator" class="nav-link">Loan Calculator</a></li>
-            <li><a href="about" class="nav-link">About</a></li>
-            <li><a href="contact" class="nav-link">Contact</a></li>
+            <li><a href="/calculator" class="nav-link">Calculator</a></li>
+            <li><a href="/currency-converter" class="nav-link">Currency Converter</a></li>
+            <li><a href="/unit-converter" class="nav-link active">Unit Converter</a></li>
+            <li><a href="/loan-calculator" class="nav-link">Loan Calculator</a></li>
+            <li><a href="/about" class="nav-link">About</a></li>
+            <li><a href="/contact" class="nav-link">Contact</a></li>
           </ul>
 
           <!-- Dark / Light Theme Toggle Button -->
@@ -194,14 +194,14 @@
   <!-- Mobile Drawer -->
   <div class="mobile-drawer" aria-label="Mobile Navigation Menu">
     <a href="/" class="nav-link">Home</a>
-    <a href="calculator" class="nav-link">Live Calculator</a>
-    <a href="currency-converter" class="nav-link">Currency Converter</a>
-    <a href="unit-converter" class="nav-link active">Unit Converter</a>
-    <a href="loan-calculator" class="nav-link">Loan & EMI Calculator</a>
-    <a href="about" class="nav-link">About Us</a>
-    <a href="contact" class="nav-link">Contact Us</a>
-    <a href="privacy-policy" class="nav-link">Privacy Policy</a>
-    <a href="terms" class="nav-link">Terms of Service</a>
+    <a href="/calculator" class="nav-link">Live Calculator</a>
+    <a href="/currency-converter" class="nav-link">Currency Converter</a>
+    <a href="/unit-converter" class="nav-link active">Unit Converter</a>
+    <a href="/loan-calculator" class="nav-link">Loan & EMI Calculator</a>
+    <a href="/about" class="nav-link">About Us</a>
+    <a href="/contact" class="nav-link">Contact Us</a>
+    <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
+    <a href="/terms" class="nav-link">Terms of Service</a>
   </div>
 
   <main class="main-content">
@@ -431,7 +431,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="/" class="brand-logo" style="margin-bottom: 0.5rem;" title="Commeronix Home">
-            <img src="assets/favicon.svg" alt="Commeronix Logo" width="34" height="34" class="logo-icon-svg">
+            <img src="/assets/favicon.svg" alt="Commeronix Logo" width="34" height="34" class="logo-icon-svg">
             <span>Commero<span class="brand-accent">nix</span></span>
           </a>
           <p>Universal multi-category conversion engine for scientific, engineering, and daily imperial/metric calculations.</p>
@@ -440,20 +440,20 @@
         <div class="footer-col">
           <h4>Calculators</h4>
           <ul class="footer-links">
-            <li><a href="calculator" class="footer-link">Live Scientific Calculator</a></li>
-            <li><a href="currency-converter" class="footer-link">Currency Converter</a></li>
-            <li><a href="unit-converter" class="footer-link">Unit Converter</a></li>
-            <li><a href="loan-calculator" class="footer-link">Loan & EMI Calculator</a></li>
+            <li><a href="/calculator" class="footer-link">Live Scientific Calculator</a></li>
+            <li><a href="/currency-converter" class="footer-link">Currency Converter</a></li>
+            <li><a href="/unit-converter" class="footer-link">Unit Converter</a></li>
+            <li><a href="/loan-calculator" class="footer-link">Loan & EMI Calculator</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Company</h4>
           <ul class="footer-links">
-            <li><a href="about" class="footer-link">About Us</a></li>
-            <li><a href="contact" class="footer-link">Contact Support</a></li>
-            <li><a href="privacy-policy" class="footer-link">Privacy Policy</a></li>
-            <li><a href="terms" class="footer-link">Terms of Service</a></li>
+            <li><a href="/about" class="footer-link">About Us</a></li>
+            <li><a href="/contact" class="footer-link">Contact Support</a></li>
+            <li><a href="/privacy-policy" class="footer-link">Privacy Policy</a></li>
+            <li><a href="/terms" class="footer-link">Terms of Service</a></li>
           </ul>
         </div>
 
@@ -479,7 +479,7 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="assets/main.js"></script>
-  <script src="assets/unit.js"></script>
+  <script src="/assets/main.js"></script>
+  <script src="/assets/unit.js"></script>
 </body>
 </html>

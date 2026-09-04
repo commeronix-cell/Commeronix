@@ -29,8 +29,8 @@
   <meta name="theme-color" content="#090d16">
   <meta name="google-site-verification" content="nWVoTOSROiJ0beAcexwRnMIcGbdqhJ6YzNMDQurT2CM">
   <link rel="canonical" href="https://commeronix.com/loan-calculator">
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="manifest" href="/manifest.json">
 
   <!-- Open Graph -->
   <meta property="og:locale" content="en_US">
@@ -69,7 +69,7 @@
         "@type": "WebApplication",
         "name": "Commeronix Loan & EMI Calculator",
         "url": "https://commeronix.com/loan-calculator",
-        "description": "Financial loan and mortgage calculator supporting reducing-balance amortization schedules, yearly payment tables, and principal-interest ratio graphs.",
+        "description": "Reducing-balance Equated Monthly Installment (EMI) loan calculator with dynamic principal-interest ratio visualizer and yearly amortization schedules.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "All",
         "browserRequirements": "Requires JavaScript. Requires HTML5.",
@@ -87,7 +87,7 @@
             "name": "What is an Equated Monthly Installment (EMI)?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "An Equated Monthly Installment (EMI) is a fixed payment amount made by a borrower to a lender on a specified calendar date each month to pay off both principal and accumulated interest over loan tenure."
+              "text": "An EMI is a fixed monthly payment made by a borrower to a lender on a specified calendar date each month. Each payment contributes to both the outstanding loan principal and accrued interest."
             }
           },
           {
@@ -95,15 +95,15 @@
             "name": "How is reducing-balance EMI calculated?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Reducing-balance EMI is calculated using the formula: E = P × r × (1+r)^n / ((1+r)^n - 1), where P is principal, r is the monthly interest rate, and n is total tenure in months."
+              "text": "Standard reducing-balance loans use the standard compound interest formula: EMI = [P x R x (1+R)^N] / [(1+R)^N - 1], where P is principal balance, R is periodic interest rate, and N is the number of installments."
             }
           },
           {
             "@type": "Question",
-            "name": "How does prepaying principal affect my loan?",
+            "name": "Can I calculate loans using monthly or annual interest rates?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Making partial principal prepayments reduces the outstanding balance immediately, resulting in lower total interest accrued and shortened loan tenure."
+              "text": "Yes! Commeronix provides seamless one-click toggles between Annual Interest Rate (% p.a.) and Monthly Interest Rate (% p.m.) with automatic scale re-calibration."
             }
           }
         ]
@@ -125,7 +125,7 @@
   </script>
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -156,19 +156,19 @@
     <div class="container">
       <nav class="navbar" aria-label="Main Navigation">
         <a href="/" class="brand-logo" title="Commeronix Home">
-          <img src="assets/favicon.svg" alt="Commeronix Logo" width="38" height="38" class="logo-icon-svg">
+          <img src="/assets/favicon.svg" alt="Commeronix Logo" width="38" height="38" class="logo-icon-svg">
           <span>Commero<span class="brand-accent">nix</span></span>
         </a>
 
         <div style="display: flex; align-items: center; gap: 0.5rem;">
           <ul class="nav-links">
             <li><a href="/" class="nav-link">Home</a></li>
-            <li><a href="calculator" class="nav-link">Calculator</a></li>
-            <li><a href="currency-converter" class="nav-link">Currency Converter</a></li>
-            <li><a href="unit-converter" class="nav-link">Unit Converter</a></li>
-            <li><a href="loan-calculator" class="nav-link active">Loan Calculator</a></li>
-            <li><a href="about" class="nav-link">About</a></li>
-            <li><a href="contact" class="nav-link">Contact</a></li>
+            <li><a href="/calculator" class="nav-link">Calculator</a></li>
+            <li><a href="/currency-converter" class="nav-link">Currency Converter</a></li>
+            <li><a href="/unit-converter" class="nav-link">Unit Converter</a></li>
+            <li><a href="/loan-calculator" class="nav-link active">Loan Calculator</a></li>
+            <li><a href="/about" class="nav-link">About</a></li>
+            <li><a href="/contact" class="nav-link">Contact</a></li>
           </ul>
 
           <!-- Dark / Light Theme Toggle Button -->
@@ -194,14 +194,14 @@
   <!-- Mobile Drawer -->
   <div class="mobile-drawer" aria-label="Mobile Navigation Menu">
     <a href="/" class="nav-link">Home</a>
-    <a href="calculator" class="nav-link">Live Calculator</a>
-    <a href="currency-converter" class="nav-link">Currency Converter</a>
-    <a href="unit-converter" class="nav-link">Unit Converter</a>
-    <a href="loan-calculator" class="nav-link active">Loan & EMI Calculator</a>
-    <a href="about" class="nav-link">About Us</a>
-    <a href="contact" class="nav-link">Contact Us</a>
-    <a href="privacy-policy" class="nav-link">Privacy Policy</a>
-    <a href="terms" class="nav-link">Terms of Service</a>
+    <a href="/calculator" class="nav-link">Live Calculator</a>
+    <a href="/currency-converter" class="nav-link">Currency Converter</a>
+    <a href="/unit-converter" class="nav-link">Unit Converter</a>
+    <a href="/loan-calculator" class="nav-link active">Loan & EMI Calculator</a>
+    <a href="/about" class="nav-link">About Us</a>
+    <a href="/contact" class="nav-link">Contact Us</a>
+    <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
+    <a href="/terms" class="nav-link">Terms of Service</a>
   </div>
 
   <main class="main-content">

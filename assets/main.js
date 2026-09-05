@@ -290,8 +290,9 @@
    * Initializes Scroll-Triggered Reveal Animations with staggered delays
    */
   function initScrollAnimations() {
+    // Only apply subtle scroll reveals to secondary below-the-fold elements, NEVER to calculators or hero titles
     const revealTargets = document.querySelectorAll(
-      '.card, .feature-box, .step-card, .faq-item, .hero-title, .hero-subtitle, .hero-actions, .calc-container'
+      '.step-card, .faq-item'
     );
 
     if (!('IntersectionObserver' in window)) {
@@ -403,6 +404,9 @@
    * Global Interactive Background Cursor Glow Follower with smooth physics (lerp)
    */
   function initGlobalCursorGlow() {
+    // Annihilate any old/cached ring element immediately
+    const existingRings = document.querySelectorAll('.global-cursor-ring');
+    existingRings.forEach(r => r.remove());
     // Create background glow orb
     let glow = document.querySelector('.global-cursor-glow');
     if (!glow) {

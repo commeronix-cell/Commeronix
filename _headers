@@ -1,6 +1,6 @@
 # ==============================================================================
 # COMMERONIX - CLOUDFLARE PAGES HEADERS CONFIGURATION
-# Security headers and high-performance caching at the edge
+# Security headers and dynamic revalidation at the edge
 # ==============================================================================
 
 /*
@@ -10,17 +10,17 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Cache-Control: public, max-age=0, must-revalidate
 
-# Cache immutable static assets for 1 year
+# Static Assets: Always revalidate so client browsers never get stuck with old styles/scripts
 /assets/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=0, must-revalidate
 
 /*.css
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.js
+  Cache-Control: public, max-age=0, must-revalidate
 
 /*.svg
-  Cache-Control: public, max-age=31536000, immutable
-
-# Keep HTML pages fresh with revalidation
-/*.html
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800

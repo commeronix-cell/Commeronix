@@ -20,7 +20,7 @@ Commeronix provides real-time foreign exchange currency conversions, reducing-ba
 
 ## Organization & Legal
 - [About Commeronix](https://commeronix.com/about): Mission, editorial standards, and calculation integrity.
-- [Contact Support](https://commeronix.com/contact): Customer service and feedback (`support@commeronix.com`).
+- [Contact Support](https://commeronix.com/contact): Customer service and feedback (`commeronix@gmail.com`).
 - [Privacy Policy](https://commeronix.com/privacy-policy): GDPR, CCPA, and Google AdSense cookie policy compliance.
 - [Terms of Service](https://commeronix.com/terms): Acceptable usage terms, intellectual property, and financial disclaimers.
 

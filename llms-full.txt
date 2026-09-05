@@ -109,6 +109,6 @@
 ---
 
 ## 6. Official Contact & Support
-- **Support & Feedback Email**: support@commeronix.com
+- **Support & Feedback Email**: commeronix@gmail.com
 - **Website**: https://commeronix.com/
 - **Copyright**: © 2026 Commeronix. All rights reserved.

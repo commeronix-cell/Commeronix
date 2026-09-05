@@ -72,7 +72,7 @@
         "description": "Direct communication channel for customer support, feature requests, and feedback.",
         "mainEntity": {
           "@type": "ContactPoint",
-          "email": "support@commeronix.com",
+          "email": "commeronix@gmail.com",
           "contactType": "customer service",
           "availableLanguage": ["English", "Urdu"]
         }
@@ -213,12 +213,11 @@
           <div class="contact-card">
             <h3>
               <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="var(--accent-primary)">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
               </svg>
-              Direct Email
+              Direct Online Support
             </h3>
-            <p style="font-size: 0.9rem;">For general inquiries, editorial questions, and feedback:</p>
-            <a href="mailto:support@commeronix.com" class="contact-email-link">support@commeronix.com</a>
+            <p style="font-size: 0.9rem;">Have a question, feedback, or tool suggestion? Fill out the contact form below and our team will receive your message directly.</p>
           </div>
 
           <div class="contact-card">
@@ -237,32 +236,35 @@
           <h2 style="font-size: 1.4rem; margin-bottom: 0.5rem; text-align: center;">Send Us a Message</h2>
           <p style="font-size: 0.95rem; text-align: center; margin-bottom: 2rem;">Fill out the form below and we'll get back to you promptly.</p>
 
-          <form id="contact-form" style="max-width: 600px; margin: 0 auto;">
+          <form id="contact-form" action="https://formsubmit.co/commeronix@gmail.com" method="POST" style="max-width: 600px; margin: 0 auto;">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_subject" value="New Commeronix Form Submission">
             <div id="contact-alert" class="alert alert-info" style="display: none;"></div>
 
             <div class="form-group">
               <label for="contact-name" class="form-label">Full Name</label>
-              <input type="text" id="contact-name" class="form-input" placeholder="Your name" required>
+              <input type="text" id="contact-name" name="name" class="form-input" placeholder="Your name" required>
             </div>
 
             <div class="form-group">
               <label for="contact-email" class="form-label">Email Address</label>
-              <input type="email" id="contact-email" class="form-input" placeholder="you@example.com" required>
+              <input type="email" id="contact-email" name="email" class="form-input" placeholder="you@example.com" required>
             </div>
 
             <div class="form-group">
               <label for="contact-subject" class="form-label">Topic / Subject</label>
-              <select id="contact-subject" class="form-select">
-                <option value="feedback">General Feedback</option>
-                <option value="tool-request">Request a New Calculator Tool</option>
-                <option value="bug">Report a Bug or Calculation Inaccuracy</option>
-                <option value="partnership">Advertising & Partnership Inquiry</option>
+              <select id="contact-subject" name="subject" class="form-select">
+                <option value="General Feedback">General Feedback</option>
+                <option value="Request a New Calculator Tool">Request a New Calculator Tool</option>
+                <option value="Report a Bug or Calculation Inaccuracy">Report a Bug or Calculation Inaccuracy</option>
+                <option value="Advertising & Partnership Inquiry">Advertising & Partnership Inquiry</option>
               </select>
             </div>
 
             <div class="form-group">
               <label for="contact-message" class="form-label">Message</label>
-              <textarea id="contact-message" class="form-input" rows="5" placeholder="Write your feedback or question here..." required style="resize: vertical;"></textarea>
+              <textarea id="contact-message" name="message" class="form-input" rows="5" placeholder="Write your feedback or question here..." required style="resize: vertical;"></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 1rem;">
@@ -315,7 +317,7 @@
         <div class="footer-col">
           <h4>Support Inquiries</h4>
           <ul class="footer-links">
-            <li><span class="footer-link" style="cursor: default;">Email: support@commeronix.com</span></li>
+            <li><span class="footer-link" style="cursor: default;">Direct Web Inquiries</span></li>
             <li><span class="footer-link" style="cursor: default;">24/48 Hour Turnaround</span></li>
             <li><span class="footer-link" style="cursor: default;">Open Community Feedback</span></li>
           </ul>
@@ -394,7 +396,7 @@
               </svg>
               <div>
                 <strong>Message Sent Successfully!</strong><br>
-                Thank you, <strong>${name}</strong>. Your inquiry has been sent to our team. We will reply to <em>${email}</em> promptly.
+                Thank you, <strong>${name}</strong>. Your message has been sent directly to our team at <em>commeronix@gmail.com</em>. We will reply to your email promptly.
               </div>
             `;
             alertBox.style.display = 'flex';

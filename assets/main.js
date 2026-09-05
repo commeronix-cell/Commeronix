@@ -6,12 +6,6 @@
 (function () {
   'use strict';
 
-  // Automatic Canonical Redirect: Ensure staging pages.dev forwards immediately to commeronix.com
-  if (typeof window !== 'undefined' && window.location && window.location.hostname && window.location.hostname.endsWith('pages.dev')) {
-    window.location.replace('https://commeronix.com' + window.location.pathname + window.location.search + window.location.hash);
-    return;
-  }
-
   // --- Live Rates Ticker Configuration & Fallbacks ---
   const DEFAULT_TICKER_RATES = [
     { pair: 'USD/PKR', rate: '277.25', change: '-0.15%', up: false },
@@ -502,29 +496,28 @@
       if (!url || prefetchedUrls.has(url)) return;
       prefetchedUrls.add(url);
 
+      // 1. Native link prefetch
       const link = document.createElement('link');
       link.rel = 'prefetch';
       link.href = url;
-      link.as = 'document';
       document.head.appendChild(link);
+
+      // 2. HTTP Cache Warming (Instant 0ms memory cache across all browsers)
+      if (typeof fetch === 'function') {
+        fetch(url, { priority: 'low' }).catch(() => {});
+      }
     }
 
-    document.addEventListener('mouseover', (e) => {
+    function handleLinkHover(e) {
       const a = e.target.closest('a');
       if (!a) return;
       const href = a.getAttribute('href');
-      if (href && (href.startsWith('/') || href.startsWith('https://commeronix.com')) && !href.startsWith('//') && !href.includes('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
+      if (href && (href.startsWith('/') || href.includes(location.hostname)) && !href.startsWith('//') && !href.includes('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
         prefetch(href);
       }
-    }, { passive: true });
+    }
 
-    document.addEventListener('touchstart', (e) => {
-      const a = e.target.closest('a');
-      if (!a) return;
-      const href = a.getAttribute('href');
-      if (href && (href.startsWith('/') || href.startsWith('https://commeronix.com')) && !href.startsWith('//') && !href.includes('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
-        prefetch(href);
-      }
-    }, { passive: true });
+    document.addEventListener('mouseover', handleLinkHover, { passive: true });
+    document.addEventListener('touchstart', handleLinkHover, { passive: true });
   }
 })();

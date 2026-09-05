@@ -115,10 +115,6 @@
   <!-- Theme Initialization Script (Prevents Flash of Unstyled Content) -->
   <script>
     (function() {
-      if (typeof location !== 'undefined' && location.hostname && location.hostname.endsWith('pages.dev')) {
-        location.replace('https://commeronix.com' + location.pathname + location.search + location.hash);
-        return;
-      }
       const savedTheme = localStorage.getItem('commeronix_theme');
       if (savedTheme === 'light' || (!savedTheme && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)) {
         document.documentElement.setAttribute('data-theme', 'light');
@@ -134,6 +130,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="style.css?v=2.2.0">
+  <!-- Instant Navigation: Speculation Rules API (Zero-latency instant prerender on hover) -->
+  <script type="speculationrules">
+  {
+    "prerender": [
+      {
+        "source": "document",
+        "where": {
+          "and": [
+            { "href_matches": "/*" },
+            { "not": { "href_matches": "/assets/*" } }
+          ]
+        },
+        "eagerness": "moderate"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->

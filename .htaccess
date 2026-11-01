@@ -7,8 +7,9 @@ Options -MultiViews
 RewriteEngine On
 RewriteBase /
 
-# 1. Force HTTPS
+# 1. Force HTTPS (Cloudflare & reverse-proxy safe)
 RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
 # 2. Force Canonical Non-WWW (redirect www.commeronix.com -> commeronix.com)

@@ -76,7 +76,9 @@ while ($listener.IsListening) {
             $bytes = [System.IO.File]::ReadAllBytes($filePath)
             $response.ContentLength64 = $bytes.Length
             $response.StatusCode = 200
-            $response.OutputStream.Write($bytes, 0, $bytes.Length)
+            if ($request.HttpMethod -ne "HEAD") {
+                $response.OutputStream.Write($bytes, 0, $bytes.Length)
+            }
         } else {
             $response.StatusCode = 404
             $notFoundFile = Join-Path $root "404.html"
@@ -84,11 +86,15 @@ while ($listener.IsListening) {
                 $response.ContentType = "text/html; charset=utf-8"
                 $bytes = [System.IO.File]::ReadAllBytes($notFoundFile)
                 $response.ContentLength64 = $bytes.Length
-                $response.OutputStream.Write($bytes, 0, $bytes.Length)
+                if ($request.HttpMethod -ne "HEAD") {
+                    $response.OutputStream.Write($bytes, 0, $bytes.Length)
+                }
             } else {
                 $buffer = [System.Text.Encoding]::UTF8.GetBytes("404 Not Found")
                 $response.ContentLength64 = $buffer.Length
-                $response.OutputStream.Write($buffer, 0, $buffer.Length)
+                if ($request.HttpMethod -ne "HEAD") {
+                    $response.OutputStream.Write($buffer, 0, $buffer.Length)
+                }
             }
         }
         $response.OutputStream.Close()

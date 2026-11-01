@@ -879,6 +879,26 @@ a:hover {
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 0 2px var(--accent-primary), 0 0 25px rgba(198, 255, 0, 0.2);
 }
 
+@keyframes searchPulseGlow {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.5);
+  }
+  50% {
+    transform: scale(1.015);
+    box-shadow: 0 0 0 8px rgba(37, 99, 235, 0.3), 0 0 25px rgba(198, 255, 0, 0.35);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 12px 35px -5px rgba(37, 99, 235, 0.2), 0 0 0 3px rgba(37, 99, 235, 0.15);
+  }
+}
+
+.hub-search-box.search-pulsing {
+  animation: searchPulseGlow 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border-color: var(--accent-primary) !important;
+}
+
 .hub-search-icon {
   width: 22px;
   height: 22px;

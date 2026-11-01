@@ -1,58 +1,263 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" fill="none">
   <defs>
-    <radialGradient id="bgGrad3" cx="50%" cy="30%" r="70%">
-      <stop offset="0%" stop-color="#161B22"/>
-      <stop offset="60%" stop-color="#0B0C10"/>
+    <!-- Background Gradient -->
+    <radialGradient id="bg-radial-c" cx="50%" cy="0%" r="90%">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="50%" stop-color="#0B0C10"/>
       <stop offset="100%" stop-color="#050608"/>
     </radialGradient>
-    <filter id="glow3" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="10" result="blur"/>
+    
+    <!-- Gradients -->
+    <linearGradient id="cobalt-grad-c" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="50%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+
+    <linearGradient id="lime-grad-c" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2FF4D"/>
+      <stop offset="100%" stop-color="#C6FF00"/>
+    </linearGradient>
+
+    <linearGradient id="card-grad-c" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#161F30" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.95"/>
+    </linearGradient>
+
+    <!-- Spectrum Gradient for Color Strip -->
+    <linearGradient id="spectrum-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#EF4444"/>
+      <stop offset="17%" stop-color="#F59E0B"/>
+      <stop offset="33%" stop-color="#C6FF00"/>
+      <stop offset="50%" stop-color="#10B981"/>
+      <stop offset="67%" stop-color="#06B6D4"/>
+      <stop offset="83%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="soft-glow-c" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+
+    <filter id="box-shadow-c" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+
+    <!-- Tech Grid Pattern -->
+    <pattern id="tech-grid-c" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2563EB" stroke-width="1" stroke-opacity="0.08"/>
+      <circle cx="40" cy="40" r="1" fill="#60A5FA" fill-opacity="0.25"/>
+    </pattern>
   </defs>
 
-  <rect width="1200" height="675" fill="url(#bgGrad3)"/>
-  <rect x="2" y="2" width="1196" height="671" stroke="#2563EB" stroke-width="2" stroke-opacity="0.3"/>
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#bg-radial-c)"/>
+  <rect width="1200" height="675" fill="url(#tech-grid-c)"/>
 
-  <!-- Badge -->
-  <rect x="80" y="70" width="180" height="36" rx="18" fill="rgba(37,99,235,0.12)" stroke="#2563EB" stroke-width="1.5"/>
-  <circle cx="102" cy="88" r="5" fill="#C6FF00"/>
-  <text x="116" y="93" fill="#F8FAFC" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" letter-spacing="1">COLOR ARCHITECTURE</text>
+  <!-- Ambient Light Orbs -->
+  <circle cx="250" cy="220" r="170" fill="#2563EB" fill-opacity="0.09" filter="url(#soft-glow-c)"/>
+  <circle cx="950" cy="260" r="180" fill="#C6FF00" fill-opacity="0.07" filter="url(#soft-glow-c)"/>
 
-  <!-- Color Wheel / Spectrum Circle Visual (Center) -->
-  <g transform="translate(600, 340)">
-    <!-- Outer HSL Ring -->
-    <circle cx="0" cy="0" r="160" stroke="#2563EB" stroke-width="18" stroke-dasharray="20 10" opacity="0.6"/>
-    <circle cx="0" cy="0" r="130" stroke="#C6FF00" stroke-width="12" stroke-dasharray="15 8" filter="url(#glow3)"/>
-    
-    <!-- Central Swatch -->
-    <circle cx="0" cy="0" r="75" fill="#2563EB" stroke="#FFFFFF" stroke-width="4" filter="url(#glow3)"/>
-    <text x="0" y="-8" text-anchor="middle" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="17" font-weight="700">#2563EB</text>
-    <text x="0" y="16" text-anchor="middle" fill="#C6FF00" font-family="'JetBrains Mono', monospace" font-size="13">COBALT</text>
+  <!-- Outer Hairline Frame -->
+  <rect x="24" y="24" width="1152" height="627" rx="16" stroke="#2563EB" stroke-opacity="0.25" stroke-width="1.5"/>
+
+  <!-- Top Header Bar -->
+  <g transform="translate(60, 56)">
+    <!-- Brand / Topic Badge -->
+    <rect x="0" y="0" width="280" height="34" rx="17" fill="#161F30" stroke="#2563EB" stroke-width="1.2"/>
+    <circle cx="18" cy="17" r="4.5" fill="#C6FF00"/>
+    <text x="32" y="22" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">COLOR SYSTEMS • HEX RGB HSL</text>
+
+    <!-- Category Breadcrumb -->
+    <text x="300" y="22" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="500">COMMERONIX / DESIGN SYSTEM ARCHITECTURE</text>
+
+    <!-- Right Badge -->
+    <rect x="910" y="0" width="170" height="34" rx="8" fill="#161F30" stroke="#334155" stroke-width="1"/>
+    <text x="995" y="22" text-anchor="middle" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600">WCAG 2.1 COMPLIANT</text>
   </g>
 
-  <!-- Left Card: HEX Model -->
-  <rect x="120" y="200" width="260" height="280" rx="16" fill="#161B22" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
-  <rect x="145" y="225" width="50" height="50" rx="10" fill="#2563EB"/>
-  <text x="210" y="255" fill="#F8FAFC" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800">HEX</text>
-  <text x="145" y="315" fill="#60A5FA" font-family="'JetBrains Mono', monospace" font-size="14">BASE-16 RADIX</text>
-  <text x="145" y="345" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-size="14">6-character hexadecimal mapping for web markup and CSS color strings.</text>
-  <rect x="145" y="415" width="210" height="36" rx="8" fill="#0B0C10" stroke="#2563EB" stroke-width="1"/>
-  <text x="250" y="438" text-anchor="middle" fill="#60A5FA" font-family="'JetBrains Mono', monospace" font-size="13">#0B0C10 / #C6FF00</text>
+  <!-- Main Three-Pillar Color Architecture Visual -->
 
-  <!-- Right Card: HSL Model -->
-  <rect x="820" y="200" width="260" height="280" rx="16" fill="#161B22" stroke="#C6FF00" stroke-width="2" filter="url(#glow3)"/>
-  <rect x="845" y="225" width="50" height="50" rx="10" fill="#C6FF00"/>
-  <text x="910" y="255" fill="#F8FAFC" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800">HSL</text>
-  <text x="845" y="315" fill="#C6FF00" font-family="'JetBrains Mono', monospace" font-size="14">CYLINDRICAL MODEL</text>
-  <text x="845" y="345" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-size="14">Hue (0-360°), Saturation %, Lightness % for fluid dynamic design systems.</text>
-  <rect x="845" y="415" width="210" height="36" rx="8" fill="#0B0C10" stroke="#C6FF00" stroke-width="1"/>
-  <text x="950" y="438" text-anchor="middle" fill="#C6FF00" font-family="'JetBrains Mono', monospace" font-size="13">hsl(74, 100%, 50%)</text>
+  <!-- Left Card: HEX Model Deconstruction -->
+  <g transform="translate(60, 115)" filter="url(#box-shadow-c)">
+    <rect width="330" height="400" rx="16" fill="url(#card-grad-c)" stroke="#334155" stroke-width="1.5"/>
+    <rect x="0" y="0" width="330" height="42" rx="16" fill="#111827" fill-opacity="0.8"/>
+    <!-- Window Dots -->
+    <circle cx="24" cy="21" r="5" fill="#EF4444"/>
+    <circle cx="40" cy="21" r="5" fill="#F59E0B"/>
+    <circle cx="56" cy="21" r="5" fill="#10B981"/>
+    <text x="165" y="26" text-anchor="middle" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">HEXADECIMAL MODEL</text>
 
-  <!-- Bottom WCAG Contrast Badge -->
-  <rect x="360" y="550" width="480" height="50" rx="10" fill="#161B22" stroke="#2563EB" stroke-width="1.5"/>
-  <text x="600" y="580" text-anchor="middle" fill="#C6FF00" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700">WCAG 2.1 AA ACCESSIBILITY: 8.4:1 CONTRAST RATIO</text>
+    <!-- Content -->
+    <g transform="translate(24, 60)">
+      <!-- Large Code Swatch -->
+      <rect width="282" height="70" rx="10" fill="#0B0C10" stroke="#2563EB" stroke-width="1.5"/>
+      <rect x="12" y="15" width="40" height="40" rx="8" fill="#2563EB" filter="url(#soft-glow-c)"/>
+      <text x="64" y="41" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="22" font-weight="800">#2563EB</text>
+      <text x="210" y="40" fill="#60A5FA" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">BASE-16</text>
+
+      <!-- Channel Breakdown -->
+      <g transform="translate(0, 95)">
+        <text x="0" y="16" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="600">CHANNEL ENCODING (00 - FF)</text>
+        
+        <!-- Red Channel -->
+        <g transform="translate(0, 30)">
+          <rect width="86" height="52" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+          <text x="43" y="24" text-anchor="middle" fill="#EF4444" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700">25</text>
+          <text x="43" y="42" text-anchor="middle" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="10">R: 37</text>
+        </g>
+
+        <!-- Green Channel -->
+        <g transform="translate(98, 30)">
+          <rect width="86" height="52" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+          <text x="43" y="24" text-anchor="middle" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700">63</text>
+          <text x="43" y="42" text-anchor="middle" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="10">G: 99</text>
+        </g>
+
+        <!-- Blue Channel -->
+        <g transform="translate(196, 30)">
+          <rect width="86" height="52" rx="8" fill="#1E293B" stroke="#2563EB" stroke-width="1.5"/>
+          <text x="43" y="24" text-anchor="middle" fill="#60A5FA" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700">EB</text>
+          <text x="43" y="42" text-anchor="middle" fill="#93C5FD" font-family="'JetBrains Mono', monospace" font-size="10">B: 235</text>
+        </g>
+      </g>
+
+      <!-- Technical Properties -->
+      <g transform="translate(0, 205)">
+        <text x="0" y="16" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12">
+          • 24-bit TrueColor web notation<br/>
+          • Compact string size in static CSS<br/>
+          • Direct sRGB buffer mapping
+        </text>
+
+        <rect x="0" y="70" width="282" height="32" rx="6" fill="#172554" stroke="#2563EB" stroke-width="1"/>
+        <text x="141" y="91" text-anchor="middle" fill="#93C5FD" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">24-BIT • 16.7M COLORS</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Center Card: The Chromatic HSL Wheel & Spectrum -->
+  <g transform="translate(415, 115)" filter="url(#box-shadow-c)">
+    <rect width="370" height="400" rx="16" fill="url(#card-grad-c)" stroke="#2563EB" stroke-width="2"/>
+    <rect x="0" y="0" width="370" height="42" rx="16" fill="#1E293B" fill-opacity="0.9"/>
+    <text x="185" y="26" text-anchor="middle" fill="#C6FF00" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">SPECTRAL ENGINE • 360° WHEEL</text>
+
+    <!-- Visual Wheel Artifact -->
+    <g transform="translate(185, 185)">
+      <!-- Outer Chromatic Ring -->
+      <circle cx="0" cy="0" r="105" stroke="#1E293B" stroke-width="24" fill="none"/>
+      
+      <!-- HSL Hue Slices Ticks -->
+      <circle cx="0" cy="0" r="105" stroke="url(#spectrum-grad)" stroke-width="18" fill="none" stroke-dasharray="14 4"/>
+      
+      <!-- Center Glass Core Swatch -->
+      <circle cx="0" cy="0" r="65" fill="#0B0C10" stroke="#2563EB" stroke-width="2" filter="url(#soft-glow-c)"/>
+      <circle cx="0" cy="0" r="48" fill="url(#cobalt-grad-c)"/>
+      
+      <!-- Reticle Target Lines -->
+      <line x1="0" y1="-80" x2="0" y2="-50" stroke="#C6FF00" stroke-width="2"/>
+      <line x1="0" y1="50" x2="0" y2="80" stroke="#C6FF00" stroke-width="2"/>
+      <line x1="-80" y1="0" x2="-50" y2="0" stroke="#C6FF00" stroke-width="2"/>
+      <line x1="50" y1="0" x2="80" y2="0" stroke="#C6FF00" stroke-width="2"/>
+
+      <text x="0" y="5" text-anchor="middle" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="800">221°</text>
+      <text x="0" y="22" text-anchor="middle" fill="#C6FF00" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700">HUE COBALT</text>
+    </g>
+
+    <!-- Spectrum Slider Bar -->
+    <g transform="translate(24, 305)">
+      <rect width="322" height="12" rx="6" fill="url(#spectrum-grad)"/>
+      <!-- Slider Handle -->
+      <circle cx="240" cy="6" r="10" fill="#FFFFFF" stroke="#2563EB" stroke-width="3" filter="url(#soft-glow-c)"/>
+      
+      <text x="0" y="36" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="10">0° RED</text>
+      <text x="161" y="36" text-anchor="middle" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="10">180° CYAN</text>
+      <text x="322" y="36" text-anchor="end" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="10">360° RED</text>
+
+      <!-- Dynamic CSS Variable Token -->
+      <rect x="0" y="48" width="322" height="30" rx="6" fill="#0B0C10" stroke="#334155" stroke-width="1"/>
+      <text x="161" y="68" text-anchor="middle" fill="#C6FF00" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">hsl(221deg, 83%, 53%)</text>
+    </g>
+  </g>
+
+  <!-- Right Card: HSL Cylindrical Model -->
+  <g transform="translate(810, 115)" filter="url(#box-shadow-c)">
+    <rect width="330" height="400" rx="16" fill="url(#card-grad-c)" stroke="#334155" stroke-width="1.5"/>
+    <rect x="0" y="0" width="330" height="42" rx="16" fill="#111827" fill-opacity="0.8"/>
+    <!-- Window Dots -->
+    <circle cx="24" cy="21" r="5" fill="#EF4444"/>
+    <circle cx="40" cy="21" r="5" fill="#F59E0B"/>
+    <circle cx="56" cy="21" r="5" fill="#10B981"/>
+    <text x="165" y="26" text-anchor="middle" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">HSL MODEL ATTRIBUTES</text>
+
+    <!-- Content -->
+    <g transform="translate(24, 60)">
+      <!-- Hue Row -->
+      <g transform="translate(0, 0)">
+        <rect width="282" height="52" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+        <text x="16" y="24" fill="#C6FF00" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="800">HUE (H)</text>
+        <text x="16" y="40" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10">Angular spectrum degree (0° - 360°)</text>
+        <text x="260" y="32" text-anchor="end" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700">221°</text>
+      </g>
+
+      <!-- Saturation Row -->
+      <g transform="translate(0, 64)">
+        <rect width="282" height="52" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+        <text x="16" y="24" fill="#60A5FA" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="800">SATURATION (S)</text>
+        <text x="16" y="40" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10">Color intensity &amp; purity percentage</text>
+        <text x="260" y="32" text-anchor="end" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700">83%</text>
+      </g>
+
+      <!-- Lightness Row -->
+      <g transform="translate(0, 128)">
+        <rect width="282" height="52" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+        <text x="16" y="24" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="800">LIGHTNESS (L)</text>
+        <text x="16" y="40" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10">Luminance from black (0%) to white</text>
+        <text x="260" y="32" text-anchor="end" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700">53%</text>
+      </g>
+
+      <!-- Design System Synergy -->
+      <g transform="translate(0, 200)">
+        <text x="0" y="16" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12">
+          • Ideal for dynamic dark/light themes<br/>
+          • Predictable tint &amp; shade derivation<br/>
+          • Human-intuitive color manipulation
+        </text>
+
+        <rect x="0" y="75" width="282" height="32" rx="6" fill="#14532D" stroke="#22C55E" stroke-width="1"/>
+        <text x="141" y="96" text-anchor="middle" fill="#86EFAC" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">THEME ENGINE COMPATIBLE</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom WCAG 2.1 Accessibility & Contrast Bar -->
+  <g transform="translate(60, 545)">
+    <rect width="1080" height="60" rx="12" fill="#111827" stroke="#1E293B" stroke-width="1.5"/>
+    
+    <!-- Contrast Ratio Display -->
+    <g transform="translate(30, 18)">
+      <circle cx="12" cy="12" r="6" fill="#22C55E"/>
+      <text x="28" y="16" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700">WCAG CONTRAST: <tspan fill="#C6FF00" font-family="'JetBrains Mono', monospace">8.59:1</tspan></text>
+      <text x="240" y="16" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12">(Passes Level AAA Threshold &gt; 7:1)</text>
+    </g>
+
+    <line x1="580" y1="12" x2="580" y2="48" stroke="#1E293B" stroke-width="1.5"/>
+
+    <!-- Compliance Badges -->
+    <g transform="translate(610, 18)">
+      <rect x="0" y="0" width="110" height="24" rx="4" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+      <text x="55" y="16" text-anchor="middle" fill="#60A5FA" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">✓ NORMAL TEXT</text>
+
+      <rect x="120" y="0" width="100" height="24" rx="4" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+      <text x="170" y="16" text-anchor="middle" fill="#60A5FA" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">✓ LARGE TEXT</text>
+
+      <rect x="230" y="0" width="200" height="24" rx="4" fill="#14532D" stroke="#22C55E" stroke-width="1"/>
+      <text x="330" y="16" text-anchor="middle" fill="#86EFAC" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">WCAG 2.1 AA &amp; AAA CERTIFIED</text>
+    </g>
+  </g>
 </svg>

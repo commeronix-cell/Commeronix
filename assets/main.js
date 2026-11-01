@@ -534,44 +534,242 @@
   }
 
   /**
-   * Universal Search Bar (Keyboard shortcuts Ctrl+K / '/' and Live Filtering)
+   * Universal Search & Command Palette Modal (Ctrl+K, '/', or Search Icon click)
    */
   function initUniversalSearch() {
-    const hubSearch = document.getElementById('hub-search-input');
-    const navSearchBtn = document.getElementById('nav-search-trigger');
-    const mobileSearch = document.getElementById('mobile-search-input');
+    const ALL_TOOLS = [
+      { title: 'Live Scientific Calculator', url: '/calculator', icon: '🧮', desc: 'Trigonometry, logarithms, powers, and memory registers', badge: 'Financial', keywords: 'calculator scientific math sin cos tan calc memory history' },
+      { title: 'Real-Time Currency Converter', url: '/currency-converter', icon: '💱', desc: '40+ global currencies with live forex rates', badge: 'Financial', keywords: 'currency forex exchange usd eur gbp pkr inr cad aud' },
+      { title: 'Loan EMI & Mortgage Calculator', url: '/loan-calculator', icon: '🏦', desc: 'Reducing-balance compound interest & amortization schedules', badge: 'Financial', keywords: 'loan emi mortgage interest amortization schedule compound' },
+      { title: 'Universal Unit Converter', url: '/unit-converter', icon: '📏', desc: 'NIST conversions for length, weight, temp, speed & volume', badge: 'Calculation', keywords: 'unit length weight temp volume speed metric imperial nist' },
+      { title: 'Client-Side Image Compressor', url: '/image-compressor', icon: '🖼️', desc: 'Lossy & lossless canvas compression targeting custom KB sizes', badge: 'Media', keywords: 'image compressor reduce size webp jpg png quality' },
+      { title: 'Image Resizer', url: '/image-resizer', icon: '📐', desc: 'Resize dimensions with locked aspect ratio presets', badge: 'Media', keywords: 'image resizer dimension scale 16:9 4:3 custom' },
+      { title: 'Image Format Converter', url: '/image-format-converter', icon: '🔄', desc: 'Instant browser conversion across JPG, PNG, and WebP', badge: 'Media', keywords: 'image convert format png to jpg webp transform' },
+      { title: 'Image to Base64 Encoder', url: '/image-to-base64', icon: '📦', desc: 'Convert image files into data URIs and CSS rules', badge: 'Media', keywords: 'image base64 data uri inline html css data-url' },
+      { title: 'Smart Background Remover', url: '/background-remover', icon: '✂️', desc: 'Canvas-driven transparent background cutout with tolerance', badge: 'Media', keywords: 'background remover transparent cutout png clip' },
+      { title: 'Multi-Resolution Favicon Generator', url: '/favicon-generator', icon: '⭐', desc: 'Generate 16x16, 32x32, 180x180 icons & copyable head tags', badge: 'Media', keywords: 'favicon icon app icon touch icon meta tags' },
+      { title: 'Color Picker & Converter', url: '/color-picker', icon: '🎨', desc: 'Interactive color wheel, HEX/RGB/HSL & WCAG contrast testing', badge: 'Design', keywords: 'color picker hex rgb hsl contrast palette wcag' },
+      { title: 'Word & Character Counter', url: '/word-counter', icon: '📝', desc: 'Words, characters, reading time, and speaking duration', badge: 'Text', keywords: 'word counter character count paragraph reading time speech' },
+      { title: 'Text Case Converter', url: '/case-converter', icon: '🔤', desc: 'UPPERCASE, lowercase, Title Case, camelCase, kebab-case', badge: 'Text', keywords: 'case converter uppercase lowercase title camel snake kebab' },
+      { title: 'Text Diff & Compare Checker', url: '/text-compare', icon: '🔍', desc: 'Visual side-by-side text diffing showing additions and deletions', badge: 'Text', keywords: 'diff checker compare text side by side changes' },
+      { title: 'Text to SEO Slug Generator', url: '/text-to-slug', icon: '🔗', desc: 'URL-friendly permalinks with stop-word removal', badge: 'SEO', keywords: 'slug url permalink stop words seo permalinks' },
+      { title: 'Remove Duplicate Lines', url: '/remove-duplicate-lines', icon: '📑', desc: 'Deduplicate, trim whitespace, and sort lines', badge: 'Text', keywords: 'duplicate lines remove dedupe sort clean whitespace' },
+      { title: 'Lorem Ipsum Generator', url: '/lorem-ipsum-generator', icon: '📄', desc: 'Custom placeholder dummy paragraphs, sentences, or words', badge: 'Text', keywords: 'lorem ipsum dummy text placeholder generator dummy' },
+      { title: 'Secure Random Text Generator', url: '/random-text-generator', icon: '🎲', desc: 'Cryptographic alphanumeric strings, passwords, and UUIDs', badge: 'Security', keywords: 'random string password generator uuid alphanumeric token' },
+      { title: 'Reading Time Calculator', url: '/reading-time-calculator', icon: '⏱️', desc: 'Estimate reading and speaking speeds by custom WPM', badge: 'Text', keywords: 'reading time calculator wpm speaking duration words' },
+      { title: 'Engineering Blog', url: '/blog', icon: '📰', desc: 'Deep-dive technical guides on Core Web Vitals, SEO, and color models', badge: 'Articles', keywords: 'blog engineering articles seo core web vitals speed' },
+      { title: 'All 19 Utilities Catalog', url: '/tools', icon: '🛠️', desc: 'Complete searchable directory of all Commeronix tools', badge: 'Directory', keywords: 'all tools utilities catalog directory list navigation' }
+    ];
 
-    // Global Keyboard Shortcut: Ctrl + K or '/'
-    document.addEventListener('keydown', (e) => {
-      const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
-      const isInput = activeTag === 'input' || activeTag === 'textarea' || document.activeElement.isContentEditable;
+    let searchModal = document.getElementById('search-modal-backdrop');
+    let searchInput = null;
+    let searchResults = null;
+    let selectedIndex = 0;
+    let currentResults = [];
 
-      if ((e.ctrlKey && e.key.toLowerCase() === 'k') || (e.key === '/' && !isInput)) {
-        e.preventDefault();
-        if (hubSearch) {
-          hubSearch.focus();
-          hubSearch.select();
-          hubSearch.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        } else if (navSearchBtn) {
-          window.location.href = '/tools';
+    // Helper: Build Command Palette Modal DOM dynamically if not in page
+    function ensureSearchModal() {
+      if (searchModal) return;
+
+      const modalMarkup = `
+        <div id="search-modal-backdrop" class="search-modal-backdrop" role="dialog" aria-modal="true" aria-label="Search All Tools">
+          <div class="search-modal-dialog">
+            <div class="search-modal-header">
+              <svg class="search-modal-icon" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+              <input type="text" id="command-palette-input" class="search-modal-input" placeholder="Search 19+ utilities, tools, converters..." autocomplete="off" spellcheck="false">
+              <button type="button" id="search-modal-close" class="search-modal-close-btn" aria-label="Close search (Esc)">
+                <span>ESC</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 2L10 10M10 2L2 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </button>
+            </div>
+            <div class="search-modal-body">
+              <div id="search-modal-results" class="search-results-list"></div>
+            </div>
+            <div class="search-modal-footer">
+              <div class="search-modal-hints">
+                <span><kbd>↑</kbd><kbd>↓</kbd> to navigate</span>
+                <span><kbd>↵</kbd> to select</span>
+                <span><kbd>esc</kbd> to close</span>
+              </div>
+              <span id="search-modal-count" style="font-weight: 600;">19 Tools available</span>
+            </div>
+          </div>
+        </div>
+      `;
+
+      document.body.insertAdjacentHTML('beforeend', modalMarkup);
+      searchModal = document.getElementById('search-modal-backdrop');
+      searchInput = document.getElementById('command-palette-input');
+      searchResults = document.getElementById('search-modal-results');
+
+      // Close button
+      document.getElementById('search-modal-close').addEventListener('click', closeSearchModal);
+
+      // Backdrop click
+      searchModal.addEventListener('click', (e) => {
+        if (e.target === searchModal) {
+          closeSearchModal();
         }
-      }
-    });
+      });
 
-    // Header Search Button Click
-    if (navSearchBtn) {
-      navSearchBtn.addEventListener('click', () => {
-        if (hubSearch) {
-          hubSearch.focus();
-          hubSearch.select();
-          hubSearch.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        } else {
-          window.location.href = '/tools';
+      // Search Input typing
+      searchInput.addEventListener('input', (e) => {
+        renderModalResults(e.target.value);
+      });
+
+      // Keyboard navigation inside search input
+      searchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          if (currentResults.length > 0) {
+            selectedIndex = (selectedIndex + 1) % currentResults.length;
+            updateSelection();
+          }
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          if (currentResults.length > 0) {
+            selectedIndex = (selectedIndex - 1 + currentResults.length) % currentResults.length;
+            updateSelection();
+          }
+        } else if (e.key === 'Enter') {
+          e.preventDefault();
+          if (currentResults[selectedIndex]) {
+            window.location.href = currentResults[selectedIndex].url;
+          }
+        } else if (e.key === 'Escape') {
+          closeSearchModal();
         }
       });
     }
 
-    // Homepage Live Filtering
+    function renderModalResults(query) {
+      if (!searchResults) return;
+      const q = (query || '').trim().toLowerCase();
+
+      if (!q) {
+        currentResults = ALL_TOOLS;
+      } else {
+        currentResults = ALL_TOOLS.filter((t) => {
+          return t.title.toLowerCase().includes(q) ||
+                 t.desc.toLowerCase().includes(q) ||
+                 t.keywords.toLowerCase().includes(q) ||
+                 t.badge.toLowerCase().includes(q);
+        });
+      }
+
+      selectedIndex = 0;
+      const countEl = document.getElementById('search-modal-count');
+      if (countEl) {
+        countEl.textContent = `${currentResults.length} tool${currentResults.length === 1 ? '' : 's'} found`;
+      }
+
+      if (currentResults.length === 0) {
+        searchResults.innerHTML = `
+          <div class="search-modal-empty">
+            <p>No tools found matching "<strong>${escapeHtml(query)}</strong>"</p>
+            <p style="font-size: 0.8rem; margin-top: 0.4rem; color: var(--text-muted);">Try searching for "calculator", "image", "case", or "loan".</p>
+          </div>
+        `;
+        return;
+      }
+
+      searchResults.innerHTML = currentResults.map((t, idx) => `
+        <a href="${t.url}" class="search-result-item ${idx === 0 ? 'selected' : ''}" data-index="${idx}">
+          <div class="search-result-icon">${t.icon}</div>
+          <div class="search-result-info">
+            <div class="search-result-title">
+              <span>${highlightMatch(t.title, q)}</span>
+              <span class="search-result-badge badge-lime">${t.badge}</span>
+            </div>
+            <div class="search-result-desc">${t.desc}</div>
+          </div>
+        </a>
+      `).join('');
+
+      // Add mouseover to sync keyboard index
+      searchResults.querySelectorAll('.search-result-item').forEach((item) => {
+        item.addEventListener('mouseenter', () => {
+          const idx = parseInt(item.getAttribute('data-index'), 10);
+          selectedIndex = idx;
+          updateSelection();
+        });
+      });
+    }
+
+    function updateSelection() {
+      if (!searchResults) return;
+      const items = searchResults.querySelectorAll('.search-result-item');
+      items.forEach((item, idx) => {
+        if (idx === selectedIndex) {
+          item.classList.add('selected');
+          item.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        } else {
+          item.classList.remove('selected');
+        }
+      });
+    }
+
+    function highlightMatch(text, query) {
+      if (!query) return escapeHtml(text);
+      const safeQ = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(`(${safeQ})`, 'gi');
+      return text.replace(regex, '<span style="color: var(--accent-primary); font-weight: 700;">$1</span>');
+    }
+
+    function escapeHtml(str) {
+      return (str || '').replace(/[&<>'"]/g, (tag) => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+      }[tag] || tag));
+    }
+
+    function openSearchModal() {
+      ensureSearchModal();
+      searchModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      searchInput.value = '';
+      renderModalResults('');
+      setTimeout(() => {
+        searchInput.focus();
+      }, 50);
+    }
+
+    function closeSearchModal() {
+      if (!searchModal) return;
+      searchModal.classList.remove('open');
+      document.body.style.overflow = '';
+      const triggerBtn = document.getElementById('nav-search-trigger');
+      if (triggerBtn) triggerBtn.focus();
+    }
+
+    // Attach click listeners to all search trigger buttons
+    document.querySelectorAll('#nav-search-trigger, .nav-search-icon-btn').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openSearchModal();
+      });
+    });
+
+    // Global Keyboard Shortcut: Ctrl + K, Cmd + K, or '/' (when not typing in an input)
+    document.addEventListener('keydown', (e) => {
+      const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
+      const isInput = activeTag === 'input' || activeTag === 'textarea' || (document.activeElement && document.activeElement.isContentEditable);
+
+      if ((e.ctrlKey && e.key.toLowerCase() === 'k') || (e.metaKey && e.key.toLowerCase() === 'k') || (e.key === '/' && !isInput)) {
+        e.preventDefault();
+        if (searchModal && searchModal.classList.contains('open')) {
+          closeSearchModal();
+        } else {
+          openSearchModal();
+        }
+      } else if (e.key === 'Escape' && searchModal && searchModal.classList.contains('open')) {
+        closeSearchModal();
+      }
+    });
+
+    // Homepage Live In-Page Filtering (if on index page)
+    const hubSearch = document.getElementById('hub-search-input');
     if (hubSearch) {
       const toolCards = document.querySelectorAll('.hub-tool-card');
       const categories = document.querySelectorAll('.hub-category-section');
@@ -611,7 +809,6 @@
 
       hubSearch.addEventListener('input', (e) => filterTools(e.target.value));
 
-      // Read search param from URL if redirected
       const urlParams = new URLSearchParams(window.location.search);
       const initialSearch = urlParams.get('search');
       if (initialSearch) {
@@ -621,6 +818,7 @@
     }
 
     // Mobile Drawer Search
+    const mobileSearch = document.getElementById('mobile-search-input');
     if (mobileSearch) {
       mobileSearch.addEventListener('input', (e) => {
         const q = e.target.value.trim().toLowerCase();

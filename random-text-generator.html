@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Word & Text Generator — Commeronix</title>
+  <meta name="description" content="Generate random words, secure passwords, alphanumeric strings, UUIDs, and random numbers client-side with cryptographic entropy.">
+  <meta name="keywords" content="random text generator, random word generator, password generator, uuid generator, random string generator, developer tools">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="canonical" href="https://commeronix.com/random-text-generator">
+
+  <!-- Schema.org WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Commeronix Random Text Generator",
+    "url": "https://commeronix.com/random-text-generator",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "description": "Cryptographically secure random string, word, password, and UUID generator.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('commeronix_theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+
+  </div>
+  </div>
+
+    <!-- Site Header & Navigation -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <a href="/" class="brand-logo" title="Commeronix Home">
+          <img src="/assets/favicon.svg" alt="Commeronix Logo" width="36" height="36" class="logo-icon-svg">
+          <span>Commero<span class="brand-accent">nix</span></span>
+        </a>
+
+        <!-- Universal Quick Search Bar Trigger -->
+        <div class="nav-search-wrap">
+          <button class="nav-search-btn" id="nav-search-trigger" type="button" aria-label="Search tools (Press Ctrl+K)">
+            <svg class="search-icon" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <span class="search-placeholder">Search 19+ online utilities...</span>
+            <kbd class="search-kbd">Ctrl K</kbd>
+          </button>
+        </div>
+
+        <!-- Navigation Actions -->
+        <div class="nav-actions">
+          <ul class="nav-links">
+            <li class="nav-dropdown">
+              <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+                <span>Tools &amp; Utilities</span>
+                <svg class="nav-chevron" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+              </button>
+              <div class="mega-menu" role="menu">
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Text Tools</div>
+                  <a href="/word-counter" class="mega-tool-link">Word Counter</a>
+                  <a href="/case-converter" class="mega-tool-link">Case Converter</a>
+                  <a href="/lorem-ipsum-generator" class="mega-tool-link">Lorem Ipsum</a>
+                  <a href="/text-compare" class="mega-tool-link">Text Compare / Diff</a>
+                  <a href="/remove-duplicate-lines" class="mega-tool-link">Remove Duplicate Lines</a>
+                  <a href="/text-to-slug" class="mega-tool-link">Text to Slug</a>
+                  <a href="/reading-time-calculator" class="mega-tool-link">Reading &amp; Speaking Time</a>
+                  <a href="/random-text-generator" class="mega-tool-link">Random Generator</a>
+                </div>
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Image &amp; Media</div>
+                  <a href="/image-compressor" class="mega-tool-link">Image Compressor</a>
+                  <a href="/image-resizer" class="mega-tool-link">Image Resizer</a>
+                  <a href="/image-format-converter" class="mega-tool-link">Format Converter</a>
+                  <a href="/image-to-base64" class="mega-tool-link">Image to Base64</a>
+                  <a href="/background-remover" class="mega-tool-link">Background Remover</a>
+                  <a href="/favicon-generator" class="mega-tool-link">Favicon Generator</a>
+                  <a href="/color-picker" class="mega-tool-link">Color Picker &amp; Converter</a>
+                </div>
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Financial &amp; Math</div>
+                  <a href="/calculator" class="mega-tool-link">Scientific Calculator</a>
+                  <a href="/currency-converter" class="mega-tool-link">Live Currency Converter</a>
+                  <a href="/loan-calculator" class="mega-tool-link">Loan &amp; EMI Calculator</a>
+                  <a href="/unit-converter" class="mega-tool-link">Unit Converter</a>
+                  <div style="margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle);">
+                    <a href="/tools" style="color: var(--accent-primary); font-weight: 700; font-size: 0.85rem; text-decoration: none;">View All 19 Web Utilities &rarr;</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li><a href="/blog" class="nav-link">Blog</a></li>
+            <li><a href="/about" class="nav-link">About</a></li>
+          </ul>
+
+          <!-- Dark / Light Theme Toggle Button -->
+          <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Toggle Light and Dark Theme" title="Toggle Theme">
+            <svg class="sun-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <svg class="moon-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+
+          <!-- Mobile Toggle -->
+          <button class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" aria-label="Mobile Navigation Menu">
+    <div class="mobile-search-box">
+      <input type="text" id="mobile-search-input" placeholder="Search 19+ utilities..." aria-label="Search tools mobile">
+    </div>
+    <a href="/" class="nav-link">Home</a>
+    <a href="/tools" class="nav-link">All Tools Directory</a>
+    <a href="/blog" class="nav-link">Blog &amp; Guides</a>
+    <a href="/about" class="nav-link">About Us</a>
+    <a href="/contact" class="nav-link">Contact Us</a>
+    <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
+    <a href="/terms" class="nav-link">Terms of Service</a>
+  </div>
+
+  <main class="main-content">
+    <div class="container">
+      
+      <div class="tool-header">
+        <div class="tool-breadcrumbs">
+          <a href="/">Home</a> <span>/</span> <a href="/tools">Web Utilities</a> <span>/</span> <span>Random Text Generator</span>
+        </div>
+        <span class="badge-lime">🎲 Text & Content Tool</span>
+        <h1>Random Word & Text Generator</h1>
+        <p class="tool-subtitle">Generate random English words, high-entropy cryptographic passwords, alphanumeric mock strings, and UUID v4 identifiers client-side.</p>
+      </div>
+
+      <div class="tool-workspace">
+        
+        <!-- Mode Tabs -->
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+          <button class="btn-tool-action btn-tool-primary active" data-mode="words">Random Words</button>
+          <button class="btn-tool-action" data-mode="passwords">Secure Passwords</button>
+          <button class="btn-tool-action" data-mode="strings">Alphanumeric Strings</button>
+          <button class="btn-tool-action" data-mode="uuid">UUID v4 Identifiers</button>
+        </div>
+
+        <!-- Mode Configuration -->
+        <div id="config-bar" style="display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center; margin-bottom: 1.5rem; background: var(--bg-main); padding: 1.25rem; border-radius: var(--radius-lg); border: 1px solid var(--border-subtle);">
+          
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <label for="gen-count" style="font-size: 0.88rem; font-weight: 700;">Quantity:</label>
+            <input type="number" id="gen-count" min="1" max="100" value="10" style="width: 70px; padding: 0.45rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); background: var(--bg-surface); color: var(--text-primary); font-family: var(--font-mono); font-weight: 700;">
+          </div>
+
+          <div id="opt-password-length-wrap" style="display: none; align-items: center; gap: 0.5rem;">
+            <label for="gen-length" style="font-size: 0.88rem; font-weight: 700;">Length:</label>
+            <input type="number" id="gen-length" min="6" max="64" value="16" style="width: 70px; padding: 0.45rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); background: var(--bg-surface); color: var(--text-primary); font-family: var(--font-mono); font-weight: 700;">
+          </div>
+
+          <button id="btn-generate" class="btn-lime" style="margin-left: auto;">⚡ Generate New</button>
+        </div>
+
+        <!-- Output Box -->
+        <div class="tool-card-box">
+          <div class="tool-card-header">
+            <span class="tool-card-title">🎲 Generated Output</span>
+            <div class="tool-card-actions">
+              <button class="btn-copy" id="btn-copy">📋 Copy All</button>
+              <button class="btn-copy" id="btn-download">💾 Download</button>
+            </div>
+          </div>
+          <textarea id="gen-output" class="tool-textarea" style="min-height: 240px;" readonly></textarea>
+        </div>
+
+      </div>
+
+      <section class="article-container" style="margin-top: 2rem; box-shadow: none;">
+        <h2>Cryptographic Security and Randomness in Web Browsers</h2>
+        <p>Unlike pseudo-random number generators like <code>Math.random()</code> which are predictable and unsuitable for security keys, modern web applications utilize the <code>window.crypto.getRandomValues()</code> API. This queries the underlying operating system's cryptographic entropy pool, ensuring unpredictable passwords, API mock keys, and UUIDs.</p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Commeronix. All rights reserved. Free web utilities.</p>
+        <div class="footer-legal-links"><a href="/privacy-policy">Privacy</a><a href="/terms">Terms</a><a href="/tools">All Tools</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const DICTIONARY = [
+        "quantum", "velocity", "horizon", "nexus", "spectrum", "circuit", "algorithm", "beacon", "galaxy",
+        "dynamic", "stellar", "matrix", "catalyst", "synthesis", "harmony", "zenith", "orbit", "traverse",
+        "luminary", "radiant", "vortex", "cascade", "prism", "infinity", "vertex", "vector", "element",
+        "cipher", "resonance", "echo", "chronicle", "frontier", "pulse", "summit", "axiom", "pinnacle",
+        "meridian", "solitude", "canyon", "tundra", "glacier", "ember", "nebula", "meteor", "aurora",
+        "mirage", "oasis", "quasar", "supernova", "eclipse", "celestial", "cosmos", "atmosphere", "altitude"
+      ];
+
+      let currentMode = 'words';
+      const output = document.getElementById('gen-output');
+      const countInput = document.getElementById('gen-count');
+      const lengthInput = document.getElementById('gen-length');
+      const passLengthWrap = document.getElementById('opt-password-length-wrap');
+      const modeButtons = document.querySelectorAll('[data-mode]');
+
+      function getRandomCryptoInt(max) {
+        const array = new Uint32Array(1);
+        window.crypto.getRandomValues(array);
+        return array[0] % max;
+      }
+
+      function generateUUID() {
+        if (window.crypto && window.crypto.randomUUID) {
+          return window.crypto.randomUUID();
+        }
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+          const r = getRandomCryptoInt(16);
+          const v = c === 'x' ? r : (r & 0x3 | 0x8);
+          return v.toString(16);
+        });
+      }
+
+      function generatePassword(len = 16) {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=';
+        let res = '';
+        for (let i = 0; i < len; i++) {
+          res += chars[getRandomCryptoInt(chars.length)];
+        }
+        return res;
+      }
+
+      function generateAlphanumeric(len = 12) {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let res = '';
+        for (let i = 0; i < len; i++) {
+          res += chars[getRandomCryptoInt(chars.length)];
+        }
+        return res;
+      }
+
+      function runGeneration() {
+        const count = parseInt(countInput.value, 10) || 10;
+        const length = parseInt(lengthInput.value, 10) || 16;
+        const results = [];
+
+        if (currentMode === 'words') {
+          for (let i = 0; i < count; i++) {
+            results.push(DICTIONARY[getRandomCryptoInt(DICTIONARY.length)]);
+          }
+          output.value = results.join(', ');
+        } else if (currentMode === 'passwords') {
+          for (let i = 0; i < count; i++) {
+            results.push(generatePassword(length));
+          }
+          output.value = results.join('\n');
+        } else if (currentMode === 'strings') {
+          for (let i = 0; i < count; i++) {
+            results.push(generateAlphanumeric(length));
+          }
+          output.value = results.join('\n');
+        } else if (currentMode === 'uuid') {
+          for (let i = 0; i < count; i++) {
+            results.push(generateUUID());
+          }
+          output.value = results.join('\n');
+        }
+      }
+
+      modeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          modeButtons.forEach(b => {
+            b.classList.remove('btn-tool-primary', 'active');
+          });
+          btn.classList.add('btn-tool-primary', 'active');
+          currentMode = btn.getAttribute('data-mode');
+
+          if (currentMode === 'passwords' || currentMode === 'strings') {
+            passLengthWrap.style.display = 'flex';
+          } else {
+            passLengthWrap.style.display = 'none';
+          }
+          runGeneration();
+        });
+      });
+
+      document.getElementById('btn-generate').addEventListener('click', runGeneration);
+      countInput.addEventListener('input', runGeneration);
+      lengthInput.addEventListener('input', runGeneration);
+
+      document.getElementById('btn-copy').addEventListener('click', () => {
+        if (!output.value) return;
+        navigator.clipboard.writeText(output.value).then(() => window.showToast('Copied to clipboard!'));
+      });
+
+      document.getElementById('btn-download').addEventListener('click', () => {
+        if (!output.value) return;
+        const blob = new Blob([output.value], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `random-${currentMode}.txt`;
+        a.click();
+        URL.revokeObjectURL(url);
+        window.showToast(`Downloaded random-${currentMode}.txt`);
+      });
+
+      runGeneration();
+    });
+  </script>
+</body>
+</html>

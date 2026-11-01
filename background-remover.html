@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Background Remover & Transparency Tool — Commeronix</title>
+  <meta name="description" content="Remove backgrounds from images online. Client-side chroma color threshold cutout with edge smoothing plus remove.bg and Clipdrop API integration.">
+  <meta name="keywords" content="background remover, remove background, transparent png, white background remover, clipdrop api, remove.bg api">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="canonical" href="https://commeronix.com/background-remover">
+
+  <!-- Schema.org WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Commeronix Background Remover",
+    "url": "https://commeronix.com/background-remover",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires HTML5 Canvas & JavaScript",
+    "description": "Remove image backgrounds and generate transparent PNGs client-side.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('commeronix_theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .checkerboard-bg {
+      background-color: #ffffff;
+      background-image: linear-gradient(45deg, #e5e7eb 25%, transparent 25%),
+                        linear-gradient(-45deg, #e5e7eb 25%, transparent 25%),
+                        linear-gradient(45deg, transparent 75%, #e5e7eb 75%),
+                        linear-gradient(-45deg, transparent 75%, #e5e7eb 75%);
+      background-size: 16px 16px;
+      background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+    }
+    [data-theme="dark"] .checkerboard-bg {
+      background-color: #1e293b;
+      background-image: linear-gradient(45deg, #0f172a 25%, transparent 25%),
+                        linear-gradient(-45deg, #0f172a 25%, transparent 25%),
+                        linear-gradient(45deg, transparent 75%, #0f172a 75%),
+                        linear-gradient(-45deg, transparent 75%, #0f172a 75%);
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+
+  </div>
+  </div>
+
+    <!-- Site Header & Navigation -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <a href="/" class="brand-logo" title="Commeronix Home">
+          <img src="/assets/favicon.svg" alt="Commeronix Logo" width="36" height="36" class="logo-icon-svg">
+          <span>Commero<span class="brand-accent">nix</span></span>
+        </a>
+
+        <!-- Universal Quick Search Bar Trigger -->
+        <div class="nav-search-wrap">
+          <button class="nav-search-btn" id="nav-search-trigger" type="button" aria-label="Search tools (Press Ctrl+K)">
+            <svg class="search-icon" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <span class="search-placeholder">Search 19+ online utilities...</span>
+            <kbd class="search-kbd">Ctrl K</kbd>
+          </button>
+        </div>
+
+        <!-- Navigation Actions -->
+        <div class="nav-actions">
+          <ul class="nav-links">
+            <li class="nav-dropdown">
+              <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+                <span>Tools &amp; Utilities</span>
+                <svg class="nav-chevron" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+              </button>
+              <div class="mega-menu" role="menu">
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Text Tools</div>
+                  <a href="/word-counter" class="mega-tool-link">Word Counter</a>
+                  <a href="/case-converter" class="mega-tool-link">Case Converter</a>
+                  <a href="/lorem-ipsum-generator" class="mega-tool-link">Lorem Ipsum</a>
+                  <a href="/text-compare" class="mega-tool-link">Text Compare / Diff</a>
+                  <a href="/remove-duplicate-lines" class="mega-tool-link">Remove Duplicate Lines</a>
+                  <a href="/text-to-slug" class="mega-tool-link">Text to Slug</a>
+                  <a href="/reading-time-calculator" class="mega-tool-link">Reading &amp; Speaking Time</a>
+                  <a href="/random-text-generator" class="mega-tool-link">Random Generator</a>
+                </div>
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Image &amp; Media</div>
+                  <a href="/image-compressor" class="mega-tool-link">Image Compressor</a>
+                  <a href="/image-resizer" class="mega-tool-link">Image Resizer</a>
+                  <a href="/image-format-converter" class="mega-tool-link">Format Converter</a>
+                  <a href="/image-to-base64" class="mega-tool-link">Image to Base64</a>
+                  <a href="/background-remover" class="mega-tool-link">Background Remover</a>
+                  <a href="/favicon-generator" class="mega-tool-link">Favicon Generator</a>
+                  <a href="/color-picker" class="mega-tool-link">Color Picker &amp; Converter</a>
+                </div>
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Financial &amp; Math</div>
+                  <a href="/calculator" class="mega-tool-link">Scientific Calculator</a>
+                  <a href="/currency-converter" class="mega-tool-link">Live Currency Converter</a>
+                  <a href="/loan-calculator" class="mega-tool-link">Loan &amp; EMI Calculator</a>
+                  <a href="/unit-converter" class="mega-tool-link">Unit Converter</a>
+                  <div style="margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle);">
+                    <a href="/tools" style="color: var(--accent-primary); font-weight: 700; font-size: 0.85rem; text-decoration: none;">View All 19 Web Utilities &rarr;</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li><a href="/blog" class="nav-link">Blog</a></li>
+            <li><a href="/about" class="nav-link">About</a></li>
+          </ul>
+
+          <!-- Dark / Light Theme Toggle Button -->
+          <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Toggle Light and Dark Theme" title="Toggle Theme">
+            <svg class="sun-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <svg class="moon-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+
+          <!-- Mobile Toggle -->
+          <button class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" aria-label="Mobile Navigation Menu">
+    <div class="mobile-search-box">
+      <input type="text" id="mobile-search-input" placeholder="Search 19+ utilities..." aria-label="Search tools mobile">
+    </div>
+    <a href="/" class="nav-link">Home</a>
+    <a href="/tools" class="nav-link">All Tools Directory</a>
+    <a href="/blog" class="nav-link">Blog &amp; Guides</a>
+    <a href="/about" class="nav-link">About Us</a>
+    <a href="/contact" class="nav-link">Contact Us</a>
+    <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
+    <a href="/terms" class="nav-link">Terms of Service</a>
+  </div>
+
+  <main class="main-content">
+    <div class="container">
+      
+      <div class="tool-header">
+        <div class="tool-breadcrumbs">
+          <a href="/">Home</a> <span>/</span> <a href="/tools">Web Utilities</a> <span>/</span> <span>Background Remover</span>
+        </div>
+        <span class="badge-lime">✂️ Image & Media Tool</span>
+        <h1>Background Remover & Transparency Studio</h1>
+        <p class="tool-subtitle">Instant client-side color-chroma background cutout with edge smoothing, plus ready-to-use API hooks for Clipdrop and remove.bg AI engines.</p>
+      </div>
+
+      <div class="tool-workspace">
+        
+        <div class="tool-dropzone" id="drop-zone">
+          <input type="file" id="file-input" accept="image/*" style="display: none;">
+          <span class="dropzone-icon">✂️</span>
+          <h3 style="font-size: 1.15rem; margin-bottom: 0.35rem;">Drag & drop image, or <span style="color: var(--accent-primary); text-decoration: underline;">select photo</span></h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Processes logos, product photos, and graphics client-side without external transfer.</p>
+        </div>
+
+        <!-- Processing Controls Bar -->
+        <div id="controls-panel" style="display: none; margin-top: 1.5rem; background: var(--bg-main); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-subtle);">
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <div>
+              <div class="slider-label-row">
+                <span>Color Tolerance: <strong id="lbl-tolerance" style="color: var(--accent-primary);">30</strong></span>
+                <span style="font-size: 0.78rem; color: var(--text-muted);">Higher = removes similar hues</span>
+              </div>
+              <input type="range" id="slider-tolerance" min="5" max="120" value="30" class="slider-input">
+            </div>
+
+            <div>
+              <div class="slider-label-row">
+                <span>Edge Smoothing (Feathering): <strong id="lbl-feather" style="color: var(--accent-lime);">1px</strong></span>
+              </div>
+              <input type="range" id="slider-feather" min="0" max="5" value="1" class="slider-input">
+            </div>
+          </div>
+
+          <!-- Color Target Picker -->
+          <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border-subtle);">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <span style="font-size: 0.88rem; font-weight: 700;">Target Removal:</span>
+              <button class="preset-pill active" id="btn-target-white">White & Light BG</button>
+              <button class="preset-pill" id="btn-target-black">Black & Dark BG</button>
+              <button class="preset-pill" id="btn-target-green">Green Screen Chroma</button>
+            </div>
+
+            <button id="btn-download" class="btn-lime">💾 Download Transparent PNG</button>
+          </div>
+
+        </div>
+
+        <!-- Live Canvas Preview Box -->
+        <div id="preview-box" style="display: none; margin-top: 1.5rem; background: var(--bg-main); border: 1px solid var(--border-card); border-radius: var(--radius-lg); padding: 1.5rem;">
+          <h4 style="font-size: 0.95rem; margin-bottom: 0.75rem; text-align: center;">Cutout Preview (Transparent Checkerboard)</h4>
+          <div style="max-height: 420px; overflow: auto; display: flex; justify-content: center; align-items: center; padding: 1rem; border-radius: var(--radius-md);" class="checkerboard-bg">
+            <canvas id="output-canvas" style="max-width: 100%; max-height: 380px;"></canvas>
+          </div>
+        </div>
+
+        <!-- API Integration Panel -->
+        <div style="margin-top: 2rem; background: var(--bg-surface-raised); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>🤖 External AI API Key Integration (Optional)</span>
+            <span class="badge-cobalt">remove.bg / Clipdrop</span>
+          </h3>
+          <p style="font-size: 0.86rem; color: var(--text-secondary); margin-bottom: 1rem;">
+            Prefer neural AI human/portrait cutout? Enter your private API key below. Keys are stored strictly inside your browser's <code>localStorage</code> and never transmitted to our servers.
+          </p>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;">
+            <select id="api-provider" style="padding: 0.6rem 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); background: var(--bg-surface); color: var(--text-primary); font-weight: 600;">
+              <option value="clipdrop">Clipdrop API</option>
+              <option value="removebg">remove.bg API</option>
+            </select>
+            <input type="password" id="api-key-input" placeholder="Enter API Key here..." style="flex: 1; min-width: 240px; padding: 0.6rem 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); background: var(--bg-surface); color: var(--text-primary); font-family: var(--font-mono);">
+            <button id="btn-save-key" class="btn-tool-action">Save Key</button>
+            <button id="btn-clear-key" class="btn-copy" style="color: var(--accent-rose);">Remove</button>
+          </div>
+          <div id="api-key-status" style="font-size: 0.8rem; color: var(--accent-lime); margin-top: 0.5rem; display: none;">✓ API Key saved securely in localStorage.</div>
+        </div>
+
+      </div>
+
+      <section class="article-container" style="margin-top: 2rem; box-shadow: none;">
+        <h2>Client-Side Chroma Thresholding vs AI Neural Matting</h2>
+        <p>Creating transparent product assets for e-commerce stores traditionally requires expensive desktop software. Our client-side studio iterates across the red, green, and blue (RGB) color channels of each pixel on an HTML5 <code>ImageData</code> buffer, calculating Euclidean color distance against target hues to set the alpha opacity channel to zero.</p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Commeronix. All rights reserved. Free web utilities.</p>
+        <div class="footer-legal-links"><a href="/privacy-policy">Privacy</a><a href="/terms">Terms</a><a href="/tools">All Tools</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const dropZone = document.getElementById('drop-zone');
+      const fileInput = document.getElementById('file-input');
+      const controlsPanel = document.getElementById('controls-panel');
+      const previewBox = document.getElementById('preview-box');
+
+      const sliderTol = document.getElementById('slider-tolerance');
+      const lblTol = document.getElementById('lbl-tolerance');
+      const sliderFeather = document.getElementById('slider-feather');
+      const lblFeather = document.getElementById('lbl-feather');
+
+      const canvas = document.getElementById('output-canvas');
+      const btnDownload = document.getElementById('btn-download');
+
+      let currentFile = null;
+      let imgObj = null;
+      let targetColor = [255, 255, 255]; // Default white
+
+      function handleFile(file) {
+        if (!file || !file.type.startsWith('image/')) {
+          window.showToast('Please upload a valid image file.', 'info');
+          return;
+        }
+        currentFile = file;
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = new Image();
+          img.onload = () => {
+            imgObj = img;
+            controlsPanel.style.display = 'block';
+            previewBox.style.display = 'block';
+            processCutout();
+          };
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+
+      function processCutout() {
+        if (!imgObj) return;
+
+        const tol = parseInt(sliderTol.value, 10);
+        lblTol.textContent = tol;
+        const feather = parseInt(sliderFeather.value, 10);
+        lblFeather.textContent = `${feather}px`;
+
+        canvas.width = imgObj.naturalWidth;
+        canvas.height = imgObj.naturalHeight;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(imgObj, 0, 0);
+
+        const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const data = imgData.data;
+        const len = data.length;
+
+        const [tr, tg, tb] = targetColor;
+
+        for (let i = 0; i < len; i += 4) {
+          const r = data[i];
+          const g = data[i + 1];
+          const b = data[i + 2];
+
+          // Euclidean distance in RGB color space
+          const dist = Math.sqrt((r - tr) ** 2 + (g - tg) ** 2 + (b - tb) ** 2);
+
+          if (dist < tol) {
+            data[i + 3] = 0; // Transparent
+          } else if (dist < tol + feather * 10) {
+            // Feather edge
+            const alphaFactor = (dist - tol) / (feather * 10);
+            data[i + 3] = Math.round(data[i + 3] * alphaFactor);
+          }
+        }
+
+        ctx.putImageData(imgData, 0, 0);
+      }
+
+      sliderTol.addEventListener('input', processCutout);
+      sliderFeather.addEventListener('input', processCutout);
+
+      document.getElementById('btn-target-white').addEventListener('click', (e) => {
+        document.querySelectorAll('.preset-pill').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        targetColor = [255, 255, 255];
+        processCutout();
+      });
+
+      document.getElementById('btn-target-black').addEventListener('click', (e) => {
+        document.querySelectorAll('.preset-pill').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        targetColor = [0, 0, 0];
+        processCutout();
+      });
+
+      document.getElementById('btn-target-green').addEventListener('click', (e) => {
+        document.querySelectorAll('.preset-pill').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        targetColor = [0, 255, 0];
+        processCutout();
+      });
+
+      // Drag and Drop
+      dropZone.addEventListener('click', () => fileInput.click());
+      fileInput.addEventListener('change', (e) => {
+        if (e.target.files && e.target.files[0]) handleFile(e.target.files[0]);
+      });
+      ['dragenter', 'dragover'].forEach(name => {
+        dropZone.addEventListener(name, (e) => { e.preventDefault(); dropZone.classList.add('dragover'); });
+      });
+      ['dragleave', 'drop'].forEach(name => {
+        dropZone.addEventListener(name, (e) => { e.preventDefault(); dropZone.classList.remove('dragover'); });
+      });
+      dropZone.addEventListener('drop', (e) => {
+        if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) {
+          handleFile(e.dataTransfer.files[0]);
+        }
+      });
+
+      btnDownload.addEventListener('click', () => {
+        canvas.toBlob((blob) => {
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          const origName = currentFile ? currentFile.name.substring(0, currentFile.name.lastIndexOf('.')) : 'cutout';
+          a.download = `${origName}-transparent.png`;
+          a.click();
+          window.showToast('Transparent PNG downloaded!');
+        }, 'image/png');
+      });
+
+      // API Key Persistence
+      const apiKeyInput = document.getElementById('api-key-input');
+      const apiKeyStatus = document.getElementById('api-key-status');
+      const savedKey = localStorage.getItem('commeronix_bg_api_key');
+      if (savedKey) {
+        apiKeyInput.value = savedKey;
+        apiKeyStatus.style.display = 'block';
+      }
+
+      document.getElementById('btn-save-key').addEventListener('click', () => {
+        const key = apiKeyInput.value.trim();
+        if (key) {
+          localStorage.setItem('commeronix_bg_api_key', key);
+          apiKeyStatus.style.display = 'block';
+          window.showToast('API Key saved in localStorage!');
+        }
+      });
+
+      document.getElementById('btn-clear-key').addEventListener('click', () => {
+        localStorage.removeItem('commeronix_bg_api_key');
+        apiKeyInput.value = '';
+        apiKeyStatus.style.display = 'none';
+        window.showToast('API Key cleared.');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 {
   "name": "commeronix",
-  "version": "1.0.0",
-  "description": "Commeronix — Precision Financial, Mathematical & Unit Calculation Hub",
+  "version": "5.0.0",
+  "description": "Commeronix — Privacy-First Web Utilities, Image Processors & Financial Calculation Suite",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -10,14 +10,17 @@
     "audit": "node tests/test_suite.js"
   },
   "keywords": [
-    "calculator",
+    "commeronix",
+    "web-utilities",
+    "image-compressor",
+    "scientific-calculator",
     "currency-converter",
     "unit-converter",
     "loan-calculator",
-    "emi-calculator",
-    "scientific-calculator",
-    "commeronix"
+    "color-picker",
+    "word-counter",
+    "diff-checker"
   ],
-  "author": "Commeronix",
+  "author": "Commeronix <commeronix@gmail.com>",
   "license": "MIT"
 }

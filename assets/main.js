@@ -6,6 +6,16 @@
 (function () {
   'use strict';
 
+  // --- Clean legacy WordPress query parameters (?p=1, etc.) globally ---
+  if (typeof window !== 'undefined' && window.location.search && /[?&]p=\d+/.test(window.location.search)) {
+    var cleanUrl = window.location.origin + window.location.pathname;
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState(null, '', cleanUrl);
+    } else {
+      window.location.replace(cleanUrl);
+    }
+  }
+
   // --- Live Rates Ticker Configuration & Fallbacks ---
   const DEFAULT_TICKER_RATES = [
     { pair: 'USD/PKR', rate: '277.25', change: '-0.15%', up: false },
@@ -222,32 +232,20 @@
   }
 
   /**
-   * Automatically updates copyright year in footer
-   */
-  function initFooterYear() {
-    const yearElems = document.querySelectorAll('#current-year');
-    const year = new Date().getFullYear();
-    yearElems.forEach((el) => {
-      el.textContent = year;
-    });
-  }
-
-  /**
    * Initializes Theme Toggle (Dark & Light Mode) with LocalStorage persistence
    */
   function initTheme() {
     const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn');
 
-    // Get current theme from DOM or storage
+    // Default Theme: Clean, modern Light Mode (high contrast, readable typography, minimal borders)
     const savedTheme = localStorage.getItem('commeronix_theme');
-    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-    const currentTheme = savedTheme || (prefersLight ? 'light' : 'dark');
+    const currentTheme = savedTheme === 'dark' ? 'dark' : 'light';
 
     document.documentElement.setAttribute('data-theme', currentTheme);
 
     function toggleTheme() {
-      const activeTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-      const newTheme = activeTheme === 'light' ? 'dark' : 'light';
+      const activeTheme = document.documentElement.getAttribute('data-theme') || 'light';
+      const newTheme = activeTheme === 'dark' ? 'light' : 'dark';
 
       document.documentElement.setAttribute('data-theme', newTheme);
       localStorage.setItem('commeronix_theme', newTheme);
@@ -270,13 +268,13 @@
    * Dynamically marks active navbar and drawer links based on current path
    */
   function initNavActive() {
-    const currentPath = window.location.pathname.replace(/^\//, '').replace(/\.html$/, '') || 'index';
+    const currentPath = window.location.pathname.replace(/^\//, '').replace(/\/$/, '').replace(/\.html$/, '') || 'index';
     const navLinks = document.querySelectorAll('.nav-link');
 
     navLinks.forEach((link) => {
       const href = link.getAttribute('href');
       if (!href) return;
-      const cleanHref = href.replace(/^\//, '').replace(/\.html$/, '') || 'index';
+      const cleanHref = href.replace(/^\//, '').replace(/\/$/, '').replace(/\.html$/, '') || 'index';
 
       if (cleanHref === currentPath || (currentPath === 'index' && (cleanHref === 'index' || cleanHref === ''))) {
         link.classList.add('active');
@@ -290,9 +288,8 @@
    * Initializes Scroll-Triggered Reveal Animations with staggered delays
    */
   function initScrollAnimations() {
-    // Only apply subtle scroll reveals to secondary below-the-fold elements, NEVER to calculators or hero titles
     const revealTargets = document.querySelectorAll(
-      '.step-card, .faq-item'
+      '.card, .feature-box, .step-card, .faq-item, .hero-title, .hero-subtitle, .hero-actions, .calc-container'
     );
 
     if (!('IntersectionObserver' in window)) {
@@ -404,9 +401,6 @@
    * Global Interactive Background Cursor Glow Follower with smooth physics (lerp)
    */
   function initGlobalCursorGlow() {
-    // Annihilate any old/cached ring element immediately
-    const existingRings = document.querySelectorAll('.global-cursor-ring');
-    existingRings.forEach(r => r.remove());
     // Create background glow orb
     let glow = document.querySelector('.global-cursor-glow');
     if (!glow) {
@@ -415,19 +409,32 @@
       document.body.appendChild(glow);
     }
 
+    // Create interactive cursor ring
+    let ring = document.querySelector('.global-cursor-ring');
+    if (!ring) {
+      ring = document.createElement('div');
+      ring.className = 'global-cursor-ring';
+      document.body.appendChild(ring);
+    }
+
     let targetX = -500;
     let targetY = -500;
     let glowX = -500;
     let glowY = -500;
+    let ringX = -500;
+    let ringY = -500;
     let isVisible = false;
     let isRunning = false;
 
     function animateFollowers() {
-      // Smooth lerp (ambient glow: 0.12 factor)
+      // Smooth lerp (ambient glow: 0.12 factor, ring: 0.25 factor)
       glowX += (targetX - glowX) * 0.12;
       glowY += (targetY - glowY) * 0.12;
+      ringX += (targetX - ringX) * 0.28;
+      ringY += (targetY - ringY) * 0.28;
 
       glow.style.transform = `translate3d(${glowX}px, ${glowY}px, 0) translate(-50%, -50%)`;
+      ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
 
       if (isVisible) {
         requestAnimationFrame(animateFollowers);
@@ -446,6 +453,7 @@
       if (!isVisible) {
         isVisible = true;
         glow.style.opacity = '1';
+        ring.style.opacity = '1';
         if (!isRunning) {
           isRunning = true;
           requestAnimationFrame(animateFollowers);
@@ -456,25 +464,181 @@
     document.addEventListener('pointerleave', () => {
       isVisible = false;
       glow.style.opacity = '0';
+      ring.style.opacity = '0';
     });
 
-    // Subtle expansion when hovering over interactive cards or buttons
+    // Hover detection for interactive buttons, cards, and links
     document.addEventListener('mouseover', (e) => {
       if (e.target.closest('a, button, input, select, .card, .calc-btn, .feature-box, .category-tab')) {
+        ring.classList.add('hovering');
         glow.style.width = '620px';
         glow.style.height = '620px';
       } else {
+        ring.classList.remove('hovering');
         glow.style.width = '480px';
         glow.style.height = '480px';
       }
     });
   }
 
+  /**
+   * Global Toast Notification with Acid Lime accent styling
+   */
+  window.showToast = function (message, type = 'success') {
+    let container = document.getElementById('commeronix-toast-container');
+    if (!container) {
+      container = document.createElement('div');
+      container.id = 'commeronix-toast-container';
+      container.className = 'toast-container';
+      document.body.appendChild(container);
+    }
+
+    const toast = document.createElement('div');
+    toast.className = `toast-item toast-${type}`;
+    toast.innerHTML = `
+      <span class="toast-icon">${type === 'success' ? '✓' : 'ℹ'}</span>
+      <span class="toast-msg">${message}</span>
+    `;
+    container.appendChild(toast);
+
+    setTimeout(() => {
+      toast.classList.add('show');
+    }, 10);
+
+    setTimeout(() => {
+      toast.classList.remove('show');
+      setTimeout(() => toast.remove(), 300);
+    }, 2800);
+  };
+
+  /**
+   * Initializes Dropdown Navigation for Online Web Utilities
+   */
+  function initNavDropdowns() {
+    const dropdownToggles = document.querySelectorAll('.nav-dropdown-toggle');
+    dropdownToggles.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const parent = btn.closest('.nav-dropdown');
+        const isOpen = parent.classList.contains('active');
+        document.querySelectorAll('.nav-dropdown.active').forEach((el) => el.classList.remove('active'));
+        if (!isOpen) {
+          parent.classList.add('active');
+        }
+      });
+    });
+
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.nav-dropdown.active').forEach((el) => el.classList.remove('active'));
+    });
+  }
+
+  /**
+   * Universal Search Bar (Keyboard shortcuts Ctrl+K / '/' and Live Filtering)
+   */
+  function initUniversalSearch() {
+    const hubSearch = document.getElementById('hub-search-input');
+    const navSearchBtn = document.getElementById('nav-search-trigger');
+    const mobileSearch = document.getElementById('mobile-search-input');
+
+    // Global Keyboard Shortcut: Ctrl + K or '/'
+    document.addEventListener('keydown', (e) => {
+      const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
+      const isInput = activeTag === 'input' || activeTag === 'textarea' || document.activeElement.isContentEditable;
+
+      if ((e.ctrlKey && e.key.toLowerCase() === 'k') || (e.key === '/' && !isInput)) {
+        e.preventDefault();
+        if (hubSearch) {
+          hubSearch.focus();
+          hubSearch.select();
+          hubSearch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else if (navSearchBtn) {
+          window.location.href = '/tools';
+        }
+      }
+    });
+
+    // Header Search Button Click
+    if (navSearchBtn) {
+      navSearchBtn.addEventListener('click', () => {
+        if (hubSearch) {
+          hubSearch.focus();
+          hubSearch.select();
+          hubSearch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          window.location.href = '/tools';
+        }
+      });
+    }
+
+    // Homepage Live Filtering
+    if (hubSearch) {
+      const toolCards = document.querySelectorAll('.hub-tool-card');
+      const categories = document.querySelectorAll('.hub-category-section');
+      const noResultsBox = document.getElementById('search-no-results');
+
+      function filterTools(query) {
+        const q = query.trim().toLowerCase();
+        let totalVisible = 0;
+
+        categories.forEach((cat) => {
+          let catVisible = 0;
+          const cardsInCat = cat.querySelectorAll('.hub-tool-card');
+
+          cardsInCat.forEach((card) => {
+            const title = (card.querySelector('.hub-tool-title')?.textContent || '').toLowerCase();
+            const desc = (card.querySelector('.hub-tool-desc')?.textContent || '').toLowerCase();
+            const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
+
+            if (!q || title.includes(q) || desc.includes(q) || keywords.includes(q)) {
+              card.style.display = '';
+              catVisible++;
+              totalVisible++;
+            } else {
+              card.style.display = 'none';
+            }
+          });
+
+          cat.style.display = catVisible > 0 ? '' : 'none';
+        });
+
+        if (noResultsBox) {
+          noResultsBox.style.display = totalVisible === 0 ? 'block' : 'none';
+          const queryDisplay = document.getElementById('search-query-display');
+          if (queryDisplay) queryDisplay.textContent = q;
+        }
+      }
+
+      hubSearch.addEventListener('input', (e) => filterTools(e.target.value));
+
+      // Read search param from URL if redirected
+      const urlParams = new URLSearchParams(window.location.search);
+      const initialSearch = urlParams.get('search');
+      if (initialSearch) {
+        hubSearch.value = initialSearch;
+        filterTools(initialSearch);
+      }
+    }
+
+    // Mobile Drawer Search
+    if (mobileSearch) {
+      mobileSearch.addEventListener('input', (e) => {
+        const q = e.target.value.trim().toLowerCase();
+        const drawerLinks = document.querySelectorAll('.mobile-drawer .nav-link');
+        drawerLinks.forEach((link) => {
+          const text = link.textContent.toLowerCase();
+          link.style.display = !q || text.includes(q) ? '' : 'none';
+        });
+      });
+    }
+  }
+
   // Run on DOM Content Loaded
   document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     initNavActive();
-    initLiveTicker();
+    initNavDropdowns();
+    initUniversalSearch();
     initMobileNav();
     initFaqAccordion();
     initFooterYear();
@@ -483,45 +647,5 @@
     initSpotlightHover();
     initTiltCards();
     initGlobalCursorGlow();
-    initLinkPrefetching();
-
-    // Auto-refresh live market rates every 60 seconds
-    setInterval(initLiveTicker, 60000);
   });
-
-  /**
-   * Ultra-Fast Instant Page Preloader
-   * Automatically prefetches destination pages on mouse hover or touch start for zero-latency page transitions
-   */
-  function initLinkPrefetching() {
-    const prefetchedUrls = new Set();
-
-    function prefetch(url) {
-      if (!url || prefetchedUrls.has(url)) return;
-      prefetchedUrls.add(url);
-
-      // 1. Native link prefetch
-      const link = document.createElement('link');
-      link.rel = 'prefetch';
-      link.href = url;
-      document.head.appendChild(link);
-
-      // 2. HTTP Cache Warming (Instant 0ms memory cache across all browsers)
-      if (typeof fetch === 'function') {
-        fetch(url, { priority: 'low' }).catch(() => {});
-      }
-    }
-
-    function handleLinkHover(e) {
-      const a = e.target.closest('a');
-      if (!a) return;
-      const href = a.getAttribute('href');
-      if (href && (href.startsWith('/') || href.includes(location.hostname)) && !href.startsWith('//') && !href.includes('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
-        prefetch(href);
-      }
-    }
-
-    document.addEventListener('mouseover', handleLinkHover, { passive: true });
-    document.addEventListener('touchstart', handleLinkHover, { passive: true });
-  }
 })();

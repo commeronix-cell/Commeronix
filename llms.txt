@@ -1,28 +1,45 @@
 # Commeronix
 
-> Commeronix is a free, high-performance financial, mathematical, and unit calculation suite engineered for speed, mathematical precision, and complete client-side data privacy.
+> Commeronix is a free, high-performance web utility suite, developer toolkit, and calculation platform engineered for speed, mathematical precision, and complete client-side data privacy.
 
 ## Overview
-Commeronix provides real-time foreign exchange currency conversions, reducing-balance loan and mortgage EMI calculations with full amortization breakdowns, standard and scientific arithmetic operations, and universal metric-to-imperial unit conversions across length, weight, and temperature. All calculations execute client-side with zero telemetry, zero data storage, and zero registration barriers.
+Commeronix provides real-time foreign exchange conversions, reducing-balance loan & mortgage EMI calculations, scientific arithmetic operations, NIST-standard metric-to-imperial conversions, client-side image compression & format transformations, text processing, diff checking, and an engineering blog. All processing executes 100% client-side in the user's browser sandbox with zero telemetry, zero data storage, and zero registration barriers.
 
 ## Core Tools & Capabilities
 
-- [Live Calculator](https://commeronix.com/calculator): Standard pocket arithmetic and advanced scientific calculations (trigonometry, logarithms, exponents, square roots, factorials, percentages) with persistent audit history and memory registers (MC, MR, M+, M-).
-- [Currency Converter](https://commeronix.com/currency-converter): Real-time foreign exchange converter supporting 40+ fiat currencies (USD, PKR, EUR, GBP, AED, SAR, INR, CAD, AUD, JPY, CNY, etc.) powered by live European Central Bank (ECB) benchmark mid-market data feeds with 60-second auto-refresh.
-- [Universal Unit Converter](https://commeronix.com/unit-converter): Multi-category unit conversion utility covering Length (meters, kilometers, miles, feet, inches, centimeters, millimeters, yards), Weight/Mass (kilograms, grams, milligrams, pounds, ounces, stones), and Temperature (Celsius, Fahrenheit, Kelvin) with exact NIST conversion formulas.
-- [Loan & EMI Calculator](https://commeronix.com/loan-calculator): Financial loan and mortgage amortizer calculating monthly payments (EMI), total interest payable, principal-to-interest ratios, and yearly reducing-balance schedules.
+### Financial & Mathematical Tools
+- [Scientific Calculator](https://commeronix.com/calculator): Standard pocket arithmetic and advanced scientific calculations (trigonometry, logarithms, exponents, square roots, factorials, percentages) with persistent audit history and memory registers (MC, MR, M+, M-).
+- [Currency Converter](https://commeronix.com/currency-converter): Real-time foreign exchange converter supporting 40+ fiat currencies (USD, EUR, GBP, PKR, INR, CAD, AUD, JPY, CNY, etc.) with 60-second auto-refresh.
+- [Universal Unit Converter](https://commeronix.com/unit-converter): NIST-standard conversions across Length, Weight, Temperature, Area, Volume, and Speed.
+- [Loan EMI Calculator](https://commeronix.com/loan-calculator): Financial loan and mortgage amortizer calculating monthly payments (EMI), total interest payable, and yearly reducing-balance schedules.
 
-## Data Standards & Precision
-- **Currency Data**: Sourced from the European Central Bank (ECB) mid-market reference exchange rates via open API protocols.
-- **Unit Standards**: Built strictly upon the National Institute of Standards and Technology (NIST Special Publication 811) conversion constants.
-- **Loan EMI Formula**: Uses standard reducing-balance compound interest mathematics: `E = P * r * (1+r)^n / ((1+r)^n - 1)`.
-- **Privacy Architecture**: All calculations and user inputs remain local in browser memory (`localStorage` / Javascript).
+### Media & Image Utilities
+- [Image Compressor](https://commeronix.com/image-compressor): Client-side Canvas-based image compression targeting specific file sizes with live visual quality comparison.
+- [Image Resizer](https://commeronix.com/image-resizer): Responsive aspect-ratio scaling (16:9, 4:3, 1:1, custom dimensions).
+- [Image Format Converter](https://commeronix.com/image-format-converter): Instant conversions across JPG, PNG, and WebP formats.
+- [Image to Base64 Encoder](https://commeronix.com/image-to-base64): Converts image files into Base64 data URIs, HTML `<img>` tags, and CSS rules.
+- [Background Remover](https://commeronix.com/background-remover): Canvas-driven smart transparent cutout with adjustable tolerance.
+- [Favicon Generator](https://commeronix.com/favicon-generator): Generates 16x16, 32x32, 180x180 Apple Touch icons and copyable HTML meta tags.
+- [Color Picker & Converter](https://commeronix.com/color-picker): Interactive color wheel, HEX / RGB / HSL conversion, harmonic palette generator, and WCAG contrast testing.
+
+### Text & Developer Utilities
+- [Word Counter](https://commeronix.com/word-counter): Real-time word, character, sentence, paragraph, and reading time counter.
+- [Case Converter](https://commeronix.com/case-converter): Case transformation across UPPERCASE, lowercase, Title Case, camelCase, kebab-case, snake_case.
+- [Text Diff & Compare](https://commeronix.com/text-compare): Visual side-by-side diff highlighter showing additions and deletions.
+- [Text to Slug Generator](https://commeronix.com/text-to-slug): Clean SEO permalink slugs with stop-word filtering.
+- [Remove Duplicate Lines](https://commeronix.com/remove-duplicate-lines): Line deduplication, whitespace trimming, and sorting.
+- [Lorem Ipsum Generator](https://commeronix.com/lorem-ipsum-generator): Placeholder dummy text generator by paragraphs, sentences, or words.
+- [Random Text Generator](https://commeronix.com/random-text-generator): Cryptographically secure alphanumeric strings, UUIDs, and passwords.
+- [Reading Time Calculator](https://commeronix.com/reading-time-calculator): Estimates reading and speaking durations.
+
+### Engineering Blog & Knowledge Base
+- [Engineering Blog](https://commeronix.com/blog): In-depth technical articles on Core Web Vitals, URL permalink design, and digital color spaces.
 
 ## Organization & Legal
 - [About Commeronix](https://commeronix.com/about): Mission, editorial standards, and calculation integrity.
 - [Contact Support](https://commeronix.com/contact): Customer service and feedback (`commeronix@gmail.com`).
 - [Privacy Policy](https://commeronix.com/privacy-policy): GDPR, CCPA, and Google AdSense cookie policy compliance.
-- [Terms of Service](https://commeronix.com/terms): Acceptable usage terms, intellectual property, and financial disclaimers.
+- [Terms of Service](https://commeronix.com/terms): Acceptable usage terms and disclaimers.
 
 ## Extended Context
 - [Full LLM Documentation](https://commeronix.com/llms-full.txt): Deep technical documentation, complete mathematical formulas, and unit conversion constants.

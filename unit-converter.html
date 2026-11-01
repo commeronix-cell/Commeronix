@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
@@ -29,8 +29,6 @@
   <meta name="theme-color" content="#090d16">
   <meta name="google-site-verification" content="nWVoTOSROiJ0beAcexwRnMIcGbdqhJ6YzNMDQurT2CM">
   <link rel="canonical" href="https://commeronix.com/unit-converter">
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="manifest" href="manifest.json">
 
   <!-- Open Graph -->
   <meta property="og:locale" content="en_US">
@@ -69,8 +67,8 @@
         "@type": "WebApplication",
         "name": "Commeronix Universal Unit Converter",
         "url": "https://commeronix.com/unit-converter",
-        "description": "Multi-category unit conversion utility for length, mass/weight, and temperature across standard metric and imperial systems.",
-        "applicationCategory": "UtilityApplication",
+        "description": "Universal scientific measurement and engineering unit conversion suite supporting metric and imperial standards for length, weight, and temperature.",
+        "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "All",
         "browserRequirements": "Requires JavaScript. Requires HTML5.",
         "offers": {
@@ -84,26 +82,26 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "How do you convert Celsius to Fahrenheit?",
+            "name": "What unit categories are supported?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "To convert Celsius to Fahrenheit, multiply the Celsius temperature by 9/5 (or 1.8) and add 32. Formula: °F = (°C × 9/5) + 32."
+              "text": "Currently supported categories are Length (Millimeters, Centimeters, Meters, Kilometers, Inches, Feet, Yards, Miles), Weight/Mass (Milligrams, Grams, Kilograms, Metric Tonnes, Ounces, Pounds, Stone), and Temperature (Celsius, Fahrenheit, Kelvin)."
             }
           },
           {
             "@type": "Question",
-            "name": "How many feet are in a meter?",
+            "name": "Are these conversion constants calibrated to official international standards?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "There are exactly 3.280839895 feet in one meter (approximately 3.281 feet)."
+              "text": "Yes. All conversion factors strictly follow NIST (National Institute of Standards and Technology) and BIPM SI definitions for absolute precision."
             }
           },
           {
             "@type": "Question",
-            "name": "How many pounds are in one kilogram?",
+            "name": "How does temperature conversion work across non-linear scales?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "One kilogram is equal to approximately 2.20462262 pounds (lbs) under the international avoirdupois standard."
+              "text": "Because Fahrenheit and Celsius share an offset scale rather than simple ratio multiples, Commeronix uses exact affine algebraic transformation formulas: (°C * 9/5) + 32 = °F."
             }
           }
         ]
@@ -112,41 +110,25 @@
   }
   </script>
 
-  <!-- Theme Initialization Script (Prevents Flash of Unstyled Content) -->
+  <!-- Theme Initialization Script (Defaults to Light Mode) -->
   <script>
     (function() {
       const savedTheme = localStorage.getItem('commeronix_theme');
-      if (savedTheme === 'light' || (!savedTheme && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)) {
-        document.documentElement.setAttribute('data-theme', 'light');
-      } else {
+      if (savedTheme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
       }
     })();
   </script>
 
   <!-- Stylesheet -->
-    <!-- Google Fonts Preconnect & High-Performance Font Loading -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
-  <link rel="stylesheet" href="style.css?v=4.0.0">
-  <!-- Instant Navigation: Speculation Rules API (Zero-latency instant prerender on hover) -->
-  <script type="speculationrules">
-  {
-    "prerender": [
-      {
-        "source": "document",
-        "where": {
-          "and": [
-            { "href_matches": "/*" },
-            { "not": { "href_matches": "/assets/*" } }
-          ]
-        },
-        "eagerness": "moderate"
-      }
-    ]
-  }
-  </script>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -155,41 +137,77 @@
   <!-- End Google Tag Manager (noscript) -->
 
 
-  <!-- Top Live Currency Rate Ticker Strip -->
-  <div class="ticker-wrap" aria-label="Live Forex Exchange Rates Ticker">
-    <div class="ticker-label">
-      <div class="ticker-pulse"></div>
-      <span>Live Rates</span>
-    </div>
-    <div class="ticker-track">
-      <div class="ticker-content">
-        <!-- Dynamic Ticker via assets/main.js?v=4.0.0 -->
-        <div class="ticker-item"><span class="ticker-pair">USD/PKR</span> <span class="ticker-val">277.25</span> <span class="ticker-badge down">-0.15%</span></div>
-        <div class="ticker-item"><span class="ticker-pair">USD/EUR</span> <span class="ticker-val">0.8614</span> <span class="ticker-badge">+0.12%</span></div>
-        <div class="ticker-item"><span class="ticker-pair">USD/GBP</span> <span class="ticker-val">0.7379</span> <span class="ticker-badge down">-0.08%</span></div>
-        <div class="ticker-item"><span class="ticker-pair">USD/AED</span> <span class="ticker-val">3.6725</span> <span class="ticker-badge">+0.00%</span></div>
-      </div>
-    </div>
+  </div>
   </div>
 
   <!-- Header -->
+    <!-- Site Header & Navigation -->
   <header class="site-header">
     <div class="container">
       <nav class="navbar" aria-label="Main Navigation">
         <a href="/" class="brand-logo" title="Commeronix Home">
-          <img src="assets/favicon.svg" alt="Commeronix Logo" width="38" height="38" class="logo-icon-svg">
+          <img src="/assets/favicon.svg" alt="Commeronix Logo" width="36" height="36" class="logo-icon-svg">
           <span>Commero<span class="brand-accent">nix</span></span>
         </a>
 
-        <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <!-- Universal Quick Search Bar Trigger -->
+        <div class="nav-search-wrap">
+          <button class="nav-search-btn" id="nav-search-trigger" type="button" aria-label="Search tools (Press Ctrl+K)">
+            <svg class="search-icon" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <span class="search-placeholder">Search 19+ online utilities...</span>
+            <kbd class="search-kbd">Ctrl K</kbd>
+          </button>
+        </div>
+
+        <!-- Navigation Actions -->
+        <div class="nav-actions">
           <ul class="nav-links">
-            <li><a href="/" class="nav-link">Home</a></li>
-            <li><a href="/calculator" class="nav-link">Calculator</a></li>
-            <li><a href="/currency-converter" class="nav-link">Currency Converter</a></li>
-            <li><a href="/unit-converter" class="nav-link active">Unit Converter</a></li>
-            <li><a href="/loan-calculator" class="nav-link">Loan Calculator</a></li>
+            <li class="nav-dropdown">
+              <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+                <span>Tools &amp; Utilities</span>
+                <svg class="nav-chevron" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+              </button>
+              <div class="mega-menu" role="menu">
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Text Tools</div>
+                  <a href="/word-counter" class="mega-tool-link">Word Counter</a>
+                  <a href="/case-converter" class="mega-tool-link">Case Converter</a>
+                  <a href="/lorem-ipsum-generator" class="mega-tool-link">Lorem Ipsum</a>
+                  <a href="/text-compare" class="mega-tool-link">Text Compare / Diff</a>
+                  <a href="/remove-duplicate-lines" class="mega-tool-link">Remove Duplicate Lines</a>
+                  <a href="/text-to-slug" class="mega-tool-link">Text to Slug</a>
+                  <a href="/reading-time-calculator" class="mega-tool-link">Reading &amp; Speaking Time</a>
+                  <a href="/random-text-generator" class="mega-tool-link">Random Generator</a>
+                </div>
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Image &amp; Media</div>
+                  <a href="/image-compressor" class="mega-tool-link">Image Compressor</a>
+                  <a href="/image-resizer" class="mega-tool-link">Image Resizer</a>
+                  <a href="/image-format-converter" class="mega-tool-link">Format Converter</a>
+                  <a href="/image-to-base64" class="mega-tool-link">Image to Base64</a>
+                  <a href="/background-remover" class="mega-tool-link">Background Remover</a>
+                  <a href="/favicon-generator" class="mega-tool-link">Favicon Generator</a>
+                  <a href="/color-picker" class="mega-tool-link">Color Picker &amp; Converter</a>
+                </div>
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Financial &amp; Math</div>
+                  <a href="/calculator" class="mega-tool-link">Scientific Calculator</a>
+                  <a href="/currency-converter" class="mega-tool-link">Live Currency Converter</a>
+                  <a href="/loan-calculator" class="mega-tool-link">Loan &amp; EMI Calculator</a>
+                  <a href="/unit-converter" class="mega-tool-link">Unit Converter</a>
+                  <div style="margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle);">
+                    <a href="/tools" style="color: var(--accent-primary); font-weight: 700; font-size: 0.85rem; text-decoration: none;">View All 19 Web Utilities &rarr;</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li><a href="/blog" class="nav-link">Blog</a></li>
             <li><a href="/about" class="nav-link">About</a></li>
-            <li><a href="/contact" class="nav-link">Contact</a></li>
           </ul>
 
           <!-- Dark / Light Theme Toggle Button -->
@@ -202,6 +220,7 @@
             </svg>
           </button>
 
+          <!-- Mobile Toggle -->
           <button class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -212,13 +231,14 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
+    <!-- Mobile Drawer -->
   <div class="mobile-drawer" aria-label="Mobile Navigation Menu">
+    <div class="mobile-search-box">
+      <input type="text" id="mobile-search-input" placeholder="Search 19+ utilities..." aria-label="Search tools mobile">
+    </div>
     <a href="/" class="nav-link">Home</a>
-    <a href="/calculator" class="nav-link">Live Calculator</a>
-    <a href="/currency-converter" class="nav-link">Currency Converter</a>
-    <a href="/unit-converter" class="nav-link active">Unit Converter</a>
-    <a href="/loan-calculator" class="nav-link">Loan & EMI Calculator</a>
+    <a href="/tools" class="nav-link">All Tools Directory</a>
+    <a href="/blog" class="nav-link">Blog &amp; Guides</a>
     <a href="/about" class="nav-link">About Us</a>
     <a href="/contact" class="nav-link">Contact Us</a>
     <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
@@ -279,7 +299,7 @@
           <div class="form-group" style="margin-bottom: 0;">
             <label for="unit-from" class="form-label">From Unit</label>
             <select id="unit-from" class="form-select num-mono">
-              <!-- Dynamically populated via assets/unit.js?v=4.0.0 -->
+              <!-- Dynamically populated via assets/unit.js -->
               <option value="m" selected>Meter (m)</option>
               <option value="foot">Foot (ft)</option>
             </select>
@@ -294,7 +314,7 @@
           <div class="form-group" style="margin-bottom: 0;">
             <label for="unit-to" class="form-label">To Unit</label>
             <select id="unit-to" class="form-select num-mono">
-              <!-- Dynamically populated via assets/unit.js?v=4.0.0 -->
+              <!-- Dynamically populated via assets/unit.js -->
               <option value="foot" selected>Foot (ft)</option>
               <option value="m">Meter (m)</option>
             </select>
@@ -452,7 +472,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="/" class="brand-logo" style="margin-bottom: 0.5rem;" title="Commeronix Home">
-            <img src="assets/favicon.svg" alt="Commeronix Logo" width="34" height="34" class="logo-icon-svg">
+            <img src="/assets/favicon.svg" alt="Commeronix Logo" width="34" height="34" class="logo-icon-svg">
             <span>Commero<span class="brand-accent">nix</span></span>
           </a>
           <p>Universal multi-category conversion engine for scientific, engineering, and daily imperial/metric calculations.</p>
@@ -500,7 +520,7 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="assets/main.js?v=4.0.0"></script>
-  <script src="assets/unit.js?v=4.0.0"></script>
+  <script src="/assets/main.js"></script>
+  <script src="/assets/unit.js"></script>
 </body>
 </html>

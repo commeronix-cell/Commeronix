@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Web Utilities — Free Client-Side Developer & Content Tools | Commeronix</title>
+  <meta name="description" content="Explore Commeronix's comprehensive suite of free client-side online web utilities: Text & Content Tools, Image & Media Processors, and Financial Calculators. 100% private, zero-upload.">
+  <meta name="keywords" content="web utilities, developer tools, text tools, word counter, case converter, image compressor, image resizer, color picker, favicon generator">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="canonical" href="https://commeronix.com/tools">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://commeronix.com/tools#webpage",
+        "url": "https://commeronix.com/tools",
+        "name": "Online Web Utilities — Commeronix",
+        "description": "Comprehensive suite of 19+ client-side web utilities and calculators.",
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://commeronix.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Online Web Utilities",
+              "item": "https://commeronix.com/tools"
+            }
+          ]
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Inline Theme Script (Defaults to Light Mode) -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('commeronix_theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .tools-search-bar {
+      max-width: 600px;
+      margin: 1.5rem auto 2.5rem;
+      position: relative;
+    }
+    .tools-search-input {
+      width: 100%;
+      padding: 0.95rem 1.25rem 0.95rem 3rem;
+      font-size: 1rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-full);
+      color: var(--text-primary);
+      box-shadow: var(--shadow-sm);
+      outline: none;
+      transition: all var(--transition-fast);
+    }
+    .tools-search-input:focus {
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 0 3px var(--accent-primary-glow);
+    }
+    .tools-search-icon {
+      position: absolute;
+      left: 1.15rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+    .category-filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 3rem;
+    }
+    .category-pill {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 0.885rem;
+      font-weight: 600;
+      padding: 0.5rem 1.15rem;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .category-pill:hover,
+    .category-pill.active {
+      background: var(--accent-primary);
+      color: #ffffff;
+      border-color: var(--accent-primary);
+      box-shadow: 0 4px 12px var(--accent-primary-glow);
+    }
+    .tool-section-heading {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 2.5rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+    .tool-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .util-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      transition: all var(--transition-normal);
+      position: relative;
+    }
+    .util-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent-primary);
+    }
+    .util-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: var(--bg-surface-raised);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--border-subtle);
+    }
+    .util-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+    }
+    .util-desc {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      flex: 1;
+      margin-bottom: 1rem;
+    }
+    .util-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .util-cta-link {
+      font-size: 0.825rem;
+      font-weight: 700;
+      color: var(--accent-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+
+  <!-- Site Header & Navigation -->
+    <!-- Site Header & Navigation -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <a href="/" class="brand-logo" title="Commeronix Home">
+          <img src="/assets/favicon.svg" alt="Commeronix Logo" width="36" height="36" class="logo-icon-svg">
+          <span>Commero<span class="brand-accent">nix</span></span>
+        </a>
+
+        <!-- Universal Quick Search Bar Trigger -->
+        <div class="nav-search-wrap">
+          <button class="nav-search-btn" id="nav-search-trigger" type="button" aria-label="Search tools (Press Ctrl+K)">
+            <svg class="search-icon" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <span class="search-placeholder">Search 19+ online utilities...</span>
+            <kbd class="search-kbd">Ctrl K</kbd>
+          </button>
+        </div>
+
+        <!-- Navigation Actions -->
+        <div class="nav-actions">
+          <ul class="nav-links">
+            <li class="nav-dropdown">
+              <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+                <span>Tools &amp; Utilities</span>
+                <svg class="nav-chevron" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+              </button>
+              <div class="mega-menu" role="menu">
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Text Tools</div>
+                  <a href="/word-counter" class="mega-tool-link">Word Counter</a>
+                  <a href="/case-converter" class="mega-tool-link">Case Converter</a>
+                  <a href="/lorem-ipsum-generator" class="mega-tool-link">Lorem Ipsum</a>
+                  <a href="/text-compare" class="mega-tool-link">Text Compare / Diff</a>
+                  <a href="/remove-duplicate-lines" class="mega-tool-link">Remove Duplicate Lines</a>
+                  <a href="/text-to-slug" class="mega-tool-link">Text to Slug</a>
+                  <a href="/reading-time-calculator" class="mega-tool-link">Reading &amp; Speaking Time</a>
+                  <a href="/random-text-generator" class="mega-tool-link">Random Generator</a>
+                </div>
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Image &amp; Media</div>
+                  <a href="/image-compressor" class="mega-tool-link">Image Compressor</a>
+                  <a href="/image-resizer" class="mega-tool-link">Image Resizer</a>
+                  <a href="/image-format-converter" class="mega-tool-link">Format Converter</a>
+                  <a href="/image-to-base64" class="mega-tool-link">Image to Base64</a>
+                  <a href="/background-remover" class="mega-tool-link">Background Remover</a>
+                  <a href="/favicon-generator" class="mega-tool-link">Favicon Generator</a>
+                  <a href="/color-picker" class="mega-tool-link">Color Picker &amp; Converter</a>
+                </div>
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Financial &amp; Math</div>
+                  <a href="/calculator" class="mega-tool-link">Scientific Calculator</a>
+                  <a href="/currency-converter" class="mega-tool-link">Live Currency Converter</a>
+                  <a href="/loan-calculator" class="mega-tool-link">Loan &amp; EMI Calculator</a>
+                  <a href="/unit-converter" class="mega-tool-link">Unit Converter</a>
+                  <div style="margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle);">
+                    <a href="/tools" style="color: var(--accent-primary); font-weight: 700; font-size: 0.85rem; text-decoration: none;">View All 19 Web Utilities &rarr;</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li><a href="/blog" class="nav-link">Blog</a></li>
+            <li><a href="/about" class="nav-link">About</a></li>
+          </ul>
+
+          <!-- Dark / Light Theme Toggle Button -->
+          <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Toggle Light and Dark Theme" title="Toggle Theme">
+            <svg class="sun-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <svg class="moon-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+
+          <!-- Mobile Toggle -->
+          <button class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" aria-label="Mobile Navigation Menu">
+    <div class="mobile-search-box">
+      <input type="text" id="mobile-search-input" placeholder="Search 19+ utilities..." aria-label="Search tools mobile">
+    </div>
+    <a href="/" class="nav-link">Home</a>
+    <a href="/tools" class="nav-link">All Tools Directory</a>
+    <a href="/blog" class="nav-link">Blog &amp; Guides</a>
+    <a href="/about" class="nav-link">About Us</a>
+    <a href="/contact" class="nav-link">Contact Us</a>
+    <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
+    <a href="/terms" class="nav-link">Terms of Service</a>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      
+      <div class="tool-header">
+        <div class="tool-breadcrumbs">
+          <a href="/">Home</a> <span>/</span> <span>Online Web Utilities</span>
+        </div>
+        <span class="badge-lime">⚡ 100% Client-Side Suite</span>
+        <h1>Online Web Utilities</h1>
+        <p class="tool-subtitle">A collection of 19+ fast, free, and privacy-respecting client-side tools designed for web developers, designers, copywriters, and financial calculations.</p>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="tools-search-bar">
+        <svg class="tools-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="util-search" class="tools-search-input" placeholder="Search utilities (e.g. compress image, word count, slug, base64)..." autocomplete="off">
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="category-filter-pills">
+        <button class="category-pill active" data-category="all">All Utilities (19)</button>
+        <button class="category-pill" data-category="text">Text & Content (8)</button>
+        <button class="category-pill" data-category="image">Image & Media (7)</button>
+        <button class="category-pill" data-category="calc">Financial & Math (4)</button>
+      </div>
+
+      <!-- Category 1: Text & Content Tools -->
+      <div class="category-group" data-group="text">
+        <h2 class="tool-section-heading">✍️ Text & Content Tools <span class="badge-cobalt">8 Utilities</span></h2>
+        <div class="tool-cards-grid">
+          
+          <a href="/word-counter" class="util-card" data-tags="word counter character count paragraphs reading time speaking time">
+            <div class="util-icon-box">📝</div>
+            <h3 class="util-title">Word Counter</h3>
+            <p class="util-desc">Calculate words, characters, sentences, paragraphs, reading speed, and keyword density instantly.</p>
+            <div class="util-meta">
+              <span class="badge-lime">Real-Time</span>
+              <span class="util-cta-link">Open Tool →</span>
+            </div>
+          </a>
+
+          <a href="/case-converter" class="util-card" data-tags="case converter uppercase lowercase title case camelcase kebab-case snake_case">
+            <div class="util-icon-box">🔠</div>
+            <h3 class="util-title">Case Converter</h3>
+            <p class="util-desc">Instantly convert strings between UPPERCASE, lowercase, Title Case, camelCase, kebab-case, and snake_case.</p>
+            <div class="util-meta">
+              <span class="badge-lime">1-Click</span>
+              <span class="util-cta-link">Open Tool →</span>
+            </div>
+          </a>
+
+          <a href="/lorem-ipsum-generator" class="util-card" data-tags="lorem ipsum dummy text placeholder generator paragraphs words">
+            <div class="util-icon-box">📄</div>
+            <h3 class="util-title">Lorem Ipsum Generator</h3>
+            <p class="util-desc">Generate custom dummy placeholder text by paragraphs, sentences, or word count with HTML tags.</p>
+            <div class="util-meta">
+              <span class="badge-lime">Customizable</span>
+              <span class="util-cta-link">Open Tool →</span>
+            </div>
+          </a>
+
+          <a href="/text-compare" class="util-card" data-tags="text compare diff checker differences compare code text comparison">
+            <div class="util-icon-box">⚖️</div>
+            <h3 class="util-title">Text Compare / Diff Checker</h3>
+            <p class="util-desc">Visual side-by-side and inline diff tool highlighting additions in green and deletions in red.</p>
+            <div class="util-meta">
+              <span class="badge-lime">Diff Engine</span>
+              <span class="util-cta-link">Open Tool →</span>
+            </div>
+          </a>
+
+          <a href="/remove-duplicate-lines" class="util-card" data-tags="remove duplicate lines deduplicate clean list unique lines text cleaner">
+            <div class="util-icon-box">🧹</div>
+            <h3 class="util-title">Remove Duplicate Lines</h3>
+            <p class="util-desc">Clean multiline lists by stripping duplicates, trimming whitespace, and sorting alphabetically.</p>
+            <div class="util-meta">
+              <span class="badge-lime">Fast Clean</span>
+              <span class="util-cta-link">Open Tool →</span>
+            </div>
+          </a>
+
+          <a href="/text-to-slug" class="util-card" data-tags="text to slug url slug seo friendly permalink generator">
+            <div class="util-icon-box">🔗</div>
+            <h3 class="util-title">Text to Slug Converter</h3>
+            <p class="util-desc">Convert headlines into SEO-friendly, clean URL slugs with customizable separators and stop-word filtering.</p>
+            <div class="util-meta">
+              <span class="badge-lime">SEO Ready</span>
+              <span class="util-cta-link">Open Tool →</span>
+            </div>
+          </a>
+
+          <a href="/reading-time-calculator" class="util-card" data-tags="reading time calculator speaking time wpm words per minute speech time">
+            <div class="util-icon-box">⏱️</div>
+            <h3 class="util-title">Reading & Speaking Time Calc</h3>
+            <p class="util-desc">Estimate silent reading time and speaking speech duration with adjustable WPM and readability scores.</p>
+            <div class="util-meta">
+              <span class="badge-lime">WPM Analyzer</span>
+              <span class="util-cta-link">Open Tool →</span>
+            </div>
+          </a>
+
+          <a href="/random-text-generator" class="util-card" data-tags="random text generator random words password string uuid generator">
+            <div class="util-icon-box">🎲</div>
+            <h3 class="util-title">Random Word & Text Generator</h3>
+            <p class="util-desc">Generate secure random strings, UUIDs, passwords, and random dictionary words client-side.</p>
+            <div class="util-meta">
+              <span class="badge-lime">Crypto Random</span>
+              <span class="util-cta-link">Open Tool →</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Category 2: Image & Media Tools -->
+      <div class="category-group" data-group="image">
+        <h2 class="tool-section-heading">🖼️ Image & Media Tools <span class="badge-cobalt">7 Utilities</span></h2>
+        <div class="tool-cards-grid">
+          
+          <a href="/image-compressor" class="util-card" data-tags="image compressor compress photo reduce image size webp jpg png core web vitals">
+            <div class="util-icon-box">🗜️</div>
+            <h3 class="util-title">Image Compressor</h3>
+            <p class="util-desc">Lossy and lossless client-side canvas compression. Reduce file sizes by up to 80% without server uploads.</p>
+            <div class="util-meta">
+              <span class="badge-lime">Private</span>
+              <span class="util-cta-link">Open Tool →</span>
+            </div>
+          </a>
+
+          <a href="/image-resizer" class="util-card" data-tags="image resizer resize picture dimensions aspect ratio scale social media">
+            <div class="util-icon-box">📐</div>
+            <h3 class="util-title">Image Resizer</h3>
+            <p class="util-desc">Resize images to exact pixel widths/heights, lock aspect ratios, and export presets for social media.</p>
+            <div class="util-meta">
+              <span class="badge-lime">Aspect Lock</span>
+              <span class="util-cta-link">Open Tool →</span>
+            </div>
+          </a>
+
+          <a href="/image-format-converter" class="util-card" data-tags="image format converter convert jpg png webp convert image">
+            <div class="util-icon-box">🔄</div>
+            <h3 class="util-title">Image Format Converter</h3>
+            <p class="util-desc">Convert images seamlessly across JPG, PNG, and next-gen WebP formats instantly in your browser.</p>
+            <div class="util-meta">
+              <span class="badge-lime">Client-Side</span>
+              <span class="util-cta-link">Open Tool →</span>
+            </div>
+          </a>
+
+          <a href="/image-to-base64" class="util-card" data-tags="image to base64 data uri base64 encoder inline image html css">
+            <div class="util-icon-box">📦</div>
+            <h3 class="util-title">Image to Base64 Encoder</h3>
+            <p class="util-desc">Convert image files into raw Base64 data URIs, HTML &lt;img&gt; tags, and CSS background declarations.</p>
+            <div class="util-meta">
+              <span class="badge-lime">Copy URI</span>
+              <span class="util-cta-link">Open Tool →</span>
+            </div>
+          </a>
+
+          <a href="/background-remover" class="util-card" data-tags="background remover transparent png remove background cutout clipdrop">
+            <div class="util-icon-box">✂️</div>
+            <h3 class="util-title">Background Remover</h3>
+            <p class="util-desc">Instant canvas smart white-background cutout with custom tolerance, plus API integration hooks.</p>
+            <div class="util-meta">
+              <span class="badge-lime">Smart Cutout</span>
+              <span class="util-cta-link">Open Tool →</span>
+            </div>
+          </a>
+
+          <a href="/favicon-generator" class="util-card" data-tags="favicon generator app icon apple touch icon 16x16 32x32 website icon">
+            <div class="util-icon-box">⭐</div>
+            <h3 class="util-title">Favicon Generator</h3>
+            <p class="util-desc">Generate multi-resolution browser favicons (16x16, 32x32, 180x180 Apple Touch) with copyable head tags.</p>
+            <div class="util-meta">
+              <span class="badge-lime">Multi-Size</span>
+              <span class="util-cta-link">Open Tool →</span>
+            </div>
+          </a>
+
+          <a href="/color-picker" class="util-card" data-tags="color picker hex rgb hsl cmyk converter color palette contrast checker">
+            <div class="util-icon-box">🎨</div>
+            <h3 class="util-title">Color Picker & Converter</h3>
+            <p class="util-desc">Interactive color wheel, HEX / RGB / HSL conversion, harmonic palette generator, and WCAG contrast check.</p>
+            <div class="util-meta">
+              <span class="badge-lime">WCAG Tested</span>
+              <span class="util-cta-link">Open Tool →</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Category 3: Financial & Calculators -->
+      <div class="category-group" data-group="calc">
+        <h2 class="tool-section-heading">🧮 Financial & Mathematical Calculators <span class="badge-cobalt">4 Tools</span></h2>
+        <div class="tool-cards-grid">
+          
+          <a href="/calculator" class="util-card" data-tags="calculator scientific calculator math online calculator">
+            <div class="util-icon-box">🔢</div>
+            <h3 class="util-title">Live Scientific Calculator</h3>
+            <p class="util-desc">Full-featured scientific and pocket calculator supporting algebraic expressions, trigonometry, and logarithms.</p>
+            <div class="util-meta">
+              <span class="badge-lime">Core Tool</span>
+              <span class="util-cta-link">Open Tool →</span>
+            </div>
+          </a>
+
+          <a href="/currency-converter" class="util-card" data-tags="currency converter live forex exchange rates usd eur gbp pkr inr">
+            <div class="util-icon-box">💱</div>
+            <h3 class="util-title">Currency Converter</h3>
+            <p class="util-desc">Real-time foreign exchange currency rates covering 40+ global currencies updated continuously.</p>
+            <div class="util-meta">
+              <span class="badge-lime">Live Rates</span>
+              <span class="util-cta-link">Open Tool →</span>
+            </div>
+          </a>
+
+          <a href="/unit-converter" class="util-card" data-tags="unit converter length weight temperature area volume speed metric imperial">
+            <div class="util-icon-box">📏</div>
+            <h3 class="util-title">Unit Converter</h3>
+            <p class="util-desc">Convert metric and imperial units across Length, Weight, Temperature, Area, Volume, and Speed.</p>
+            <div class="util-meta">
+              <span class="badge-lime">6 Domains</span>
+              <span class="util-cta-link">Open Tool →</span>
+            </div>
+          </a>
+
+          <a href="/loan-calculator" class="util-card" data-tags="loan calculator emi mortgage interest amortization schedule">
+            <div class="util-icon-box">🏦</div>
+            <h3 class="util-title">Loan EMI Calculator</h3>
+            <p class="util-desc">Compute monthly loan EMIs, total interest payouts, and complete amortization schedules with visual graphs.</p>
+            <div class="util-meta">
+              <span class="badge-lime">Amortization</span>
+              <span class="util-cta-link">Open Tool →</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year">2026</span> Commeronix. All rights reserved. Free client-side tools and calculators.</p>
+        <div class="footer-legal-links">
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+          <a href="/about">About Us</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/main.js"></script>
+  <script>
+    // Utilities Page Real-Time Search & Category Filter
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('util-search');
+      const categoryPills = document.querySelectorAll('.category-pill');
+      const utilCards = document.querySelectorAll('.util-card');
+      const categoryGroups = document.querySelectorAll('.category-group');
+
+      let currentCategory = 'all';
+
+      function filterTools() {
+        const query = searchInput.value.toLowerCase().trim();
+
+        utilCards.forEach(card => {
+          const title = card.querySelector('.util-title').textContent.toLowerCase();
+          const desc = card.querySelector('.util-desc').textContent.toLowerCase();
+          const tags = (card.getAttribute('data-tags') || '').toLowerCase();
+          const matchesQuery = !query || title.includes(query) || desc.includes(query) || tags.includes(query);
+
+          const group = card.closest('.category-group').getAttribute('data-group');
+          const matchesCategory = (currentCategory === 'all' || currentCategory === group);
+
+          if (matchesQuery && matchesCategory) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        // Hide empty category headings
+        categoryGroups.forEach(grp => {
+          const visibleCards = grp.querySelectorAll('.util-card[style*="display: flex"]');
+          grp.style.display = visibleCards.length > 0 ? 'block' : 'none';
+        });
+      }
+
+      searchInput.addEventListener('input', filterTools);
+
+      categoryPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          categoryPills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          currentCategory = pill.getAttribute('data-category');
+          filterTools();
+        });
+      });
+    });
+  </script>
+</body>
+</html>

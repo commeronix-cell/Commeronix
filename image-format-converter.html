@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Format Converter (JPG, PNG, WebP) — Commeronix</title>
+  <meta name="description" content="Convert pictures across JPG, PNG, and next-gen WebP formats client-side. Fast, free, and 100% private in-browser image format conversion.">
+  <meta name="keywords" content="image format converter, png to webp, jpg to png, webp converter, convert image format, convert photo">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="canonical" href="https://commeronix.com/image-format-converter">
+
+  <!-- Schema.org WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Commeronix Image Format Converter",
+    "url": "https://commeronix.com/image-format-converter",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires HTML5 Canvas & JavaScript",
+    "description": "Convert images between JPG, PNG, and WebP formats in real time.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('commeronix_theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+
+  </div>
+  </div>
+
+    <!-- Site Header & Navigation -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <a href="/" class="brand-logo" title="Commeronix Home">
+          <img src="/assets/favicon.svg" alt="Commeronix Logo" width="36" height="36" class="logo-icon-svg">
+          <span>Commero<span class="brand-accent">nix</span></span>
+        </a>
+
+        <!-- Universal Quick Search Bar Trigger -->
+        <div class="nav-search-wrap">
+          <button class="nav-search-btn" id="nav-search-trigger" type="button" aria-label="Search tools (Press Ctrl+K)">
+            <svg class="search-icon" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <span class="search-placeholder">Search 19+ online utilities...</span>
+            <kbd class="search-kbd">Ctrl K</kbd>
+          </button>
+        </div>
+
+        <!-- Navigation Actions -->
+        <div class="nav-actions">
+          <ul class="nav-links">
+            <li class="nav-dropdown">
+              <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+                <span>Tools &amp; Utilities</span>
+                <svg class="nav-chevron" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+              </button>
+              <div class="mega-menu" role="menu">
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Text Tools</div>
+                  <a href="/word-counter" class="mega-tool-link">Word Counter</a>
+                  <a href="/case-converter" class="mega-tool-link">Case Converter</a>
+                  <a href="/lorem-ipsum-generator" class="mega-tool-link">Lorem Ipsum</a>
+                  <a href="/text-compare" class="mega-tool-link">Text Compare / Diff</a>
+                  <a href="/remove-duplicate-lines" class="mega-tool-link">Remove Duplicate Lines</a>
+                  <a href="/text-to-slug" class="mega-tool-link">Text to Slug</a>
+                  <a href="/reading-time-calculator" class="mega-tool-link">Reading &amp; Speaking Time</a>
+                  <a href="/random-text-generator" class="mega-tool-link">Random Generator</a>
+                </div>
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Image &amp; Media</div>
+                  <a href="/image-compressor" class="mega-tool-link">Image Compressor</a>
+                  <a href="/image-resizer" class="mega-tool-link">Image Resizer</a>
+                  <a href="/image-format-converter" class="mega-tool-link">Format Converter</a>
+                  <a href="/image-to-base64" class="mega-tool-link">Image to Base64</a>
+                  <a href="/background-remover" class="mega-tool-link">Background Remover</a>
+                  <a href="/favicon-generator" class="mega-tool-link">Favicon Generator</a>
+                  <a href="/color-picker" class="mega-tool-link">Color Picker &amp; Converter</a>
+                </div>
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Financial &amp; Math</div>
+                  <a href="/calculator" class="mega-tool-link">Scientific Calculator</a>
+                  <a href="/currency-converter" class="mega-tool-link">Live Currency Converter</a>
+                  <a href="/loan-calculator" class="mega-tool-link">Loan &amp; EMI Calculator</a>
+                  <a href="/unit-converter" class="mega-tool-link">Unit Converter</a>
+                  <div style="margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle);">
+                    <a href="/tools" style="color: var(--accent-primary); font-weight: 700; font-size: 0.85rem; text-decoration: none;">View All 19 Web Utilities &rarr;</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li><a href="/blog" class="nav-link">Blog</a></li>
+            <li><a href="/about" class="nav-link">About</a></li>
+          </ul>
+
+          <!-- Dark / Light Theme Toggle Button -->
+          <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Toggle Light and Dark Theme" title="Toggle Theme">
+            <svg class="sun-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <svg class="moon-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+
+          <!-- Mobile Toggle -->
+          <button class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" aria-label="Mobile Navigation Menu">
+    <div class="mobile-search-box">
+      <input type="text" id="mobile-search-input" placeholder="Search 19+ utilities..." aria-label="Search tools mobile">
+    </div>
+    <a href="/" class="nav-link">Home</a>
+    <a href="/tools" class="nav-link">All Tools Directory</a>
+    <a href="/blog" class="nav-link">Blog &amp; Guides</a>
+    <a href="/about" class="nav-link">About Us</a>
+    <a href="/contact" class="nav-link">Contact Us</a>
+    <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
+    <a href="/terms" class="nav-link">Terms of Service</a>
+  </div>
+
+  <main class="main-content">
+    <div class="container">
+      
+      <div class="tool-header">
+        <div class="tool-breadcrumbs">
+          <a href="/">Home</a> <span>/</span> <a href="/tools">Web Utilities</a> <span>/</span> <span>Image Format Converter</span>
+        </div>
+        <span class="badge-lime">🔄 Image & Media Tool</span>
+        <h1>Cross-Format Image Converter</h1>
+        <p class="tool-subtitle">Convert JPG to WebP, PNG to JPG, WebP to PNG, and more. 100% client-side Canvas processing preserves original pixels without network upload latency.</p>
+      </div>
+
+      <div class="tool-workspace">
+        
+        <div class="tool-dropzone" id="drop-zone">
+          <input type="file" id="file-input" accept="image/*" style="display: none;">
+          <span class="dropzone-icon">🔄</span>
+          <h3 style="font-size: 1.15rem; margin-bottom: 0.35rem;">Drag & drop image, or <span style="color: var(--accent-primary); text-decoration: underline;">browse file</span></h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Supports PNG, JPG, JPEG, WebP, GIF, BMP, and SVG.</p>
+        </div>
+
+        <div id="controls-panel" style="display: none; margin-top: 1.5rem; background: var(--bg-main); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-subtle);">
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;">
+            <div>
+              <label for="select-format" style="display: block; font-size: 0.88rem; font-weight: 700; margin-bottom: 0.4rem;">Target Output Format:</label>
+              <select id="select-format" style="width: 100%; padding: 0.6rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); background: var(--bg-surface); color: var(--text-primary); font-weight: 700; font-size: 1rem;">
+                <option value="image/webp">WebP (Modern Web Standard - Recommended)</option>
+                <option value="image/jpeg">JPEG / JPG (High Compatibility)</option>
+                <option value="image/png">PNG (Lossless & Alpha Transparency)</option>
+              </select>
+            </div>
+
+            <div id="quality-slider-wrap">
+              <div class="slider-label-row">
+                <span>Output Quality: <strong id="lbl-quality" style="color: var(--accent-primary);">85%</strong></span>
+              </div>
+              <input type="range" id="slider-quality" min="10" max="100" value="85" class="slider-input">
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border-subtle);">
+            <div>
+              Source: <span id="lbl-source-info" style="font-family: var(--font-mono); font-weight: 700;">-</span> → Output: <strong id="lbl-out-size" style="font-family: var(--font-mono); color: var(--accent-lime);">-</strong>
+            </div>
+            <button id="btn-download" class="btn-lime">💾 Download Converted Image</button>
+          </div>
+
+        </div>
+
+        <div id="preview-box" style="display: none; margin-top: 1.5rem; text-align: center; background: var(--bg-main); border: 1px solid var(--border-card); border-radius: var(--radius-lg); padding: 1.5rem;">
+          <h4 style="font-size: 0.95rem; margin-bottom: 0.75rem;">Converted Image Preview</h4>
+          <img id="converted-preview" style="max-width: 100%; max-height: 380px; border-radius: var(--radius-md);" alt="Converted Preview">
+        </div>
+
+      </div>
+
+      <section class="article-container" style="margin-top: 2rem; box-shadow: none;">
+        <h2>Format Comparison: WebP vs JPEG vs PNG</h2>
+        <p>Google developed the <strong>WebP</strong> format to replace older standards on the modern web. WebP offers 26% smaller file sizes compared to PNGs while providing native transparency (alpha channel), and 25%–34% smaller file sizes than comparable JPEGs at equivalent SSIM quality index.</p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Commeronix. All rights reserved. Free web utilities.</p>
+        <div class="footer-legal-links"><a href="/privacy-policy">Privacy</a><a href="/terms">Terms</a><a href="/tools">All Tools</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const dropZone = document.getElementById('drop-zone');
+      const fileInput = document.getElementById('file-input');
+      const controlsPanel = document.getElementById('controls-panel');
+      const previewBox = document.getElementById('preview-box');
+
+      const selectFormat = document.getElementById('select-format');
+      const sliderQuality = document.getElementById('slider-quality');
+      const lblQuality = document.getElementById('lbl-quality');
+      const qualityWrap = document.getElementById('quality-slider-wrap');
+
+      const lblSourceInfo = document.getElementById('lbl-source-info');
+      const lblOutSize = document.getElementById('lbl-out-size');
+      const previewImg = document.getElementById('converted-preview');
+      const btnDownload = document.getElementById('btn-download');
+
+      let currentFile = null;
+      let imgObj = null;
+      let convertedBlob = null;
+
+      function formatBytes(bytes) {
+        if (bytes === 0) return '0 B';
+        const k = 1024;
+        const sizes = ['B', 'KB', 'MB', 'GB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+      }
+
+      function handleFile(file) {
+        if (!file || !file.type.startsWith('image/')) {
+          window.showToast('Please upload a valid image file.', 'info');
+          return;
+        }
+        currentFile = file;
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = new Image();
+          img.onload = () => {
+            imgObj = img;
+            lblSourceInfo.textContent = `${file.type.split('/')[1].toUpperCase()} (${formatBytes(file.size)})`;
+
+            controlsPanel.style.display = 'block';
+            previewBox.style.display = 'block';
+
+            convertImage();
+          };
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+
+      function convertImage() {
+        if (!imgObj) return;
+
+        const format = selectFormat.value;
+        const quality = parseInt(sliderQuality.value, 10) / 100;
+        lblQuality.textContent = `${sliderQuality.value}%`;
+
+        if (format === 'image/png') {
+          qualityWrap.style.opacity = '0.5';
+          qualityWrap.style.pointerEvents = 'none';
+        } else {
+          qualityWrap.style.opacity = '1';
+          qualityWrap.style.pointerEvents = 'auto';
+        }
+
+        const canvas = document.createElement('canvas');
+        canvas.width = imgObj.naturalWidth;
+        canvas.height = imgObj.naturalHeight;
+        const ctx = canvas.getContext('2d');
+
+        // Fill white if converting transparent PNG to JPEG
+        if (format === 'image/jpeg') {
+          ctx.fillStyle = '#FFFFFF';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        ctx.drawImage(imgObj, 0, 0);
+
+        canvas.toBlob((blob) => {
+          convertedBlob = blob;
+          previewImg.src = URL.createObjectURL(blob);
+          lblOutSize.textContent = `${format.split('/')[1].toUpperCase()} (${formatBytes(blob.size)})`;
+        }, format, quality);
+      }
+
+      selectFormat.addEventListener('change', convertImage);
+      sliderQuality.addEventListener('input', convertImage);
+
+      // Drag and Drop
+      dropZone.addEventListener('click', () => fileInput.click());
+      fileInput.addEventListener('change', (e) => {
+        if (e.target.files && e.target.files[0]) handleFile(e.target.files[0]);
+      });
+
+      ['dragenter', 'dragover'].forEach(name => {
+        dropZone.addEventListener(name, (e) => {
+          e.preventDefault();
+          dropZone.classList.add('dragover');
+        });
+      });
+
+      ['dragleave', 'drop'].forEach(name => {
+        dropZone.addEventListener(name, (e) => {
+          e.preventDefault();
+          dropZone.classList.remove('dragover');
+        });
+      });
+
+      dropZone.addEventListener('drop', (e) => {
+        if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) {
+          handleFile(e.dataTransfer.files[0]);
+        }
+      });
+
+      btnDownload.addEventListener('click', () => {
+        if (!convertedBlob) return;
+        const extMap = { 'image/webp': 'webp', 'image/jpeg': 'jpg', 'image/png': 'png' };
+        const ext = extMap[selectFormat.value] || 'jpg';
+        const origName = currentFile ? currentFile.name.substring(0, currentFile.name.lastIndexOf('.')) : 'converted';
+
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(convertedBlob);
+        a.download = `${origName}.${ext}`;
+        a.click();
+        window.showToast(`Downloaded ${origName}.${ext}!`);
+      });
+    });
+  </script>
+</body>
+</html>

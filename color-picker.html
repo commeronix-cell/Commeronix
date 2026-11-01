@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Picker & HEX / RGB / HSL Converter — Commeronix</title>
+  <meta name="description" content="Interactive color picker and color model converter. Convert HEX, RGB, HSL, HSV, and CMYK with palette generator and WCAG 2.1 contrast ratio checker.">
+  <meta name="keywords" content="color picker, hex to rgb, rgb to hsl, cmyk converter, color palette generator, wcag contrast checker">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="canonical" href="https://commeronix.com/color-picker">
+
+  <!-- Schema.org WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Commeronix Color Picker & Converter",
+    "url": "https://commeronix.com/color-picker",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "description": "Convert HEX, RGB, HSL, and CMYK color codes with harmonic palettes and WCAG accessibility testing.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('commeronix_theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .color-swatch-hero {
+      height: 140px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-card);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      box-shadow: var(--shadow-md);
+      transition: background-color var(--transition-fast);
+    }
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+    .palette-card {
+      background: var(--bg-main);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+      text-align: center;
+      transition: all var(--transition-fast);
+    }
+    .palette-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+    .palette-color {
+      height: 60px;
+      width: 100%;
+    }
+    .palette-info {
+      padding: 0.5rem;
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+
+  </div>
+  </div>
+
+    <!-- Site Header & Navigation -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <a href="/" class="brand-logo" title="Commeronix Home">
+          <img src="/assets/favicon.svg" alt="Commeronix Logo" width="36" height="36" class="logo-icon-svg">
+          <span>Commero<span class="brand-accent">nix</span></span>
+        </a>
+
+        <!-- Universal Quick Search Bar Trigger -->
+        <div class="nav-search-wrap">
+          <button class="nav-search-btn" id="nav-search-trigger" type="button" aria-label="Search tools (Press Ctrl+K)">
+            <svg class="search-icon" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <span class="search-placeholder">Search 19+ online utilities...</span>
+            <kbd class="search-kbd">Ctrl K</kbd>
+          </button>
+        </div>
+
+        <!-- Navigation Actions -->
+        <div class="nav-actions">
+          <ul class="nav-links">
+            <li class="nav-dropdown">
+              <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+                <span>Tools &amp; Utilities</span>
+                <svg class="nav-chevron" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+              </button>
+              <div class="mega-menu" role="menu">
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Text Tools</div>
+                  <a href="/word-counter" class="mega-tool-link">Word Counter</a>
+                  <a href="/case-converter" class="mega-tool-link">Case Converter</a>
+                  <a href="/lorem-ipsum-generator" class="mega-tool-link">Lorem Ipsum</a>
+                  <a href="/text-compare" class="mega-tool-link">Text Compare / Diff</a>
+                  <a href="/remove-duplicate-lines" class="mega-tool-link">Remove Duplicate Lines</a>
+                  <a href="/text-to-slug" class="mega-tool-link">Text to Slug</a>
+                  <a href="/reading-time-calculator" class="mega-tool-link">Reading &amp; Speaking Time</a>
+                  <a href="/random-text-generator" class="mega-tool-link">Random Generator</a>
+                </div>
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Image &amp; Media</div>
+                  <a href="/image-compressor" class="mega-tool-link">Image Compressor</a>
+                  <a href="/image-resizer" class="mega-tool-link">Image Resizer</a>
+                  <a href="/image-format-converter" class="mega-tool-link">Format Converter</a>
+                  <a href="/image-to-base64" class="mega-tool-link">Image to Base64</a>
+                  <a href="/background-remover" class="mega-tool-link">Background Remover</a>
+                  <a href="/favicon-generator" class="mega-tool-link">Favicon Generator</a>
+                  <a href="/color-picker" class="mega-tool-link">Color Picker &amp; Converter</a>
+                </div>
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Financial &amp; Math</div>
+                  <a href="/calculator" class="mega-tool-link">Scientific Calculator</a>
+                  <a href="/currency-converter" class="mega-tool-link">Live Currency Converter</a>
+                  <a href="/loan-calculator" class="mega-tool-link">Loan &amp; EMI Calculator</a>
+                  <a href="/unit-converter" class="mega-tool-link">Unit Converter</a>
+                  <div style="margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle);">
+                    <a href="/tools" style="color: var(--accent-primary); font-weight: 700; font-size: 0.85rem; text-decoration: none;">View All 19 Web Utilities &rarr;</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li><a href="/blog" class="nav-link">Blog</a></li>
+            <li><a href="/about" class="nav-link">About</a></li>
+          </ul>
+
+          <!-- Dark / Light Theme Toggle Button -->
+          <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Toggle Light and Dark Theme" title="Toggle Theme">
+            <svg class="sun-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <svg class="moon-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+
+          <!-- Mobile Toggle -->
+          <button class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" aria-label="Mobile Navigation Menu">
+    <div class="mobile-search-box">
+      <input type="text" id="mobile-search-input" placeholder="Search 19+ utilities..." aria-label="Search tools mobile">
+    </div>
+    <a href="/" class="nav-link">Home</a>
+    <a href="/tools" class="nav-link">All Tools Directory</a>
+    <a href="/blog" class="nav-link">Blog &amp; Guides</a>
+    <a href="/about" class="nav-link">About Us</a>
+    <a href="/contact" class="nav-link">Contact Us</a>
+    <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
+    <a href="/terms" class="nav-link">Terms of Service</a>
+  </div>
+
+  <main class="main-content">
+    <div class="container">
+      
+      <div class="tool-header">
+        <div class="tool-breadcrumbs">
+          <a href="/">Home</a> <span>/</span> <a href="/tools">Web Utilities</a> <span>/</span> <span>Color Picker</span>
+        </div>
+        <span class="badge-lime">🎨 Image & Media Tool</span>
+        <h1>Color Picker & HEX / RGB / HSL Converter</h1>
+        <p class="tool-subtitle">Interactive web color studio. Convert across HEX, RGB, HSL, and CMYK formats, inspect harmonic palettes, and test WCAG 2.1 accessibility contrast.</p>
+      </div>
+
+      <div class="tool-workspace">
+        
+        <!-- Big Swatch Hero -->
+        <div id="swatch-hero" class="color-swatch-hero" style="background-color: #2563eb; color: #ffffff;">
+          #2563EB
+        </div>
+
+        <div class="tool-grid-2">
+          
+          <!-- Column 1: Native Picker & Sliders -->
+          <div class="tool-card-box">
+            <div class="tool-card-header">
+              <span class="tool-card-title">🎛️ Color Controls</span>
+              <input type="color" id="native-picker" value="#2563eb" style="width: 44px; height: 32px; border: none; border-radius: var(--radius-sm); cursor: pointer; background: transparent;">
+            </div>
+
+            <!-- RGB Sliders -->
+            <div style="margin-bottom: 1rem;">
+              <div class="slider-label-row"><span>Red (R): <strong id="lbl-r" style="color: var(--accent-rose);">37</strong></span></div>
+              <input type="range" id="slider-r" min="0" max="255" value="37" class="slider-input">
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+              <div class="slider-label-row"><span>Green (G): <strong id="lbl-g" style="color: var(--accent-lime);">99</strong></span></div>
+              <input type="range" id="slider-g" min="0" max="255" value="99" class="slider-input">
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+              <div class="slider-label-row"><span>Blue (B): <strong id="lbl-b" style="color: var(--accent-primary);">235</strong></span></div>
+              <input type="range" id="slider-b" min="0" max="255" value="235" class="slider-input">
+            </div>
+          </div>
+
+          <!-- Column 2: Synchronous Code Conversion Values -->
+          <div class="tool-card-box">
+            <div class="tool-card-header">
+              <span class="tool-card-title">📋 Color Model Formats</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+              
+              <div style="display: flex; align-items: center; justify-content: space-between; background: var(--bg-surface); padding: 0.6rem 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+                <div><span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700;">HEX:</span> <strong id="val-hex" style="font-family: var(--font-mono); margin-left: 0.5rem;">#2563EB</strong></div>
+                <button class="btn-copy" data-copy="val-hex">Copy</button>
+              </div>
+
+              <div style="display: flex; align-items: center; justify-content: space-between; background: var(--bg-surface); padding: 0.6rem 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+                <div><span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700;">RGB:</span> <strong id="val-rgb" style="font-family: var(--font-mono); margin-left: 0.5rem;">rgb(37, 99, 235)</strong></div>
+                <button class="btn-copy" data-copy="val-rgb">Copy</button>
+              </div>
+
+              <div style="display: flex; align-items: center; justify-content: space-between; background: var(--bg-surface); padding: 0.6rem 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+                <div><span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700;">HSL:</span> <strong id="val-hsl" style="font-family: var(--font-mono); margin-left: 0.5rem;">hsl(221, 83%, 53%)</strong></div>
+                <button class="btn-copy" data-copy="val-hsl">Copy</button>
+              </div>
+
+              <div style="display: flex; align-items: center; justify-content: space-between; background: var(--bg-surface); padding: 0.6rem 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+                <div><span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700;">CMYK:</span> <strong id="val-cmyk" style="font-family: var(--font-mono); margin-left: 0.5rem;">cmyk(84%, 58%, 0%, 8%)</strong></div>
+                <button class="btn-copy" data-copy="val-cmyk">Copy</button>
+              </div>
+
+            </div>
+
+            <!-- WCAG Contrast Box -->
+            <div style="margin-top: 1rem; padding: 0.85rem; background: var(--bg-surface-raised); border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: space-between;">
+              <span style="font-size: 0.82rem; font-weight: 700;">WCAG 2.1 Contrast:</span>
+              <div style="display: flex; gap: 0.5rem; font-size: 0.78rem; font-weight: 700;">
+                <span id="badge-white-contrast" class="badge-lime">White: 4.8:1 (AA)</span>
+                <span id="badge-black-contrast" class="badge-cobalt">Black: 4.3:1</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Harmonic Color Palettes -->
+        <div style="margin-top: 2rem;">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.25rem;">🎨 Generated Harmonic Palettes</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">Click any color swatch to copy its HEX value.</p>
+          
+          <div class="palette-grid" id="palette-container"></div>
+        </div>
+
+      </div>
+
+      <section class="article-container" style="margin-top: 2rem; box-shadow: none;">
+        <h2>Understanding Color Models: HEX, RGB, HSL, and CMYK</h2>
+        <p>In digital product design and CSS architecture, selecting the optimal color syntax affects development speed and maintainability:</p>
+        <ul>
+          <li><strong>HEX:</strong> Hexadecimal strings representing base-16 channels. Compact and universally supported.</li>
+          <li><strong>RGB:</strong> Directly matches computer display pixel emissions (Red, Green, Blue from 0 to 255).</li>
+          <li><strong>HSL (Hue, Saturation, Lightness):</strong> The most human-intuitive model for programmatic theme engines and dynamic hover state adjustments.</li>
+          <li><strong>CMYK (Cyan, Magenta, Yellow, Key/Black):</strong> Subtractive model utilized in offset physical printing.</li>
+        </ul>
+        <div class="article-tool-cta">
+          <div>
+            <h4 style="font-size: 1.1rem; margin-bottom: 0.35rem;">Read our deep-dive guide:</h4>
+            <p style="font-size: 0.9rem; margin-bottom: 0;">Understanding Color Models: A Complete Guide to HEX, RGB, and HSL in Web Design.</p>
+          </div>
+          <a href="/blog/understanding-color-models-hex-rgb-hsl-web-design" class="btn-lime">Read Color Guide →</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Commeronix. All rights reserved. Free web utilities.</p>
+        <div class="footer-legal-links"><a href="/privacy-policy">Privacy</a><a href="/terms">Terms</a><a href="/tools">All Tools</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const picker = document.getElementById('native-picker');
+      const swatchHero = document.getElementById('swatch-hero');
+
+      const sliderR = document.getElementById('slider-r');
+      const sliderG = document.getElementById('slider-g');
+      const sliderB = document.getElementById('slider-b');
+      const lblR = document.getElementById('lbl-r');
+      const lblG = document.getElementById('lbl-g');
+      const lblB = document.getElementById('lbl-b');
+
+      const valHex = document.getElementById('val-hex');
+      const valRgb = document.getElementById('val-rgb');
+      const valHsl = document.getElementById('val-hsl');
+      const valCmyk = document.getElementById('val-cmyk');
+
+      const badgeWhite = document.getElementById('badge-white-contrast');
+      const badgeBlack = document.getElementById('badge-black-contrast');
+      const paletteContainer = document.getElementById('palette-container');
+
+      function rgbToHex(r, g, b) {
+        return "#" + (1 << 24 | r << 16 | g << 8 | b).toString(16).slice(1).toUpperCase();
+      }
+
+      function rgbToHsl(r, g, b) {
+        r /= 255; g /= 255; b /= 255;
+        const max = Math.max(r, g, b), min = Math.min(r, g, b);
+        let h, s, l = (max + min) / 2;
+
+        if (max === min) {
+          h = s = 0;
+        } else {
+          const d = max - min;
+          s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+          switch (max) {
+            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+            case g: h = (b - r) / d + 2; break;
+            case b: h = (r - g) / d + 4; break;
+          }
+          h /= 6;
+        }
+        return [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
+      }
+
+      function hslToHex(h, s, l) {
+        l /= 100;
+        const a = s * Math.min(l, 1 - l) / 100;
+        const f = n => {
+          const k = (n + h / 30) % 12;
+          const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+          return Math.round(255 * color).toString(16).padStart(2, '0');
+        };
+        return `#${f(0)}${f(8)}${f(4)}`.toUpperCase();
+      }
+
+      function rgbToCmyk(r, g, b) {
+        const c = 1 - (r / 255);
+        const m = 1 - (g / 255);
+        const y = 1 - (b / 255);
+        const k = Math.min(c, m, y);
+
+        if (k === 1) return [0, 0, 0, 100];
+        return [
+          Math.round(((c - k) / (1 - k)) * 100),
+          Math.round(((m - k) / (1 - k)) * 100),
+          Math.round(((y - k) / (1 - k)) * 100),
+          Math.round(k * 100)
+        ];
+      }
+
+      function getLuminance(r, g, b) {
+        const a = [r, g, b].map(v => {
+          v /= 255;
+          return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+        });
+        return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+      }
+
+      function updateColor(r, g, b) {
+        lblR.textContent = r;
+        lblG.textContent = g;
+        lblB.textContent = b;
+
+        const hex = rgbToHex(r, g, b);
+        picker.value = hex;
+
+        valHex.textContent = hex;
+        valRgb.textContent = `rgb(${r}, ${g}, ${b})`;
+
+        const [h, s, l] = rgbToHsl(r, g, b);
+        valHsl.textContent = `hsl(${h}, ${s}%, ${l}%)`;
+
+        const [c, m, y, k] = rgbToCmyk(r, g, b);
+        valCmyk.textContent = `cmyk(${c}%, ${m}%, ${y}%, ${k}%)`;
+
+        // Update swatch hero
+        swatchHero.style.backgroundColor = hex;
+        swatchHero.textContent = hex;
+
+        // Contrast ratio against white (L = 1) and black (L = 0)
+        const lum = getLuminance(r, g, b);
+        const whiteLum = 1.0;
+        const blackLum = 0.0;
+
+        const contrastWhite = (whiteLum + 0.05) / (lum + 0.05);
+        const contrastBlack = (lum + 0.05) / (blackLum + 0.05);
+
+        swatchHero.style.color = contrastWhite > contrastBlack ? '#FFFFFF' : '#000000';
+
+        badgeWhite.textContent = `White: ${contrastWhite.toFixed(1)}:1 ${contrastWhite >= 4.5 ? '(AA ✓)' : ''}`;
+        badgeBlack.textContent = `Black: ${contrastBlack.toFixed(1)}:1 ${contrastBlack >= 4.5 ? '(AA ✓)' : ''}`;
+
+        renderPalettes(h, s, l);
+      }
+
+      function renderPalettes(h, s, l) {
+        const palettes = [
+          { name: "Complementary", hex: hslToHex((h + 180) % 360, s, l) },
+          { name: "Analogous -30°", hex: hslToHex((h + 330) % 360, s, l) },
+          { name: "Analogous +30°", hex: hslToHex((h + 30) % 360, s, l) },
+          { name: "Triadic 1", hex: hslToHex((h + 120) % 360, s, l) },
+          { name: "Triadic 2", hex: hslToHex((h + 240) % 360, s, l) },
+          { name: "Lighter Tint", hex: hslToHex(h, s, Math.min(95, l + 20)) },
+          { name: "Darker Shade", hex: hslToHex(h, s, Math.max(10, l - 20)) }
+        ];
+
+        paletteContainer.innerHTML = palettes.map(p => `
+          <div class="palette-card" onclick="navigator.clipboard.writeText('${p.hex}').then(() => window.showToast('Copied ${p.hex}!'));">
+            <div class="palette-color" style="background-color: ${p.hex};"></div>
+            <div class="palette-info">
+              <span style="font-size:0.7rem; color:var(--text-muted); display:block;">${p.name}</span>
+              ${p.hex}
+            </div>
+          </div>
+        `).join('');
+      }
+
+      picker.addEventListener('input', (e) => {
+        const hex = e.target.value;
+        const r = parseInt(hex.slice(1, 3), 16);
+        const g = parseInt(hex.slice(3, 5), 16);
+        const b = parseInt(hex.slice(5, 7), 16);
+        sliderR.value = r;
+        sliderG.value = g;
+        sliderB.value = b;
+        updateColor(r, g, b);
+      });
+
+      [sliderR, sliderG, sliderB].forEach(slider => {
+        slider.addEventListener('input', () => {
+          updateColor(parseInt(sliderR.value, 10), parseInt(sliderG.value, 10), parseInt(sliderB.value, 10));
+        });
+      });
+
+      document.querySelectorAll('[data-copy]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetId = btn.getAttribute('data-copy');
+          const val = document.getElementById(targetId).textContent;
+          navigator.clipboard.writeText(val).then(() => window.showToast(`Copied ${val}!`));
+        });
+      });
+
+      // Initialize
+      updateColor(37, 99, 235);
+    });
+  </script>
+</body>
+</html>

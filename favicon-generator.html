@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favicon Generator & Apple Touch Icon Creator — Commeronix</title>
+  <meta name="description" content="Generate multi-resolution website favicons (16x16, 32x32, 48x48, 180x180 Apple Touch) with copyable HTML head meta tags client-side. Free and instant.">
+  <meta name="keywords" content="favicon generator, apple touch icon, website favicon, 16x16 icon, 32x32 favicon, pwa icons generator">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="canonical" href="https://commeronix.com/favicon-generator">
+
+  <!-- Schema.org WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Commeronix Favicon Generator",
+    "url": "https://commeronix.com/favicon-generator",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires HTML5 Canvas & JavaScript",
+    "description": "Generate multi-size web favicons and Apple touch icons with HTML code snippets.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('commeronix_theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .browser-mockup {
+      background: var(--bg-surface-raised);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 0.75rem 1rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .browser-tabs-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .browser-tab {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-bottom: none;
+      border-radius: var(--radius-md) var(--radius-md) 0 0;
+      padding: 0.45rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .favicon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+    .favicon-card {
+      background: var(--bg-main);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+
+  </div>
+  </div>
+
+    <!-- Site Header & Navigation -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <a href="/" class="brand-logo" title="Commeronix Home">
+          <img src="/assets/favicon.svg" alt="Commeronix Logo" width="36" height="36" class="logo-icon-svg">
+          <span>Commero<span class="brand-accent">nix</span></span>
+        </a>
+
+        <!-- Universal Quick Search Bar Trigger -->
+        <div class="nav-search-wrap">
+          <button class="nav-search-btn" id="nav-search-trigger" type="button" aria-label="Search tools (Press Ctrl+K)">
+            <svg class="search-icon" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <span class="search-placeholder">Search 19+ online utilities...</span>
+            <kbd class="search-kbd">Ctrl K</kbd>
+          </button>
+        </div>
+
+        <!-- Navigation Actions -->
+        <div class="nav-actions">
+          <ul class="nav-links">
+            <li class="nav-dropdown">
+              <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+                <span>Tools &amp; Utilities</span>
+                <svg class="nav-chevron" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+              </button>
+              <div class="mega-menu" role="menu">
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Text Tools</div>
+                  <a href="/word-counter" class="mega-tool-link">Word Counter</a>
+                  <a href="/case-converter" class="mega-tool-link">Case Converter</a>
+                  <a href="/lorem-ipsum-generator" class="mega-tool-link">Lorem Ipsum</a>
+                  <a href="/text-compare" class="mega-tool-link">Text Compare / Diff</a>
+                  <a href="/remove-duplicate-lines" class="mega-tool-link">Remove Duplicate Lines</a>
+                  <a href="/text-to-slug" class="mega-tool-link">Text to Slug</a>
+                  <a href="/reading-time-calculator" class="mega-tool-link">Reading &amp; Speaking Time</a>
+                  <a href="/random-text-generator" class="mega-tool-link">Random Generator</a>
+                </div>
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Image &amp; Media</div>
+                  <a href="/image-compressor" class="mega-tool-link">Image Compressor</a>
+                  <a href="/image-resizer" class="mega-tool-link">Image Resizer</a>
+                  <a href="/image-format-converter" class="mega-tool-link">Format Converter</a>
+                  <a href="/image-to-base64" class="mega-tool-link">Image to Base64</a>
+                  <a href="/background-remover" class="mega-tool-link">Background Remover</a>
+                  <a href="/favicon-generator" class="mega-tool-link">Favicon Generator</a>
+                  <a href="/color-picker" class="mega-tool-link">Color Picker &amp; Converter</a>
+                </div>
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Financial &amp; Math</div>
+                  <a href="/calculator" class="mega-tool-link">Scientific Calculator</a>
+                  <a href="/currency-converter" class="mega-tool-link">Live Currency Converter</a>
+                  <a href="/loan-calculator" class="mega-tool-link">Loan &amp; EMI Calculator</a>
+                  <a href="/unit-converter" class="mega-tool-link">Unit Converter</a>
+                  <div style="margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle);">
+                    <a href="/tools" style="color: var(--accent-primary); font-weight: 700; font-size: 0.85rem; text-decoration: none;">View All 19 Web Utilities &rarr;</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li><a href="/blog" class="nav-link">Blog</a></li>
+            <li><a href="/about" class="nav-link">About</a></li>
+          </ul>
+
+          <!-- Dark / Light Theme Toggle Button -->
+          <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Toggle Light and Dark Theme" title="Toggle Theme">
+            <svg class="sun-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <svg class="moon-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+
+          <!-- Mobile Toggle -->
+          <button class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" aria-label="Mobile Navigation Menu">
+    <div class="mobile-search-box">
+      <input type="text" id="mobile-search-input" placeholder="Search 19+ utilities..." aria-label="Search tools mobile">
+    </div>
+    <a href="/" class="nav-link">Home</a>
+    <a href="/tools" class="nav-link">All Tools Directory</a>
+    <a href="/blog" class="nav-link">Blog &amp; Guides</a>
+    <a href="/about" class="nav-link">About Us</a>
+    <a href="/contact" class="nav-link">Contact Us</a>
+    <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
+    <a href="/terms" class="nav-link">Terms of Service</a>
+  </div>
+
+  <main class="main-content">
+    <div class="container">
+      
+      <div class="tool-header">
+        <div class="tool-breadcrumbs">
+          <a href="/">Home</a> <span>/</span> <a href="/tools">Web Utilities</a> <span>/</span> <span>Favicon Generator</span>
+        </div>
+        <span class="badge-lime">⭐ Image & Media Tool</span>
+        <h1>Multi-Size Favicon & Apple Icon Generator</h1>
+        <p class="tool-subtitle">Convert any logo or picture into browser favicons (16×16, 32×32, 48×48) and Apple Touch Icons (180×180). Includes copy-paste HTML &lt;head&gt; tags.</p>
+      </div>
+
+      <div class="tool-workspace">
+        
+        <div class="tool-dropzone" id="drop-zone">
+          <input type="file" id="file-input" accept="image/*" style="display: none;">
+          <span class="dropzone-icon">⭐</span>
+          <h3 style="font-size: 1.15rem; margin-bottom: 0.35rem;">Drag & drop your logo, or <span style="color: var(--accent-primary); text-decoration: underline;">choose image</span></h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Recommended: Square PNG, SVG, or JPG (at least 512×512px).</p>
+        </div>
+
+        <div id="results-panel" style="display: none; margin-top: 2rem;">
+          
+          <!-- Live Browser Tab Mockup -->
+          <div class="browser-mockup">
+            <div class="browser-tabs-bar">
+              <div class="browser-tab">
+                <img id="tab-mock-icon" style="width: 16px; height: 16px; border-radius: 2px;" alt="Tab Icon">
+                <span>Commeronix — Your Website Title</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Icons Grid -->
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem;">Generated Favicon Packages</h3>
+          <div class="favicon-grid">
+            
+            <div class="favicon-card">
+              <canvas id="cv-16" width="16" height="16" style="width: 32px; height: 32px; image-rendering: pixelated; margin-bottom: 0.5rem;"></canvas>
+              <strong style="font-size: 0.88rem;">16 × 16 px</strong>
+              <span style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.75rem;">Standard Tab</span>
+              <button class="btn-copy" data-download="16">Download PNG</button>
+            </div>
+
+            <div class="favicon-card">
+              <canvas id="cv-32" width="32" height="32" style="width: 48px; height: 48px; margin-bottom: 0.5rem;"></canvas>
+              <strong style="font-size: 0.88rem;">32 × 32 px</strong>
+              <span style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.75rem;">Retina Tab</span>
+              <button class="btn-copy" data-download="32">Download PNG</button>
+            </div>
+
+            <div class="favicon-card">
+              <canvas id="cv-48" width="48" height="48" style="width: 60px; height: 60px; margin-bottom: 0.5rem;"></canvas>
+              <strong style="font-size: 0.88rem;">48 × 48 px</strong>
+              <span style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.75rem;">Desktop Shortcut</span>
+              <button class="btn-copy" data-download="48">Download PNG</button>
+            </div>
+
+            <div class="favicon-card">
+              <canvas id="cv-180" width="180" height="180" style="width: 72px; height: 72px; border-radius: 12px; margin-bottom: 0.5rem;"></canvas>
+              <strong style="font-size: 0.88rem;">180 × 180 px</strong>
+              <span style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.75rem;">Apple Touch Icon</span>
+              <button class="btn-copy" data-download="180">Download PNG</button>
+            </div>
+
+          </div>
+
+          <!-- HTML Code Snippet Box -->
+          <div class="tool-card-box" style="margin-top: 1.5rem;">
+            <div class="tool-card-header">
+              <span class="tool-card-title">💻 HTML &lt;head&gt; Code Snippet</span>
+              <button class="btn-copy" id="btn-copy-code">📋 Copy HTML Code</button>
+            </div>
+            <textarea id="meta-code" class="tool-textarea" style="min-height: 120px; font-size: 0.82rem;" readonly>
+<!-- Favicon Configuration for Commeronix -->
+            </textarea>
+          </div>
+
+        </div>
+
+      </div>
+
+      <section class="article-container" style="margin-top: 2rem; box-shadow: none;">
+        <h2>The Modern Web Favicon Specification</h2>
+        <p>In modern web development, browsers and mobile devices require specific icon formats to render sharp brand marks across high-DPI displays. While legacy browsers relied exclusively on multi-resolution <code>.ico</code> files, modern HTML5 applications declare PNG assets for retina clarity and an <code>apple-touch-icon</code> for home-screen shortcuts on iOS.</p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Commeronix. All rights reserved. Free web utilities.</p>
+        <div class="footer-legal-links"><a href="/privacy-policy">Privacy</a><a href="/terms">Terms</a><a href="/tools">All Tools</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const dropZone = document.getElementById('drop-zone');
+      const fileInput = document.getElementById('file-input');
+      const resultsPanel = document.getElementById('results-panel');
+      const tabMockIcon = document.getElementById('tab-mock-icon');
+
+      const cv16 = document.getElementById('cv-16');
+      const cv32 = document.getElementById('cv-32');
+      const cv48 = document.getElementById('cv-48');
+      const cv180 = document.getElementById('cv-180');
+
+      function drawFavicon(canvas, img) {
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      }
+
+      function handleFile(file) {
+        if (!file || !file.type.startsWith('image/')) {
+          window.showToast('Please upload an image file.', 'info');
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = new Image();
+          img.onload = () => {
+            drawFavicon(cv16, img);
+            drawFavicon(cv32, img);
+            drawFavicon(cv48, img);
+            drawFavicon(cv180, img);
+
+            tabMockIcon.src = cv32.toDataURL('image/png');
+            resultsPanel.style.display = 'block';
+            window.showToast('Favicons generated across all sizes!');
+          };
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+
+      dropZone.addEventListener('click', () => fileInput.click());
+      fileInput.addEventListener('change', (e) => {
+        if (e.target.files && e.target.files[0]) handleFile(e.target.files[0]);
+      });
+      ['dragenter', 'dragover'].forEach(name => {
+        dropZone.addEventListener(name, (e) => { e.preventDefault(); dropZone.classList.add('dragover'); });
+      });
+      ['dragleave', 'drop'].forEach(name => {
+        dropZone.addEventListener(name, (e) => { e.preventDefault(); dropZone.classList.remove('dragover'); });
+      });
+      dropZone.addEventListener('drop', (e) => {
+        if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) {
+          handleFile(e.dataTransfer.files[0]);
+        }
+      });
+
+      document.querySelectorAll('[data-download]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const size = btn.getAttribute('data-download');
+          const cv = document.getElementById(`cv-${size}`);
+          cv.toBlob((blob) => {
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = size === '180' ? 'apple-touch-icon.png' : `favicon-${size}x${size}.png`;
+            a.click();
+            window.showToast(`Downloaded ${a.download}`);
+          }, 'image/png');
+        });
+      });
+
+      document.getElementById('btn-copy-code').addEventListener('click', () => {
+        const code = document.getElementById('meta-code').value.trim();
+        navigator.clipboard.writeText(code).then(() => window.showToast('HTML head tags copied!'));
+      });
+    });
+  </script>
+</body>
+</html>

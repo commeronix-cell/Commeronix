@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
@@ -29,8 +29,6 @@
   <meta name="theme-color" content="#090d16">
   <meta name="google-site-verification" content="nWVoTOSROiJ0beAcexwRnMIcGbdqhJ6YzNMDQurT2CM">
   <link rel="canonical" href="https://commeronix.com/contact">
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="manifest" href="manifest.json">
 
   <!-- Open Graph -->
   <meta property="og:locale" content="en_US">
@@ -85,37 +83,21 @@
   <script>
     (function() {
       const savedTheme = localStorage.getItem('commeronix_theme');
-      if (savedTheme === 'light' || (!savedTheme && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)) {
-        document.documentElement.setAttribute('data-theme', 'light');
-      } else {
+      if (savedTheme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
       }
     })();
   </script>
 
   <!-- Stylesheet -->
-    <!-- Google Fonts Preconnect & High-Performance Font Loading -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
-  <link rel="stylesheet" href="style.css?v=4.0.0">
-  <!-- Instant Navigation: Speculation Rules API (Zero-latency instant prerender on hover) -->
-  <script type="speculationrules">
-  {
-    "prerender": [
-      {
-        "source": "document",
-        "where": {
-          "and": [
-            { "href_matches": "/*" },
-            { "not": { "href_matches": "/assets/*" } }
-          ]
-        },
-        "eagerness": "moderate"
-      }
-    ]
-  }
-  </script>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -123,42 +105,73 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-
-  <!-- Top Live Currency Rate Ticker Strip -->
-  <div class="ticker-wrap" aria-label="Live Forex Exchange Rates Ticker">
-    <div class="ticker-label">
-      <div class="ticker-pulse"></div>
-      <span>Live Rates</span>
-    </div>
-    <div class="ticker-track">
-      <div class="ticker-content">
-        <!-- Dynamic Ticker via assets/main.js?v=4.0.0 -->
-        <div class="ticker-item"><span class="ticker-pair">USD/PKR</span> <span class="ticker-val">277.25</span> <span class="ticker-badge down">-0.15%</span></div>
-        <div class="ticker-item"><span class="ticker-pair">USD/EUR</span> <span class="ticker-val">0.8614</span> <span class="ticker-badge">+0.12%</span></div>
-        <div class="ticker-item"><span class="ticker-pair">USD/GBP</span> <span class="ticker-val">0.7379</span> <span class="ticker-badge down">-0.08%</span></div>
-        <div class="ticker-item"><span class="ticker-pair">USD/AED</span> <span class="ticker-val">3.6725</span> <span class="ticker-badge">+0.00%</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Header -->
+  <!-- Site Header & Navigation -->
   <header class="site-header">
     <div class="container">
       <nav class="navbar" aria-label="Main Navigation">
         <a href="/" class="brand-logo" title="Commeronix Home">
-          <img src="assets/favicon.svg" alt="Commeronix Logo" width="38" height="38" class="logo-icon-svg">
+          <img src="/assets/favicon.svg" alt="Commeronix Logo" width="36" height="36" class="logo-icon-svg">
           <span>Commero<span class="brand-accent">nix</span></span>
         </a>
 
-        <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <!-- Universal Quick Search Bar Trigger -->
+        <div class="nav-search-wrap">
+          <button class="nav-search-btn" id="nav-search-trigger" type="button" aria-label="Search tools (Press Ctrl+K)">
+            <svg class="search-icon" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <span class="search-placeholder">Search 19+ online utilities...</span>
+            <kbd class="search-kbd">Ctrl K</kbd>
+          </button>
+        </div>
+
+        <!-- Navigation Actions -->
+        <div class="nav-actions">
           <ul class="nav-links">
-            <li><a href="/" class="nav-link">Home</a></li>
-            <li><a href="/calculator" class="nav-link">Calculator</a></li>
-            <li><a href="/currency-converter" class="nav-link">Currency Converter</a></li>
-            <li><a href="/unit-converter" class="nav-link">Unit Converter</a></li>
-            <li><a href="/loan-calculator" class="nav-link">Loan Calculator</a></li>
+            <li class="nav-dropdown">
+              <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+                <span>Tools &amp; Utilities</span>
+                <svg class="nav-chevron" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+              </button>
+              <div class="mega-menu" role="menu">
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Text Tools</div>
+                  <a href="/word-counter" class="mega-tool-link">Word Counter</a>
+                  <a href="/case-converter" class="mega-tool-link">Case Converter</a>
+                  <a href="/lorem-ipsum-generator" class="mega-tool-link">Lorem Ipsum</a>
+                  <a href="/text-compare" class="mega-tool-link">Text Compare / Diff</a>
+                  <a href="/remove-duplicate-lines" class="mega-tool-link">Remove Duplicate Lines</a>
+                  <a href="/text-to-slug" class="mega-tool-link">Text to Slug</a>
+                  <a href="/reading-time-calculator" class="mega-tool-link">Reading &amp; Speaking Time</a>
+                  <a href="/random-text-generator" class="mega-tool-link">Random Generator</a>
+                </div>
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Image &amp; Media</div>
+                  <a href="/image-compressor" class="mega-tool-link">Image Compressor</a>
+                  <a href="/image-resizer" class="mega-tool-link">Image Resizer</a>
+                  <a href="/image-format-converter" class="mega-tool-link">Format Converter</a>
+                  <a href="/image-to-base64" class="mega-tool-link">Image to Base64</a>
+                  <a href="/background-remover" class="mega-tool-link">Background Remover</a>
+                  <a href="/favicon-generator" class="mega-tool-link">Favicon Generator</a>
+                  <a href="/color-picker" class="mega-tool-link">Color Picker &amp; Converter</a>
+                </div>
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Financial &amp; Math</div>
+                  <a href="/calculator" class="mega-tool-link">Scientific Calculator</a>
+                  <a href="/currency-converter" class="mega-tool-link">Live Currency Converter</a>
+                  <a href="/loan-calculator" class="mega-tool-link">Loan &amp; EMI Calculator</a>
+                  <a href="/unit-converter" class="mega-tool-link">Unit Converter</a>
+                  <div style="margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle);">
+                    <a href="/tools" style="color: var(--accent-primary); font-weight: 700; font-size: 0.85rem; text-decoration: none;">View All 19 Web Utilities &rarr;</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li><a href="/blog" class="nav-link">Blog</a></li>
             <li><a href="/about" class="nav-link">About</a></li>
-            <li><a href="/contact" class="nav-link active">Contact</a></li>
           </ul>
 
           <!-- Dark / Light Theme Toggle Button -->
@@ -171,6 +184,7 @@
             </svg>
           </button>
 
+          <!-- Mobile Toggle -->
           <button class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -181,15 +195,16 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
+    <!-- Mobile Drawer -->
   <div class="mobile-drawer" aria-label="Mobile Navigation Menu">
+    <div class="mobile-search-box">
+      <input type="text" id="mobile-search-input" placeholder="Search 19+ utilities..." aria-label="Search tools mobile">
+    </div>
     <a href="/" class="nav-link">Home</a>
-    <a href="/calculator" class="nav-link">Live Calculator</a>
-    <a href="/currency-converter" class="nav-link">Currency Converter</a>
-    <a href="/unit-converter" class="nav-link">Unit Converter</a>
-    <a href="/loan-calculator" class="nav-link">Loan & EMI Calculator</a>
+    <a href="/tools" class="nav-link">All Tools Directory</a>
+    <a href="/blog" class="nav-link">Blog &amp; Guides</a>
     <a href="/about" class="nav-link">About Us</a>
-    <a href="/contact" class="nav-link active">Contact Us</a>
+    <a href="/contact" class="nav-link">Contact Us</a>
     <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
     <a href="/terms" class="nav-link">Terms of Service</a>
   </div>
@@ -213,11 +228,12 @@
           <div class="contact-card">
             <h3>
               <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="var(--accent-primary)">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
-              Direct Online Support
+              Direct Email
             </h3>
-            <p style="font-size: 0.9rem;">Have a question, feedback, or tool suggestion? Fill out the contact form below and our team will receive your message directly.</p>
+            <p style="font-size: 0.9rem;">For general inquiries, tool suggestions, bug reports, and feedback:</p>
+            <a href="mailto:commeronix@gmail.com" class="contact-email-link" style="font-weight: 700; font-size: 1.1rem; color: var(--accent-primary);">commeronix@gmail.com</a>
           </div>
 
           <div class="contact-card">
@@ -236,42 +252,41 @@
           <h2 style="font-size: 1.4rem; margin-bottom: 0.5rem; text-align: center;">Send Us a Message</h2>
           <p style="font-size: 0.95rem; text-align: center; margin-bottom: 2rem;">Fill out the form below and we'll get back to you promptly.</p>
 
-          <form id="contact-form" action="https://formsubmit.co/commeronix@gmail.com" method="POST" style="max-width: 600px; margin: 0 auto;">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_subject" value="New Commeronix Form Submission">
+          <form id="contact-form" style="max-width: 600px; margin: 0 auto;">
             <div id="contact-alert" class="alert alert-info" style="display: none;"></div>
 
             <div class="form-group">
-              <label for="contact-name" class="form-label">Full Name</label>
-              <input type="text" id="contact-name" name="name" class="form-input" placeholder="Your name" required>
+              <label for="contact-name" class="form-label">Full Name <span style="color: var(--accent-rose);">*</span></label>
+              <input type="text" id="contact-name" class="form-input" placeholder="Your full name" required minlength="2">
             </div>
 
             <div class="form-group">
-              <label for="contact-email" class="form-label">Email Address</label>
-              <input type="email" id="contact-email" name="email" class="form-input" placeholder="you@example.com" required>
+              <label for="contact-email" class="form-label">Email Address <span style="color: var(--accent-rose);">*</span></label>
+              <input type="email" id="contact-email" class="form-input" placeholder="you@example.com" required>
             </div>
 
             <div class="form-group">
-              <label for="contact-subject" class="form-label">Topic / Subject</label>
-              <select id="contact-subject" name="subject" class="form-select">
-                <option value="General Feedback">General Feedback</option>
-                <option value="Request a New Calculator Tool">Request a New Calculator Tool</option>
-                <option value="Report a Bug or Calculation Inaccuracy">Report a Bug or Calculation Inaccuracy</option>
-                <option value="Advertising & Partnership Inquiry">Advertising & Partnership Inquiry</option>
+              <label for="contact-subject" class="form-label">Topic / Subject <span style="color: var(--accent-rose);">*</span></label>
+              <select id="contact-subject" class="form-select" required>
+                <option value="" disabled selected>Select an inquiry topic...</option>
+                <option value="General Feedback">General Feedback &amp; Suggestions</option>
+                <option value="New Tool Request">Request a New Web Tool / Calculator</option>
+                <option value="Bug Report">Report a Bug or Calculation Inaccuracy</option>
+                <option value="Partnership">Advertising &amp; Partnership Inquiry</option>
+                <option value="Technical Inquiry">Technical &amp; Editorial Question</option>
               </select>
             </div>
 
             <div class="form-group">
-              <label for="contact-message" class="form-label">Message</label>
-              <textarea id="contact-message" name="message" class="form-input" rows="5" placeholder="Write your feedback or question here..." required style="resize: vertical;"></textarea>
+              <label for="contact-message" class="form-label">Message <span style="color: var(--accent-rose);">*</span></label>
+              <textarea id="contact-message" class="form-input" rows="5" placeholder="Write your message or inquiry here..." required minlength="5" style="resize: vertical;"></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 1rem;">
               <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
               </svg>
-              Submit Message
+              Send Message to commeronix@gmail.com
             </button>
           </form>
         </div>
@@ -288,7 +303,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="/" class="brand-logo" style="margin-bottom: 0.5rem;" title="Commeronix Home">
-            <img src="assets/favicon.svg" alt="Commeronix Logo" width="34" height="34" class="logo-icon-svg">
+            <img src="/assets/favicon.svg" alt="Commeronix Logo" width="34" height="34" class="logo-icon-svg">
             <span>Commero<span class="brand-accent">nix</span></span>
           </a>
           <p>Get in touch with the Commeronix team for support, feature proposals, and data accuracy feedback.</p>
@@ -317,7 +332,7 @@
         <div class="footer-col">
           <h4>Support Inquiries</h4>
           <ul class="footer-links">
-            <li><span class="footer-link" style="cursor: default;">Direct Web Inquiries</span></li>
+            <li><span class="footer-link" style="cursor: default;">Email: commeronix@gmail.com</span></li>
             <li><span class="footer-link" style="cursor: default;">24/48 Hour Turnaround</span></li>
             <li><span class="footer-link" style="cursor: default;">Open Community Feedback</span></li>
           </ul>
@@ -336,7 +351,7 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="assets/main.js?v=4.0.0"></script>
+  <script src="/assets/main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const form = document.getElementById('contact-form');
@@ -344,19 +359,59 @@
       const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
 
       if (form && alertBox && submitBtn) {
+        function showAlert(type, html) {
+          alertBox.className = type === 'danger' ? 'alert alert-danger' : 'alert alert-info';
+          if (type === 'success') {
+            alertBox.style.borderColor = 'rgba(16, 185, 129, 0.4)';
+            alertBox.style.background = 'rgba(16, 185, 129, 0.12)';
+          } else {
+            alertBox.style.borderColor = '';
+            alertBox.style.background = '';
+          }
+          alertBox.innerHTML = html;
+          alertBox.style.display = 'flex';
+          alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function escapeHtml(text) {
+          const div = document.createElement('div');
+          div.textContent = text;
+          return div.innerHTML;
+        }
+
         form.addEventListener('submit', async (e) => {
           e.preventDefault();
 
-          const name = document.getElementById('contact-name').value.trim();
-          const email = document.getElementById('contact-email').value.trim();
+          const nameInput = document.getElementById('contact-name');
+          const emailInput = document.getElementById('contact-email');
           const subjectSelect = document.getElementById('contact-subject');
-          const subjectText = subjectSelect.options[subjectSelect.selectedIndex].text;
-          const message = document.getElementById('contact-message').value.trim();
+          const messageInput = document.getElementById('contact-message');
 
-          if (!name || !email || !message) {
-            alertBox.className = 'alert alert-danger';
-            alertBox.innerHTML = `<div>Please complete all required fields before submitting.</div>`;
-            alertBox.style.display = 'flex';
+          const name = nameInput.value.trim();
+          const email = emailInput.value.trim();
+          const subjectText = subjectSelect.value || subjectSelect.options[subjectSelect.selectedIndex].text;
+          const message = messageInput.value.trim();
+
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+          if (!name || name.length < 2) {
+            showAlert('danger', 'Please enter your full name (at least 2 characters).');
+            nameInput.focus();
+            return;
+          }
+          if (!email || !emailRegex.test(email)) {
+            showAlert('danger', 'Please enter a valid email address.');
+            emailInput.focus();
+            return;
+          }
+          if (!subjectText || subjectSelect.selectedIndex === 0) {
+            showAlert('danger', 'Please select an inquiry topic.');
+            subjectSelect.focus();
+            return;
+          }
+          if (!message || message.length < 5) {
+            showAlert('danger', 'Please enter a message (at least 5 characters).');
+            messageInput.focus();
             return;
           }
 
@@ -367,7 +422,7 @@
             <svg class="spinner-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="animation: spin 1s linear infinite; margin-right: 0.5rem;">
               <circle cx="12" cy="12" r="10" stroke-width="3" stroke-dasharray="32" stroke-linecap="round"></circle>
             </svg>
-            Sending Message...
+            Sending Message to commeronix@gmail.com...
           `;
 
           const payload = {
@@ -375,38 +430,49 @@
             email: email,
             subject: subjectText,
             message: message,
-            _subject: `Commeronix Contact: ${subjectText} from ${name}`,
-            _captcha: false
+            _subject: `Commeronix Inquiry: ${subjectText} from ${name}`,
+            _captcha: "false",
+            _replyto: email
           };
 
           try {
-            // Direct submission to Cloudflare/Static serverless mail endpoint
-            const response = await fetch('https://formsubmit.co/ajax/commeronix@gmail.com', {
+            // Option A: Forwarding directly to commeronix@gmail.com via form provider endpoint
+            const res = await fetch('https://formsubmit.co/ajax/commeronix@gmail.com', {
               method: 'POST',
-              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              },
               body: JSON.stringify(payload)
             });
 
-            alertBox.className = 'alert alert-info';
-            alertBox.style.borderColor = 'rgba(16, 185, 129, 0.4)';
-            alertBox.style.background = 'rgba(16, 185, 129, 0.1)';
-            alertBox.innerHTML = `
-              <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#10b981">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <div>
-                <strong>Message Sent Successfully!</strong><br>
-                Thank you, <strong>${name}</strong>. Your message has been sent directly to our team at <em>commeronix@gmail.com</em>. We will reply to your email promptly.
-              </div>
-            `;
-            alertBox.style.display = 'flex';
-            form.reset();
+            if (res.ok) {
+              showAlert('success', `
+                <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#10b981" style="flex-shrink:0; margin-right: 0.5rem;">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <div>
+                  <strong>Message Sent Successfully!</strong><br>
+                  Thank you, <strong>${escapeHtml(name)}</strong>. Your inquiry has been forwarded directly to <strong>commeronix@gmail.com</strong>. We will reply to <em>${escapeHtml(email)}</em> within 24 to 48 business hours.
+                </div>
+              `);
+              form.reset();
+            } else {
+              throw new Error('Endpoint response error');
+            }
           } catch (err) {
-            alertBox.className = 'alert alert-danger';
-            alertBox.innerHTML = `
-              <div>Unable to send message automatically. Please email us directly at <a href="mailto:commeronix@gmail.com" style="color: var(--accent-primary); text-decoration: underline;">commeronix@gmail.com</a>.</div>
-            `;
-            alertBox.style.display = 'flex';
+            // Option B fallback: native pre-filled mailto redirect helper
+            const mailtoUrl = `mailto:commeronix@gmail.com?subject=${encodeURIComponent(subjectText + ' - ' + name)}&body=${encodeURIComponent('From: ' + name + ' (' + email + ')\n\n' + message)}`;
+            showAlert('info', `
+              <div>
+                <strong>Network Notice:</strong> Direct API delivery encountered a network interruption. Click below to send directly via your email client to <strong>commeronix@gmail.com</strong>:
+                <div style="margin-top: 0.75rem;">
+                  <a href="${mailtoUrl}" class="btn btn-sm btn-primary" style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 0.95rem; text-decoration: none;">
+                    âœ‰ï¸ Open Email Client to Send &rarr;
+                  </a>
+                </div>
+              </div>
+            `);
           } finally {
             submitBtn.disabled = false;
             submitBtn.innerHTML = originalBtnHtml;

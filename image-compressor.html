@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client-Side Image Compressor (Lossy & Lossless) — Commeronix</title>
+  <meta name="description" content="Compress JPG, PNG, and WebP images client-side without uploading to servers. Reduce image file sizes by up to 80% to optimize Core Web Vitals and page speed.">
+  <meta name="keywords" content="image compressor, compress image online, reduce image size, webp compressor, jpeg compression, core web vitals image optimization">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="canonical" href="https://commeronix.com/image-compressor">
+
+  <!-- Schema.org WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Commeronix Client-Side Image Compressor",
+    "url": "https://commeronix.com/image-compressor",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires HTML5 Canvas & JavaScript",
+    "description": "High-speed in-browser image compression ensuring 100% privacy and zero server uploads.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('commeronix_theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .img-preview-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 768px) {
+      .img-preview-container { grid-template-columns: 1fr; }
+    }
+    .img-box {
+      background: var(--bg-main);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+    .img-frame {
+      max-height: 280px;
+      min-height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.04);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    [data-theme="dark"] .img-frame {
+      background: rgba(255,255,255,0.03);
+    }
+    .img-frame img {
+      max-width: 100%;
+      max-height: 280px;
+      object-fit: contain;
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+
+  </div>
+  </div>
+
+    <!-- Site Header & Navigation -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <a href="/" class="brand-logo" title="Commeronix Home">
+          <img src="/assets/favicon.svg" alt="Commeronix Logo" width="36" height="36" class="logo-icon-svg">
+          <span>Commero<span class="brand-accent">nix</span></span>
+        </a>
+
+        <!-- Universal Quick Search Bar Trigger -->
+        <div class="nav-search-wrap">
+          <button class="nav-search-btn" id="nav-search-trigger" type="button" aria-label="Search tools (Press Ctrl+K)">
+            <svg class="search-icon" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <span class="search-placeholder">Search 19+ online utilities...</span>
+            <kbd class="search-kbd">Ctrl K</kbd>
+          </button>
+        </div>
+
+        <!-- Navigation Actions -->
+        <div class="nav-actions">
+          <ul class="nav-links">
+            <li class="nav-dropdown">
+              <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+                <span>Tools &amp; Utilities</span>
+                <svg class="nav-chevron" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+              </button>
+              <div class="mega-menu" role="menu">
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Text Tools</div>
+                  <a href="/word-counter" class="mega-tool-link">Word Counter</a>
+                  <a href="/case-converter" class="mega-tool-link">Case Converter</a>
+                  <a href="/lorem-ipsum-generator" class="mega-tool-link">Lorem Ipsum</a>
+                  <a href="/text-compare" class="mega-tool-link">Text Compare / Diff</a>
+                  <a href="/remove-duplicate-lines" class="mega-tool-link">Remove Duplicate Lines</a>
+                  <a href="/text-to-slug" class="mega-tool-link">Text to Slug</a>
+                  <a href="/reading-time-calculator" class="mega-tool-link">Reading &amp; Speaking Time</a>
+                  <a href="/random-text-generator" class="mega-tool-link">Random Generator</a>
+                </div>
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Image &amp; Media</div>
+                  <a href="/image-compressor" class="mega-tool-link">Image Compressor</a>
+                  <a href="/image-resizer" class="mega-tool-link">Image Resizer</a>
+                  <a href="/image-format-converter" class="mega-tool-link">Format Converter</a>
+                  <a href="/image-to-base64" class="mega-tool-link">Image to Base64</a>
+                  <a href="/background-remover" class="mega-tool-link">Background Remover</a>
+                  <a href="/favicon-generator" class="mega-tool-link">Favicon Generator</a>
+                  <a href="/color-picker" class="mega-tool-link">Color Picker &amp; Converter</a>
+                </div>
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Financial &amp; Math</div>
+                  <a href="/calculator" class="mega-tool-link">Scientific Calculator</a>
+                  <a href="/currency-converter" class="mega-tool-link">Live Currency Converter</a>
+                  <a href="/loan-calculator" class="mega-tool-link">Loan &amp; EMI Calculator</a>
+                  <a href="/unit-converter" class="mega-tool-link">Unit Converter</a>
+                  <div style="margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle);">
+                    <a href="/tools" style="color: var(--accent-primary); font-weight: 700; font-size: 0.85rem; text-decoration: none;">View All 19 Web Utilities &rarr;</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li><a href="/blog" class="nav-link">Blog</a></li>
+            <li><a href="/about" class="nav-link">About</a></li>
+          </ul>
+
+          <!-- Dark / Light Theme Toggle Button -->
+          <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Toggle Light and Dark Theme" title="Toggle Theme">
+            <svg class="sun-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <svg class="moon-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+
+          <!-- Mobile Toggle -->
+          <button class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" aria-label="Mobile Navigation Menu">
+    <div class="mobile-search-box">
+      <input type="text" id="mobile-search-input" placeholder="Search 19+ utilities..." aria-label="Search tools mobile">
+    </div>
+    <a href="/" class="nav-link">Home</a>
+    <a href="/tools" class="nav-link">All Tools Directory</a>
+    <a href="/blog" class="nav-link">Blog &amp; Guides</a>
+    <a href="/about" class="nav-link">About Us</a>
+    <a href="/contact" class="nav-link">Contact Us</a>
+    <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
+    <a href="/terms" class="nav-link">Terms of Service</a>
+  </div>
+
+  <main class="main-content">
+    <div class="container">
+      
+      <div class="tool-header">
+        <div class="tool-breadcrumbs">
+          <a href="/">Home</a> <span>/</span> <a href="/tools">Web Utilities</a> <span>/</span> <span>Image Compressor</span>
+        </div>
+        <span class="badge-lime">🗜️ Image & Media Tool</span>
+        <h1>Client-Side Image Compressor</h1>
+        <p class="tool-subtitle">Compress JPEG, PNG, and WebP pictures instantly in your browser using HTML5 Canvas. Zero file uploads, 100% private, and optimized for Core Web Vitals.</p>
+      </div>
+
+      <div class="tool-workspace">
+        
+        <!-- Drag & Drop File Upload -->
+        <div class="tool-dropzone" id="drop-zone">
+          <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp" style="display: none;">
+          <span class="dropzone-icon">🖼️</span>
+          <h3 style="font-size: 1.15rem; margin-bottom: 0.35rem;">Drag & drop your image here, or <span style="color: var(--accent-primary); text-decoration: underline;">browse files</span></h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Supports JPG, PNG, and WebP (up to 25MB). Files are processed locally on your machine.</p>
+        </div>
+
+        <!-- Settings Bar (Shown when image loaded) -->
+        <div id="controls-panel" style="display: none; margin-top: 1.5rem; background: var(--bg-main); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-subtle);">
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <div>
+              <div class="slider-label-row">
+                <span>Compression Quality: <strong id="lbl-quality" style="color: var(--accent-primary);">75%</strong></span>
+                <span id="quality-desc" style="font-size: 0.78rem; color: var(--text-muted);">Recommended for Web</span>
+              </div>
+              <input type="range" id="slider-quality" min="10" max="100" value="75" class="slider-input">
+            </div>
+
+            <div>
+              <div class="slider-label-row">
+                <span>Max Width Limit: <strong id="lbl-max-width" style="color: var(--accent-lime);">Original</strong></span>
+                <span style="font-size: 0.78rem; color: var(--text-muted);">Aspect ratio maintained</span>
+              </div>
+              <select id="select-max-width" style="width: 100%; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); background: var(--bg-surface); color: var(--text-primary); font-weight: 600;">
+                <option value="original">Original Dimensions</option>
+                <option value="1920">Full HD (1920px max)</option>
+                <option value="1280">HD (1280px max)</option>
+                <option value="800">Blog Standard (800px max)</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border-subtle);">
+            <div id="savings-badge" class="badge-lime" style="font-size: 0.9rem;">Saved 0%</div>
+            <button id="btn-download" class="btn-lime">💾 Download Compressed Image</button>
+          </div>
+
+        </div>
+
+        <!-- Before / After Preview Grid -->
+        <div id="preview-section" class="img-preview-container" style="display: none;">
+          
+          <div class="img-box">
+            <h4 style="font-size: 0.95rem; margin-bottom: 0.75rem;">Original Image</h4>
+            <div class="img-frame">
+              <img id="img-orig-preview" alt="Original Upload Preview">
+            </div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: auto;">
+              Size: <strong id="val-orig-size" style="font-family: var(--font-mono);">-</strong> | Dimensions: <span id="val-orig-dims" style="font-family: var(--font-mono);">-</span>
+            </div>
+          </div>
+
+          <div class="img-box" style="border-color: var(--border-highlight);">
+            <h4 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--accent-primary);">Compressed Output</h4>
+            <div class="img-frame">
+              <img id="img-comp-preview" alt="Compressed Output Preview">
+            </div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: auto;">
+              Size: <strong id="val-comp-size" style="font-family: var(--font-mono); color: var(--accent-lime);">-</strong> | Dimensions: <span id="val-comp-dims" style="font-family: var(--font-mono);">-</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <section class="article-container" style="margin-top: 2rem; box-shadow: none;">
+        <h2>How Image Compression Boosts Core Web Vitals (LCP)</h2>
+        <p>Uncompressed images are the leading cause of poor <strong>Largest Contentful Paint (LCP)</strong> scores in Google PageSpeed Insights. When multi-megabyte hero graphics are delivered to mobile smartphones, cellular bandwidth is saturated, delaying page interactivity and damaging search rankings.</p>
+        <p>By resampling image data through browser Canvas and leveraging modern <code>image/webp</code> re-encoding at 75%–80% quality, you retain crisp visual fidelity while stripping away invisible EXIF metadata and redundant color frequency blocks.</p>
+        <div class="article-tool-cta">
+          <div>
+            <h4 style="font-size: 1.1rem; margin-bottom: 0.35rem;">Read our deep-dive engineering guide:</h4>
+            <p style="font-size: 0.9rem; margin-bottom: 0;">How to Optimize Web Images for Core Web Vitals: Compression, Formats, and Best Practices.</p>
+          </div>
+          <a href="/blog/how-to-optimize-web-images-for-core-web-vitals" class="btn-lime">Read Pillar Guide →</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Commeronix. All rights reserved. Free web utilities.</p>
+        <div class="footer-legal-links"><a href="/privacy-policy">Privacy</a><a href="/terms">Terms</a><a href="/tools">All Tools</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const dropZone = document.getElementById('drop-zone');
+      const fileInput = document.getElementById('file-input');
+      const controlsPanel = document.getElementById('controls-panel');
+      const previewSection = document.getElementById('preview-section');
+
+      const sliderQuality = document.getElementById('slider-quality');
+      const lblQuality = document.getElementById('lbl-quality');
+      const selectMaxWidth = document.getElementById('select-max-width');
+      const lblMaxWidth = document.getElementById('lbl-max-width');
+
+      const imgOrig = document.getElementById('img-orig-preview');
+      const imgComp = document.getElementById('img-comp-preview');
+      const valOrigSize = document.getElementById('val-orig-size');
+      const valCompSize = document.getElementById('val-comp-size');
+      const valOrigDims = document.getElementById('val-orig-dims');
+      const valCompDims = document.getElementById('val-comp-dims');
+      const savingsBadge = document.getElementById('savings-badge');
+      const btnDownload = document.getElementById('btn-download');
+
+      let currentFile = null;
+      let originalImageObj = null;
+      let compressedBlob = null;
+
+      function formatBytes(bytes) {
+        if (bytes === 0) return '0 B';
+        const k = 1024;
+        const sizes = ['B', 'KB', 'MB', 'GB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+      }
+
+      function handleFile(file) {
+        if (!file || !file.type.startsWith('image/')) {
+          window.showToast('Please select a valid image file (JPG, PNG, WebP).', 'info');
+          return;
+        }
+
+        currentFile = file;
+        valOrigSize.textContent = formatBytes(file.size);
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = new Image();
+          img.onload = () => {
+            originalImageObj = img;
+            imgOrig.src = e.target.result;
+            valOrigDims.textContent = `${img.naturalWidth} × ${img.naturalHeight}px`;
+
+            controlsPanel.style.display = 'block';
+            previewSection.style.display = 'grid';
+
+            processCompression();
+          };
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+
+      function processCompression() {
+        if (!originalImageObj) return;
+
+        const quality = parseInt(sliderQuality.value, 10) / 100;
+        lblQuality.textContent = `${sliderQuality.value}%`;
+
+        let targetWidth = originalImageObj.naturalWidth;
+        let targetHeight = originalImageObj.naturalHeight;
+
+        const maxWidthSetting = selectMaxWidth.value;
+        if (maxWidthSetting !== 'original') {
+          const maxPx = parseInt(maxWidthSetting, 10);
+          if (targetWidth > maxPx) {
+            const ratio = maxPx / targetWidth;
+            targetWidth = maxPx;
+            targetHeight = Math.round(targetHeight * ratio);
+          }
+        }
+        lblMaxWidth.textContent = maxWidthSetting === 'original' ? 'Original' : `${maxWidthSetting}px`;
+
+        const canvas = document.createElement('canvas');
+        canvas.width = targetWidth;
+        canvas.height = targetHeight;
+        const ctx = canvas.getContext('2d');
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+        ctx.drawImage(originalImageObj, 0, 0, targetWidth, targetHeight);
+
+        // Convert to WebP or JPEG
+        const mimeType = currentFile.type === 'image/png' ? 'image/png' : (currentFile.type === 'image/webp' ? 'image/webp' : 'image/jpeg');
+
+        canvas.toBlob((blob) => {
+          compressedBlob = blob;
+          const compUrl = URL.createObjectURL(blob);
+          imgComp.src = compUrl;
+
+          valCompSize.textContent = formatBytes(blob.size);
+          valCompDims.textContent = `${targetWidth} × ${targetHeight}px`;
+
+          const savedBytes = currentFile.size - blob.size;
+          const savedPct = Math.round((savedBytes / currentFile.size) * 100);
+
+          if (savedPct > 0) {
+            savingsBadge.textContent = `Saved ${savedPct}% (${formatBytes(savedBytes)})`;
+            savingsBadge.className = 'badge-lime';
+          } else {
+            savingsBadge.textContent = `Optimized (+${Math.abs(savedPct)}%)`;
+            savingsBadge.className = 'badge-cobalt';
+          }
+        }, mimeType, quality);
+      }
+
+      // Drag and Drop
+      dropZone.addEventListener('click', () => fileInput.click());
+      fileInput.addEventListener('change', (e) => {
+        if (e.target.files && e.target.files[0]) {
+          handleFile(e.target.files[0]);
+        }
+      });
+
+      ['dragenter', 'dragover'].forEach(name => {
+        dropZone.addEventListener(name, (e) => {
+          e.preventDefault();
+          dropZone.classList.add('dragover');
+        });
+      });
+
+      ['dragleave', 'drop'].forEach(name => {
+        dropZone.addEventListener(name, (e) => {
+          e.preventDefault();
+          dropZone.classList.remove('dragover');
+        });
+      });
+
+      dropZone.addEventListener('drop', (e) => {
+        if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) {
+          handleFile(e.dataTransfer.files[0]);
+        }
+      });
+
+      sliderQuality.addEventListener('input', processCompression);
+      selectMaxWidth.addEventListener('change', processCompression);
+
+      btnDownload.addEventListener('click', () => {
+        if (!compressedBlob) return;
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(compressedBlob);
+        const origName = currentFile.name.substring(0, currentFile.name.lastIndexOf('.')) || 'image';
+        const ext = currentFile.type.split('/')[1] || 'jpg';
+        a.download = `${origName}-compressed.${ext}`;
+        a.click();
+        window.showToast('Compressed image downloaded!');
+      });
+    });
+  </script>
+</body>
+</html>

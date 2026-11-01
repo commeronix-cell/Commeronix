@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remove Duplicate Lines — Free Online Text & List Deduplicator | Commeronix</title>
+  <meta name="description" content="Clean and deduplicate lists online. Remove duplicate lines, trim whitespace, ignore case, and sort alphabetically instantly in your browser. 100% private.">
+  <meta name="keywords" content="remove duplicate lines, deduplicate text, unique list generator, remove duplicates online, clean text list">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="canonical" href="https://commeronix.com/remove-duplicate-lines">
+
+  <!-- Schema.org WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Commeronix Duplicate Line Remover",
+    "url": "https://commeronix.com/remove-duplicate-lines",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "description": "Deduplicate text lists, remove empty lines, and sort lines alphabetically client-side.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('commeronix_theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+
+  </div>
+  </div>
+
+    <!-- Site Header & Navigation -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <a href="/" class="brand-logo" title="Commeronix Home">
+          <img src="/assets/favicon.svg" alt="Commeronix Logo" width="36" height="36" class="logo-icon-svg">
+          <span>Commero<span class="brand-accent">nix</span></span>
+        </a>
+
+        <!-- Universal Quick Search Bar Trigger -->
+        <div class="nav-search-wrap">
+          <button class="nav-search-btn" id="nav-search-trigger" type="button" aria-label="Search tools (Press Ctrl+K)">
+            <svg class="search-icon" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <span class="search-placeholder">Search 19+ online utilities...</span>
+            <kbd class="search-kbd">Ctrl K</kbd>
+          </button>
+        </div>
+
+        <!-- Navigation Actions -->
+        <div class="nav-actions">
+          <ul class="nav-links">
+            <li class="nav-dropdown">
+              <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+                <span>Tools &amp; Utilities</span>
+                <svg class="nav-chevron" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+              </button>
+              <div class="mega-menu" role="menu">
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Text Tools</div>
+                  <a href="/word-counter" class="mega-tool-link">Word Counter</a>
+                  <a href="/case-converter" class="mega-tool-link">Case Converter</a>
+                  <a href="/lorem-ipsum-generator" class="mega-tool-link">Lorem Ipsum</a>
+                  <a href="/text-compare" class="mega-tool-link">Text Compare / Diff</a>
+                  <a href="/remove-duplicate-lines" class="mega-tool-link">Remove Duplicate Lines</a>
+                  <a href="/text-to-slug" class="mega-tool-link">Text to Slug</a>
+                  <a href="/reading-time-calculator" class="mega-tool-link">Reading &amp; Speaking Time</a>
+                  <a href="/random-text-generator" class="mega-tool-link">Random Generator</a>
+                </div>
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Image &amp; Media</div>
+                  <a href="/image-compressor" class="mega-tool-link">Image Compressor</a>
+                  <a href="/image-resizer" class="mega-tool-link">Image Resizer</a>
+                  <a href="/image-format-converter" class="mega-tool-link">Format Converter</a>
+                  <a href="/image-to-base64" class="mega-tool-link">Image to Base64</a>
+                  <a href="/background-remover" class="mega-tool-link">Background Remover</a>
+                  <a href="/favicon-generator" class="mega-tool-link">Favicon Generator</a>
+                  <a href="/color-picker" class="mega-tool-link">Color Picker &amp; Converter</a>
+                </div>
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Financial &amp; Math</div>
+                  <a href="/calculator" class="mega-tool-link">Scientific Calculator</a>
+                  <a href="/currency-converter" class="mega-tool-link">Live Currency Converter</a>
+                  <a href="/loan-calculator" class="mega-tool-link">Loan &amp; EMI Calculator</a>
+                  <a href="/unit-converter" class="mega-tool-link">Unit Converter</a>
+                  <div style="margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle);">
+                    <a href="/tools" style="color: var(--accent-primary); font-weight: 700; font-size: 0.85rem; text-decoration: none;">View All 19 Web Utilities &rarr;</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li><a href="/blog" class="nav-link">Blog</a></li>
+            <li><a href="/about" class="nav-link">About</a></li>
+          </ul>
+
+          <!-- Dark / Light Theme Toggle Button -->
+          <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Toggle Light and Dark Theme" title="Toggle Theme">
+            <svg class="sun-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <svg class="moon-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+
+          <!-- Mobile Toggle -->
+          <button class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" aria-label="Mobile Navigation Menu">
+    <div class="mobile-search-box">
+      <input type="text" id="mobile-search-input" placeholder="Search 19+ utilities..." aria-label="Search tools mobile">
+    </div>
+    <a href="/" class="nav-link">Home</a>
+    <a href="/tools" class="nav-link">All Tools Directory</a>
+    <a href="/blog" class="nav-link">Blog &amp; Guides</a>
+    <a href="/about" class="nav-link">About Us</a>
+    <a href="/contact" class="nav-link">Contact Us</a>
+    <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
+    <a href="/terms" class="nav-link">Terms of Service</a>
+  </div>
+
+  <main class="main-content">
+    <div class="container">
+      
+      <div class="tool-header">
+        <div class="tool-breadcrumbs">
+          <a href="/">Home</a> <span>/</span> <a href="/tools">Web Utilities</a> <span>/</span> <span>Remove Duplicate Lines</span>
+        </div>
+        <span class="badge-lime">🧹 Text & Content Tool</span>
+        <h1>Remove Duplicate Lines</h1>
+        <p class="tool-subtitle">Clean multiline lists, email directories, keywords, or log files by eliminating repetitive entries with optional case-sensitivity and sorting.</p>
+      </div>
+
+      <div class="tool-workspace">
+        
+        <!-- Options Bar -->
+        <div style="display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center; margin-bottom: 1.25rem; background: var(--bg-main); padding: 1.25rem; border-radius: var(--radius-lg); border: 1px solid var(--border-subtle);">
+          
+          <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer; font-size: 0.88rem; font-weight: 600;">
+            <input type="checkbox" id="opt-case-sensitive" style="accent-color: var(--accent-primary);"> Case Sensitive
+          </label>
+
+          <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer; font-size: 0.88rem; font-weight: 600;">
+            <input type="checkbox" id="opt-trim-whitespace" checked style="accent-color: var(--accent-primary);"> Trim Whitespace
+          </label>
+
+          <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer; font-size: 0.88rem; font-weight: 600;">
+            <input type="checkbox" id="opt-remove-empty" checked style="accent-color: var(--accent-primary);"> Remove Empty Lines
+          </label>
+
+          <div style="display: flex; align-items: center; gap: 0.4rem; margin-left: auto;">
+            <label for="opt-sort" style="font-size: 0.88rem; font-weight: 600;">Sort:</label>
+            <select id="opt-sort" style="padding: 0.45rem 0.65rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); background: var(--bg-surface); color: var(--text-primary); font-weight: 600;">
+              <option value="none">Preserve Original Order</option>
+              <option value="asc">Alphabetical (A → Z)</option>
+              <option value="desc">Alphabetical (Z → A)</option>
+            </select>
+          </div>
+
+          <button id="btn-dedupe" class="btn-lime">⚡ Remove Duplicates</button>
+        </div>
+
+        <div class="tool-grid-2">
+          
+          <div class="tool-card-box">
+            <div class="tool-card-header">
+              <span class="tool-card-title">📥 Raw Input List</span>
+              <button class="btn-copy" id="btn-clear" style="color: var(--accent-rose);">✕ Clear</button>
+            </div>
+            <textarea id="input-list" class="tool-textarea" placeholder="Paste your multiline list here (e.g. emails, URLs, keywords)..."></textarea>
+          </div>
+
+          <div class="tool-card-box">
+            <div class="tool-card-header">
+              <span class="tool-card-title">📤 Clean Deduplicated Output</span>
+              <div class="tool-card-actions">
+                <button class="btn-copy" id="btn-copy">📋 Copy List</button>
+                <button class="btn-copy" id="btn-download">💾 Download</button>
+              </div>
+            </div>
+            <textarea id="output-list" class="tool-textarea" placeholder="Deduplicated results will appear here automatically..." readonly></textarea>
+          </div>
+
+        </div>
+
+        <!-- Metrics Strip -->
+        <div class="tool-stats-strip" style="margin-top: 1.5rem;">
+          <div class="stat-pill"><span class="stat-pill-label">Original Lines</span><span class="stat-pill-value" id="stat-orig">0</span></div>
+          <div class="stat-pill"><span class="stat-pill-label">Unique Lines</span><span class="stat-pill-value" id="stat-unique">0</span></div>
+          <div class="stat-pill"><span class="stat-pill-label">Duplicates Removed</span><span class="stat-pill-value" id="stat-removed" style="color: var(--accent-lime);">0</span></div>
+        </div>
+
+      </div>
+
+      <section class="article-container" style="margin-top: 2rem; box-shadow: none;">
+        <h2>The Importance of Data Cleansing in Outreach and Development</h2>
+        <p>Duplicate entries in databases, keyword research spreadsheets, and newsletter subscriber lists waste computational resources and can trigger email deliverability penalties. Deduplicating records client-side guarantees your proprietary lists never touch third-party servers.</p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Commeronix. All rights reserved. Free web utilities.</p>
+        <div class="footer-legal-links"><a href="/privacy-policy">Privacy</a><a href="/terms">Terms</a><a href="/tools">All Tools</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const inputList = document.getElementById('input-list');
+      const outputList = document.getElementById('output-list');
+      const statOrig = document.getElementById('stat-orig');
+      const statUnique = document.getElementById('stat-unique');
+      const statRemoved = document.getElementById('stat-removed');
+
+      const caseSensitive = document.getElementById('opt-case-sensitive');
+      const trimWhitespace = document.getElementById('opt-trim-whitespace');
+      const removeEmpty = document.getElementById('opt-remove-empty');
+      const sortSelect = document.getElementById('opt-sort');
+
+      function deduplicate() {
+        const text = inputList.value;
+        if (!text) {
+          outputList.value = '';
+          statOrig.textContent = '0';
+          statUnique.textContent = '0';
+          statRemoved.textContent = '0';
+          return;
+        }
+
+        let lines = text.split(/\r?\n/);
+        statOrig.textContent = lines.length.toLocaleString();
+
+        const seen = new Set();
+        const uniqueLines = [];
+
+        lines.forEach(line => {
+          let cleaned = trimWhitespace.checked ? line.trim() : line;
+          if (removeEmpty.checked && cleaned.length === 0) return;
+
+          const key = caseSensitive.checked ? cleaned : cleaned.toLowerCase();
+          if (!seen.has(key)) {
+            seen.add(key);
+            uniqueLines.push(cleaned);
+          }
+        });
+
+        const sortMode = sortSelect.value;
+        if (sortMode === 'asc') {
+          uniqueLines.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: caseSensitive.checked ? 'case' : 'base' }));
+        } else if (sortMode === 'desc') {
+          uniqueLines.sort((a, b) => b.localeCompare(a, undefined, { sensitivity: caseSensitive.checked ? 'case' : 'base' }));
+        }
+
+        outputList.value = uniqueLines.join('\n');
+        statUnique.textContent = uniqueLines.length.toLocaleString();
+        const removed = Math.max(0, lines.length - uniqueLines.length);
+        statRemoved.textContent = removed.toLocaleString();
+      }
+
+      inputList.addEventListener('input', deduplicate);
+      document.getElementById('btn-dedupe').addEventListener('click', () => {
+        deduplicate();
+        window.showToast('List deduplicated successfully!');
+      });
+      caseSensitive.addEventListener('change', deduplicate);
+      trimWhitespace.addEventListener('change', deduplicate);
+      removeEmpty.addEventListener('change', deduplicate);
+      sortSelect.addEventListener('change', deduplicate);
+
+      document.getElementById('btn-copy').addEventListener('click', () => {
+        if (!outputList.value) return;
+        navigator.clipboard.writeText(outputList.value).then(() => window.showToast('Cleaned list copied!'));
+      });
+
+      document.getElementById('btn-download').addEventListener('click', () => {
+        if (!outputList.value) return;
+        const blob = new Blob([outputList.value], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'unique-lines.txt';
+        a.click();
+        URL.revokeObjectURL(url);
+        window.showToast('Downloaded unique-lines.txt');
+      });
+
+      document.getElementById('btn-clear').addEventListener('click', () => {
+        inputList.value = '';
+        deduplicate();
+        inputList.focus();
+      });
+    });
+  </script>
+</body>
+</html>

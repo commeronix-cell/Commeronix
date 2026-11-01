@@ -21,30 +21,37 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Commeronix — Free Online Calculators, Currency & Unit Converter Hub</title>
-  <meta name="description" content="Free online calculation tools: live pocket & scientific calculator, real-time currency converter with 40+ forex rates, unit converter & loan EMI calculator.">
-  <meta name="keywords" content="currency converter, live exchange rates, unit converter, length converter, weight converter, temperature converter, loan calculator, EMI calculator, scientific calculator, online calculator, financial tools">
+  <title>Commeronix — Fast, Client-Side, Privacy-First Web Utilities</title>
+  <meta name="description" content="Free, browser-based web utilities for developers, writers, and creators. Text tools, image compression, scientific calculators, currency rates, and loan amortization with zero server tracking.">
+  <meta name="keywords" content="web utilities, client side tools, word counter, image compressor, currency converter, loan calculator, text compare, image resizer, favicon generator, color picker">
   <meta name="author" content="Commeronix">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <meta name="theme-color" content="#090d16">
+  <meta name="theme-color" content="#2563EB">
   <meta name="google-site-verification" content="nWVoTOSROiJ0beAcexwRnMIcGbdqhJ6YzNMDQurT2CM">
   <link rel="canonical" href="https://commeronix.com/">
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="manifest" href="manifest.json">
+  
+  <!-- Modern Vector Favicon & Standard Multi-Size Icons -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
 
-  <!-- Open Graph / Social Meta -->
+  <!-- Open Graph -->
   <meta property="og:locale" content="en_US">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Commeronix">
-  <meta property="og:title" content="Commeronix — Free Online Calculators, Currency & Unit Converter Hub">
-  <meta property="og:description" content="Calculate real-time currency conversions, length/weight/temperature units, loan EMIs, and math formulas with 100% free client-side privacy.">
+  <meta property="og:title" content="Commeronix — Fast, Client-Side, Privacy-First Web Utilities">
+  <meta property="og:description" content="Free, browser-based web utilities for developers, writers, and creators. Text tools, image compression, scientific calculators, currency rates, and loan amortization with zero server tracking.">
   <meta property="og:url" content="https://commeronix.com/">
   <meta property="og:image" content="https://commeronix.com/assets/favicon.svg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@commeronix">
-  <meta name="twitter:creator" content="@commeronix">
+  <meta name="twitter:title" content="Commeronix — Fast, Client-Side, Privacy-First Web Utilities">
+  <meta name="twitter:description" content="Free browser-based tools for developers, creators, and writers. No files uploaded to servers, zero tracking, instant execution.">
+  <meta name="twitter:image" content="https://commeronix.com/assets/favicon.svg">
 
-  <!-- Schema.org JSON-LD Structured Data -->
+  <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -54,8 +61,7 @@
         "@id": "https://commeronix.com/#website",
         "url": "https://commeronix.com/",
         "name": "Commeronix",
-        "description": "Free Financial, Mathematical & Unit Calculation Tools Hub",
-        "inLanguage": "en-US",
+        "description": "High-performance client-side web utilities, developer tools, and precision calculators.",
         "publisher": {
           "@id": "https://commeronix.com/#organization"
         }
@@ -69,17 +75,12 @@
           "@type": "ImageObject",
           "url": "https://commeronix.com/assets/favicon.svg",
           "caption": "Commeronix Logo"
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "email": "commeronix@gmail.com",
-          "contactType": "customer service"
         }
       },
       {
         "@type": "WebApplication",
         "@id": "https://commeronix.com/#application",
-        "name": "Commeronix Calculation Suite",
+        "name": "Commeronix Online Web Utilities",
         "url": "https://commeronix.com/",
         "applicationCategory": "UtilityApplication",
         "operatingSystem": "All",
@@ -89,82 +90,23 @@
           "price": "0",
           "priceCurrency": "USD"
         }
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://commeronix.com/#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Are all tools on Commeronix free to use?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, 100% of the calculators, currency converters, unit utilities, and loan schedule generators on Commeronix are free with zero subscription requirements or registration barriers."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How frequently are foreign exchange rates updated?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Our currency rates auto-synchronize in real-time from open mid-market forex feeds and the European Central Bank (ECB) with automated refresh every 60 seconds."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is my calculation or financial data private?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes! All calculations execute directly within your browser client using Javascript. Your loan amounts, arithmetic inputs, and unit figures are never transmitted to our remote servers."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I use Commeronix on mobile phones and tablets?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, Commeronix is fully responsive and optimized for mobile devices, tablets, laptops, and ultra-wide desktop monitors."
-            }
-          }
-        ]
       }
     ]
   }
   </script>
 
-  <!-- Theme Initialization Script (Prevents Flash of Unstyled Content) -->
+  <!-- Theme Initialization Script (Defaults to Clean Modern Light Mode) -->
   <script>
     (function() {
       const savedTheme = localStorage.getItem('commeronix_theme');
-      if (savedTheme === 'light' || (!savedTheme && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)) {
-        document.documentElement.setAttribute('data-theme', 'light');
-      } else {
+      if (savedTheme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
       }
     })();
   </script>
-    <!-- Google Fonts Preconnect & High-Performance Font Loading -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
-  <link rel="stylesheet" href="style.css?v=4.0.0">
-  <!-- Instant Navigation: Speculation Rules API (Zero-latency instant prerender on hover) -->
-  <script type="speculationrules">
-  {
-    "prerender": [
-      {
-        "source": "document",
-        "where": {
-          "and": [
-            { "href_matches": "/*" },
-            { "not": { "href_matches": "/assets/*" } }
-          ]
-        },
-        "eagerness": "moderate"
-      }
-    ]
-  }
-  </script>
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -172,46 +114,74 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-
-  <!-- Top Live Currency Rate Ticker Strip -->
-  <div class="ticker-wrap" aria-label="Live Forex Exchange Rates Ticker">
-    <div class="ticker-label">
-      <div class="ticker-pulse"></div>
-      <span>Live Rates</span>
-    </div>
-    <div class="ticker-track">
-      <div class="ticker-content" id="top-ticker-content">
-        <!-- Injected dynamically via assets/main.js?v=4.0.0 -->
-        <div class="ticker-item"><span class="ticker-pair">USD/PKR</span> <span class="ticker-val">277.25</span> <span class="ticker-badge down">-0.15%</span></div>
-        <div class="ticker-item"><span class="ticker-pair">USD/EUR</span> <span class="ticker-val">0.8614</span> <span class="ticker-badge">+0.12%</span></div>
-        <div class="ticker-item"><span class="ticker-pair">USD/GBP</span> <span class="ticker-val">0.7379</span> <span class="ticker-badge down">-0.08%</span></div>
-        <div class="ticker-item"><span class="ticker-pair">USD/AED</span> <span class="ticker-val">3.6725</span> <span class="ticker-badge">+0.00%</span></div>
-        <div class="ticker-item"><span class="ticker-pair">USD/SAR</span> <span class="ticker-val">3.7500</span> <span class="ticker-badge">+0.00%</span></div>
-        <div class="ticker-item"><span class="ticker-pair">USD/INR</span> <span class="ticker-val">95.53</span> <span class="ticker-badge">+0.05%</span></div>
-        <div class="ticker-item"><span class="ticker-pair">USD/JPY</span> <span class="ticker-val">159.92</span> <span class="ticker-badge">+0.25%</span></div>
-        <div class="ticker-item"><span class="ticker-pair">USD/CAD</span> <span class="ticker-val">1.3888</span> <span class="ticker-badge">+0.04%</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Site Header & Navigation -->
+  <!-- Minimal Header & Navigation -->
   <header class="site-header">
     <div class="container">
       <nav class="navbar" aria-label="Main Navigation">
+        <!-- Logo -->
         <a href="/" class="brand-logo" title="Commeronix Home">
-          <img src="assets/favicon.svg" alt="Commeronix Logo" width="38" height="38" class="logo-icon-svg">
+          <img src="/assets/favicon.svg" alt="Commeronix Logo" width="36" height="36" class="logo-icon-svg">
           <span>Commero<span class="brand-accent">nix</span></span>
         </a>
 
-        <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <!-- Universal Quick Search Bar Trigger -->
+        <div class="nav-search-wrap">
+          <button class="nav-search-btn" id="nav-search-trigger" type="button" aria-label="Search tools (Press Ctrl+K)">
+            <svg class="search-icon" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <span class="search-placeholder">Search 19+ online utilities...</span>
+            <kbd class="search-kbd">Ctrl K</kbd>
+          </button>
+        </div>
+
+        <!-- Navigation Actions -->
+        <div class="nav-actions">
           <ul class="nav-links">
-            <li><a href="/" class="nav-link active">Home</a></li>
-            <li><a href="/calculator" class="nav-link">Calculator</a></li>
-            <li><a href="/currency-converter" class="nav-link">Currency Converter</a></li>
-            <li><a href="/unit-converter" class="nav-link">Unit Converter</a></li>
-            <li><a href="/loan-calculator" class="nav-link">Loan Calculator</a></li>
+            <li class="nav-dropdown">
+              <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+                <span>Tools & Utilities</span>
+                <svg class="nav-chevron" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+              </button>
+              <div class="mega-menu" role="menu">
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">✍️ Text & Content</div>
+                  <a href="/word-counter" class="mega-tool-link">Word Counter</a>
+                  <a href="/case-converter" class="mega-tool-link">Case Converter</a>
+                  <a href="/lorem-ipsum-generator" class="mega-tool-link">Lorem Ipsum</a>
+                  <a href="/text-compare" class="mega-tool-link">Text Compare / Diff</a>
+                  <a href="/remove-duplicate-lines" class="mega-tool-link">Remove Duplicate Lines</a>
+                  <a href="/text-to-slug" class="mega-tool-link">Text to Slug</a>
+                  <a href="/reading-time-calculator" class="mega-tool-link">Reading & Speaking Time</a>
+                  <a href="/random-text-generator" class="mega-tool-link">Random Generator</a>
+                </div>
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">🖼️ Image & Media</div>
+                  <a href="/image-compressor" class="mega-tool-link">Image Compressor</a>
+                  <a href="/image-resizer" class="mega-tool-link">Image Resizer</a>
+                  <a href="/image-format-converter" class="mega-tool-link">Format Converter</a>
+                  <a href="/image-to-base64" class="mega-tool-link">Image to Base64</a>
+                  <a href="/background-remover" class="mega-tool-link">Background Remover</a>
+                  <a href="/favicon-generator" class="mega-tool-link">Favicon Generator</a>
+                  <a href="/color-picker" class="mega-tool-link">Color Picker & Converter</a>
+                </div>
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">🧮 Financial & Math</div>
+                  <a href="/calculator" class="mega-tool-link">Scientific Calculator</a>
+                  <a href="/currency-converter" class="mega-tool-link">Live Currency Converter</a>
+                  <a href="/loan-calculator" class="mega-tool-link">Loan & EMI Calculator</a>
+                  <a href="/unit-converter" class="mega-tool-link">Unit Converter</a>
+                  <div style="margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle);">
+                    <a href="/tools" style="color: var(--accent-primary); font-weight: 700; font-size: 0.85rem; text-decoration: none;">View All 19 Web Utilities →</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li><a href="/blog" class="nav-link">Blog</a></li>
             <li><a href="/about" class="nav-link">About</a></li>
-            <li><a href="/contact" class="nav-link">Contact</a></li>
           </ul>
 
           <!-- Dark / Light Theme Toggle Button -->
@@ -224,6 +194,7 @@
             </svg>
           </button>
 
+          <!-- Mobile Toggle -->
           <button class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -236,326 +207,507 @@
 
   <!-- Mobile Drawer Menu -->
   <div class="mobile-drawer" aria-label="Mobile Navigation Menu">
+    <div class="mobile-search-box">
+      <input type="text" id="mobile-search-input" placeholder="Search 19+ utilities..." autocomplete="off">
+    </div>
     <a href="/" class="nav-link active">Home</a>
-    <a href="/calculator" class="nav-link">Live Calculator</a>
+    <a href="/tools" class="nav-link">All Web Utilities Hub (19)</a>
+    <a href="/word-counter" class="nav-link">Word Counter</a>
+    <a href="/image-compressor" class="nav-link">Image Compressor</a>
+    <a href="/calculator" class="nav-link">Live Scientific Calculator</a>
     <a href="/currency-converter" class="nav-link">Currency Converter</a>
-    <a href="/unit-converter" class="nav-link">Unit Converter</a>
     <a href="/loan-calculator" class="nav-link">Loan & EMI Calculator</a>
+    <a href="/color-picker" class="nav-link">Color Picker & Converter</a>
+    <a href="/blog" class="nav-link">Blog & Guides</a>
     <a href="/about" class="nav-link">About Us</a>
-    <a href="/contact" class="nav-link">Contact Us</a>
+    <a href="/contact" class="nav-link">Contact</a>
     <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
     <a href="/terms" class="nav-link">Terms of Service</a>
   </div>
 
   <main class="main-content">
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-badge">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-          </svg>
-          100% Free · Real-Time Data · Client-Side Privacy
+    <div class="container">
+
+      <!-- Hero Section -->
+      <section class="hero-utility-hub">
+        <div class="hero-pill-badge">
+          <span class="hero-pill-dot"></span>
+          <span>100% Client-Side · Zero Server Uploads · Blazing Speed</span>
         </div>
-        <h1 class="hero-title">Precision Financial & Conversion Calculators</h1>
-        <p class="hero-subtitle">
-          Instant calculations for global currency exchange rates, multi-category engineering units, and reducing-balance loan EMIs. Built for speed, clarity, and uncompromising accuracy.
+
+        <h1 class="hero-hub-title">
+          Fast, client-side, <span class="title-accent">privacy-first</span> web utilities.
+        </h1>
+
+        <p class="hero-hub-subtitle">
+          Instant browser-based utilities for developers, writers, and creators. Text formatting, image compression, financial mathematics, and unit conversions executed directly on your device.
         </p>
-        <div class="hero-actions">
-          <a href="/calculator" class="btn btn-primary btn-lg">
-            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+
+        <!-- Universal Live Search Bar -->
+        <div class="hub-search-container">
+          <div class="hub-search-box">
+            <svg class="hub-search-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
-            Live Calculator
-          </a>
-          <a href="/currency-converter" class="btn btn-secondary btn-lg">
-            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            Currency Converter
-          </a>
-          <a href="/unit-converter" class="btn btn-secondary btn-lg">
-            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
-            </svg>
-            Unit Converter
-          </a>
-          <a href="/loan-calculator" class="btn btn-secondary btn-lg">
-            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-            </svg>
-            Loan & EMI Calculator
-          </a>
+            <input type="text" id="hub-search-input" class="hub-search-input" placeholder="Search any tool (e.g., word counter, image compressor, currency, diff)..." autocomplete="off" autofocus>
+            <div class="hub-search-shortcut">
+              <kbd>Ctrl</kbd>+<kbd>K</kbd>
+            </div>
+          </div>
+
+          <!-- Popular Tools Quick Pills -->
+          <div class="popular-pills-row">
+            <span class="popular-label">Popular:</span>
+            <a href="/word-counter" class="popular-tool-pill">📝 Word Counter</a>
+            <a href="/image-compressor" class="popular-tool-pill">🗜️ Image Compressor</a>
+            <a href="/currency-converter" class="popular-tool-pill">💱 Currency</a>
+            <a href="/text-compare" class="popular-tool-pill">⚖️ Text Compare</a>
+            <a href="/loan-calculator" class="popular-tool-pill">🏦 Loan EMI</a>
+            <a href="/color-picker" class="popular-tool-pill">🎨 Color Picker</a>
+            <a href="/text-to-slug" class="popular-tool-pill">🔗 Slug Generator</a>
+            <a href="/image-resizer" class="popular-tool-pill">📐 Resizer</a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    
-    </div>
-
-    <!-- 4 Main Tool Feature Cards -->
-    <section class="container" style="margin-top: 1.5rem;">
-      <div class="section-header">
-        <span class="section-tag">Essential Utilities</span>
-        <h2 class="section-title">Explore Our Free Calculation Engines</h2>
-        <p class="section-subtitle">Select a dedicated utility tailored for finance, engineering, science, or personal financial planning.</p>
+      <!-- Empty State for Live Search -->
+      <div id="search-no-results" style="display: none; text-align: center; padding: 3rem 1rem; background: var(--bg-surface); border: 1px dashed var(--border-card); border-radius: var(--radius-lg); margin-bottom: 3rem;">
+        <p style="font-size: 1.5rem; margin-bottom: 0.5rem;">🔍</p>
+        <h3 style="font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0.5rem;">No tools matching "<span id="search-query-display"></span>"</h3>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">Try searching for "word", "image", "currency", "calculator", or browse categories below.</p>
       </div>
 
-      <div class="grid-2" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-        <!-- Card 1: Live Calculator -->
-        <a href="/calculator" class="card card-interactive" title="Open Live Scientific & Standard Calculator">
-          <div class="card-header">
-            <div class="card-icon" style="background: linear-gradient(135deg, #f59e0b, #ef4444); color: #fff;">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <div>
-              <h3 class="card-title">Live Calculator</h3>
-              <span class="card-badge" style="background: rgba(245, 158, 11, 0.15); color: var(--accent-amber);">Standard & Scientific</span>
-            </div>
-          </div>
-          <p class="card-desc">
-            Fast standard arithmetic, trigonometry, logarithms, power exponents, and memory registers with dual live display and persistent audit history tape.
-          </p>
-          <div class="card-footer-action">
-            <span>Launch Calculator</span>
-            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </div>
-        </a>
-
-        <!-- Card 2: Currency Converter -->
-        <a href="/currency-converter" class="card card-interactive" title="Open Live Currency Converter">
-          <div class="card-header">
-            <div class="card-icon emerald">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <div>
-              <h3 class="card-title">Currency Converter</h3>
-              <span class="card-badge live">Live Market Feed</span>
-            </div>
-          </div>
-          <p class="card-desc">
-            Real-time live exchange rate conversions supporting 40+ global currencies including PKR, INR, USD, EUR, GBP, AED, SAR with instant spot rate parity.
-          </p>
-          <div class="card-footer-action">
-            <span>Launch Currency Tool</span>
-            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </div>
-        </a>
-
-        <!-- Card 3: Unit Converter -->
-        <a href="/unit-converter" class="card card-interactive" title="Open Multi-Category Unit Converter">
-          <div class="card-header">
-            <div class="card-icon cyan">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-              </svg>
-            </div>
-            <div>
-              <h3 class="card-title">Unit Converter</h3>
-              <span class="card-badge">Scientific & Imperial</span>
-            </div>
-          </div>
-          <p class="card-desc">
-            Accurate metric and imperial conversions across Length (mm, cm, m, km, in, ft, yd, mi), Weight (mg, g, kg, tonne, oz, lb), and exact thermodynamic Temperature.
-          </p>
-          <div class="card-footer-action">
-            <span>Launch Unit Tool</span>
-            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </div>
-        </a>
-
-        <!-- Card 4: Loan & EMI Calculator -->
-        <a href="/loan-calculator" class="card card-interactive" title="Open Loan & EMI Calculator">
-          <div class="card-header">
-            <div class="card-icon indigo">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2zM10 8.5a.5.5 0 11-1 0 .5.5 0 011 0zm5 5a.5.5 0 11-1 0 .5.5 0 011 0z" />
-              </svg>
-            </div>
-            <div>
-              <h3 class="card-title">Loan & EMI Calculator</h3>
-              <span class="card-badge">Amortization Table</span>
-            </div>
-          </div>
-          <p class="card-desc">
-            Calculate your monthly EMI, total interest, and overall repayment with multi-currency support (PKR, INR, USD, EUR, etc.), Annual/Monthly rate toggles, and yearly amortization schedule.
-          </p>
-          <div class="card-footer-action">
-            <span>Launch Loan Tool</span>
-            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <!-- Interactive Live Simple Calculator Showcase -->
-    <section class="container" style="margin-top: 5rem;">
-      <div class="card" style="padding: 2.5rem; background: linear-gradient(180deg, var(--bg-surface), var(--bg-surface-raised));">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: center;">
+      <!-- Category 1: Text & Content Tools -->
+      <section class="hub-category-section" id="cat-text">
+        <div class="hub-category-header">
           <div>
-            <span class="section-tag">Interactive Quick Tool</span>
-            <h2 class="section-title" style="text-align: left; margin-bottom: 1rem; font-size: 2rem;">Fast Online Math Calculator</h2>
-            <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem; font-size: 1.05rem;">
-              Perform instant standard arithmetic, percentage discounts, chain operations, and memory recall with zero latency. Supports both touchscreen tapping and physical computer keyboard typing.
-            </p>
-            <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem;">
-              <div style="display: flex; align-items: center; gap: 0.75rem; color: var(--text-primary); font-size: 0.95rem;">
-                <span style="color: var(--accent-primary); font-size: 1.1rem;">✓</span>
-                <span><strong>Instant Live Preview:</strong> Real-time expression evaluation before hitting equals.</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 0.75rem; color: var(--text-primary); font-size: 0.95rem;">
-                <span style="color: var(--accent-primary); font-size: 1.1rem;">✓</span>
-                <span><strong>Keyboard Ready:</strong> Type numbers 0-9, +, -, *, /, Enter, Backspace directly.</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 0.75rem; color: var(--text-primary); font-size: 0.95rem;">
-                <span style="color: var(--accent-primary); font-size: 1.1rem;">✓</span>
-                <span><strong>Memory Registers:</strong> Dedicated MC, MR, M+, M- buttons with live status.</span>
-              </div>
+            <h2 class="hub-category-title">
+              <span>✍️ Text & Content Tools</span>
+              <span class="hub-category-count">8 Utilities</span>
+            </h2>
+            <p class="hub-category-desc">Instant editorial formatting, word auditing, diff checking, and slug generation.</p>
+          </div>
+          <a href="/tools" style="font-size: 0.85rem; font-weight: 700; color: var(--accent-primary);">View Category →</a>
+        </div>
+
+        <div class="hub-tools-grid">
+          <!-- Tool 1: Word Counter -->
+          <a href="/word-counter" class="hub-tool-card" data-keywords="word count character paragraph reading time speaking density">
+            <div class="hub-tool-header">
+              <div class="hub-tool-icon-box">📝</div>
+              <span class="hub-tool-badge">Popular</span>
             </div>
-            <a href="/calculator" class="btn btn-primary">
-              Open Full Scientific Calculator &rarr;
+            <h3 class="hub-tool-title">Word Counter</h3>
+            <p class="hub-tool-desc">Real-time counts for words, characters, paragraphs, reading speed, and keyword density.</p>
+            <div class="hub-tool-footer">
+              <span>Launch Tool</span>
+              <span class="hub-tool-arrow">→</span>
+            </div>
+          </a>
+
+          <!-- Tool 2: Case Converter -->
+          <a href="/case-converter" class="hub-tool-card" data-keywords="case converter uppercase lowercase titlecase camelcase kebab snake">
+            <div class="hub-tool-header">
+              <div class="hub-tool-icon-box">🔠</div>
+              <span class="hub-tool-badge">Essential</span>
+            </div>
+            <h3 class="hub-tool-title">Case Converter</h3>
+            <p class="hub-tool-desc">Transform text between UPPERCASE, lowercase, Title Case, camelCase, and kebab-case.</p>
+            <div class="hub-tool-footer">
+              <span>Launch Tool</span>
+              <span class="hub-tool-arrow">→</span>
+            </div>
+          </a>
+
+          <!-- Tool 3: Text Compare -->
+          <a href="/text-compare" class="hub-tool-card" data-keywords="text compare diff checker code difference comparison">
+            <div class="hub-tool-header">
+              <div class="hub-tool-icon-box">⚖️</div>
+              <span class="hub-tool-badge">Dev Tool</span>
+            </div>
+            <h3 class="hub-tool-title">Text Compare / Diff</h3>
+            <p class="hub-tool-desc">Side-by-side visual diff comparison with green additions and red deletions.</p>
+            <div class="hub-tool-footer">
+              <span>Launch Tool</span>
+              <span class="hub-tool-arrow">→</span>
+            </div>
+          </a>
+
+          <!-- Tool 4: Text to Slug -->
+          <a href="/text-to-slug" class="hub-tool-card" data-keywords="slug url permalink technical seo hyphen formatter">
+            <div class="hub-tool-header">
+              <div class="hub-tool-icon-box">🔗</div>
+              <span class="hub-tool-badge">SEO</span>
+            </div>
+            <h3 class="hub-tool-title">Text to Slug</h3>
+            <p class="hub-tool-desc">Generate clean, SEO-optimized permalink strings with automated stop-word elimination.</p>
+            <div class="hub-tool-footer">
+              <span>Launch Tool</span>
+              <span class="hub-tool-arrow">→</span>
+            </div>
+          </a>
+
+          <!-- Tool 5: Deduplicate Lines -->
+          <a href="/remove-duplicate-lines" class="hub-tool-card" data-keywords="remove duplicate lines unique sort trim list cleaner">
+            <div class="hub-tool-header">
+              <div class="hub-tool-icon-box">🧹</div>
+              <span class="hub-tool-badge">Clean Up</span>
+            </div>
+            <h3 class="hub-tool-title">Remove Duplicate Lines</h3>
+            <p class="hub-tool-desc">Filter redundant lines from text or code lists with optional case sensitivity.</p>
+            <div class="hub-tool-footer">
+              <span>Launch Tool</span>
+              <span class="hub-tool-arrow">→</span>
+            </div>
+          </a>
+
+          <!-- Tool 6: Reading Time Calculator -->
+          <a href="/reading-time-calculator" class="hub-tool-card" data-keywords="reading time speaking presentation speech duration">
+            <div class="hub-tool-header">
+              <div class="hub-tool-icon-box">⏱️</div>
+              <span class="hub-tool-badge">Publishing</span>
+            </div>
+            <h3 class="hub-tool-title">Reading & Speaking Time</h3>
+            <p class="hub-tool-desc">Calculate silent reading duration and spoken presentation times with WPM adjustment.</p>
+            <div class="hub-tool-footer">
+              <span>Launch Tool</span>
+              <span class="hub-tool-arrow">→</span>
+            </div>
+          </a>
+
+          <!-- Tool 7: Lorem Ipsum Generator -->
+          <a href="/lorem-ipsum-generator" class="hub-tool-card" data-keywords="lorem ipsum placeholder text filler mock">
+            <div class="hub-tool-header">
+              <div class="hub-tool-icon-box">📄</div>
+              <span class="hub-tool-badge">Design</span>
+            </div>
+            <h3 class="hub-tool-title">Lorem Ipsum Generator</h3>
+            <p class="hub-tool-desc">Custom dummy placeholder text by paragraph, sentence, or word counts.</p>
+            <div class="hub-tool-footer">
+              <span>Launch Tool</span>
+              <span class="hub-tool-arrow">→</span>
+            </div>
+          </a>
+
+          <!-- Tool 8: Random Text Generator -->
+          <a href="/random-text-generator" class="hub-tool-card" data-keywords="random text generator mock data strings vocabulary">
+            <div class="hub-tool-header">
+              <div class="hub-tool-icon-box">🎲</div>
+              <span class="hub-tool-badge">Generator</span>
+            </div>
+            <h3 class="hub-tool-title">Random Text Generator</h3>
+            <p class="hub-tool-desc">Generate randomized sentences and technical strings for software testing and wireframes.</p>
+            <div class="hub-tool-footer">
+              <span>Launch Tool</span>
+              <span class="hub-tool-arrow">→</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Category 2: Image & Media Tools -->
+      <section class="hub-category-section" id="cat-image">
+        <div class="hub-category-header">
+          <div>
+            <h2 class="hub-category-title">
+              <span>🖼️ Image & Media Tools</span>
+              <span class="hub-category-count">7 Utilities</span>
+            </h2>
+            <p class="hub-category-desc">Canvas-based browser compression, resizing, format conversion, and Base64 inlining.</p>
+          </div>
+          <a href="/tools" style="font-size: 0.85rem; font-weight: 700; color: var(--accent-primary);">View Category →</a>
+        </div>
+
+        <div class="hub-tools-grid">
+          <!-- Tool 9: Image Compressor -->
+          <a href="/image-compressor" class="hub-tool-card" data-keywords="image compressor reduce webp jpg png quality canvas">
+            <div class="hub-tool-header">
+              <div class="hub-tool-icon-box">🗜️</div>
+              <span class="hub-tool-badge">Core Vitals</span>
+            </div>
+            <h3 class="hub-tool-title">Image Compressor</h3>
+            <p class="hub-tool-desc">Compress JPG, PNG, and WebP images by up to 80% with real-time quality control.</p>
+            <div class="hub-tool-footer">
+              <span>Launch Tool</span>
+              <span class="hub-tool-arrow">→</span>
+            </div>
+          </a>
+
+          <!-- Tool 10: Image Resizer -->
+          <a href="/image-resizer" class="hub-tool-card" data-keywords="image resizer dimensions width height aspect ratio scale">
+            <div class="hub-tool-header">
+              <div class="hub-tool-icon-box">📐</div>
+              <span class="hub-tool-badge">Design</span>
+            </div>
+            <h3 class="hub-tool-title">Image Resizer</h3>
+            <p class="hub-tool-desc">Custom width/height scaling with aspect ratio lock and social media dimension presets.</p>
+            <div class="hub-tool-footer">
+              <span>Launch Tool</span>
+              <span class="hub-tool-arrow">→</span>
+            </div>
+          </a>
+
+          <!-- Tool 11: Format Converter -->
+          <a href="/image-format-converter" class="hub-tool-card" data-keywords="image format converter webp png jpg jpeg conversion">
+            <div class="hub-tool-header">
+              <div class="hub-tool-icon-box">🔄</div>
+              <span class="hub-tool-badge">Next-Gen</span>
+            </div>
+            <h3 class="hub-tool-title">Image Format Converter</h3>
+            <p class="hub-tool-desc">Cross-convert visual assets between PNG, JPG, and WebP instantly in browser.</p>
+            <div class="hub-tool-footer">
+              <span>Launch Tool</span>
+              <span class="hub-tool-arrow">→</span>
+            </div>
+          </a>
+
+          <!-- Tool 12: Image to Base64 -->
+          <a href="/image-to-base64" class="hub-tool-card" data-keywords="image to base64 data uri inline css html svg png">
+            <div class="hub-tool-header">
+              <div class="hub-tool-icon-box">📦</div>
+              <span class="hub-tool-badge">Performance</span>
+            </div>
+            <h3 class="hub-tool-title">Image to Base64</h3>
+            <p class="hub-tool-desc">Convert graphic files into Data URI strings for zero-latency HTML/CSS inlining.</p>
+            <div class="hub-tool-footer">
+              <span>Launch Tool</span>
+              <span class="hub-tool-arrow">→</span>
+            </div>
+          </a>
+
+          <!-- Tool 13: Background Remover Interface -->
+          <a href="/background-remover" class="hub-tool-card" data-keywords="background remover transparent cut out remove bg clipdrop">
+            <div class="hub-tool-header">
+              <div class="hub-tool-icon-box">✂️</div>
+              <span class="hub-tool-badge">AI Ready</span>
+            </div>
+            <h3 class="hub-tool-title">Background Remover</h3>
+            <p class="hub-tool-desc">Remove image backgrounds with local color-keying or API endpoints for remove.bg and Clipdrop.</p>
+            <div class="hub-tool-footer">
+              <span>Launch Tool</span>
+              <span class="hub-tool-arrow">→</span>
+            </div>
+          </a>
+
+          <!-- Tool 14: Favicon Generator -->
+          <a href="/favicon-generator" class="hub-tool-card" data-keywords="favicon generator apple touch icon ico 16 32 180">
+            <div class="hub-tool-header">
+              <div class="hub-tool-icon-box">⭐</div>
+              <span class="hub-tool-badge">Branding</span>
+            </div>
+            <h3 class="hub-tool-title">Favicon Generator</h3>
+            <p class="hub-tool-desc">Generate complete favicon asset packs (16x16, 32x32, 180x180 Apple touch, and ICO).</p>
+            <div class="hub-tool-footer">
+              <span>Launch Tool</span>
+              <span class="hub-tool-arrow">→</span>
+            </div>
+          </a>
+
+          <!-- Tool 15: Color Picker -->
+          <a href="/color-picker" class="hub-tool-card" data-keywords="color picker hex rgb hsl converter palette wcag contrast">
+            <div class="hub-tool-header">
+              <div class="hub-tool-icon-box">🎨</div>
+              <span class="hub-tool-badge">Accessibility</span>
+            </div>
+            <h3 class="hub-tool-title">Color Picker & Converter</h3>
+            <p class="hub-tool-desc">Pick and convert colors across HEX, RGB, and HSL with WCAG accessibility contrast check.</p>
+            <div class="hub-tool-footer">
+              <span>Launch Tool</span>
+              <span class="hub-tool-arrow">→</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Category 3: Financial & Math Calculators -->
+      <section class="hub-category-section" id="cat-finance">
+        <div class="hub-category-header">
+          <div>
+            <h2 class="hub-category-title">
+              <span>🧮 Financial & Calculators</span>
+              <span class="hub-category-count">4 Precision Engines</span>
+            </h2>
+            <p class="hub-category-desc">Official mid-market forex rates, reducing-balance amortizations, and scientific math.</p>
+          </div>
+          <a href="/calculator" style="font-size: 0.85rem; font-weight: 700; color: var(--accent-primary);">View Calculators →</a>
+        </div>
+
+        <div class="hub-tools-grid">
+          <!-- Tool 16: Live Calculator -->
+          <a href="/calculator" class="hub-tool-card" data-keywords="scientific calculator standard math arithmetic trigonometry logarithm">
+            <div class="hub-tool-header">
+              <div class="hub-tool-icon-box">🔢</div>
+              <span class="hub-tool-badge">Scientific</span>
+            </div>
+            <h3 class="hub-tool-title">Live Scientific Calculator</h3>
+            <p class="hub-tool-desc">Dual-display standard and scientific math with keyboard typing and persistent history tape.</p>
+            <div class="hub-tool-footer">
+              <span>Launch Tool</span>
+              <span class="hub-tool-arrow">→</span>
+            </div>
+          </a>
+
+          <!-- Tool 17: Currency Converter -->
+          <a href="/currency-converter" class="hub-tool-card" data-keywords="currency converter live forex exchange rates usd pkr eur gbp inr">
+            <div class="hub-tool-header">
+              <div class="hub-tool-icon-box">💱</div>
+              <span class="hub-tool-badge">Live Market</span>
+            </div>
+            <h3 class="hub-tool-title">Currency Converter</h3>
+            <p class="hub-tool-desc">Real-time mid-market exchange rates across 40+ global currencies refreshed every 60 seconds.</p>
+            <div class="hub-tool-footer">
+              <span>Launch Tool</span>
+              <span class="hub-tool-arrow">→</span>
+            </div>
+          </a>
+
+          <!-- Tool 18: Loan & EMI Calculator -->
+          <a href="/loan-calculator" class="hub-tool-card" data-keywords="loan emi calculator mortgage reducing balance amortization schedule interest">
+            <div class="hub-tool-header">
+              <div class="hub-tool-icon-box">🏦</div>
+              <span class="hub-tool-badge">Amortization</span>
+            </div>
+            <h3 class="hub-tool-title">Loan & EMI Calculator</h3>
+            <p class="hub-tool-desc">Reducing-balance monthly payments, principal-interest ratios, and yearly schedules.</p>
+            <div class="hub-tool-footer">
+              <span>Launch Tool</span>
+              <span class="hub-tool-arrow">→</span>
+            </div>
+          </a>
+
+          <!-- Tool 19: Unit Converter -->
+          <a href="/unit-converter" class="hub-tool-card" data-keywords="unit converter length weight mass temperature metric imperial">
+            <div class="hub-tool-header">
+              <div class="hub-tool-icon-box">📏</div>
+              <span class="hub-tool-badge">Engineering</span>
+            </div>
+            <h3 class="hub-tool-title">Unit Converter</h3>
+            <p class="hub-tool-desc">High-precision conversions for Length, Weight/Mass, and Temperature with scientific notation.</p>
+            <div class="hub-tool-footer">
+              <span>Launch Tool</span>
+              <span class="hub-tool-arrow">→</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Feature Highlights & Trust Badges -->
+      <section class="trust-banner-section">
+        <div class="trust-banner-grid">
+          <div class="trust-item">
+            <div class="trust-icon-wrap">🔒</div>
+            <div>
+              <h4>100% Client-Side Privacy</h4>
+              <p>Your images, documents, and calculation inputs never leave your computer. Processing executes strictly in your local browser sandbox.</p>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon-wrap">⚡</div>
+            <div>
+              <h4>Zero Server Latency</h4>
+              <p>Built with native Canvas, WebAssembly, and modern Web APIs. Eliminates HTTP upload delays for instant results.</p>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon-wrap">🆓</div>
+            <div>
+              <h4>Free Forever</h4>
+              <p>No paywalls, subscription tiers, or mandatory sign-ups. Enjoy unrestricted access to all 19 online web utilities.</p>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon-wrap">📱</div>
+            <div>
+              <h4>Core Web Vitals Compliant</h4>
+              <p>Optimized for zero Cumulative Layout Shift (CLS), lightning-fast LCP, and smooth responsiveness across all screen sizes.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recent Articles Preview (3 Latest Posts with 16:9 Covers) -->
+      <section class="hub-category-section" style="margin-top: 3rem;">
+        <div class="hub-category-header">
+          <div>
+            <h2 class="hub-category-title">
+              <span>📰 Latest Engineering Articles</span>
+              <span class="hub-category-count">Technical SEO</span>
+            </h2>
+            <p class="hub-category-desc">Deep-dive guides on Core Web Vitals, URL permalink design, and asset optimization.</p>
+          </div>
+          <a href="/blog" style="font-size: 0.85rem; font-weight: 700; color: var(--accent-primary);">View All Articles →</a>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+          <!-- Article 1 -->
+          <article>
+            <a href="/blog/how-to-optimize-web-images-for-core-web-vitals" class="blog-card">
+              <div class="blog-card-cover-wrap">
+                <img src="/assets/blog/cover-image-optimization.svg" alt="Diagram of modern web image optimization showing WebP compression, 16:9 aspect ratios, and Core Web Vitals LCP performance" width="1200" height="675" loading="lazy" decoding="async" class="blog-card-cover-img">
+              </div>
+              <div class="blog-card-body">
+                <div class="blog-card-meta">
+                  <span class="badge-lime">Core Web Vitals</span>
+                  <span>⏱️ 7 min read</span>
+                </div>
+                <h3 class="blog-card-title">How to Optimize Web Images for Core Web Vitals</h3>
+                <p class="blog-card-snippet">Cut Largest Contentful Paint (LCP) by 60% using WebP conversion and responsive canvas compression techniques.</p>
+                <div class="blog-card-footer">
+                  <span>By Commeronix Engineering</span>
+                  <span>Read Guide →</span>
+                </div>
+              </div>
             </a>
-          </div>
+          </article>
 
-          <!-- Embedded Simple Pocket Calculator -->
-          <div class="calc-container" style="max-width: 380px; margin: 0 auto; width: 100%;">
-            <div class="calc-display">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span id="calc-mem-badge" style="display: none; font-size: 0.75rem; font-weight: 700; color: var(--accent-primary); background: var(--accent-primary-glow); padding: 0.15rem 0.5rem; border-radius: 4px;">M (0)</span>
-                <div id="calc-expr" class="calc-expr"></div>
+          <!-- Article 2 -->
+          <article>
+            <a href="/blog/the-ultimate-guide-to-url-slugs-and-text-optimization" class="blog-card">
+              <div class="blog-card-cover-wrap">
+                <img src="/assets/blog/cover-url-slugs.svg" alt="Technical SEO URL slug structure diagram showing stop-word elimination, keyword targeting, and permalink hierarchy" width="1200" height="675" loading="lazy" decoding="async" class="blog-card-cover-img">
               </div>
-              <div id="calc-main" class="calc-main">0</div>
-            </div>
+              <div class="blog-card-body">
+                <div class="blog-card-meta">
+                  <span class="badge-cobalt">Technical SEO</span>
+                  <span>⏱️ 6 min read</span>
+                </div>
+                <h3 class="blog-card-title">The Ultimate Guide to URL Slugs and Text Optimization</h3>
+                <p class="blog-card-snippet">Master permalink structure, stop-word elimination, and hyphenation to boost organic search rankings.</p>
+                <div class="blog-card-footer">
+                  <span>By Commeronix SEO</span>
+                  <span>Read Guide →</span>
+                </div>
+              </div>
+            </a>
+          </article>
 
-            <!-- Memory Bar -->
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.4rem; margin-bottom: 0.65rem;">
-              <button class="calc-btn action" data-mem="MC" type="button" style="font-size: 0.8rem; height: 36px;">MC</button>
-              <button class="calc-btn action" data-mem="MR" type="button" style="font-size: 0.8rem; height: 36px;">MR</button>
-              <button class="calc-btn action" data-mem="M+" type="button" style="font-size: 0.8rem; height: 36px;">M+</button>
-              <button class="calc-btn action" data-mem="M-" type="button" style="font-size: 0.8rem; height: 36px;">M−</button>
-            </div>
-
-            <!-- Standard Keypad Grid -->
-            <div class="calc-grid" style="gap: 0.5rem;">
-              <button class="calc-btn action" data-action="clear" type="button" style="color: var(--accent-rose);">AC</button>
-              <button class="calc-btn action" data-action="backspace" type="button">⌫</button>
-              <button class="calc-btn action" data-action="sign" type="button">±</button>
-              <button class="calc-btn op" data-val="/" type="button">÷</button>
-
-              <button class="calc-btn" data-val="7" type="button">7</button>
-              <button class="calc-btn" data-val="8" type="button">8</button>
-              <button class="calc-btn" data-val="9" type="button">9</button>
-              <button class="calc-btn op" data-val="*" type="button">×</button>
-
-              <button class="calc-btn" data-val="4" type="button">4</button>
-              <button class="calc-btn" data-val="5" type="button">5</button>
-              <button class="calc-btn" data-val="6" type="button">6</button>
-              <button class="calc-btn op" data-val="-" type="button">−</button>
-
-              <button class="calc-btn" data-val="1" type="button">1</button>
-              <button class="calc-btn" data-val="2" type="button">2</button>
-              <button class="calc-btn" data-val="3" type="button">3</button>
-              <button class="calc-btn op" data-val="+" type="button">+</button>
-
-              <button class="calc-btn op" data-action="percent" type="button">%</button>
-              <button class="calc-btn" data-val="0" type="button">0</button>
-              <button class="calc-btn" data-val="." type="button">.</button>
-              <button class="calc-btn equals" data-action="equals" type="button">=</button>
-            </div>
-          </div>
+          <!-- Article 3 -->
+          <article>
+            <a href="/blog/understanding-color-models-hex-rgb-hsl-web-design" class="blog-card">
+              <div class="blog-card-cover-wrap">
+                <img src="/assets/blog/cover-color-models.svg" alt="Digital color spaces comparison diagram illustrating HEX hexadecimal codes, RGB channels, and HSL cylindrical coordinates" width="1200" height="675" loading="lazy" decoding="async" class="blog-card-cover-img">
+              </div>
+              <div class="blog-card-body">
+                <div class="blog-card-meta">
+                  <span class="badge-lime">Design Systems</span>
+                  <span>⏱️ 6 min read</span>
+                </div>
+                <h3 class="blog-card-title">Understanding Color Models: HEX, RGB, and HSL</h3>
+                <p class="blog-card-snippet">Deconstruct digital color spaces and WCAG 2.1 contrast ratios for accessible dual-theme design systems.</p>
+                <div class="blog-card-footer">
+                  <span>By UI/UX Lead</span>
+                  <span>Read Guide →</span>
+                </div>
+              </div>
+            </a>
+          </article>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Why Choose Commeronix Features Grid -->
-    <section class="container" style="margin-top: 5rem;">
-      <div class="section-header">
-        <span class="section-tag">Platform Highlights</span>
-        <h2 class="section-title">Built for Speed, Accuracy, and Privacy</h2>
-        <p class="section-subtitle">Discover why thousands of users trust Commeronix every day for their calculation needs.</p>
-      </div>
-
-      <div class="grid-4">
-        <div class="feature-box">
-          <div class="feature-icon">⚡</div>
-          <h3 class="feature-title">Ultra-Fast & Lightweight</h3>
-          <p class="feature-text">Zero bulky JavaScript frameworks or bloated trackers. Everything runs with microsecond responsiveness in your browser.</p>
-        </div>
-
-        <div class="feature-box">
-          <div class="feature-icon">🔒</div>
-          <h3 class="feature-title">100% Client-Side Privacy</h3>
-          <p class="feature-text">Your financial numbers, loan figures, and conversion entries are never stored on external databases or shared with third parties.</p>
-        </div>
-
-        <div class="feature-box">
-          <div class="feature-icon">🌐</div>
-          <h3 class="feature-title">Live Market Feeds</h3>
-          <p class="feature-text">Foreign currency rates are continuously refreshed from authentic global benchmark and interbank data feeds with automatic fallback redundancy.</p>
-        </div>
-
-        <div class="feature-box">
-          <div class="feature-icon">📱</div>
-          <h3 class="feature-title">Cross-Device Ready</h3>
-          <p class="feature-text">Fully responsive dark-mode design engineered for smooth touch controls on smartphones, tablets, laptops, and ultra-wide monitors.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Quick Conversion Cheat Sheet Matrix -->
-    <section class="container" style="margin-top: 5rem;">
-      <div class="card" style="padding: 2.5rem;">
-        <div class="section-header" style="margin-bottom: 2rem; text-align: left;">
-          <span class="section-tag">Quick Reference Guide</span>
-          <h2 class="section-title" style="font-size: 1.8rem;">Common Standard Conversions</h2>
-          <p class="section-subtitle" style="margin: 0.5rem 0 0;">Handy baseline references frequently referenced by students, professionals, and travelers.</p>
-        </div>
-
-        <div class="grid-3">
-          <div style="background: var(--bg-surface-raised); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
-            <h4 style="color: var(--accent-primary); margin-bottom: 0.75rem; font-size: 1rem;">Length & Distance</h4>
-            <ul style="list-style: none; font-size: 0.875rem; font-family: var(--font-mono); color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.4rem;">
-              <li>1 Meter = 3.28084 Feet</li>
-              <li>1 Kilometer = 0.621371 Miles</li>
-              <li>1 Inch = 2.54 Centimeters</li>
-              <li>1 Yard = 0.9144 Meters</li>
-            </ul>
-          </div>
-
-          <div style="background: var(--bg-surface-raised); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
-            <h4 style="color: var(--accent-cyan); margin-bottom: 0.75rem; font-size: 1rem;">Weight & Mass</h4>
-            <ul style="list-style: none; font-size: 0.875rem; font-family: var(--font-mono); color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.4rem;">
-              <li>1 Kilogram = 2.20462 Pounds</li>
-              <li>1 Pound (lb) = 16 Ounces (oz)</li>
-              <li>1 Metric Tonne = 1,000 Kilograms</li>
-              <li>1 Ounce = 28.3495 Grams</li>
-            </ul>
-          </div>
-
-          <div style="background: var(--bg-surface-raised); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
-            <h4 style="color: var(--accent-indigo); margin-bottom: 0.75rem; font-size: 1rem;">Temperature & Banking</h4>
-            <ul style="list-style: none; font-size: 0.875rem; font-family: var(--font-mono); color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.4rem;">
-              <li>0°C = 32°F (Freezing point)</li>
-              <li>100°C = 212°F (Boiling point)</li>
-              <li>Reducing-Balance EMI = P·r·(1+r)ⁿ/((1+r)ⁿ-1)</li>
-              <li>Interbank Rate = Mid-point Forex Spread</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
   </main>
 
   <!-- Shared Footer -->
@@ -564,45 +716,50 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="/" class="brand-logo" style="margin-bottom: 0.5rem;" title="Commeronix Home">
-            <img src="assets/favicon.svg" alt="Commeronix Logo" width="34" height="34" class="logo-icon-svg">
+            <img src="/assets/favicon.svg" alt="Commeronix Logo" width="34" height="34" class="logo-icon-svg">
             <span>Commero<span class="brand-accent">nix</span></span>
           </a>
-          <p>Commeronix is your dedicated online utility suite for accurate currency conversions, metric/imperial unit calculations, and loan EMI forecasting.</p>
+          <p>Commeronix is an ultra-fast, client-side web utility platform providing free developer tools, text processors, media converters, and financial calculators.</p>
         </div>
 
         <div class="footer-col">
-          <h4>Calculators</h4>
+          <h4>Text Tools</h4>
           <ul class="footer-links">
-            <li><a href="/calculator" class="footer-link">Live Scientific Calculator</a></li>
-            <li><a href="/currency-converter" class="footer-link">Currency Converter</a></li>
-            <li><a href="/unit-converter" class="footer-link">Unit Converter</a></li>
-            <li><a href="/loan-calculator" class="footer-link">Loan & EMI Calculator</a></li>
+            <li><a href="/word-counter" class="footer-link">Word Counter</a></li>
+            <li><a href="/case-converter" class="footer-link">Case Converter</a></li>
+            <li><a href="/text-compare" class="footer-link">Text Compare</a></li>
+            <li><a href="/text-to-slug" class="footer-link">Text to Slug</a></li>
+            <li><a href="/remove-duplicate-lines" class="footer-link">Remove Duplicates</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Company</h4>
+          <h4>Media & Calculators</h4>
           <ul class="footer-links">
+            <li><a href="/image-compressor" class="footer-link">Image Compressor</a></li>
+            <li><a href="/image-resizer" class="footer-link">Image Resizer</a></li>
+            <li><a href="/color-picker" class="footer-link">Color Picker</a></li>
+            <li><a href="/calculator" class="footer-link">Scientific Calculator</a></li>
+            <li><a href="/loan-calculator" class="footer-link">Loan EMI Calculator</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company & Legal</h4>
+          <ul class="footer-links">
+            <li><a href="/blog" class="footer-link">Engineering Blog</a></li>
+            <li><a href="/tools" class="footer-link">All 19 Utilities</a></li>
             <li><a href="/about" class="footer-link">About Us</a></li>
             <li><a href="/contact" class="footer-link">Contact Support</a></li>
             <li><a href="/privacy-policy" class="footer-link">Privacy Policy</a></li>
             <li><a href="/terms" class="footer-link">Terms of Service</a></li>
           </ul>
         </div>
-
-        <div class="footer-col">
-          <h4>Data Standards</h4>
-          <ul class="footer-links">
-            <li><span class="footer-link" style="cursor: default;">ECB Exchange Rates</span></li>
-            <li><span class="footer-link" style="cursor: default;">NIST Unit Standards</span></li>
-            <li><span class="footer-link" style="cursor: default;">Standard Amortization</span></li>
-          </ul>
-        </div>
       </div>
 
       <div class="footer-bottom">
         <div class="footer-disclaimer">
-          <strong>Disclaimer:</strong> Exchange rates and calculation results are provided for informational and educational purposes only. Always confirm official financial quotes with licensed banking institutions prior to executing financial contracts or transactions.
+          <strong>Privacy Guarantee:</strong> All file conversions and calculations execute entirely in your local browser sandbox. No user files, images, or arithmetic figures are ever uploaded or transmitted to any server.
         </div>
         <div>
           &copy; <span id="current-year">2026</span> Commeronix. All rights reserved.
@@ -612,7 +769,6 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="assets/main.js?v=4.0.0"></script>
-  <script src="assets/calculator.js?v=4.0.0"></script>
+  <script src="/assets/main.js"></script>
 </body>
 </html>

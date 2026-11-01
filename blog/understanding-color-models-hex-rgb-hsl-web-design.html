@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Understanding Color Models: A Complete Guide to HEX, RGB, and HSL in Web Design | Commeronix</title>
+  <meta name="description" content="Master web color models and CSS design systems. Learn the mathematical foundations of HEX, RGB, HSL, HSV, and CMYK with WCAG 2.1 accessibility contrast compliance.">
+  <meta name="keywords" content="color models, hex vs rgb vs hsl, web design colors, css color functions, wcag contrast ratio, color picker converter">
+  <meta name="author" content="Commeronix UI/UX Architect">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="canonical" href="https://commeronix.com/blog/understanding-color-models-hex-rgb-hsl-web-design">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- Schema.org BlogPosting & FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "headline": "Understanding Color Models: A Complete Guide to HEX, RGB, and HSL in Web Design",
+        "description": "Comprehensive engineering guide on digital color models, CSS color notation, accessible WCAG contrast ratios, and theme token architecture.",
+        "author": {
+          "@type": "Organization",
+          "name": "Commeronix Design System Team",
+          "url": "https://commeronix.com/about"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Commeronix",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://commeronix.com/assets/favicon.svg"
+          }
+        },
+        "datePublished": "2026-10-31",
+        "dateModified": "2026-10-31",
+        "mainEntityOfPage": "https://commeronix.com/blog/understanding-color-models-hex-rgb-hsl-web-design"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://commeronix.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://commeronix.com/blog" },
+          { "@type": "ListItem", "position": 3, "name": "Understanding Color Models in Web Design", "item": "https://commeronix.com/blog/understanding-color-models-hex-rgb-hsl-web-design" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Why is HSL preferred over HEX for design system tokens?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "HSL separates the fundamental hue from saturation and lightness. This enables developers to generate hover states, borders, and dark mode tints programmatically by tweaking a single percentage variable."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the minimum WCAG contrast ratio for body text?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "WCAG 2.1 Level AA requires a minimum contrast ratio of 4.5:1 for normal body text and 3:1 for large text (18pt or 14pt bold). Level AAA requires 7:1 for normal text."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does RGB translate to Hexadecimal code?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Each 8-bit channel in RGB (0-255) is converted into a two-digit base-16 hexadecimal number from 00 to FF. For instance, Red 37 = 25, Green 99 = 63, and Blue 235 = EB, resulting in #2563EB."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('commeronix_theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <a href="/" class="brand-logo" title="Commeronix Home">
+          <img src="/assets/favicon.svg" alt="Commeronix Logo" width="36" height="36" class="logo-icon-svg">
+          <span>Commero<span class="brand-accent">nix</span></span>
+        </a>
+
+        <!-- Universal Quick Search Bar Trigger -->
+        <div class="nav-search-wrap">
+          <button class="nav-search-btn" id="nav-search-trigger" type="button" aria-label="Search tools (Press Ctrl+K)">
+            <svg class="search-icon" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <span class="search-placeholder">Search 19+ online utilities...</span>
+            <kbd class="search-kbd">Ctrl K</kbd>
+          </button>
+        </div>
+
+        <div class="nav-actions">
+          <ul class="nav-links">
+            <li><a href="/tools" class="nav-link">Tools</a></li>
+            <li><a href="/blog" class="nav-link active">Blog</a></li>
+            <li><a href="/about" class="nav-link">About</a></li>
+          </ul>
+
+          <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Toggle Theme">
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </button>
+
+          <button class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      
+      <article class="article-container">
+        
+        <header class="article-header">
+          <div class="tool-breadcrumbs">
+            <a href="/">Home</a> <span>/</span> <a href="/blog">Blog</a> <span>/</span> <span>Understanding Color Models</span>
+          </div>
+          <span class="badge-lime">Design Systems & CSS Architecture</span>
+          <h1 class="article-title">Understanding Color Models: A Complete Guide to HEX, RGB, and HSL in Web Design</h1>
+          
+          <div class="article-meta-bar">
+            <div class="article-author-pill">
+              <div class="article-author-avatar">CX</div>
+              <span>By Commeronix UI/UX Engineering</span>
+            </div>
+            <span>•</span>
+            <span>Published: October 31, 2026</span>
+            <span>•</span>
+            <span>⏱️ 6 min read (1,280 words)</span>
+          </div>
+        </header>
+
+        <!-- 16:9 Featured Cover Media -->
+        <div class="article-featured-media">
+          <img src="/assets/blog/cover-color-models.svg" alt="Comparison chart of HEX, RGB, and HSL color models in CSS web design showing hex codes, RGB channels, and HSL hue wheel" width="1200" height="675" loading="lazy" decoding="async" class="article-cover-img">
+        </div>
+
+        <nav class="article-toc" aria-label="Table of Contents">
+          <div class="article-toc-title">📋 Table of Contents</div>
+          <ul>
+            <li><a href="#intro-color-physics">1. The Physics of Digital Screen Color: Additive vs. Subtractive</a></li>
+            <li><a href="#hex-breakdown">2. Deconstructing HEX: Base-16 Channel Mathematics</a></li>
+            <li><a href="#rgb-and-rgba">3. The RGB Model: The Native Language of Pixels</a></li>
+            <li><a href="#hsl-superpower">4. HSL: The Modern Design System Superpower</a></li>
+            <li><a href="#wcag-contrast">5. Web Accessibility: WCAG 2.1 AA/AAA Contrast Auditing</a></li>
+            <li><a href="#interactive-conversions">6. Interactive Color Conversion with Commeronix Utilities</a></li>
+            <li><a href="#faqs">7. Frequently Asked Questions (FAQs)</a></li>
+          </ul>
+        </nav>
+
+        <div class="article-body">
+          
+          <p class="article-callout">
+            <strong>Architecture Summary:</strong> Digital displays emit light via additive RGB matrices, while print hardware deposits subtractive CMYK ink. Translating between HEX, RGB, and HSL allows design engineers to build accessible, mathematically harmonious theme systems with zero runtime performance penalties.
+          </p>
+
+          <h2 id="intro-color-physics">1. The Physics of Digital Screen Color: Additive vs. Subtractive</h2>
+          <p>Every digital display—from high-resolution OLED smartphone displays to desktop monitors—creates images by combining red, green, and blue sub-pixels. This is known as the <strong>additive color model</strong>. When all three wavelengths are emitted at maximum intensity, the human retina perceives pure white light (<code>#FFFFFF</code>). In the absence of light emission, we perceive black (<code>#000000</code>).</p>
+          <p>Conversely, physical printing uses the <strong>subtractive CMYK model</strong> (Cyan, Magenta, Yellow, Key/Black). Inks absorb specific light wavelengths, reflecting only the unabsorbed remainder back to our eyes. Understanding this distinction is critical when transitioning digital branding into physical merchandise packaging.</p>
+
+          <h2 id="hex-breakdown">2. Deconstructing HEX: Base-16 Channel Mathematics</h2>
+          <p>Hexadecimal notation is the most ubiquitous color format on the web. A standard 6-digit hex code begins with a hash symbol followed by three 2-character hexadecimal byte representations: <code>#RRGGBB</code>.</p>
+          <p>Because base-10 uses numbers 0 through 9, base-16 introduces letters A through F to represent values 10 through 15:</p>
+          <ul>
+            <li><code>00</code> = 0 (channel completely off)</li>
+            <li><code>7F</code> = 127 (channel at 50% power)</li>
+            <li><code>FF</code> = 255 (channel at 100% full saturation)</li>
+          </ul>
+          <p>For example, in Commeronix's Electric Cobalt Blue brand color (<code>#2563EB</code>):</p>
+          <ul>
+            <li>Red: <code>0x25</code> = (2 × 16) + 5 = <strong>37</strong></li>
+            <li>Green: <code>0x63</code> = (6 × 16) + 3 = <strong>99</strong></li>
+            <li>Blue: <code>0xEB</code> = (14 × 16) + 11 = <strong>235</strong></li>
+          </ul>
+
+          <h2 id="rgb-and-rgba">3. The RGB Model: The Native Language of Pixels</h2>
+          <p>The <code>rgb(r, g, b)</code> CSS functional notation represents the same underlying physical values in standard decimal numbers from 0 to 255. In modern CSS Color Module Level 4, transparency is integrated via a fourth alpha argument: <code>rgb(37 99 235 / 0.85)</code>.</p>
+          <p>While intuitive for hardware, RGB is difficult for human designers to manipulate mentally. For instance, if an interface designer wants to lighten a button by 10% on hover, determining which decimal values to add across all three RGB channels simultaneously requires complex arithmetic.</p>
+
+          <div class="article-tool-cta">
+            <div>
+              <h4 style="font-size: 1.15rem; margin-bottom: 0.35rem;">Test colors and check WCAG contrast live</h4>
+              <p style="font-size: 0.9rem; margin-bottom: 0;">Use our interactive color picker to convert HEX, RGB, HSL, and CMYK with harmonious palette generation.</p>
+            </div>
+            <a href="/color-picker" class="btn-lime">Open Color Picker Studio →</a>
+          </div>
+
+          <h2 id="hsl-superpower">4. HSL: The Modern Design System Superpower</h2>
+          <p><strong>HSL (Hue, Saturation, Lightness)</strong> models color in a cylindrical coordinate geometry that directly matches human perception:</p>
+          <ul>
+            <li><strong>Hue (0° to 360°):</strong> The radial position on the color wheel (0° = Red, 60° = Yellow, 120° = Green, 180° = Cyan, 240° = Blue, 300° = Magenta).</li>
+            <li><strong>Saturation (0% to 100%):</strong> The intensity or vividness of the hue. 0% is pure monochrome gray, while 100% is vibrant pigment.</li>
+            <li><strong>Lightness (0% to 100%):</strong> The luminosity level. 0% is pitch black, 50% is the true hue, and 100% is pure white.</li>
+          </ul>
+          <p>In modern CSS custom property architectures, defining a primary brand token in HSL enables effortless state variations:</p>
+          <pre style="background: var(--bg-input); padding: 1rem; border-radius: var(--radius-md); font-family: var(--font-mono); font-size: 0.85rem; overflow-x: auto;">
+:root {
+  --brand-h: 221;
+  --brand-s: 83%;
+  --brand-l: 53%;
+  --brand-primary: hsl(var(--brand-h), var(--brand-s), var(--brand-l));
+  --brand-hover: hsl(var(--brand-h), var(--brand-s), calc(var(--brand-l) - 8%));
+  --brand-subtle: hsl(var(--brand-h), var(--brand-s), 95%);
+}
+          </pre>
+
+          <h2 id="wcag-contrast">5. Web Accessibility: WCAG 2.1 AA/AAA Contrast Auditing</h2>
+          <p>Aesthetic design must never compromise universal accessibility. The <strong>Web Content Accessibility Guidelines (WCAG) 2.1</strong> define mathematical formulas for relative luminance to ensure text remains legible for users with low vision or color blindness:</p>
+          <ul>
+            <li><strong>Level AA (Minimum Requirement):</strong> 4.5:1 contrast ratio for body text; 3.0:1 for large headings (18pt+).</li>
+            <li><strong>Level AAA (Enhanced Requirement):</strong> 7.0:1 contrast ratio for body text; 4.5:1 for headings.</li>
+          </ul>
+          <p>Our client-side <a href="/color-picker"><strong>Color Picker & Converter</strong></a> automatically calculates relative luminance in real time, notifying you immediately whether your chosen foreground text passes or fails WCAG AA standards.</p>
+
+          <h2 id="interactive-conversions">6. Interactive Color Conversion with Commeronix Utilities</h2>
+          <p>Whenever you are building design systems, styling web applications, or optimizing SVGs, you can use our client-side utilities:</p>
+          <ul>
+            <li>Convert raw color codes across HEX, RGB, HSL, and CMYK with the <a href="/color-picker"><strong>Color Picker Tool</strong></a>.</li>
+            <li>Generate complementary and triadic palettes for UI cards and badges.</li>
+            <li>Inspect and convert image assets into inlined Base64 styles with the <a href="/image-to-base64"><strong>Image to Base64 Encoder</strong></a>.</li>
+          </ul>
+
+          <div class="article-faq-section" id="faqs">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item-card">
+              <div class="faq-question-title">Why is HSL preferred over HEX for design system tokens?</div>
+              <div class="faq-answer-text">
+                HSL decouples hue from saturation and lightness. This allows design systems to dynamically compute hover states, focus rings, and dark mode tints programmatically with CSS custom properties.
+              </div>
+            </div>
+
+            <div class="faq-item-card">
+              <div class="faq-question-title">What is the minimum WCAG contrast ratio for body text?</div>
+              <div class="faq-answer-text">
+                WCAG 2.1 Level AA mandates a minimum contrast ratio of 4.5:1 for standard text (16px) against its background, and 3:1 for large text (18pt+ or 14pt bold).
+              </div>
+            </div>
+
+            <div class="faq-item-card">
+              <div class="faq-question-title">How does RGB translate to Hexadecimal code?</div>
+              <div class="faq-answer-text">
+                Each 8-bit channel (0-255) is converted into a two-digit base-16 number from 00 to FF. Concatenating the three pairs forms the 6-character hex string (e.g., RGB 37, 99, 235 becomes #2563EB).
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Commeronix. All rights reserved. UI/UX Design System Publication.</p>
+        <div class="footer-legal-links"><a href="/privacy-policy">Privacy</a><a href="/terms">Terms</a><a href="/tools">All Tools</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/main.js"></script>
+</body>
+</html>

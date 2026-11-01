@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text to Slug Converter (SEO URL Generator) — Commeronix</title>
+  <meta name="description" content="Convert article titles and headlines into clean, SEO-friendly URL slugs. Filter stop words, customize separators, and preview permalinks instantly.">
+  <meta name="keywords" content="text to slug, slug converter, url slug generator, seo friendly url, permalink generator, clean url">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="canonical" href="https://commeronix.com/text-to-slug">
+
+  <!-- Schema.org WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Commeronix Text to Slug Converter",
+    "url": "https://commeronix.com/text-to-slug",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "description": "Generate optimized, human-readable URL slugs for technical SEO.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('commeronix_theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+
+  </div>
+  </div>
+
+    <!-- Site Header & Navigation -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <a href="/" class="brand-logo" title="Commeronix Home">
+          <img src="/assets/favicon.svg" alt="Commeronix Logo" width="36" height="36" class="logo-icon-svg">
+          <span>Commero<span class="brand-accent">nix</span></span>
+        </a>
+
+        <!-- Universal Quick Search Bar Trigger -->
+        <div class="nav-search-wrap">
+          <button class="nav-search-btn" id="nav-search-trigger" type="button" aria-label="Search tools (Press Ctrl+K)">
+            <svg class="search-icon" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <span class="search-placeholder">Search 19+ online utilities...</span>
+            <kbd class="search-kbd">Ctrl K</kbd>
+          </button>
+        </div>
+
+        <!-- Navigation Actions -->
+        <div class="nav-actions">
+          <ul class="nav-links">
+            <li class="nav-dropdown">
+              <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+                <span>Tools &amp; Utilities</span>
+                <svg class="nav-chevron" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+              </button>
+              <div class="mega-menu" role="menu">
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Text Tools</div>
+                  <a href="/word-counter" class="mega-tool-link">Word Counter</a>
+                  <a href="/case-converter" class="mega-tool-link">Case Converter</a>
+                  <a href="/lorem-ipsum-generator" class="mega-tool-link">Lorem Ipsum</a>
+                  <a href="/text-compare" class="mega-tool-link">Text Compare / Diff</a>
+                  <a href="/remove-duplicate-lines" class="mega-tool-link">Remove Duplicate Lines</a>
+                  <a href="/text-to-slug" class="mega-tool-link">Text to Slug</a>
+                  <a href="/reading-time-calculator" class="mega-tool-link">Reading &amp; Speaking Time</a>
+                  <a href="/random-text-generator" class="mega-tool-link">Random Generator</a>
+                </div>
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Image &amp; Media</div>
+                  <a href="/image-compressor" class="mega-tool-link">Image Compressor</a>
+                  <a href="/image-resizer" class="mega-tool-link">Image Resizer</a>
+                  <a href="/image-format-converter" class="mega-tool-link">Format Converter</a>
+                  <a href="/image-to-base64" class="mega-tool-link">Image to Base64</a>
+                  <a href="/background-remover" class="mega-tool-link">Background Remover</a>
+                  <a href="/favicon-generator" class="mega-tool-link">Favicon Generator</a>
+                  <a href="/color-picker" class="mega-tool-link">Color Picker &amp; Converter</a>
+                </div>
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Financial &amp; Math</div>
+                  <a href="/calculator" class="mega-tool-link">Scientific Calculator</a>
+                  <a href="/currency-converter" class="mega-tool-link">Live Currency Converter</a>
+                  <a href="/loan-calculator" class="mega-tool-link">Loan &amp; EMI Calculator</a>
+                  <a href="/unit-converter" class="mega-tool-link">Unit Converter</a>
+                  <div style="margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle);">
+                    <a href="/tools" style="color: var(--accent-primary); font-weight: 700; font-size: 0.85rem; text-decoration: none;">View All 19 Web Utilities &rarr;</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li><a href="/blog" class="nav-link">Blog</a></li>
+            <li><a href="/about" class="nav-link">About</a></li>
+          </ul>
+
+          <!-- Dark / Light Theme Toggle Button -->
+          <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Toggle Light and Dark Theme" title="Toggle Theme">
+            <svg class="sun-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <svg class="moon-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+
+          <!-- Mobile Toggle -->
+          <button class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" aria-label="Mobile Navigation Menu">
+    <div class="mobile-search-box">
+      <input type="text" id="mobile-search-input" placeholder="Search 19+ utilities..." aria-label="Search tools mobile">
+    </div>
+    <a href="/" class="nav-link">Home</a>
+    <a href="/tools" class="nav-link">All Tools Directory</a>
+    <a href="/blog" class="nav-link">Blog &amp; Guides</a>
+    <a href="/about" class="nav-link">About Us</a>
+    <a href="/contact" class="nav-link">Contact Us</a>
+    <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
+    <a href="/terms" class="nav-link">Terms of Service</a>
+  </div>
+
+  <main class="main-content">
+    <div class="container">
+      
+      <div class="tool-header">
+        <div class="tool-breadcrumbs">
+          <a href="/">Home</a> <span>/</span> <a href="/tools">Web Utilities</a> <span>/</span> <span>Text to Slug</span>
+        </div>
+        <span class="badge-lime">🔗 Text & Content Tool</span>
+        <h1>Text to SEO URL Slug Converter</h1>
+        <p class="tool-subtitle">Convert article titles, product names, and headlines into search-engine-optimized permalink slugs. Automatically strip punctuation, accents, and unnecessary stop words.</p>
+      </div>
+
+      <div class="tool-workspace">
+        
+        <div class="tool-card-box" style="margin-bottom: 1.5rem;">
+          <div class="tool-card-header">
+            <span class="tool-card-title">📝 Article Title or Headline</span>
+            <button class="btn-copy" id="btn-clear" style="color: var(--accent-rose);">✕ Clear</button>
+          </div>
+          <input type="text" id="slug-input" class="tool-textarea" style="min-height: 70px; height: 70px; font-size: 1.15rem; font-family: var(--font-main);" placeholder="e.g. How to Optimize Web Images for Core Web Vitals in 2026?">
+        </div>
+
+        <!-- Options Configuration -->
+        <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; margin-bottom: 1.5rem; background: var(--bg-main); padding: 1.25rem; border-radius: var(--radius-lg); border: 1px solid var(--border-subtle);">
+          
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <label for="opt-separator" style="font-size: 0.88rem; font-weight: 700;">Separator:</label>
+            <select id="opt-separator" style="padding: 0.45rem 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); background: var(--bg-surface); color: var(--text-primary); font-weight: 700;">
+              <option value="-">Hyphen (-)</option>
+              <option value="_">Underscore (_)</option>
+            </select>
+          </div>
+
+          <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer; font-size: 0.88rem; font-weight: 600;">
+            <input type="checkbox" id="opt-lowercase" checked style="accent-color: var(--accent-primary);"> Force Lowercase
+          </label>
+
+          <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer; font-size: 0.88rem; font-weight: 600;">
+            <input type="checkbox" id="opt-filter-stopwords" checked style="accent-color: var(--accent-primary);"> Remove Stop Words (a, the, in...)
+          </label>
+
+          <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer; font-size: 0.88rem; font-weight: 600;">
+            <input type="checkbox" id="opt-strip-numbers" style="accent-color: var(--accent-primary);"> Strip Numbers
+          </label>
+
+        </div>
+
+        <!-- Output Slug Box -->
+        <div class="tool-card-box">
+          <div class="tool-card-header">
+            <span class="tool-card-title">🔗 Generated Slug</span>
+            <button class="btn-copy" id="btn-copy-slug">📋 Copy Slug</button>
+          </div>
+          <div style="display: flex; align-items: center; background: var(--bg-input); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.85rem 1rem;">
+            <span id="output-slug" style="font-family: var(--font-mono); font-size: 1.1rem; font-weight: 700; color: var(--accent-primary); word-break: break-all;">optimize-web-images-core-web-vitals</span>
+          </div>
+        </div>
+
+        <!-- Full URL Mock Preview -->
+        <div style="margin-top: 1.5rem; background: var(--bg-surface-raised); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+            <span style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em;">Live URL Preview</span>
+            <button class="btn-copy" id="btn-copy-url">📋 Copy Full URL</button>
+          </div>
+          <div id="full-url-preview" style="font-family: var(--font-mono); font-size: 0.95rem; color: var(--text-secondary); word-break: break-all;">
+            https://commeronix.com/blog/<span style="color: var(--accent-lime); font-weight: 700;">optimize-web-images-core-web-vitals</span>
+          </div>
+        </div>
+
+      </div>
+
+      <section class="article-container" style="margin-top: 2rem; box-shadow: none;">
+        <h2>The Science of SEO-Friendly URL Slugs</h2>
+        <p>Google's Search Central documentation explicitly recommends using clean, descriptive words in URL slugs rather than unreadable IDs or dynamic queries. Here are the core technical rules for URL design:</p>
+        <ul>
+          <li><strong>Use Hyphens, Not Underscores:</strong> Search engines recognize hyphens (<code>-</code>) as word separators. In contrast, underscores (<code>_</code>) are often treated as word joiners.</li>
+          <li><strong>Omit Stop Words:</strong> Eliminating words like "a", "an", "the", and "of" makes the URL concise, increasing click-through rates (CTR) on Search Engine Results Pages (SERPs).</li>
+          <li><strong>Keep it Under 60 Characters:</strong> Brief URLs are easier to share across social media and improve mobile readability.</li>
+        </ul>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Commeronix. All rights reserved. Free web utilities.</p>
+        <div class="footer-legal-links"><a href="/privacy-policy">Privacy</a><a href="/terms">Terms</a><a href="/tools">All Tools</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const STOP_WORDS = new Set([
+        'a', 'about', 'above', 'after', 'again', 'against', 'all', 'am', 'an', 'and', 'any', 'are', 'as', 'at',
+        'be', 'because', 'been', 'before', 'being', 'below', 'between', 'both', 'but', 'by', 'could', 'did',
+        'do', 'does', 'doing', 'down', 'during', 'each', 'few', 'for', 'from', 'further', 'had', 'has', 'have',
+        'having', 'he', 'her', 'here', 'hers', 'herself', 'him', 'himself', 'his', 'how', 'i', 'if', 'in', 'into',
+        'is', 'it', 'its', 'itself', 'me', 'more', 'most', 'my', 'myself', 'no', 'nor', 'not', 'of', 'off',
+        'on', 'once', 'only', 'or', 'other', 'ought', 'our', 'ours', 'ourselves', 'out', 'over', 'own', 'same',
+        'she', 'should', 'so', 'some', 'such', 'than', 'that', 'the', 'their', 'theirs', 'them', 'themselves',
+        'then', 'there', 'these', 'they', 'this', 'those', 'through', 'to', 'too', 'under', 'until', 'up', 'very',
+        'was', 'we', 'were', 'what', 'when', 'where', 'which', 'while', 'who', 'whom', 'why', 'with', 'would', 'you', 'your'
+      ]);
+
+      const slugInput = document.getElementById('slug-input');
+      const separatorSelect = document.getElementById('opt-separator');
+      const lowercaseCheck = document.getElementById('opt-lowercase');
+      const filterStopwordsCheck = document.getElementById('opt-filter-stopwords');
+      const stripNumbersCheck = document.getElementById('opt-strip-numbers');
+      const outputSlug = document.getElementById('output-slug');
+      const fullUrlPreview = document.getElementById('full-url-preview');
+
+      function generateSlug() {
+        let str = slugInput.value.trim();
+        if (!str) {
+          outputSlug.textContent = 'your-slug-here';
+          fullUrlPreview.innerHTML = 'https://commeronix.com/blog/<span style="color:var(--accent-lime); font-weight:700;">your-slug-here</span>';
+          return;
+        }
+
+        // Normalize unicode accents
+        str = str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+        if (lowercaseCheck.checked) {
+          str = str.toLowerCase();
+        }
+
+        if (stripNumbersCheck.checked) {
+          str = str.replace(/[0-9]+/g, '');
+        }
+
+        // Split into words
+        let words = str.replace(/[^a-zA-Z0-9\s_-]/g, '').trim().split(/[\s_-]+/);
+
+        if (filterStopwordsCheck.checked) {
+          words = words.filter(w => !STOP_WORDS.has(w.toLowerCase()));
+        }
+
+        const sep = separatorSelect.value;
+        const slug = words.join(sep);
+
+        outputSlug.textContent = slug || 'empty-slug';
+        fullUrlPreview.innerHTML = `https://commeronix.com/blog/<span style="color:var(--accent-lime); font-weight:700;">${slug || 'empty-slug'}</span>`;
+      }
+
+      slugInput.addEventListener('input', generateSlug);
+      separatorSelect.addEventListener('change', generateSlug);
+      lowercaseCheck.addEventListener('change', generateSlug);
+      filterStopwordsCheck.addEventListener('change', generateSlug);
+      stripNumbersCheck.addEventListener('change', generateSlug);
+
+      document.getElementById('btn-copy-slug').addEventListener('click', () => {
+        navigator.clipboard.writeText(outputSlug.textContent).then(() => window.showToast('Slug copied!'));
+      });
+
+      document.getElementById('btn-copy-url').addEventListener('click', () => {
+        const fullUrl = `https://commeronix.com/blog/${outputSlug.textContent}`;
+        navigator.clipboard.writeText(fullUrl).then(() => window.showToast('Full URL copied!'));
+      });
+
+      document.getElementById('btn-clear').addEventListener('click', () => {
+        slugInput.value = '';
+        generateSlug();
+        slugInput.focus();
+      });
+
+      // Default sample
+      slugInput.value = 'How to Optimize Web Images for Core Web Vitals in 2026';
+      generateSlug();
+    });
+  </script>
+</body>
+</html>

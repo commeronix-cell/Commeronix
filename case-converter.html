@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Converter — UPPERCASE, lowercase, Title Case, camelCase, kebab-case | Commeronix</title>
+  <meta name="description" content="Free online case converter tool. Convert text to UPPERCASE, lowercase, Title Case, Sentence case, camelCase, kebab-case, and snake_case instantly client-side.">
+  <meta name="keywords" content="case converter, uppercase, lowercase, title case, camelcase, kebab case, snake case, text converter">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="canonical" href="https://commeronix.com/case-converter">
+
+  <!-- Schema.org WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Commeronix Case Converter",
+    "url": "https://commeronix.com/case-converter",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "description": "Convert strings between all major programming and typography cases instantly.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('commeronix_theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+
+  </div>
+  </div>
+
+    <!-- Site Header & Navigation -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <a href="/" class="brand-logo" title="Commeronix Home">
+          <img src="/assets/favicon.svg" alt="Commeronix Logo" width="36" height="36" class="logo-icon-svg">
+          <span>Commero<span class="brand-accent">nix</span></span>
+        </a>
+
+        <!-- Universal Quick Search Bar Trigger -->
+        <div class="nav-search-wrap">
+          <button class="nav-search-btn" id="nav-search-trigger" type="button" aria-label="Search tools (Press Ctrl+K)">
+            <svg class="search-icon" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <span class="search-placeholder">Search 19+ online utilities...</span>
+            <kbd class="search-kbd">Ctrl K</kbd>
+          </button>
+        </div>
+
+        <!-- Navigation Actions -->
+        <div class="nav-actions">
+          <ul class="nav-links">
+            <li class="nav-dropdown">
+              <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+                <span>Tools &amp; Utilities</span>
+                <svg class="nav-chevron" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+              </button>
+              <div class="mega-menu" role="menu">
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Text Tools</div>
+                  <a href="/word-counter" class="mega-tool-link">Word Counter</a>
+                  <a href="/case-converter" class="mega-tool-link">Case Converter</a>
+                  <a href="/lorem-ipsum-generator" class="mega-tool-link">Lorem Ipsum</a>
+                  <a href="/text-compare" class="mega-tool-link">Text Compare / Diff</a>
+                  <a href="/remove-duplicate-lines" class="mega-tool-link">Remove Duplicate Lines</a>
+                  <a href="/text-to-slug" class="mega-tool-link">Text to Slug</a>
+                  <a href="/reading-time-calculator" class="mega-tool-link">Reading &amp; Speaking Time</a>
+                  <a href="/random-text-generator" class="mega-tool-link">Random Generator</a>
+                </div>
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Image &amp; Media</div>
+                  <a href="/image-compressor" class="mega-tool-link">Image Compressor</a>
+                  <a href="/image-resizer" class="mega-tool-link">Image Resizer</a>
+                  <a href="/image-format-converter" class="mega-tool-link">Format Converter</a>
+                  <a href="/image-to-base64" class="mega-tool-link">Image to Base64</a>
+                  <a href="/background-remover" class="mega-tool-link">Background Remover</a>
+                  <a href="/favicon-generator" class="mega-tool-link">Favicon Generator</a>
+                  <a href="/color-picker" class="mega-tool-link">Color Picker &amp; Converter</a>
+                </div>
+                <div class="mega-menu-col">
+                  <div class="mega-col-title">Financial &amp; Math</div>
+                  <a href="/calculator" class="mega-tool-link">Scientific Calculator</a>
+                  <a href="/currency-converter" class="mega-tool-link">Live Currency Converter</a>
+                  <a href="/loan-calculator" class="mega-tool-link">Loan &amp; EMI Calculator</a>
+                  <a href="/unit-converter" class="mega-tool-link">Unit Converter</a>
+                  <div style="margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle);">
+                    <a href="/tools" style="color: var(--accent-primary); font-weight: 700; font-size: 0.85rem; text-decoration: none;">View All 19 Web Utilities &rarr;</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li><a href="/blog" class="nav-link">Blog</a></li>
+            <li><a href="/about" class="nav-link">About</a></li>
+          </ul>
+
+          <!-- Dark / Light Theme Toggle Button -->
+          <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Toggle Light and Dark Theme" title="Toggle Theme">
+            <svg class="sun-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <svg class="moon-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+
+          <!-- Mobile Toggle -->
+          <button class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" aria-label="Mobile Navigation Menu">
+    <div class="mobile-search-box">
+      <input type="text" id="mobile-search-input" placeholder="Search 19+ utilities..." aria-label="Search tools mobile">
+    </div>
+    <a href="/" class="nav-link">Home</a>
+    <a href="/tools" class="nav-link">All Tools Directory</a>
+    <a href="/blog" class="nav-link">Blog &amp; Guides</a>
+    <a href="/about" class="nav-link">About Us</a>
+    <a href="/contact" class="nav-link">Contact Us</a>
+    <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
+    <a href="/terms" class="nav-link">Terms of Service</a>
+  </div>
+
+  <main class="main-content">
+    <div class="container">
+      
+      <div class="tool-header">
+        <div class="tool-breadcrumbs">
+          <a href="/">Home</a> <span>/</span> <a href="/tools">Web Utilities</a> <span>/</span> <span>Case Converter</span>
+        </div>
+        <span class="badge-lime">🔠 Text & Content Tool</span>
+        <h1>Multi-Format Case Converter</h1>
+        <p class="tool-subtitle">Transform your text, code identifiers, and editorial headlines across 10 formatting standards including UPPERCASE, lowercase, Title Case, Sentence case, camelCase, kebab-case, and snake_case.</p>
+      </div>
+
+      <div class="tool-workspace">
+        
+        <div class="tool-card-box">
+          <div class="tool-card-header">
+            <span class="tool-card-title">📝 Input & Output Workspace</span>
+            <div class="tool-card-actions">
+              <button class="btn-copy" id="btn-copy">📋 Copy Text</button>
+              <button class="btn-copy" id="btn-download">💾 Download .txt</button>
+              <button class="btn-copy" id="btn-clear" style="color: var(--accent-rose);">✕ Clear</button>
+            </div>
+          </div>
+          <textarea id="case-text" class="tool-textarea" placeholder="Type or paste your text here and click any case conversion button below..."></textarea>
+        </div>
+
+        <div class="tool-stats-strip">
+          <div class="stat-pill"><span class="stat-pill-label">Characters</span><span class="stat-pill-value" id="stat-chars">0</span></div>
+          <div class="stat-pill"><span class="stat-pill-label">Words</span><span class="stat-pill-value" id="stat-words">0</span></div>
+          <div class="stat-pill"><span class="stat-pill-label">Lines</span><span class="stat-pill-value" id="stat-lines">0</span></div>
+        </div>
+
+        <!-- Case Transformation Buttons Grid -->
+        <h3 style="font-size: 1rem; margin: 1.5rem 0 0.75rem;">Transform Styles</h3>
+        <div class="btn-group-row">
+          <button class="btn-tool-action btn-tool-primary" data-case="upper">UPPERCASE</button>
+          <button class="btn-tool-action btn-tool-primary" data-case="lower">lowercase</button>
+          <button class="btn-tool-action btn-tool-primary" data-case="title">Title Case</button>
+          <button class="btn-tool-action btn-tool-primary" data-case="sentence">Sentence case</button>
+          <button class="btn-tool-action btn-tool-primary" data-case="camel">camelCase</button>
+          <button class="btn-tool-action btn-tool-primary" data-case="kebab">kebab-case</button>
+          <button class="btn-tool-action btn-tool-primary" data-case="snake">snake_case</button>
+          <button class="btn-tool-action btn-tool-primary" data-case="pascal">PascalCase</button>
+          <button class="btn-tool-action" data-case="alternating">aLtErNaTiNg cAsE</button>
+          <button class="btn-tool-action" data-case="reverse">esreveR txeT</button>
+        </div>
+
+      </div>
+
+      <!-- Educational Content Section -->
+      <section class="article-container" style="margin-top: 2rem; box-shadow: none;">
+        <h2>Common Naming Conventions in Programming and Publishing</h2>
+        <p>Consistent casing is critical for developers, API architects, technical writers, and content marketers. Here is an overview of when each casing standard is typically employed:</p>
+
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem;">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--border-card); text-align: left;">
+                <th style="padding: 0.75rem;">Case Style</th>
+                <th style="padding: 0.75rem;">Example</th>
+                <th style="padding: 0.75rem;">Primary Use Cases</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border-subtle);"><td style="padding: 0.75rem;"><strong>Title Case</strong></td><td style="padding: 0.75rem; font-family: var(--font-mono);">How to Optimize Code</td><td style="padding: 0.75rem;">Blog titles, article headlines, H1/H2 tags</td></tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);"><td style="padding: 0.75rem;"><strong>camelCase</strong></td><td style="padding: 0.75rem; font-family: var(--font-mono);">userAccountBalance</td><td style="padding: 0.75rem;">JavaScript, Java, TypeScript variable & method names</td></tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);"><td style="padding: 0.75rem;"><strong>kebab-case</strong></td><td style="padding: 0.75rem; font-family: var(--font-mono);">article-header-tag</td><td style="padding: 0.75rem;">CSS classes, URL slugs, HTML custom elements</td></tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);"><td style="padding: 0.75rem;"><strong>snake_case</strong></td><td style="padding: 0.75rem; font-family: var(--font-mono);">database_record_id</td><td style="padding: 0.75rem;">Python variables, SQL column names, database keys</td></tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);"><td style="padding: 0.75rem;"><strong>PascalCase</strong></td><td style="padding: 0.75rem; font-family: var(--font-mono);">UserAccountModel</td><td style="padding: 0.75rem;">Classes, interfaces, React / Vue components</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="article-tool-cta">
+          <div>
+            <h4 style="font-size: 1.1rem; margin-bottom: 0.35rem;">Working on URL permalinks?</h4>
+            <p style="font-size: 0.9rem; margin-bottom: 0;">Try our dedicated Text to Slug Converter for technical SEO.</p>
+          </div>
+          <a href="/text-to-slug" class="btn-lime">Try Text to Slug →</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Commeronix. All rights reserved. Free web utilities.</p>
+        <div class="footer-legal-links">
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/terms">Terms</a>
+          <a href="/tools">All Tools</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const textarea = document.getElementById('case-text');
+      const statChars = document.getElementById('stat-chars');
+      const statWords = document.getElementById('stat-words');
+      const statLines = document.getElementById('stat-lines');
+
+      function updateStats() {
+        const val = textarea.value;
+        statChars.textContent = val.length.toLocaleString();
+        statWords.textContent = val.trim() ? val.trim().split(/\s+/).filter(Boolean).length.toLocaleString() : '0';
+        statLines.textContent = val ? val.split(/\n/).length.toLocaleString() : '0';
+      }
+
+      textarea.addEventListener('input', updateStats);
+
+      function toWordsArray(str) {
+        return str
+          .replace(/([a-z])([A-Z])/g, '$1 $2')
+          .replace(/[_\-]+/g, ' ')
+          .trim()
+          .split(/\s+/)
+          .filter(Boolean);
+      }
+
+      const transforms = {
+        upper: (str) => str.toUpperCase(),
+        lower: (str) => str.toLowerCase(),
+        title: (str) => {
+          const minorWords = new Set(['and','a','an','the','in','on','at','to','for','of','with','by','but']);
+          return str.toLowerCase().replace(/\b\w+/g, (word, index) => {
+            if (index > 0 && minorWords.has(word)) return word;
+            return word.charAt(0).toUpperCase() + word.slice(1);
+          });
+        },
+        sentence: (str) => {
+          return str.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g, c => c.toUpperCase());
+        },
+        camel: (str) => {
+          return toWordsArray(str).map((w, i) => {
+            const low = w.toLowerCase();
+            return i === 0 ? low : low.charAt(0).toUpperCase() + low.slice(1);
+          }).join('');
+        },
+        pascal: (str) => {
+          return toWordsArray(str).map(w => {
+            const low = w.toLowerCase();
+            return low.charAt(0).toUpperCase() + low.slice(1);
+          }).join('');
+        },
+        kebab: (str) => {
+          return toWordsArray(str).map(w => w.toLowerCase()).join('-');
+        },
+        snake: (str) => {
+          return toWordsArray(str).map(w => w.toLowerCase()).join('_');
+        },
+        alternating: (str) => {
+          return str.split('').map((c, i) => i % 2 === 0 ? c.toLowerCase() : c.toUpperCase()).join('');
+        },
+        reverse: (str) => str.split('').reverse().join('')
+      };
+
+      document.querySelectorAll('[data-case]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const caseType = btn.getAttribute('data-case');
+          if (transforms[caseType]) {
+            textarea.value = transforms[caseType](textarea.value);
+            updateStats();
+            window.showToast(`Converted to ${btn.textContent.trim()}!`);
+          }
+        });
+      });
+
+      document.getElementById('btn-copy').addEventListener('click', () => {
+        if (!textarea.value) return;
+        navigator.clipboard.writeText(textarea.value).then(() => {
+          window.showToast('Copied to clipboard!');
+        });
+      });
+
+      document.getElementById('btn-clear').addEventListener('click', () => {
+        textarea.value = '';
+        updateStats();
+        textarea.focus();
+      });
+
+      document.getElementById('btn-download').addEventListener('click', () => {
+        if (!textarea.value) return;
+        const blob = new Blob([textarea.value], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'converted-text.txt';
+        a.click();
+        URL.revokeObjectURL(url);
+        window.showToast('Downloaded converted-text.txt');
+      });
+    });
+  </script>
+</body>
+</html>

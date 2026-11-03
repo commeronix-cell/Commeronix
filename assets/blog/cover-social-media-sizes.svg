@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" fill="none">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bg-radial-sm" cx="50%" cy="0%" r="90%">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="50%" stop-color="#0B0C10"/>
+      <stop offset="100%" stop-color="#050608"/>
+    </radialGradient>
+    
+    <!-- Cobalt & Lime Gradients -->
+    <linearGradient id="cobalt-grad-sm" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="50%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+
+    <linearGradient id="lime-grad-sm" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2FF4D"/>
+      <stop offset="100%" stop-color="#C6FF00"/>
+    </linearGradient>
+
+    <linearGradient id="card-grad-sm" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#161F30" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.95"/>
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="soft-glow-sm" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="box-shadow-sm" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+
+    <!-- Tech Grid Pattern -->
+    <pattern id="tech-grid-sm" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2563EB" stroke-width="1" stroke-opacity="0.08"/>
+      <circle cx="40" cy="40" r="1" fill="#60A5FA" fill-opacity="0.25"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#bg-radial-sm)"/>
+  <rect width="1200" height="675" fill="url(#tech-grid-sm)"/>
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="240" cy="220" r="180" fill="#2563EB" fill-opacity="0.08" filter="url(#soft-glow-sm)"/>
+  <circle cx="980" cy="240" r="180" fill="#C6FF00" fill-opacity="0.07" filter="url(#soft-glow-sm)"/>
+
+  <!-- Outer Hairline Frame -->
+  <rect x="24" y="24" width="1152" height="627" rx="16" stroke="#2563EB" stroke-opacity="0.25" stroke-width="1.5"/>
+
+  <!-- Top Header Bar -->
+  <g transform="translate(60, 56)">
+    <!-- Brand / Topic Badge -->
+    <rect x="0" y="0" width="310" height="34" rx="17" fill="#161F30" stroke="#2563EB" stroke-width="1.2"/>
+    <circle cx="18" cy="17" r="4.5" fill="#C6FF00"/>
+    <text x="32" y="22" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">SOCIAL MEDIA SIZES • 2026 GUIDE</text>
+
+    <!-- Category Breadcrumb -->
+    <text x="330" y="22" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="500">COMMERONIX / SOCIAL MEDIA MARKETING STRATEGY</text>
+
+    <!-- Right Badge -->
+    <rect x="910" y="0" width="170" height="34" rx="8" fill="#161F30" stroke="#334155" stroke-width="1"/>
+    <text x="995" y="22" text-anchor="middle" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600">SAFE-ZONE COMPLIANT</text>
+  </g>
+
+  <!-- 3 Dimensional Aspect Ratio Comparison Cards -->
+
+  <!-- Card 1: 1:1 Square (Instagram / LinkedIn) -->
+  <g transform="translate(60, 115)" filter="url(#box-shadow-sm)">
+    <rect width="320" height="400" rx="16" fill="url(#card-grad-sm)" stroke="#334155" stroke-width="1.5"/>
+    <rect x="0" y="0" width="320" height="42" rx="16" fill="#111827" fill-opacity="0.8"/>
+    <!-- Window Dots -->
+    <circle cx="24" cy="21" r="5" fill="#EF4444"/>
+    <circle cx="40" cy="21" r="5" fill="#F59E0B"/>
+    <circle cx="56" cy="21" r="5" fill="#10B981"/>
+    <text x="160" y="26" text-anchor="middle" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">1:1 SQUARE FEED</text>
+
+    <!-- Visual 1:1 Preview Canvas -->
+    <g transform="translate(60, 65)">
+      <rect width="200" height="200" rx="10" fill="#0B0C10" stroke="#2563EB" stroke-width="1.5"/>
+      <circle cx="100" cy="100" r="45" fill="none" stroke="#2563EB" stroke-width="2" stroke-dasharray="6 4"/>
+      <text x="100" y="98" text-anchor="middle" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="800">1080 × 1080</text>
+      <text x="100" y="118" text-anchor="middle" fill="#60A5FA" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">1:1 ASPECT RATIO</text>
+    </g>
+
+    <!-- Details -->
+    <g transform="translate(24, 285)">
+      <text x="0" y="16" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="600">BEST PLATFORMS</text>
+      <text x="0" y="38" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700">Instagram, LinkedIn, X Posts</text>
+      
+      <rect x="0" y="55" width="272" height="32" rx="6" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+      <text x="136" y="75" text-anchor="middle" fill="#93C5FD" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">UNIVERSAL FEED FORMAT</text>
+    </g>
+  </g>
+
+  <!-- Card 2: 4:5 Portrait (Max Dwell-Time Instagram In-Feed) -->
+  <g transform="translate(410, 115)" filter="url(#box-shadow-sm)">
+    <rect width="380" height="400" rx="16" fill="url(#card-grad-sm)" stroke="#2563EB" stroke-width="2"/>
+    <rect x="0" y="0" width="380" height="42" rx="16" fill="#1E293B" fill-opacity="0.9"/>
+    <text x="190" y="26" text-anchor="middle" fill="#C6FF00" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">4:5 VERTICAL • MAX SCREEN REAL ESTATE</text>
+
+    <!-- Visual 4:5 Preview Canvas -->
+    <g transform="translate(100, 60)">
+      <rect width="180" height="225" rx="10" fill="#0B0C10" stroke="#C6FF00" stroke-width="2" filter="url(#soft-glow-sm)"/>
+      <circle cx="90" cy="112" r="42" fill="url(#cobalt-grad-sm)" opacity="0.8"/>
+      <text x="90" y="108" text-anchor="middle" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="800">1080 × 1350</text>
+      <text x="90" y="128" text-anchor="middle" fill="#C6FF00" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">4:5 PORTRAIT</text>
+      
+      <!-- Screen Height Boost Callout -->
+      <rect x="15" y="180" width="150" height="24" rx="4" fill="#064E3B" stroke="#10B981" stroke-width="1"/>
+      <text x="90" y="196" text-anchor="middle" fill="#6EE7B7" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">+25% MOBILE DWELL TIME</text>
+    </g>
+
+    <!-- Details -->
+    <g transform="translate(24, 305)">
+      <text x="0" y="16" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="600">ALGORITHM ADVANTAGE</text>
+      <text x="0" y="38" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700">Covers entire mobile viewport to stop the scroll.</text>
+      
+      <rect x="0" y="52" width="332" height="32" rx="6" fill="#14532D" stroke="#22C55E" stroke-width="1"/>
+      <text x="166" y="73" text-anchor="middle" fill="#86EFAC" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">HIGHEST ENGAGEMENT IN-FEED</text>
+    </g>
+  </g>
+
+  <!-- Card 3: 9:16 Full Screen (Reels, TikTok, Shorts) -->
+  <g transform="translate(820, 115)" filter="url(#box-shadow-sm)">
+    <rect width="320" height="400" rx="16" fill="url(#card-grad-sm)" stroke="#334155" stroke-width="1.5"/>
+    <rect x="0" y="0" width="320" height="42" rx="16" fill="#111827" fill-opacity="0.8"/>
+    <circle cx="24" cy="21" r="5" fill="#EF4444"/>
+    <circle cx="40" cy="21" r="5" fill="#F59E0B"/>
+    <circle cx="56" cy="21" r="5" fill="#10B981"/>
+    <text x="160" y="26" text-anchor="middle" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">9:16 REELS &amp; TIKTOK</text>
+
+    <!-- Visual 9:16 Canvas with Safe-Zone Overlay -->
+    <g transform="translate(85, 55)">
+      <rect width="150" height="240" rx="12" fill="#0B0C10" stroke="#2563EB" stroke-width="1.5"/>
+      
+      <!-- Top & Bottom Safe-Zone Warning Overlays -->
+      <rect x="5" y="5" width="140" height="35" rx="4" fill="#7F1D1D" fill-opacity="0.35" stroke="#EF4444" stroke-width="0.8" stroke-dasharray="3 3"/>
+      <text x="75" y="26" text-anchor="middle" fill="#FCA5A5" font-family="'JetBrains Mono', monospace" font-size="8">UI HEADER (AVOID)</text>
+
+      <rect x="5" y="185" width="140" height="50" rx="4" fill="#7F1D1D" fill-opacity="0.35" stroke="#EF4444" stroke-width="0.8" stroke-dasharray="3 3"/>
+      <text x="75" y="214" text-anchor="middle" fill="#FCA5A5" font-family="'JetBrains Mono', monospace" font-size="8">CAPTION ZONE (AVOID)</text>
+
+      <!-- Safe Area Center -->
+      <text x="75" y="115" text-anchor="middle" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="15" font-weight="800">1080 × 1920</text>
+      <text x="75" y="135" text-anchor="middle" fill="#C6FF00" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">9:16 FULL VERTICAL</text>
+    </g>
+
+    <!-- Details -->
+    <g transform="translate(24, 305)">
+      <text x="0" y="16" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="600">SAFE-ZONE RULES</text>
+      <text x="0" y="38" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700">Keep logos &amp; captions in middle 65%</text>
+      
+      <rect x="0" y="52" width="272" height="32" rx="6" fill="#172554" stroke="#2563EB" stroke-width="1"/>
+      <text x="136" y="73" text-anchor="middle" fill="#93C5FD" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">REELS • SHORTS • TIKTOK</text>
+    </g>
+  </g>
+
+  <!-- Bottom Checklist Strip -->
+  <g transform="translate(60, 545)">
+    <rect width="1080" height="60" rx="12" fill="#111827" stroke="#1E293B" stroke-width="1.5"/>
+    
+    <g transform="translate(40, 20)">
+      <circle cx="8" cy="10" r="4" fill="#C6FF00"/>
+      <text x="22" y="15" fill="#F8FAFC" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">INSTAGRAM 1080x1350 (4:5)</text>
+
+      <circle cx="280" cy="10" r="4" fill="#C6FF00"/>
+      <text x="294" y="15" fill="#F8FAFC" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">TIKTOK &amp; REELS 1080x1920 (9:16)</text>
+
+      <circle cx="610" cy="10" r="4" fill="#C6FF00"/>
+      <text x="624" y="15" fill="#F8FAFC" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">LINKEDIN PDF 1080x1080 OR 1080x1350</text>
+
+      <circle cx="940" cy="10" r="4" fill="#22C55E"/>
+      <text x="954" y="15" fill="#86EFAC" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">SAFE ZONES VERIFIED</text>
+    </g>
+  </g>
+</svg>
+

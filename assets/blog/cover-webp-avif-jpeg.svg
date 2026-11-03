@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" fill="none">
+  <defs>
+    <radialGradient id="bg-radial-wj" cx="50%" cy="0%" r="90%">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="50%" stop-color="#0B0C10"/>
+      <stop offset="100%" stop-color="#050608"/>
+    </radialGradient>
+    <linearGradient id="cobalt-grad-wj" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="50%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="lime-grad-wj" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2FF4D"/>
+      <stop offset="100%" stop-color="#C6FF00"/>
+    </linearGradient>
+    <linearGradient id="card-grad-wj" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#161F30" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.98"/>
+    </linearGradient>
+    <pattern id="grid-wj" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2563EB" stroke-width="1" stroke-opacity="0.08"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg-radial-wj)"/>
+  <rect width="1200" height="675" fill="url(#grid-wj)"/>
+  <rect x="24" y="24" width="1152" height="627" rx="16" stroke="#2563EB" stroke-opacity="0.25" stroke-width="1.5"/>
+
+  <!-- Top Header Bar -->
+  <g transform="translate(60, 56)">
+    <rect width="210" height="34" rx="17" fill="#1E293B" stroke="#3B82F6" stroke-opacity="0.4" stroke-width="1"/>
+    <circle cx="17" cy="17" r="5" fill="#3B82F6"/>
+    <text x="32" y="22" fill="#93C5FD" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">IMAGE BENCHMARK</text>
+
+    <text x="0" y="80" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="34" font-weight="800" letter-spacing="-0.5">
+      WebP vs. AVIF vs. JPEG
+    </text>
+    <text x="440" y="80" fill="#C6FF00" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="34" font-weight="800" letter-spacing="-0.5">
+      (Core Web Vitals Comparison)
+    </text>
+    <text x="0" y="112" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="16" font-weight="500">
+      Compression Ratios • Decode Speed • Browser Compatibility • Alpha Channels &amp; HDR
+    </text>
+  </g>
+
+  <!-- Comparison Cards -->
+  <g transform="translate(60, 205)">
+    <!-- JPEG -->
+    <g transform="translate(0, 0)">
+      <rect width="336" height="360" rx="14" fill="url(#card-grad-wj)" stroke="#334155" stroke-width="1.5"/>
+      <rect x="2" y="2" width="332" height="4" rx="2" fill="#94A3B8"/>
+      <text x="24" y="48" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="20" font-weight="700">JPEG (Legacy Standard)</text>
+      <text x="24" y="70" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">Introduced in 1992</text>
+      <text x="24" y="140" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="44" font-weight="800">100%</text>
+      <text x="24" y="165" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">Baseline File Size (1.2 MB)</text>
+      <line x1="24" y1="195" x2="310" y2="195" stroke="#334155" stroke-width="1"/>
+      <text x="24" y="230" fill="#E2E8F0" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">✅ 100% Universal Browser Support</text>
+      <text x="24" y="258" fill="#E2E8F0" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">✅ Ultra-fast hardware decoding</text>
+      <text x="24" y="286" fill="#F87171" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">❌ No alpha transparency support</text>
+      <text x="24" y="314" fill="#F87171" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">❌ Heavy byte payload penalizes LCP</text>
+    </g>
+
+    <!-- WebP (Winner) -->
+    <g transform="translate(372, 0)">
+      <rect width="336" height="360" rx="14" fill="url(#card-grad-wj)" stroke="#2563EB" stroke-width="2"/>
+      <rect x="2" y="2" width="332" height="4" rx="2" fill="url(#lime-grad-wj)"/>
+      <text x="24" y="48" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="20" font-weight="700">WebP (Production Sweet Spot)</text>
+      <text x="24" y="70" fill="#C6FF00" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="600">Google Recommended Standard</text>
+      <text x="24" y="140" fill="#C6FF00" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="44" font-weight="800">-35% to -40%</text>
+      <text x="24" y="165" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">Payload vs. JPEG (750 KB)</text>
+      <line x1="24" y1="195" x2="310" y2="195" stroke="#334155" stroke-width="1"/>
+      <text x="24" y="230" fill="#86EFAC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">✅ 97%+ Browser Support (Chrome/Safari/Edge)</text>
+      <text x="24" y="258" fill="#86EFAC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">✅ Full 8-bit Alpha Transparency</text>
+      <text x="24" y="286" fill="#86EFAC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">✅ 2x faster decode speed than AVIF</text>
+      <rect x="24" y="308" width="288" height="32" rx="6" fill="#14532D"/>
+      <text x="168" y="329" fill="#86EFAC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Best All-Round Web Format 2026</text>
+    </g>
+
+    <!-- AVIF -->
+    <g transform="translate(744, 0)">
+      <rect width="336" height="360" rx="14" fill="url(#card-grad-wj)" stroke="#334155" stroke-width="1.5"/>
+      <rect x="2" y="2" width="332" height="4" rx="2" fill="url(#cobalt-grad-wj)"/>
+      <text x="24" y="48" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="20" font-weight="700">AVIF (Maximum Compression)</text>
+      <text x="24" y="70" fill="#60A5FA" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">AOMedia AV1 Codec</text>
+      <text x="24" y="140" fill="#60A5FA" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="44" font-weight="800">-50% to -55%</text>
+      <text x="24" y="165" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">Payload vs. JPEG (550 KB)</text>
+      <line x1="24" y1="195" x2="310" y2="195" stroke="#334155" stroke-width="1"/>
+      <text x="24" y="230" fill="#86EFAC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">✅ Highest byte-level compression</text>
+      <text x="24" y="258" fill="#86EFAC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">✅ 10-bit and 12-bit HDR Color</text>
+      <text x="24" y="286" fill="#FBBF24" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">⚠️ Higher CPU decode latency on mobile</text>
+      <rect x="24" y="308" width="288" height="32" rx="6" fill="#1E293B"/>
+      <text x="168" y="329" fill="#93C5FD" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Ideal for High-End Hero Assets</text>
+    </g>
+  </g>
+
+  <!-- Bottom Global Trust Ribbon -->
+  <g transform="translate(60, 608)">
+    <circle cx="6" cy="6" r="4" fill="#C6FF00"/>
+    <text x="20" y="10" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12">
+      Convert JPG &amp; PNG to WebP locally in your browser • commeronix.com/image-format-converter
+    </text>
+  </g>
+</svg>
+

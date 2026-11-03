@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" fill="none">
+  <defs>
+    <radialGradient id="bg-radial-lp" cx="50%" cy="0%" r="90%">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="50%" stop-color="#0B0C10"/>
+      <stop offset="100%" stop-color="#050608"/>
+    </radialGradient>
+    <linearGradient id="cobalt-grad-lp" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="50%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="lime-grad-lp" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2FF4D"/>
+      <stop offset="100%" stop-color="#C6FF00"/>
+    </linearGradient>
+    <linearGradient id="card-grad-lp" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#161F30" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.98"/>
+    </linearGradient>
+    <pattern id="grid-lp" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2563EB" stroke-width="1" stroke-opacity="0.08"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg-radial-lp)"/>
+  <rect width="1200" height="675" fill="url(#grid-lp)"/>
+  <rect x="24" y="24" width="1152" height="627" rx="16" stroke="#2563EB" stroke-opacity="0.25" stroke-width="1.5"/>
+
+  <!-- Top Header Bar -->
+  <g transform="translate(60, 56)">
+    <rect width="210" height="34" rx="17" fill="#1E293B" stroke="#3B82F6" stroke-opacity="0.4" stroke-width="1"/>
+    <circle cx="17" cy="17" r="5" fill="#C6FF00"/>
+    <text x="32" y="22" fill="#93C5FD" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">FINANCIAL MATHEMATICS</text>
+
+    <text x="0" y="80" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="34" font-weight="800" letter-spacing="-0.5">
+      Loan Prepayment Strategy:
+    </text>
+    <text x="475" y="80" fill="#C6FF00" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="34" font-weight="800" letter-spacing="-0.5">
+      Cut Years &amp; Save Thousands
+    </text>
+    <text x="0" y="112" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="16" font-weight="500">
+      How Extra Principal Payments Accelerate Amortization Curves on Mortgages &amp; Auto Loans
+    </text>
+  </g>
+
+  <!-- Financial Breakdown Cards -->
+  <g transform="translate(60, 205)">
+    <!-- Baseline 30-Year Loan -->
+    <g transform="translate(0, 0)">
+      <rect width="336" height="360" rx="14" fill="url(#card-grad-lp)" stroke="#334155" stroke-width="1.5"/>
+      <rect x="2" y="2" width="332" height="4" rx="2" fill="#94A3B8"/>
+      <text x="24" y="48" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="20" font-weight="700">Standard Mortgage</text>
+      <text x="24" y="70" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">$300,000 at 6.5% for 30 Years</text>
+      <text x="24" y="135" fill="#F87171" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="38" font-weight="800">$382,633</text>
+      <text x="24" y="160" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">Total Interest Paid to Bank</text>
+      <line x1="24" y1="190" x2="310" y2="190" stroke="#334155" stroke-width="1"/>
+      <text x="24" y="225" fill="#E2E8F0" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">Monthly Payment: <strong>$1,896</strong></text>
+      <text x="24" y="255" fill="#E2E8F0" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">Payoff Tenure: <strong>360 Months (30 Yrs)</strong></text>
+      <text x="24" y="285" fill="#E2E8F0" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">Year 1 Interest Burden: <strong>72% of EMI</strong></text>
+      <rect x="24" y="310" width="288" height="30" rx="6" fill="#1E293B"/>
+      <text x="168" y="330" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Standard Reducing-Balance Curve</text>
+    </g>
+
+    <!-- +$100/mo Extra Principal (Hero) -->
+    <g transform="translate(372, 0)">
+      <rect width="336" height="360" rx="14" fill="url(#card-grad-lp)" stroke="#2563EB" stroke-width="2"/>
+      <rect x="2" y="2" width="332" height="4" rx="2" fill="url(#lime-grad-lp)"/>
+      <text x="24" y="48" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="20" font-weight="700">+$100 / Month Extra</text>
+      <text x="24" y="70" fill="#C6FF00" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="600">Pure Principal Retirement</text>
+      <text x="24" y="135" fill="#C6FF00" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="38" font-weight="800">-$42,180</text>
+      <text x="24" y="160" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">Direct Interest Cash Saved</text>
+      <line x1="24" y1="190" x2="310" y2="190" stroke="#334155" stroke-width="1"/>
+      <text x="24" y="225" fill="#86EFAC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">✅ <strong>4 Years 1 Month</strong> Shaved Off</text>
+      <text x="24" y="255" fill="#86EFAC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">✅ New Tenure: <strong>25 Years 11 Mos</strong></text>
+      <text x="24" y="285" fill="#86EFAC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">✅ Guaranteed Risk-Free 6.5% ROI</text>
+      <rect x="24" y="310" width="288" height="30" rx="6" fill="#14532D"/>
+      <text x="168" y="330" fill="#86EFAC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Recommended Household Strategy</text>
+    </g>
+
+    <!-- +$250/mo Extra Principal -->
+    <g transform="translate(744, 0)">
+      <rect width="336" height="360" rx="14" fill="url(#card-grad-lp)" stroke="#334155" stroke-width="1.5"/>
+      <rect x="2" y="2" width="332" height="4" rx="2" fill="url(#cobalt-grad-lp)"/>
+      <text x="24" y="48" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="20" font-weight="700">+$250 / Month Extra</text>
+      <text x="24" y="70" fill="#60A5FA" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">Aggressive Debt Freedom</text>
+      <text x="24" y="135" fill="#60A5FA" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="38" font-weight="800">-$86,412</text>
+      <text x="24" y="160" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">Direct Interest Cash Saved</text>
+      <line x1="24" y1="190" x2="310" y2="190" stroke="#334155" stroke-width="1"/>
+      <text x="24" y="225" fill="#93C5FD" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">✅ <strong>8 Years 4 Months</strong> Shaved Off</text>
+      <text x="24" y="255" fill="#93C5FD" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">✅ New Tenure: <strong>21 Years 8 Mos</strong></text>
+      <text x="24" y="285" fill="#93C5FD" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">✅ Equity Builds 2.4x Faster</text>
+      <rect x="24" y="310" width="288" height="30" rx="6" fill="#1E293B"/>
+      <text x="168" y="330" fill="#93C5FD" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Accelerated Amortization Power</text>
+    </g>
+  </g>
+
+  <!-- Bottom Global Trust Ribbon -->
+  <g transform="translate(60, 608)">
+    <circle cx="6" cy="6" r="4" fill="#C6FF00"/>
+    <text x="20" y="10" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12">
+      Simulate custom prepayment schedules on Commeronix Loan EMI Calculator • commeronix.com/loan-calculator
+    </text>
+  </g>
+</svg>
+

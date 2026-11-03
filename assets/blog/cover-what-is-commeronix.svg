@@ -1,0 +1,234 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" fill="none">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bg-radial-cx" cx="50%" cy="0%" r="90%">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="50%" stop-color="#0B0C10"/>
+      <stop offset="100%" stop-color="#050608"/>
+    </radialGradient>
+    
+    <!-- Cobalt & Lime Gradients -->
+    <linearGradient id="cobalt-grad-cx" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="50%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+
+    <linearGradient id="lime-grad-cx" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2FF4D"/>
+      <stop offset="100%" stop-color="#C6FF00"/>
+    </linearGradient>
+
+    <linearGradient id="card-grad-cx" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#161F30" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.98"/>
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="soft-glow-cx" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="box-shadow-cx" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.65"/>
+    </filter>
+
+    <!-- Tech Grid Pattern -->
+    <pattern id="tech-grid-cx" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2563EB" stroke-width="1" stroke-opacity="0.08"/>
+      <circle cx="40" cy="40" r="1" fill="#60A5FA" fill-opacity="0.25"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#bg-radial-cx)"/>
+  <rect width="1200" height="675" fill="url(#tech-grid-cx)"/>
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="200" cy="200" r="190" fill="#2563EB" fill-opacity="0.1" filter="url(#soft-glow-cx)"/>
+  <circle cx="1020" cy="220" r="180" fill="#C6FF00" fill-opacity="0.08" filter="url(#soft-glow-cx)"/>
+
+  <!-- Outer Hairline Frame -->
+  <rect x="24" y="24" width="1152" height="627" rx="16" stroke="#2563EB" stroke-opacity="0.25" stroke-width="1.5"/>
+
+  <!-- Top Header Bar -->
+  <g transform="translate(60, 56)">
+    <!-- Brand / Topic Badge -->
+    <rect width="210" height="34" rx="17" fill="#1E293B" stroke="#3B82F6" stroke-opacity="0.4" stroke-width="1"/>
+    <circle cx="17" cy="17" r="5" fill="#3B82F6"/>
+    <text x="32" y="22" fill="#93C5FD" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">PLATFORM ARCHITECTURE</text>
+
+    <!-- Topic Title -->
+    <text x="0" y="80" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="34" font-weight="800" letter-spacing="-0.5">
+      What is Commeronix?
+    </text>
+    <text x="365" y="80" fill="#C6FF00" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="34" font-weight="800" letter-spacing="-0.5">
+      Free Online Tools &amp; Web Utilities
+    </text>
+
+    <!-- Subtitle -->
+    <text x="0" y="112" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="500">
+      Zero-Server Client-Side Computing • 100% Privacy by Design • Instant Browser Execution
+    </text>
+  </g>
+
+  <!-- 3 Pillar Feature Cards -->
+  <g transform="translate(60, 205)">
+    <!-- Card 1: Text & Content Tools -->
+    <g transform="translate(0, 0)" filter="url(#box-shadow-cx)">
+      <rect width="336" height="375" rx="14" fill="url(#card-grad-cx)" stroke="#334155" stroke-width="1.5"/>
+      <rect x="2" y="2" width="332" height="4" rx="2" fill="url(#cobalt-grad-cx)"/>
+      
+      <!-- Icon & Header -->
+      <rect x="24" y="28" width="46" height="46" rx="10" fill="#1E293B" stroke="#3B82F6" stroke-opacity="0.5"/>
+      <text x="37" y="58" font-size="22">✍️</text>
+      
+      <text x="82" y="46" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="17" font-weight="700">Text &amp; Content Suite</text>
+      <text x="82" y="66" fill="#60A5FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600">8 In-Browser Utilities</text>
+
+      <!-- Tool Items -->
+      <g transform="translate(24, 100)">
+        <rect width="288" height="46" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+        <text x="14" y="28" fill="#F1F5F9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">Word &amp; Character Counter</text>
+        <rect x="220" y="14" width="54" height="20" rx="4" fill="#0F172A"/>
+        <text x="247" y="28" fill="#C6FF00" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" text-anchor="middle">LIVE</text>
+      </g>
+
+      <g transform="translate(24, 156)">
+        <rect width="288" height="46" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+        <text x="14" y="28" fill="#F1F5F9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">Text Compare &amp; Diff Checker</text>
+        <rect x="220" y="14" width="54" height="20" rx="4" fill="#0F172A"/>
+        <text x="247" y="28" fill="#60A5FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" text-anchor="middle">DIFF</text>
+      </g>
+
+      <g transform="translate(24, 212)">
+        <rect width="288" height="46" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+        <text x="14" y="28" fill="#F1F5F9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">Deduplicate &amp; Slugify</text>
+        <rect x="220" y="14" width="54" height="20" rx="4" fill="#0F172A"/>
+        <text x="247" y="28" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" text-anchor="middle">CLEAN</text>
+      </g>
+
+      <!-- Badge Footer -->
+      <g transform="translate(24, 282)">
+        <text x="0" y="20" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" line-height="1.5">
+          Eliminate editorial bottlenecks with
+        </text>
+        <text x="0" y="38" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12">
+          instant regex &amp; string manipulations.
+        </text>
+        <rect y="52" width="130" height="24" rx="6" fill="#1E293B" stroke="#2563EB" stroke-opacity="0.4"/>
+        <text x="65" y="68" fill="#60A5FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" text-anchor="middle">0ms Network Latency</text>
+      </g>
+    </g>
+
+    <!-- Card 2: Image & Media Tools (Hero Center) -->
+    <g transform="translate(372, 0)" filter="url(#box-shadow-cx)">
+      <rect width="336" height="375" rx="14" fill="url(#card-grad-cx)" stroke="#2563EB" stroke-width="2"/>
+      <rect x="2" y="2" width="332" height="4" rx="2" fill="url(#lime-grad-cx)"/>
+      
+      <!-- Icon & Header -->
+      <rect x="24" y="28" width="46" height="46" rx="10" fill="#1E293B" stroke="#C6FF00" stroke-opacity="0.6"/>
+      <text x="37" y="58" font-size="22">🖼️</text>
+      
+      <text x="82" y="46" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="17" font-weight="700">Image &amp; Media Studio</text>
+      <text x="82" y="66" fill="#C6FF00" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600">7 Client-Side Canvas Tools</text>
+
+      <!-- Tool Items -->
+      <g transform="translate(24, 100)">
+        <rect width="288" height="46" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+        <text x="14" y="28" fill="#F1F5F9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">Image Compressor (90%+)</text>
+        <rect x="210" y="14" width="64" height="20" rx="4" fill="#064E3B"/>
+        <text x="242" y="28" fill="#34D399" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" text-anchor="middle">LOSSLESS</text>
+      </g>
+
+      <g transform="translate(24, 156)">
+        <rect width="288" height="46" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+        <text x="14" y="28" fill="#F1F5F9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">WebP / JPG / PNG Converter</text>
+        <rect x="210" y="14" width="64" height="20" rx="4" fill="#1E1B4B"/>
+        <text x="242" y="28" fill="#A78BFA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" text-anchor="middle">WEB-READY</text>
+      </g>
+
+      <g transform="translate(24, 212)">
+        <rect width="288" height="46" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+        <text x="14" y="28" fill="#F1F5F9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">Social Aspect Ratio Resizer</text>
+        <rect x="210" y="14" width="64" height="20" rx="4" fill="#0F172A"/>
+        <text x="242" y="28" fill="#C6FF00" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" text-anchor="middle">PRESETS</text>
+      </g>
+
+      <!-- Badge Footer -->
+      <g transform="translate(24, 282)">
+        <text x="0" y="20" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12">
+          Hardware-accelerated HTML5 Canvas
+        </text>
+        <text x="0" y="38" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12">
+          renders directly in your browser.
+        </text>
+        <rect y="52" width="160" height="24" rx="6" fill="#14532D" stroke="#22C55E" stroke-opacity="0.4"/>
+        <text x="80" y="68" fill="#86EFAC" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" text-anchor="middle">🔒 Zero File Uploads</text>
+      </g>
+    </g>
+
+    <!-- Card 3: Financial & Math Engines -->
+    <g transform="translate(744, 0)" filter="url(#box-shadow-cx)">
+      <rect width="336" height="375" rx="14" fill="url(#card-grad-cx)" stroke="#334155" stroke-width="1.5"/>
+      <rect x="2" y="2" width="332" height="4" rx="2" fill="url(#cobalt-grad-cx)"/>
+      
+      <!-- Icon & Header -->
+      <rect x="24" y="28" width="46" height="46" rx="10" fill="#1E293B" stroke="#3B82F6" stroke-opacity="0.5"/>
+      <text x="37" y="58" font-size="22">🧮</text>
+      
+      <text x="82" y="46" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="17" font-weight="700">Financial &amp; Math</text>
+      <text x="82" y="66" fill="#60A5FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600">4 Computational Calculators</text>
+
+      <!-- Tool Items -->
+      <g transform="translate(24, 100)">
+        <rect width="288" height="46" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+        <text x="14" y="28" fill="#F1F5F9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">Loan &amp; EMI Amortization</text>
+        <rect x="220" y="14" width="54" height="20" rx="4" fill="#0F172A"/>
+        <text x="247" y="28" fill="#60A5FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" text-anchor="middle">TABLES</text>
+      </g>
+
+      <g transform="translate(24, 156)">
+        <rect width="288" height="46" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+        <text x="14" y="28" fill="#F1F5F9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">Live Currency Rates (160+)</text>
+        <rect x="220" y="14" width="54" height="20" rx="4" fill="#0F172A"/>
+        <text x="247" y="28" fill="#C6FF00" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" text-anchor="middle">FOREX</text>
+      </g>
+
+      <g transform="translate(24, 212)">
+        <rect width="288" height="46" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+        <text x="14" y="28" fill="#F1F5F9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">Scientific &amp; Unit Converter</text>
+        <rect x="220" y="14" width="54" height="20" rx="4" fill="#0F172A"/>
+        <text x="247" y="28" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" text-anchor="middle">NIST</text>
+      </g>
+
+      <!-- Badge Footer -->
+      <g transform="translate(24, 282)">
+        <text x="0" y="20" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12">
+          Strict reducing-balance compounding
+        </text>
+        <text x="0" y="38" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12">
+          and verified NIST precision factors.
+        </text>
+        <rect y="52" width="146" height="24" rx="6" fill="#1E293B" stroke="#2563EB" stroke-opacity="0.4"/>
+        <text x="73" y="68" fill="#60A5FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" text-anchor="middle">100% Free • No Sign-Up</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Global Trust Ribbon -->
+  <g transform="translate(60, 608)">
+    <circle cx="6" cy="6" r="4" fill="#C6FF00"/>
+    <text x="20" y="10" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="500">
+      Zero tracking cookies • No server storage • 100% client-side execution • Built for privacy, speed, and precision
+    </text>
+    <text x="1080" y="10" fill="#60A5FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="end">
+      commeronix.com/tools
+    </text>
+  </g>
+</svg>
+

@@ -1,6 +1,6 @@
 /**
  * COMMERONIX - CURRENCY CONVERTER ENGINE
- * Fetches real-time foreign exchange data supporting 40+ world currencies including PKR, USD, EUR, GBP, AED, SAR, INR.
+ * Fetches real-time foreign exchange data supporting 39 world currencies including PKR, USD, EUR, GBP, AED, SAR, INR.
  * Includes multi-tier live feeds, optional custom API key support, offline resilience,
  * instant pair swapping, quick-convert chips, and inverse rates.
  */
@@ -332,9 +332,9 @@
     const singleRate = toInUsd / fromInUsd;
     const convertedTotal = amount * singleRate;
     const inverseRate = 1 / singleRate;
-    const today = `${new Date().toISOString().split('T')[0]} (Cached Benchmark)`;
+    const fallbackLabel = 'Offline Fallback Estimates (Static stored benchmark &ndash; rates may be outdated)';
 
-    displayResults(amount, convertedTotal, singleRate, inverseRate, today, fromCurr, toCurr, true);
+    displayResults(amount, convertedTotal, singleRate, inverseRate, fallbackLabel, fromCurr, toCurr, true);
 
     convertBtn.disabled = false;
     convertBtn.innerHTML = `
@@ -361,7 +361,12 @@
     resultAmountElem.innerHTML = `<span class="currency-symbol">${toCurrencyObj.symbol}</span> ${formattedTotal} <span style="font-size: 1.25rem; font-weight: 500; color: var(--text-muted);">${to}</span>`;
     resultRateElem.textContent = `1 ${from} = ${formattedRate} ${to}`;
     resultInverseElem.textContent = `1 ${to} = ${formattedInverse} ${from}`;
-    resultDateElem.textContent = `Market Rate Date: ${dateStr} ${isOffline ? '(Offline Backup Mode)' : '(Live Interbank Spot Rate)'}`;
+    if (isOffline) {
+      resultDateElem.textContent = `Rate Status: ${dateStr}`;
+      showAlert('Operating in offline fallback mode with static stored benchmark rates. Because live market feeds were unreachable, these figures may be outdated. Reconnect to the internet for current rates.', false);
+    } else {
+      resultDateElem.textContent = `Reference Rate Date: ${dateStr} (Mid-Market Benchmark)`;
+    }
 
     resultBox.style.display = 'block';
 

@@ -9,18 +9,80 @@
   <meta name="theme-color" content="#2563eb">
   <link rel="canonical" href="https://commeronix.com/case-converter">
 
-  <!-- Schema.org WebApplication -->
+    <!-- Schema.org Structured Data: BreadcrumbList, WebApplication, FAQPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Commeronix Case Converter",
-    "url": "https://commeronix.com/case-converter",
-    "applicationCategory": "UtilityApplication",
-    "operatingSystem": "All",
-    "browserRequirements": "Requires JavaScript",
-    "description": "Convert strings between all major programming and typography cases instantly.",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://commeronix.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Case Converter",
+            "item": "https://commeronix.com/case-converter"
+          }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Commeronix Multi-Format Case Converter",
+        "url": "https://commeronix.com/case-converter",
+        "description": "Transform bulk text between UPPERCASE, lowercase, Title Case, sentence case, camelCase, kebab-case, snake_case, and PascalCase instantly client-side.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the difference between Title Case and Sentence case?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Title Case capitalizes the first letter of major words while keeping minor words (such as articles, coordinating conjunctions, and prepositions like 'and', 'the', 'of') lowercase. Sentence case capitalizes only the first letter of the first word in a sentence and proper nouns, mirroring standard grammatical prose."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "When should programmers use camelCase vs snake_case vs kebab-case?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "camelCase is standard for variable and method names in JavaScript, Java, and TypeScript. snake_case is standard for Python variables, database column names, and SQL identifiers. kebab-case is standard for URL permalink slugs, CSS class selectors, and HTML custom attributes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can this tool convert programming code with punctuation?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The conversion engine identifies word boundaries across underscores, hyphens, and whitespace while preserving internal numbers and special characters according to the target convention."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my text private when using this converter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, 100%. All string parsing is executed in your local browser using client-side JavaScript. No text is ever uploaded or recorded on any server."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
 
@@ -40,6 +102,17 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.json">
+
+  <!-- Open Graph / Social Media Metadata -->
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Commeronix">
+  <meta property="og:title" content="Case Converter — Upper, Lower, Title & Camel | Commeronix">
+  <meta property="og:description" content="Convert text to UPPERCASE, lowercase, Title Case, Sentence case, camelCase, kebab-case, and snake_case instantly online. Fast, free, and client-side.">
+  <meta property="og:url" content="https://commeronix.com/case-converter">
+  <meta property="og:image" content="https://commeronix.com/assets/favicon.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@commeronix">
 </head>
 <body>
 
@@ -98,7 +171,7 @@
               </div>
             </li>
 
-            <li><a href="/blog" class="nav-link">Blog</a></li>
+            <li><a href="/blog/" class="nav-link">Blog</a></li>
             <li><a href="/about" class="nav-link">About</a></li>
           </ul>
 
@@ -136,7 +209,7 @@
     </div>
     <a href="/" class="nav-link">Home</a>
     <a href="/tools" class="nav-link">All Tools Directory</a>
-    <a href="/blog" class="nav-link">Blog &amp; Guides</a>
+    <a href="/blog/" class="nav-link">Blog &amp; Guides</a>
     <a href="/about" class="nav-link">About Us</a>
     <a href="/contact" class="nav-link">Contact Us</a>
     <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
@@ -192,37 +265,95 @@
 
       </div>
 
-      <!-- Educational Content Section -->
-      <section class="article-container" style="margin-top: 2rem; box-shadow: none;">
-        <h2>Common Naming Conventions in Programming and Publishing</h2>
-        <p>Consistent casing is critical for developers, API architects, technical writers, and content marketers. Here is an overview of when each casing standard is typically employed:</p>
+            <!-- Rich SEO Educational Content Section -->
+      <section class="seo-content-section" style="margin-top: 3.5rem;">
+        <h2>The Role of Text Casing in Software Engineering &amp; Publishing</h2>
+        <p>
+          Text casing is more than an aesthetic typography preference; it is a critical communication standard across software engineering, editorial journalism, database architecture, and search engine optimization. An accidental casing mismatch in a URL slug can cause duplicate indexing issues, while inconsistent casing in a codebase can trigger runtime compiler errors or API payload serialization bugs.
+        </p>
+        <p>
+          Commeronix Case Converter delivers real-time bulk text transformation across 10 distinct stylistic conventions. Operating entirely client-side, the engine splits string tokens on whitespace, underscores, hyphens, and uppercase transitions, allowing you to reformat thousands of words in a single click without privacy risks.
+        </p>
 
-        <div style="overflow-x: auto;">
-          <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem;">
+        <h2>Common Casing Standards: Syntax Rules &amp; Best Practices</h2>
+        <p>
+          Each casing convention serves dedicated technical and editorial environments. Understanding where each standard applies ensures maximum readability and syntactic compliance:
+        </p>
+        <div style="overflow-x: auto; margin: 1.5rem 0;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.925rem;">
             <thead>
-              <tr style="border-bottom: 2px solid var(--border-card); text-align: left;">
+              <tr style="border-bottom: 2px solid var(--border-subtle); text-align: left;">
                 <th style="padding: 0.75rem;">Case Style</th>
+                <th style="padding: 0.75rem;">Syntax Pattern</th>
                 <th style="padding: 0.75rem;">Example</th>
                 <th style="padding: 0.75rem;">Primary Use Cases</th>
               </tr>
             </thead>
             <tbody>
-              <tr style="border-bottom: 1px solid var(--border-subtle);"><td style="padding: 0.75rem;"><strong>Title Case</strong></td><td style="padding: 0.75rem; font-family: var(--font-mono);">How to Optimize Code</td><td style="padding: 0.75rem;">Blog titles, article headlines, H1/H2 tags</td></tr>
-              <tr style="border-bottom: 1px solid var(--border-subtle);"><td style="padding: 0.75rem;"><strong>camelCase</strong></td><td style="padding: 0.75rem; font-family: var(--font-mono);">userAccountBalance</td><td style="padding: 0.75rem;">JavaScript, Java, TypeScript variable & method names</td></tr>
-              <tr style="border-bottom: 1px solid var(--border-subtle);"><td style="padding: 0.75rem;"><strong>kebab-case</strong></td><td style="padding: 0.75rem; font-family: var(--font-mono);">article-header-tag</td><td style="padding: 0.75rem;">CSS classes, URL slugs, HTML custom elements</td></tr>
-              <tr style="border-bottom: 1px solid var(--border-subtle);"><td style="padding: 0.75rem;"><strong>snake_case</strong></td><td style="padding: 0.75rem; font-family: var(--font-mono);">database_record_id</td><td style="padding: 0.75rem;">Python variables, SQL column names, database keys</td></tr>
-              <tr style="border-bottom: 1px solid var(--border-subtle);"><td style="padding: 0.75rem;"><strong>PascalCase</strong></td><td style="padding: 0.75rem; font-family: var(--font-mono);">UserAccountModel</td><td style="padding: 0.75rem;">Classes, interfaces, React / Vue components</td></tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 0.75rem;"><strong>Title Case</strong></td>
+                <td style="padding: 0.75rem;">Capitalize Major Words</td>
+                <td style="padding: 0.75rem; font-family: var(--font-mono);">The Anatomy of High-Performance Code</td>
+                <td style="padding: 0.75rem;">Article headlines, H1/H2 tags, book titles, email subject lines.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 0.75rem;"><strong>Sentence case</strong></td>
+                <td style="padding: 0.75rem;">Capitalize First Word Only</td>
+                <td style="padding: 0.75rem; font-family: var(--font-mono);">The anatomy of high-performance code</td>
+                <td style="padding: 0.75rem;">Body paragraphs, UI button labels, modern documentation.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 0.75rem;"><strong>camelCase</strong></td>
+                <td style="padding: 0.75rem;">lowercaseFirstWordThenCapital</td>
+                <td style="padding: 0.75rem; font-family: var(--font-mono);">userAccountBalance</td>
+                <td style="padding: 0.75rem;">JavaScript, TypeScript, Swift, Java variable &amp; method names.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 0.75rem;"><strong>PascalCase</strong></td>
+                <td style="padding: 0.75rem;">CapitalizeEveryWord</td>
+                <td style="padding: 0.75rem; font-family: var(--font-mono);">UserAccountModel</td>
+                <td style="padding: 0.75rem;">Classes, interfaces, React/Vue components, C# types.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 0.75rem;"><strong>snake_case</strong></td>
+                <td style="padding: 0.75rem;">lowercase_with_underscores</td>
+                <td style="padding: 0.75rem; font-family: var(--font-mono);">user_account_balance</td>
+                <td style="padding: 0.75rem;">Python variables, PostgreSQL / MySQL column names, JSON API keys.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 0.75rem;"><strong>kebab-case</strong></td>
+                <td style="padding: 0.75rem;">lowercase-with-hyphens</td>
+                <td style="padding: 0.75rem; font-family: var(--font-mono);">user-account-balance</td>
+                <td style="padding: 0.75rem;">SEO-friendly URL slugs, CSS class names, HTML custom elements.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 0.75rem;"><strong>UPPERCASE</strong></td>
+                <td style="padding: 0.75rem;">ALL CAPS</td>
+                <td style="padding: 0.75rem; font-family: var(--font-mono);">MAX_BUFFER_CAPACITY</td>
+                <td style="padding: 0.75rem;">Constants, environment variables, SQL keywords, legal notices.</td>
+              </tr>
             </tbody>
           </table>
         </div>
 
-        <div class="article-tool-cta">
-          <div>
-            <h4 style="font-size: 1.1rem; margin-bottom: 0.35rem;">Working on URL permalinks?</h4>
-            <p style="font-size: 0.9rem; margin-bottom: 0;">Try our dedicated Text to Slug Converter for technical SEO.</p>
-          </div>
-          <a href="/text-to-slug" class="btn-lime">Try Text to Slug →</a>
-        </div>
+        <h2>Title Case Rules: AP Style vs. Chicago Manual of Style</h2>
+        <p>
+          One of the most frequent editorial dilemmas is determining which words should be capitalized in Title Case. Major style guides agree on basic principles:
+        </p>
+        <ul>
+          <li><strong>Always Capitalize:</strong> The first and last words of the title, regardless of their part of speech, as well as all nouns, pronouns, verbs, adjectives, and adverbs.</li>
+          <li><strong>Keep Lowercase:</strong> Articles (<em>a, an, the</em>), coordinating conjunctions (<em>and, but, or, for, nor</em>), and short prepositions (<em>in, on, at, by, for, of, to, up</em>) unless they begin or end the title.</li>
+          <li><strong>Chicago vs. AP Nuance:</strong> The Chicago Manual of Style keeps all prepositions lowercase regardless of length (e.g., <em>throughout, between</em>), whereas AP Style capitalizes prepositions containing four or more letters (e.g., <em>Through, Between</em>). Our Title Case converter follows clean web-editorial conventions.</li>
+        </ul>
+
+        <h2>Step-by-Step Guide: How to Convert Text Casing</h2>
+        <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.8;">
+          <li><strong>Paste Your Text:</strong> Type or paste your paragraphs, list items, or code strings into the input workspace.</li>
+          <li><strong>Check Real-Time Metrics:</strong> The statistics strip instantly reflects character count, word count, and line count.</li>
+          <li><strong>Select a Transformation Style:</strong> Click any transform button (e.g. <strong>Title Case</strong> for articles, <strong>camelCase</strong> for variables, or <strong>kebab-case</strong> for URL segments). The text updates instantly.</li>
+          <li><strong>Copy or Download:</strong> Click <strong>📋 Copy Text</strong> to copy the output to your clipboard, or click <strong>💾 Download .txt</strong> to save a clean text file.</li>
+        </ol>
+
         <!-- Strategic Guide Callout -->
         <div style="background: var(--bg-surface-raised); border-left: 4px solid var(--accent-primary); border-radius: var(--radius-md); padding: 1.25rem 1.5rem; margin: 2rem 0; display: flex; flex-direction: column; gap: 0.5rem;">
           <div style="display: flex; align-items: center; gap: 0.5rem;">
@@ -240,12 +371,10 @@
         </div>
 
         <!-- Related Text & Content Tools Grid -->
-        <div style="margin-top: 2.5rem;">
-          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Complementary Text &amp; Editorial Utilities</h3>
-          <p style="color: var(--text-secondary); font-size: 0.925rem; margin-bottom: 1.25rem;">
-            Streamline your writing, editing, and publishing workflow with our high-speed browser-based text processors:
-          </p>
-          <div class="tool-cards-grid">
+        <div style="margin: 2.5rem 0;">
+          <h2>Complementary Text &amp; Editorial Utilities</h2>
+          <p>Streamline your publishing and copywriting workflow with our browser-based text processors:</p>
+          <div class="tool-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 1.25rem;">
             <a href="/word-counter" class="util-card">
               <div class="util-icon-box">&#128221;</div>
               <div class="util-title">Word Counter</div>
@@ -273,21 +402,118 @@
                 <span class="util-cta-link">Generate Slug &rarr;</span>
               </div>
             </a>
+            <a href="/remove-duplicate-lines" class="util-card">
+              <div class="util-icon-box">&#9986;&#65039;</div>
+              <div class="util-title">Remove Duplicate Lines</div>
+              <div class="util-desc">Clean data lists, deduplicate log files, and sort text arrays alphabetically with customizable case sensitivity.</div>
+              <div class="util-meta">
+                <span class="badge-cobalt" style="font-size: 0.75rem;">Deduplication</span>
+                <span class="util-cta-link">Deduplicate &rarr;</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Frequently Asked Questions Accordion -->
+        <div class="faq-section">
+          <h2>Frequently Asked Questions (FAQ)</h2>
+
+          <div class="faq-item active">
+            <button class="faq-question" type="button">
+              <span>What is the difference between Title Case and Sentence case?</span>
+              <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Title Case capitalizes the first letter of major words while keeping minor words (such as articles, coordinating conjunctions, and prepositions like 'and', 'the', 'of') lowercase. Sentence case capitalizes only the first letter of the first word in a sentence and proper nouns, mirroring standard grammatical prose.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>When should programmers use camelCase vs snake_case vs kebab-case?</span>
+              <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              camelCase is standard for variable and method names in JavaScript, Java, and TypeScript. snake_case is standard for Python variables, database column names, and SQL identifiers. kebab-case is standard for URL permalink slugs, CSS class selectors, and HTML custom attributes.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Can this tool convert programming code with punctuation?</span>
+              <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Yes. The conversion engine identifies word boundaries across underscores, hyphens, and whitespace while preserving internal numbers and special characters according to the target convention.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Is my text private when using this converter?</span>
+              <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Yes, 100%. All string parsing is executed in your local browser using client-side JavaScript. No text is ever uploaded or recorded on any server.
+            </div>
           </div>
         </div>
       </section>
-
     </div>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="brand-logo" style="margin-bottom: 0.5rem;" title="Commeronix Home">
+            <img src="/assets/favicon.svg" alt="Commeronix Logo" width="34" height="34" class="logo-icon-svg">
+            <span>Commero<span class="brand-accent">nix</span></span>
+          </a>
+          <p class="footer-desc">
+            Commeronix is a privacy-first web utility suite providing fast client-side image processing, text manipulation, financial calculations, and measurement conversions.
+          </p>
+          <div class="footer-badge">
+            <span class="footer-dot"></span> 100% Free &amp; Client-Side Computing
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Free Online Tools</h4>
+          <ul class="footer-links">
+            <li><a href="/calculator">Live Scientific Calculator</a></li>
+            <li><a href="/currency-converter">Live Currency Converter</a></li>
+            <li><a href="/unit-converter">Universal Unit Converter</a></li>
+            <li><a href="/loan-calculator">Loan &amp; EMI Calculator</a></li>
+            <li><a href="/tools">All 19+ Web Utilities</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Resources &amp; Company</h4>
+          <ul class="footer-links">
+            <li><a href="/blog/">Engineering Blog</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact Support</a></li>
+            <li><a href="/privacy-policy">Privacy Policy &amp; Cookies</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
       <div class="footer-bottom">
-        <p>&copy; 2026 Commeronix. All rights reserved. Free web utilities.</p>
-        <div class="footer-legal-links">
-          <a href="/privacy-policy">Privacy Policy</a>
-          <a href="/terms">Terms</a>
-          <a href="/tools">All Tools</a>
+        <p>&copy; <span id="current-year">2026</span> Commeronix. All rights reserved.</p>
+        <div class="footer-disclaimer">
+          All utilities operate directly inside your browser. No files, text, or images are uploaded to remote cloud storage.
         </div>
       </div>
     </div>

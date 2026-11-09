@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -9,18 +9,80 @@
   <meta name="theme-color" content="#2563eb">
   <link rel="canonical" href="https://commeronix.com/remove-duplicate-lines">
 
-  <!-- Schema.org WebApplication -->
+    <!-- Schema.org Structured Data: BreadcrumbList, WebApplication, FAQPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Commeronix Duplicate Line Remover",
-    "url": "https://commeronix.com/remove-duplicate-lines",
-    "applicationCategory": "UtilityApplication",
-    "operatingSystem": "All",
-    "browserRequirements": "Requires JavaScript",
-    "description": "Deduplicate text lists, remove empty lines, and sort lines alphabetically client-side.",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://commeronix.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Remove Duplicate Lines",
+            "item": "https://commeronix.com/remove-duplicate-lines"
+          }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Commeronix Duplicate Line Remover & Text Sanitizer",
+        "url": "https://commeronix.com/remove-duplicate-lines",
+        "description": "Deduplicate text lists, log files, email arrays, and SQL values client-side. Features case sensitivity toggles, whitespace trimming, and alphabetical sorting.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does client-side duplicate line filtering work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The tool splits your input string across newline characters, normalizes whitespace based on your selected settings, and loads each unique item into a JavaScript Set data structure. Because Sets only store unique values, duplicates are eliminated in O(N) linear time complexity."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between case-sensitive and case-insensitive deduplication?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Case-sensitive deduplication treats 'Apple' and 'apple' as two distinct entries. Case-insensitive deduplication normalizes all casing during comparison, keeping only the first occurrence and removing variants regardless of capital letters."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I process large files like server access logs or email lists?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Because processing runs in local memory via high-performance JavaScript engines (V8 / SpiderMonkey), lists containing over 50,000 lines can be deduplicated in milliseconds without network timeouts."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are my private subscriber emails or customer lists saved on your servers?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Never. Commeronix does not upload or log your text data. All processing occurs locally in your browser memory."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
 
@@ -40,6 +102,17 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.json">
+
+  <!-- Open Graph / Social Media Metadata -->
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Commeronix">
+  <meta property="og:title" content="Remove Duplicate Lines — Free Text Deduplicator | Commeronix">
+  <meta property="og:description" content="Remove duplicate lines from text lists, CSV rows, and code files online. Trim whitespace, ignore case sensitivity, and sort output alphabetically client-side.">
+  <meta property="og:url" content="https://commeronix.com/remove-duplicate-lines">
+  <meta property="og:image" content="https://commeronix.com/assets/favicon.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@commeronix">
 </head>
 <body>
 
@@ -98,7 +171,7 @@
               </div>
             </li>
 
-            <li><a href="/blog" class="nav-link">Blog</a></li>
+            <li><a href="/blog/" class="nav-link">Blog</a></li>
             <li><a href="/about" class="nav-link">About</a></li>
           </ul>
 
@@ -136,7 +209,7 @@
     </div>
     <a href="/" class="nav-link">Home</a>
     <a href="/tools" class="nav-link">All Tools Directory</a>
-    <a href="/blog" class="nav-link">Blog &amp; Guides</a>
+    <a href="/blog/" class="nav-link">Blog &amp; Guides</a>
     <a href="/about" class="nav-link">About Us</a>
     <a href="/contact" class="nav-link">Contact Us</a>
     <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
@@ -216,9 +289,59 @@
 
       </div>
 
-      <section class="article-container" style="margin-top: 2rem; box-shadow: none;">
-        <h2>The Importance of Data Cleansing in Outreach and Development</h2>
-        <p>Duplicate entries in databases, keyword research spreadsheets, and newsletter subscriber lists waste computational resources and can trigger email deliverability penalties. Deduplicating records client-side guarantees your proprietary lists never touch third-party servers.</p>
+            <!-- Rich SEO Educational Content Section -->
+      <section class="seo-content-section" style="margin-top: 3.5rem;">
+        <h2>The Importance of Data Hygiene &amp; Line Deduplication</h2>
+        <p>
+          Managing large text datasets is a frequent challenge across software engineering, search engine marketing, email outreach, and system administration. Duplicate entries in email campaigns waste marketing spend and trigger spam filters; redundant rows in SQL seed scripts trigger primary key constraint errors; and repetitive URLs in sitemaps waste search engine crawl budgets.
+        </p>
+        <p>
+          Commeronix Remove Duplicate Lines provides instant, client-side list sanitization. By employing optimized JavaScript <code>Set</code> collections, the tool processes tens of thousands of lines in milliseconds, providing instant statistics on total lines, unique entries, and removed redundancies without exposing private records over the internet.
+        </p>
+
+        <h2>Algorithmic Deduplication Modes: Case Sensitivity &amp; Trimming</h2>
+        <p>
+          Different datasets require tailored deduplication logic to ensure valid data is preserved while cleaning unwanted noise:
+        </p>
+        <div style="overflow-x: auto; margin: 1.5rem 0;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.925rem;">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--border-subtle); text-align: left;">
+                <th style="padding: 0.75rem;">Setting Option</th>
+                <th style="padding: 0.75rem;">Behavior</th>
+                <th style="padding: 0.75rem;">Typical Example</th>
+                <th style="padding: 0.75rem;">Optimal Application</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 0.75rem;"><strong>Trim Whitespace</strong></td>
+                <td style="padding: 0.75rem;">Strips leading and trailing spaces/tabs before comparison.</td>
+                <td style="padding: 0.75rem; font-family: var(--font-mono);">" item " &rarr; "item"</td>
+                <td style="padding: 0.75rem;">Cleaning user-submitted forms, CSV exports, or unformatted text dumps.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 0.75rem;"><strong>Case Sensitive</strong></td>
+                <td style="padding: 0.75rem;">Preserves casing distinctions during matching.</td>
+                <td style="padding: 0.75rem; font-family: var(--font-mono);">"ID_ABC" &ne; "id_abc"</td>
+                <td style="padding: 0.75rem;">Programming code, Linux environment variables, and hashed tokens.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 0.75rem;"><strong>Case Insensitive</strong></td>
+                <td style="padding: 0.75rem;">Treats uppercase and lowercase variants as identical.</td>
+                <td style="padding: 0.75rem; font-family: var(--font-mono);">"User@Email.com" = "user@email.com"</td>
+                <td style="padding: 0.75rem;">Marketing email lists, keyword research sets, and domain name lists.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 0.75rem;"><strong>Alphabetical Sort (A-Z)</strong></td>
+                <td style="padding: 0.75rem;">Alphabetizes deduplicated lines for structured cataloging.</td>
+                <td style="padding: 0.75rem; font-family: var(--font-mono);">Z, B, A &rarr; A, B, Z</td>
+                <td style="padding: 0.75rem;">Preparing dictionary arrays, glossary items, and ordered index files.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
         <!-- Strategic Guide Callout -->
         <div style="background: var(--bg-surface-raised); border-left: 4px solid var(--accent-primary); border-radius: var(--radius-md); padding: 1.25rem 1.5rem; margin: 2rem 0; display: flex; flex-direction: column; gap: 0.5rem;">
           <div style="display: flex; align-items: center; gap: 0.5rem;">
@@ -236,51 +359,151 @@
         </div>
 
         <!-- Related Text & Content Tools Grid -->
-        <div style="margin-top: 2.5rem;">
-          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Complementary Text &amp; Editorial Utilities</h3>
-          <p style="color: var(--text-secondary); font-size: 0.925rem; margin-bottom: 1.25rem;">
-            Streamline your writing, editing, and publishing workflow with our high-speed browser-based text processors:
-          </p>
-          <div class="tool-cards-grid">
+        <div style="margin: 2.5rem 0;">
+          <h2>Complementary Text &amp; Editorial Utilities</h2>
+          <p>Format, test, and audit text content with our browser-based suite:</p>
+          <div class="tool-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 1.25rem;">
+            <a href="/text-compare" class="util-card">
+              <div class="util-icon-box">&#128269;</div>
+              <div class="util-title">Text Compare / Diff</div>
+              <div class="util-desc">Run side-by-side split comparison to spot character-level additions, deletions, and editorial revisions.</div>
+              <div class="util-meta">
+                <span class="badge-lime" style="font-size: 0.75rem;">Diff Tool</span>
+                <span class="util-cta-link">Compare Drafts &rarr;</span>
+              </div>
+            </a>
+            <a href="/case-converter" class="util-card">
+              <div class="util-icon-box">&#128292;</div>
+              <div class="util-title">Case Converter</div>
+              <div class="util-desc">Transform text between Title Case, UPPERCASE, sentence case, camelCase, and kebab-case.</div>
+              <div class="util-meta">
+                <span class="badge-cobalt" style="font-size: 0.75rem;">Formatting</span>
+                <span class="util-cta-link">Convert Case &rarr;</span>
+              </div>
+            </a>
             <a href="/word-counter" class="util-card">
               <div class="util-icon-box">&#128221;</div>
               <div class="util-title">Word Counter</div>
-              <div class="util-desc">Calculate real-time word counts, characters, sentences, reading time, and top keyword density client-side.</div>
+              <div class="util-desc">Calculate real-time word counts, characters, sentences, reading time, and keyword density.</div>
               <div class="util-meta">
                 <span class="badge-lime" style="font-size: 0.75rem;">Text Metrics</span>
                 <span class="util-cta-link">Count Words &rarr;</span>
               </div>
             </a>
-            <a href="/text-compare" class="util-card">
-              <div class="util-icon-box">&#128269;</div>
-              <div class="util-title">Text Compare / Diff</div>
-              <div class="util-desc">Run side-by-side split comparison to spot character-level additions, deletions, and editorial revisions across two drafts.</div>
+            <a href="/text-to-slug" class="util-card">
+              <div class="util-icon-box">&#128279;</div>
+              <div class="util-title">Text to Slug Generator</div>
+              <div class="util-desc">Generate clean, SEO-optimized URL permalinks from any article title or heading with stop-word elimination.</div>
               <div class="util-meta">
-                <span class="badge-cobalt" style="font-size: 0.75rem;">Diff Tool</span>
-                <span class="util-cta-link">Compare Drafts &rarr;</span>
-              </div>
-            </a>
-            <a href="/case-converter" class="util-card">
-              <div class="util-icon-box">&#128203;</div>
-              <div class="util-title">Case Converter</div>
-              <div class="util-desc">Convert headlines, variables, and body copy between Title Case, UPPERCASE, lowercase, camelCase, and kebab-case instantly.</div>
-              <div class="util-meta">
-                <span class="badge-lime" style="font-size: 0.75rem;">Text Utility</span>
-                <span class="util-cta-link">Launch Tool &rarr;</span>
+                <span class="badge-cobalt" style="font-size: 0.75rem;">SEO Permalink</span>
+                <span class="util-cta-link">Generate Slug &rarr;</span>
               </div>
             </a>
           </div>
         </div>
-      </section>
 
+        <!-- Frequently Asked Questions Accordion -->
+        <div class="faq-section">
+          <h2>Frequently Asked Questions (FAQ)</h2>
+
+          <div class="faq-item active">
+            <button class="faq-question" type="button">
+              <span>How does client-side duplicate line filtering work?</span>
+              <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              The tool splits your input string across newline characters (
+), normalizes whitespace based on your selected settings, and loads each unique item into a JavaScript Set data structure. Because Sets only store unique values, duplicates are eliminated in O(N) linear time complexity.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>What is the difference between case-sensitive and case-insensitive deduplication?</span>
+              <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Case-sensitive deduplication treats 'Apple' and 'apple' as two distinct entries. Case-insensitive deduplication normalizes all casing during comparison, keeping only the first occurrence and removing variants regardless of capital letters.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Can I process large files like server access logs or email lists?</span>
+              <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Yes. Because processing runs in local memory via high-performance JavaScript engines (V8 / SpiderMonkey), lists containing over 50,000 lines can be deduplicated in milliseconds without network timeouts.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Are my private subscriber emails or customer lists saved on your servers?</span>
+              <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Never. Commeronix does not upload or log your text data. All processing occurs locally in your browser memory.
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="brand-logo" style="margin-bottom: 0.5rem;" title="Commeronix Home">
+            <img src="/assets/favicon.svg" alt="Commeronix Logo" width="34" height="34" class="logo-icon-svg">
+            <span>Commero<span class="brand-accent">nix</span></span>
+          </a>
+          <p class="footer-desc">
+            Commeronix is a privacy-first web utility suite providing fast client-side image processing, text manipulation, financial calculations, and measurement conversions.
+          </p>
+          <div class="footer-badge">
+            <span class="footer-dot"></span> 100% Free &amp; Client-Side Computing
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Free Online Tools</h4>
+          <ul class="footer-links">
+            <li><a href="/calculator">Live Scientific Calculator</a></li>
+            <li><a href="/currency-converter">Live Currency Converter</a></li>
+            <li><a href="/unit-converter">Universal Unit Converter</a></li>
+            <li><a href="/loan-calculator">Loan &amp; EMI Calculator</a></li>
+            <li><a href="/tools">All 19+ Web Utilities</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Resources &amp; Company</h4>
+          <ul class="footer-links">
+            <li><a href="/blog/">Engineering Blog</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact Support</a></li>
+            <li><a href="/privacy-policy">Privacy Policy &amp; Cookies</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
       <div class="footer-bottom">
-        <p>&copy; 2026 Commeronix. All rights reserved. Free web utilities.</p>
-        <div class="footer-legal-links"><a href="/privacy-policy">Privacy</a><a href="/terms">Terms</a><a href="/tools">All Tools</a></div>
+        <p>&copy; <span id="current-year">2026</span> Commeronix. All rights reserved.</p>
+        <div class="footer-disclaimer">
+          All utilities operate directly inside your browser. No files, text, or images are uploaded to remote cloud storage.
+        </div>
       </div>
     </div>
   </footer>

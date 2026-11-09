@@ -160,7 +160,7 @@
               </div>
             </li>
 
-            <li><a href="/blog" class="nav-link">Blog</a></li>
+            <li><a href="/blog/" class="nav-link">Blog</a></li>
             <li><a href="/about" class="nav-link">About</a></li>
           </ul>
 
@@ -198,7 +198,7 @@
     </div>
     <a href="/" class="nav-link">Home</a>
     <a href="/tools" class="nav-link">All Tools Directory</a>
-    <a href="/blog" class="nav-link">Blog &amp; Guides</a>
+    <a href="/blog/" class="nav-link">Blog &amp; Guides</a>
     <a href="/about" class="nav-link">About Us</a>
     <a href="/contact" class="nav-link">Contact Us</a>
     <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
@@ -291,9 +291,74 @@
       
 
     </div>
+        <!-- Support Guidelines & Communication Architecture -->
+      <section class="seo-content-section" style="margin-top: 3.5rem;">
+        <h2>Commeronix Support Architecture &amp; Response Policies</h2>
+        <p>
+          At Commeronix, we are committed to providing reliable, privacy-first web utilities. Whether you are an everyday user reporting a conversion edge-case, an engineer proposing a new algorithmic tool, or a security researcher auditing our client-side sandboxes, our technical team reviews every inquiry personally.
+        </p>
+
+        <h2>How to Submit an Effective Bug Report or Tool Proposal</h2>
+        <p>
+          To help us diagnose calculation anomalies or evaluate feature proposals swiftly, please include the following details in your message:
+        </p>
+        <ul>
+          <li><strong>Specific Tool URL:</strong> Mention the exact page (e.g. <code>/loan-calculator</code> or <code>/image-format-converter</code>).</li>
+          <li><strong>Input Data &amp; Expected Result:</strong> Specify the exact numbers, text snippets, or image dimensions you entered, and the expected mathematical or visual output.</li>
+          <li><strong>Browser &amp; Operating System:</strong> Note your browser version (e.g. Chrome 130, Safari 18, Firefox 132) and OS (Windows 11, macOS Sequoia, Android 15, iOS 18).</li>
+          <li><strong>Console Warnings (if applicable):</strong> If you encountered an unexpected error, include any relevant messages logged in your browser's Developer Tools Console.</li>
+        </ul>
+
+        <h2>Data Security &amp; Vulnerability Disclosure Policy</h2>
+        <p>
+          Because all Commeronix tools execute locally within the client browser, we do not store customer databases, user accounts, or server-side session tokens. However, we take client-side security seriously. If you identify a Cross-Site Scripting (XSS) vulnerability, regular expression denial of service (ReDoS), or insecure dependency in our open client bundles, please notify us immediately at <strong>commeronix@gmail.com</strong> with a reproducible Proof of Concept (PoC). We acknowledge disclosures within 24 hours.
+        </p>
+
+        <!-- Frequently Asked Questions Accordion -->
+        <div class="faq-section">
+          <h2>Frequently Asked Questions About Commeronix Support</h2>
+
+          <div class="faq-item active">
+            <button class="faq-question" type="button">
+              <span>What is the expected response turnaround time for email inquiries?</span>
+              <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              We respond to all verified inquiries within 24 to 48 business hours (Monday through Friday). Critical algorithmic bug reports and security vulnerability disclosures receive prioritized attention.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Can I request a custom calculation tool or feature enhancement?</span>
+              <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Yes! Community feedback drives our engineering roadmap. If you need a specialized financial formula, unit conversion metric, or text manipulation utility, submit your proposal via the contact form.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Do you offer paid API access or commercial white-label licensing?</span>
+              <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              All Commeronix tools are 100% free for personal and commercial web usage directly inside the browser. For institutional inquiries or enterprise integration partnerships, please select 'Business / Partnership' in the form subject dropdown.
+            </div>
+          </div>
+        </div>
+      </section>
   </main>
 
   <!-- Footer -->
+    <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
@@ -302,51 +367,46 @@
             <img src="/assets/favicon.svg" alt="Commeronix Logo" width="34" height="34" class="logo-icon-svg">
             <span>Commero<span class="brand-accent">nix</span></span>
           </a>
-          <p>Get in touch with the Commeronix team for support, feature proposals, and data accuracy feedback.</p>
+          <p class="footer-desc">
+            Commeronix is a privacy-first web utility suite providing fast client-side image processing, text manipulation, financial calculations, and measurement conversions.
+          </p>
+          <div class="footer-badge">
+            <span class="footer-dot"></span> 100% Free &amp; Client-Side Computing
+          </div>
         </div>
 
         <div class="footer-col">
-          <h4>Calculators</h4>
+          <h4 class="footer-heading">Free Online Tools</h4>
           <ul class="footer-links">
-            <li><a href="/calculator" class="footer-link">Live Scientific Calculator</a></li>
-            <li><a href="/currency-converter" class="footer-link">Currency Converter</a></li>
-            <li><a href="/unit-converter" class="footer-link">Unit Converter</a></li>
-            <li><a href="/loan-calculator" class="footer-link">Loan & EMI Calculator</a></li>
+            <li><a href="/calculator">Live Scientific Calculator</a></li>
+            <li><a href="/currency-converter">Live Currency Converter</a></li>
+            <li><a href="/unit-converter">Universal Unit Converter</a></li>
+            <li><a href="/loan-calculator">Loan &amp; EMI Calculator</a></li>
+            <li><a href="/tools">All 19+ Web Utilities</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Company</h4>
+          <h4 class="footer-heading">Resources &amp; Company</h4>
           <ul class="footer-links">
-            <li><a href="/about" class="footer-link">About Us</a></li>
-            <li><a href="/contact" class="footer-link">Contact Support</a></li>
-            <li><a href="/privacy-policy" class="footer-link">Privacy Policy</a></li>
-            <li><a href="/terms" class="footer-link">Terms of Service</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Support Inquiries</h4>
-          <ul class="footer-links">
-            <li><span class="footer-link" style="cursor: default;">Email: commeronix@gmail.com</span></li>
-            <li><span class="footer-link" style="cursor: default;">24/48 Hour Turnaround</span></li>
-            <li><span class="footer-link" style="cursor: default;">Open Community Feedback</span></li>
+            <li><a href="/blog/">Engineering Blog</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact Support</a></li>
+            <li><a href="/privacy-policy">Privacy Policy &amp; Cookies</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
+        <p>&copy; <span id="current-year">2026</span> Commeronix. All rights reserved.</p>
         <div class="footer-disclaimer">
-          <strong>Disclaimer:</strong> Communication sent through this website is subject to our Privacy Policy terms. We never sell contact information to unauthorized third-party mailing lists.
-        </div>
-        <div>
-          &copy; <span id="current-year">2026</span> Commeronix. All rights reserved.
+          All utilities operate directly inside your browser. No files, text, or images are uploaded to remote cloud storage.
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="/assets/main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -464,7 +524,7 @@
                 <strong>Network Notice:</strong> Direct API delivery encountered a network interruption. Click below to send directly via your email client to <strong>commeronix@gmail.com</strong>:
                 <div style="margin-top: 0.75rem;">
                   <a href="${mailtoUrl}" class="btn btn-sm btn-primary" style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 0.95rem; text-decoration: none;">
-                    âœ‰ï¸ Open Email Client to Send &rarr;
+                    ✉️ Open Email Client to Send &rarr;
                   </a>
                 </div>
               </div>

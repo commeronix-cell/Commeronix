@@ -196,7 +196,7 @@
               </div>
             </li>
 
-            <li><a href="/blog" class="nav-link">Blog</a></li>
+            <li><a href="/blog/" class="nav-link">Blog</a></li>
             <li><a href="/about" class="nav-link">About</a></li>
           </ul>
 
@@ -234,7 +234,7 @@
     </div>
     <a href="/" class="nav-link">Home</a>
     <a href="/tools" class="nav-link">All Tools Directory</a>
-    <a href="/blog" class="nav-link">Blog &amp; Guides</a>
+    <a href="/blog/" class="nav-link">Blog &amp; Guides</a>
     <a href="/about" class="nav-link">About Us</a>
     <a href="/contact" class="nav-link">Contact Us</a>
     <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
@@ -417,6 +417,41 @@
           <li><strong>Celsius to Kelvin:</strong> Add 273.15 to reach absolute zero thermodynamic baseline. <code>K = °C + 273.15</code></li>
         </ul>
 
+                <!-- Related Financial & Calculation Tools -->
+        <div style="margin: 2.5rem 0;">
+          <h2>Related Calculation &amp; Financial Utilities</h2>
+          <p>Need specialized calculation engines? Explore our related high-precision client-side tools:</p>
+          <div class="tool-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 1.25rem;">
+            <a href="/calculator" class="util-card">
+              <div class="util-icon-box">&#128290;</div>
+              <div class="util-title">Live Scientific Calculator</div>
+              <div class="util-desc">Perform standard arithmetic, algebra, trigonometry, logarithmic scales, and continuous calculation history tape.</div>
+              <div class="util-meta">
+                <span class="badge-lime" style="font-size: 0.75rem;">Calculation</span>
+                <span class="util-cta-link">Calculate Online &rarr;</span>
+              </div>
+            </a>
+            <a href="/currency-converter" class="util-card">
+              <div class="util-icon-box">&#128177;</div>
+              <div class="util-title">Live Currency Converter</div>
+              <div class="util-desc">Convert 40+ global currencies with transparent exchange rates updated from European Central Bank reference benchmarks.</div>
+              <div class="util-meta">
+                <span class="badge-cobalt" style="font-size: 0.75rem;">Forex</span>
+                <span class="util-cta-link">Convert Currency &rarr;</span>
+              </div>
+            </a>
+            <a href="/loan-calculator" class="util-card">
+              <div class="util-icon-box">&#127974;</div>
+              <div class="util-title">Loan EMI Calculator</div>
+              <div class="util-desc">Calculate reducing-balance monthly loan payments, total interest costs, and full amortization schedules.</div>
+              <div class="util-meta">
+                <span class="badge-lime" style="font-size: 0.75rem;">Financial</span>
+                <span class="util-cta-link">Calculate Loan &rarr;</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
         <!-- FAQ Section -->
         <div class="faq-section">
           <h2>Frequently Asked Questions (FAQ)</h2>
@@ -463,6 +498,7 @@
   </main>
 
   <!-- Footer -->
+    <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
@@ -471,51 +507,46 @@
             <img src="/assets/favicon.svg" alt="Commeronix Logo" width="34" height="34" class="logo-icon-svg">
             <span>Commero<span class="brand-accent">nix</span></span>
           </a>
-          <p>Universal multi-category conversion engine for scientific, engineering, and daily imperial/metric calculations.</p>
+          <p class="footer-desc">
+            Commeronix is a privacy-first web utility suite providing fast client-side image processing, text manipulation, financial calculations, and measurement conversions.
+          </p>
+          <div class="footer-badge">
+            <span class="footer-dot"></span> 100% Free &amp; Client-Side Computing
+          </div>
         </div>
 
         <div class="footer-col">
-          <h4>Calculators</h4>
+          <h4 class="footer-heading">Free Online Tools</h4>
           <ul class="footer-links">
-            <li><a href="/calculator" class="footer-link">Live Scientific Calculator</a></li>
-            <li><a href="/currency-converter" class="footer-link">Currency Converter</a></li>
-            <li><a href="/unit-converter" class="footer-link">Unit Converter</a></li>
-            <li><a href="/loan-calculator" class="footer-link">Loan & EMI Calculator</a></li>
+            <li><a href="/calculator">Live Scientific Calculator</a></li>
+            <li><a href="/currency-converter">Live Currency Converter</a></li>
+            <li><a href="/unit-converter">Universal Unit Converter</a></li>
+            <li><a href="/loan-calculator">Loan &amp; EMI Calculator</a></li>
+            <li><a href="/tools">All 19+ Web Utilities</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Company</h4>
+          <h4 class="footer-heading">Resources &amp; Company</h4>
           <ul class="footer-links">
-            <li><a href="/about" class="footer-link">About Us</a></li>
-            <li><a href="/contact" class="footer-link">Contact Support</a></li>
-            <li><a href="/privacy-policy" class="footer-link">Privacy Policy</a></li>
-            <li><a href="/terms" class="footer-link">Terms of Service</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Measurement Standards</h4>
-          <ul class="footer-links">
-            <li><span class="footer-link" style="cursor: default;">NIST Reference Factors</span></li>
-            <li><span class="footer-link" style="cursor: default;">SI International Standard</span></li>
-            <li><span class="footer-link" style="cursor: default;">BIPM Calibration</span></li>
+            <li><a href="/blog/">Engineering Blog</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact Support</a></li>
+            <li><a href="/privacy-policy">Privacy Policy &amp; Cookies</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
+        <p>&copy; <span id="current-year">2026</span> Commeronix. All rights reserved.</p>
         <div class="footer-disclaimer">
-          <strong>Disclaimer:</strong> Unit conversions are calibrated using exact standard scientific constants. Verify mission-critical engineering calculations with certified aerospace or chemical engineering tools.
-        </div>
-        <div>
-          &copy; <span id="current-year">2026</span> Commeronix. All rights reserved.
+          All utilities operate directly inside your browser. No files, text, or images are uploaded to remote cloud storage.
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="/assets/main.js"></script>
   <script src="/assets/unit.js"></script>
 </body>

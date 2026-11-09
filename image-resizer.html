@@ -9,18 +9,80 @@
   <meta name="theme-color" content="#2563eb">
   <link rel="canonical" href="https://commeronix.com/image-resizer">
 
-  <!-- Schema.org WebApplication -->
+    <!-- Schema.org Structured Data: BreadcrumbList, WebApplication, FAQPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Commeronix Client-Side Image Resizer",
-    "url": "https://commeronix.com/image-resizer",
-    "applicationCategory": "MultimediaApplication",
-    "operatingSystem": "All",
-    "browserRequirements": "Requires HTML5 Canvas & JavaScript",
-    "description": "Resize photos and graphics to custom pixel dimensions or social media presets in-browser.",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://commeronix.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Image Resizer",
+            "item": "https://commeronix.com/image-resizer"
+          }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Commeronix Client-Side Image Resizer",
+        "url": "https://commeronix.com/image-resizer",
+        "description": "Resize and crop image dimensions with aspect-ratio locks and pre-configured social media presets. High-speed client-side canvas scaling.",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires HTML5 Canvas & JavaScript",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does maintaining aspect ratio prevent image distortion?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "When the aspect ratio lock is enabled, altering either width or height automatically calculates the reciprocal dimension based on the original width-to-height ratio (e.g. 16:9 or 1:1). This prevents squishing or stretching of your subject."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are the standard social media dimensions for 2026?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Standard recommended resolutions include 1080x1080 px for Instagram Square Posts, 1080x1920 px for Stories and Reels (9:16), 1280x720 px for YouTube Thumbnails (16:9), 1200x675 px for Twitter/X Summary Cards, and 1200x630 px for Facebook / Open Graph shares."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does resizing downscale image quality?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our engine employs browser-native bicubic interpolation for downscaling, ensuring sharp text, crisp lines, and smooth color gradients. Downscaling reduces byte weight without visual degradation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my image uploaded to an external server to be resized?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. The entire resizing process runs strictly inside your local browser's memory using HTML5 canvas rendering. No data or images are ever transmitted over the network."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
 
@@ -57,6 +119,17 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.json">
+
+  <!-- Open Graph / Social Media Metadata -->
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Commeronix">
+  <meta property="og:title" content="Image Resizer Online — Scale & Crop Dimensions | Commeronix">
+  <meta property="og:description" content="Resize image dimensions online with exact aspect ratio preservation. Crop and scale photos for Instagram, YouTube, TikTok, and web use client-side.">
+  <meta property="og:url" content="https://commeronix.com/image-resizer">
+  <meta property="og:image" content="https://commeronix.com/assets/favicon.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@commeronix">
 </head>
 <body>
 
@@ -115,7 +188,7 @@
               </div>
             </li>
 
-            <li><a href="/blog" class="nav-link">Blog</a></li>
+            <li><a href="/blog/" class="nav-link">Blog</a></li>
             <li><a href="/about" class="nav-link">About</a></li>
           </ul>
 
@@ -153,7 +226,7 @@
     </div>
     <a href="/" class="nav-link">Home</a>
     <a href="/tools" class="nav-link">All Tools Directory</a>
-    <a href="/blog" class="nav-link">Blog &amp; Guides</a>
+    <a href="/blog/" class="nav-link">Blog &amp; Guides</a>
     <a href="/about" class="nav-link">About Us</a>
     <a href="/contact" class="nav-link">Contact Us</a>
     <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
@@ -245,9 +318,70 @@
 
       </div>
 
-            <section class="article-container" style="margin-top: 2rem; box-shadow: none;">
-        <h2>The Technical Need for Responsive Image Dimensions</h2>
-        <p>Serving images that match client screen viewport dimensions avoids wasted browser CPU scaling cycles. Oversized assets consume unnecessary RAM during page decode and can cause Cumulative Layout Shift (CLS) if dimensions are not explicitly declared via <code>width</code> and <code>height</code> HTML attributes.</p>
+                  <!-- Rich SEO Educational Content Section -->
+      <section class="seo-content-section" style="margin-top: 3.5rem;">
+        <h2>Why Declaring Exact Image Dimensions Matters for Web Performance</h2>
+        <p>
+          Delivering oversized graphics and relying on client-side CSS rules (such as <code>width: 100%</code>) to scale them down wastes bandwidth, consumes mobile battery power during decompression, and frequently induces <strong>Cumulative Layout Shift (CLS)</strong> if container aspect ratios are not pre-allocated. Serving correctly dimensioned assets tailored to target viewport containers is one of the most effective web performance optimizations.
+        </p>
+        <p>
+          Commeronix Image Resizer provides high-fidelity canvas resampling with instant interactive previewing. Whether you need exact pixel dimensions for e-commerce catalog standards, social media banner safe-zones, or responsive <code>&lt;picture&gt;</code> <code>srcset</code> variants, our tool resizes images in real time without server uploads.
+        </p>
+
+        <h2>2026 Social Media Image Dimension Cheatsheet</h2>
+        <p>
+          To ensure your posts, covers, and thumbnails display crisply without accidental cropping on mobile app feeds, use these verified platform resolutions:
+        </p>
+        <div style="overflow-x: auto; margin: 1.5rem 0;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.925rem;">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--border-subtle); text-align: left;">
+                <th style="padding: 0.75rem;">Platform</th>
+                <th style="padding: 0.75rem;">Asset Format</th>
+                <th style="padding: 0.75rem;">Recommended Dimensions</th>
+                <th style="padding: 0.75rem;">Aspect Ratio</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 0.75rem;"><strong>Instagram</strong></td>
+                <td style="padding: 0.75rem;">Square Feed Post</td>
+                <td style="padding: 0.75rem; font-family: var(--font-mono);">1080 × 1080 px</td>
+                <td style="padding: 0.75rem;">1:1</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 0.75rem;"><strong>Instagram / TikTok</strong></td>
+                <td style="padding: 0.75rem;">Stories &amp; Reels</td>
+                <td style="padding: 0.75rem; font-family: var(--font-mono);">1080 × 1920 px</td>
+                <td style="padding: 0.75rem;">9:16 Vertical</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 0.75rem;"><strong>YouTube</strong></td>
+                <td style="padding: 0.75rem;">Custom Video Thumbnail</td>
+                <td style="padding: 0.75rem; font-family: var(--font-mono);">1280 × 720 px</td>
+                <td style="padding: 0.75rem;">16:9 Landscape</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 0.75rem;"><strong>Twitter / X</strong></td>
+                <td style="padding: 0.75rem;">In-Feed Web Card</td>
+                <td style="padding: 0.75rem; font-family: var(--font-mono);">1200 × 675 px</td>
+                <td style="padding: 0.75rem;">16:9 Landscape</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 0.75rem;"><strong>Open Graph / Meta</strong></td>
+                <td style="padding: 0.75rem;">Social Link Share Preview</td>
+                <td style="padding: 0.75rem; font-family: var(--font-mono);">1200 × 630 px</td>
+                <td style="padding: 0.75rem;">1.91:1</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 0.75rem;"><strong>LinkedIn</strong></td>
+                <td style="padding: 0.75rem;">Post Image Banner</td>
+                <td style="padding: 0.75rem; font-family: var(--font-mono);">1200 × 627 px</td>
+                <td style="padding: 0.75rem;">1.91:1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <!-- Strategic Guide Callout -->
         <div style="background: var(--bg-surface-raised); border-left: 4px solid var(--accent-primary); border-radius: var(--radius-md); padding: 1.25rem 1.5rem; margin: 2rem 0; display: flex; flex-direction: column; gap: 0.5rem;">
@@ -266,19 +400,17 @@
         </div>
 
         <!-- Related Image & Media Tools Grid -->
-        <div style="margin-top: 2.5rem;">
-          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Related Image &amp; Media Utilities</h3>
-          <p style="color: var(--text-secondary); font-size: 0.925rem; margin-bottom: 1.25rem;">
-            Process, compress, and convert graphics client-side with zero server latency or data exposure:
-          </p>
-          <div class="tool-cards-grid">
+        <div style="margin: 2.5rem 0;">
+          <h2>Related Image &amp; Media Utilities</h2>
+          <p>Process, compress, and convert graphics client-side with zero server latency or data exposure:</p>
+          <div class="tool-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 1.25rem;">
             <a href="/image-compressor" class="util-card">
               <div class="util-icon-box">&#9889;</div>
               <div class="util-title">Image Compressor</div>
               <div class="util-desc">Reduce byte weight by up to 80% with adjustable quality sliders and real-time before/after previews.</div>
               <div class="util-meta">
                 <span class="badge-lime" style="font-size: 0.75rem;">Optimization</span>
-                <span class="util-cta-link">Compress &rarr;</span>
+                <span class="util-cta-link">Compress Images &rarr;</span>
               </div>
             </a>
             <a href="/image-format-converter" class="util-card">
@@ -290,27 +422,128 @@
                 <span class="util-cta-link">Convert Format &rarr;</span>
               </div>
             </a>
-            <a href="/favicon-generator" class="util-card">
-              <div class="util-icon-box">&#11088;</div>
-              <div class="util-title">Favicon Generator</div>
-              <div class="util-desc">Generate multi-size browser favicons (16x16, 32x32, 180x180 Apple Touch) with complete HTML link tag snippets.</div>
+            <a href="/background-remover" class="util-card">
+              <div class="util-icon-box">&#10024;</div>
+              <div class="util-title">Background Remover</div>
+              <div class="util-desc">Strip solid backgrounds into transparent PNG cutouts client-side with adjustable feathering.</div>
               <div class="util-meta">
-                <span class="badge-lime" style="font-size: 0.75rem;">Branding</span>
-                <span class="util-cta-link">Make Favicons &rarr;</span>
+                <span class="badge-lime" style="font-size: 0.75rem;">Transparency</span>
+                <span class="util-cta-link">Remove Background &rarr;</span>
+              </div>
+            </a>
+            <a href="/favicon-generator" class="util-card">
+              <div class="util-icon-box">&#127760;</div>
+              <div class="util-title">Favicon Generator</div>
+              <div class="util-desc">Generate multi-resolution browser favicons and Apple Touch Icons from any square image.</div>
+              <div class="util-meta">
+                <span class="badge-cobalt" style="font-size: 0.75rem;">Branding</span>
+                <span class="util-cta-link">Generate Favicon &rarr;</span>
               </div>
             </a>
           </div>
         </div>
-      </section>
 
+        <!-- Frequently Asked Questions Accordion -->
+        <div class="faq-section">
+          <h2>Frequently Asked Questions (FAQ)</h2>
+
+          <div class="faq-item active">
+            <button class="faq-question" type="button">
+              <span>How does maintaining aspect ratio prevent image distortion?</span>
+              <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              When the aspect ratio lock is enabled, altering either width or height automatically calculates the reciprocal dimension based on the original width-to-height ratio (e.g. 16:9 or 1:1). This prevents squishing or stretching of your subject.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>What are the standard social media dimensions for 2026?</span>
+              <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Standard recommended resolutions include 1080x1080 px for Instagram Square Posts, 1080x1920 px for Stories and Reels (9:16), 1280x720 px for YouTube Thumbnails (16:9), 1200x675 px for Twitter/X Summary Cards, and 1200x630 px for Facebook / Open Graph shares.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Does resizing downscale image quality?</span>
+              <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Our engine employs browser-native bicubic interpolation for downscaling, ensuring sharp text, crisp lines, and smooth color gradients. Downscaling reduces byte weight without visual degradation.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Is my image uploaded to an external server to be resized?</span>
+              <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              No. The entire resizing process runs strictly inside your local browser's memory using HTML5 canvas rendering. No data or images are ever transmitted over the network.
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="brand-logo" style="margin-bottom: 0.5rem;" title="Commeronix Home">
+            <img src="/assets/favicon.svg" alt="Commeronix Logo" width="34" height="34" class="logo-icon-svg">
+            <span>Commero<span class="brand-accent">nix</span></span>
+          </a>
+          <p class="footer-desc">
+            Commeronix is a privacy-first web utility suite providing fast client-side image processing, text manipulation, financial calculations, and measurement conversions.
+          </p>
+          <div class="footer-badge">
+            <span class="footer-dot"></span> 100% Free &amp; Client-Side Computing
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Free Online Tools</h4>
+          <ul class="footer-links">
+            <li><a href="/calculator">Live Scientific Calculator</a></li>
+            <li><a href="/currency-converter">Live Currency Converter</a></li>
+            <li><a href="/unit-converter">Universal Unit Converter</a></li>
+            <li><a href="/loan-calculator">Loan &amp; EMI Calculator</a></li>
+            <li><a href="/tools">All 19+ Web Utilities</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Resources &amp; Company</h4>
+          <ul class="footer-links">
+            <li><a href="/blog/">Engineering Blog</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact Support</a></li>
+            <li><a href="/privacy-policy">Privacy Policy &amp; Cookies</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
       <div class="footer-bottom">
-        <p>&copy; 2026 Commeronix. All rights reserved. Free web utilities.</p>
-        <div class="footer-legal-links"><a href="/privacy-policy">Privacy</a><a href="/terms">Terms</a><a href="/tools">All Tools</a></div>
+        <p>&copy; <span id="current-year">2026</span> Commeronix. All rights reserved.</p>
+        <div class="footer-disclaimer">
+          All utilities operate directly inside your browser. No files, text, or images are uploaded to remote cloud storage.
+        </div>
       </div>
     </div>
   </footer>

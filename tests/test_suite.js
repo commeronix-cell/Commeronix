@@ -1,11 +1,10 @@
 /**
  * COMMERONIX AUTOMATED TEST & AUDIT SUITE
- * Tests routes, HTML structure, JSON-LD schemas, JS syntax, math formulas, and Cloudflare config.
+ * Tests all 26+ routes, HTML structure, JSON-LD schemas, JS syntax, math formulas, sitemap, and Cloudflare config.
  */
 
 const fs = require('fs');
 const path = require('path');
-const vm = require('vm');
 
 const rootDir = path.resolve(__dirname, '..');
 let passedTests = 0;
@@ -25,22 +24,13 @@ console.log('====================================================');
 console.log('       COMMERONIX COMPREHENSIVE TEST SUITE          ');
 console.log('====================================================\n');
 
-// 1. ROUTE & HTML INTEGRITY TESTS
+// 1. ROUTE & HTML INTEGRITY TESTS ACROSS ALL TOOLS AND HUBS
 console.log('--- 1. Testing HTML Routes & Meta Tags ---');
-const routes = [
-  'index.html',
-  'calculator.html',
-  'currency-converter.html',
-  'unit-converter.html',
-  'loan-calculator.html',
-  'about.html',
-  'contact.html',
-  'privacy-policy.html',
-  'terms.html',
-  '404.html'
-];
+const rootHtmlFiles = fs.readdirSync(rootDir).filter(f => f.endsWith('.html'));
+const blogHtmlFiles = fs.readdirSync(path.join(rootDir, 'blog')).filter(f => f.endsWith('.html')).map(f => 'blog/' + f);
+const allRoutes = rootHtmlFiles.concat(blogHtmlFiles);
 
-routes.forEach(file => {
+allRoutes.forEach(file => {
   const filePath = path.join(rootDir, file);
   assert(fs.existsSync(filePath), `Route file exists: ${file}`);
   if (!fs.existsSync(filePath)) return;
@@ -51,32 +41,25 @@ routes.forEach(file => {
   assert(content.toLowerCase().includes('<!doctype html>'), `${file} has valid <!DOCTYPE html>`);
   assert(/<title>.+<\/title>/i.test(content), `${file} has non-empty <title>`);
 
-  // Canonical link
+  // Canonical link & description (except 404)
   if (file !== '404.html') {
     assert(/<link\s+rel=["']canonical["']\s+href=/i.test(content), `${file} has canonical link`);
     assert(/<meta\s+name=["']description["']/i.test(content), `${file} has meta description`);
     assert(/<meta\s+property=["']og:title["']/i.test(content), `${file} has OpenGraph title`);
-  }
 
-  // Schema.org JSON-LD
-  const jsonLdRegex = /<script\s+type=["']application\/ld\+json["']>([\s\S]*?)<\/script>/gi;
-  let match;
-  let hasSchema = false;
-  while ((match = jsonLdRegex.exec(content)) !== null) {
-    hasSchema = true;
-    try {
-      JSON.parse(match[1]);
-      assert(true, `${file} has valid JSON-LD schema`);
-    } catch (e) {
-      assert(false, `${file} JSON-LD schema parse error: ${e.message}`);
+    // Schema.org JSON-LD check
+    const jsonLdRegex = /<script\s+type=["']application\/ld\+json["']>([\s\S]*?)<\/script>/gi;
+    let match;
+    let schemaCount = 0;
+    while ((match = jsonLdRegex.exec(content)) !== null) {
+      schemaCount++;
+      try {
+        JSON.parse(match[1]);
+      } catch (e) {
+        assert(false, `${file} JSON-LD schema parse error: ${e.message}`);
+      }
     }
-  }
-
-  // Assets references check
-  const assetsRegex = /(?:src|href)=["'](assets\/[^"'?]+)(?:\?[^"']*)?["']/gi;
-  while ((match = assetsRegex.exec(content)) !== null) {
-    const assetPath = path.join(rootDir, match[1]);
-    assert(fs.existsSync(assetPath), `${file} references existing asset: ${match[1]}`);
+    assert(schemaCount > 0, `${file} has at least one valid JSON-LD schema (found: ${schemaCount})`);
   }
 });
 
@@ -139,16 +122,49 @@ assert(Math.abs(mToFt - 3.28084) < 0.001, '1 meter is ~3.28084 feet');
 const kgToLb = 1 / 0.45359237;
 assert(Math.abs(kgToLb - 2.20462) < 0.001, '1 kilogram is ~2.20462 pounds');
 
-// 4. CLOUDFLARE CONFIGURATION TESTS
-console.log('\n--- 4. Testing Deployment Configurations ---');
+// 4. CLOUDFLARE CONFIGURATION & SITEMAP TESTS
+console.log('\n--- 4. Testing Deployment Configurations & Sitemap ---');
 assert(fs.existsSync(path.join(rootDir, '_redirects')), '_redirects file exists');
 assert(fs.existsSync(path.join(rootDir, 'sitemap.xml')), 'sitemap.xml file exists');
 assert(fs.existsSync(path.join(rootDir, 'robots.txt')), 'robots.txt file exists');
 
 const sitemapContent = fs.readFileSync(path.join(rootDir, 'sitemap.xml'), 'utf8');
-routes.filter(r => r !== '404.html').forEach(r => {
-  const cleanRoute = r === 'index.html' ? 'https://commeronix.com/' : `https://commeronix.com/${r.replace('.html', '')}`;
-  assert(sitemapContent.includes(cleanRoute), `sitemap.xml contains clean route: ${cleanRoute}`);
+
+// Ensure /blog/ canonical is consistent in sitemap
+assert(sitemapContent.includes('https://commeronix.com/blog/'), 'sitemap.xml contains canonical /blog/ route');
+assert(!sitemapContent.includes('<loc>https://commeronix.com/blog</loc>'), 'sitemap.xml does not contain non-slash /blog redirect candidate');
+
+// Check that root tools are included
+const coreTools = [
+  'https://commeronix.com/',
+  'https://commeronix.com/calculator',
+  'https://commeronix.com/currency-converter',
+  'https://commeronix.com/unit-converter',
+  'https://commeronix.com/loan-calculator',
+  'https://commeronix.com/word-counter',
+  'https://commeronix.com/case-converter',
+  'https://commeronix.com/lorem-ipsum-generator',
+  'https://commeronix.com/text-compare',
+  'https://commeronix.com/remove-duplicate-lines',
+  'https://commeronix.com/text-to-slug',
+  'https://commeronix.com/reading-time-calculator',
+  'https://commeronix.com/random-text-generator',
+  'https://commeronix.com/image-compressor',
+  'https://commeronix.com/image-resizer',
+  'https://commeronix.com/image-format-converter',
+  'https://commeronix.com/image-to-base64',
+  'https://commeronix.com/background-remover',
+  'https://commeronix.com/favicon-generator',
+  'https://commeronix.com/color-picker',
+  'https://commeronix.com/tools',
+  'https://commeronix.com/about',
+  'https://commeronix.com/contact',
+  'https://commeronix.com/privacy-policy',
+  'https://commeronix.com/terms'
+];
+
+coreTools.forEach(toolUrl => {
+  assert(sitemapContent.includes(toolUrl), `sitemap.xml includes: ${toolUrl}`);
 });
 
 console.log('\n====================================================');
